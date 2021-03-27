@@ -1,0 +1,621 @@
+define(['dart_sdk', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/icon_theme.dart', 'packages/flutter/src/widgets/icon_theme_data.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/rendering/paragraph.dart'], (function load__packages__flutter__src__material__grid_tile_bar_dart(dart_sdk, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__icon_theme$46dart, packages__flutter__src__widgets__icon_theme_data$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__rendering__paragraph$46dart) {
+  'use strict';
+  const core = dart_sdk.core;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const dart = dart_sdk.dart;
+  const dartx = dart_sdk.dartx;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const theme$ = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const icon_theme = packages__flutter__src__widgets__icon_theme$46dart.src__widgets__icon_theme;
+  const icon_theme_data = packages__flutter__src__widgets__icon_theme_data$46dart.src__widgets__icon_theme_data;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const paragraph = packages__flutter__src__rendering__paragraph$46dart.src__rendering__paragraph;
+  var grid_tile_bar = Object.create(dart.library);
+  var $add = dartx.add;
+  dart._checkModuleNullSafetyMode(false);
+  var T = {
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))()
+  };
+  var T$Eval = Object.assign({
+    _: () => T$Eval
+  }, T);
+  var S = {
+    _: () => S
+  };
+  var S$Eval = Object.assign({
+    _: () => S$Eval
+  }, S);
+  const CT = Object.create({
+    _: () => (C, CT)
+  });
+  dart.defineLazy(CT, {
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: ui.Color.prototype,
+        [Color_value]: 4294967295.0
+      });
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: icon_theme_data.IconThemeData.prototype,
+        [IconThemeData_size]: null,
+        [IconThemeData__opacity]: null,
+        [IconThemeData_color]: C[1] || CT.C1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: edge_insets.EdgeInsetsDirectional.prototype,
+        [EdgeInsetsDirectional_bottom]: 0,
+        [EdgeInsetsDirectional_end]: 8,
+        [EdgeInsetsDirectional_top]: 0,
+        [EdgeInsetsDirectional_start]: 0
+      });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 25,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 78,
+        [_Location_line]: 88,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[5] || CT.C5, C[6] || CT.C6], T._LocationL());
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 88,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/grid_tile_bar.dart"
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 25,
+        [_Location_line]: 96,
+        [_Location_file]: null
+      });
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "softWrap",
+        [_Location_column]: 25,
+        [_Location_line]: 97,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "overflow",
+        [_Location_column]: 25,
+        [_Location_line]: 98,
+        [_Location_file]: null
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 99,
+        [_Location_file]: null
+      });
+    },
+    get C8() {
+      return C[8] = dart.constList([C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12], T._LocationL());
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[8] || CT.C8,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 95,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/grid_tile_bar.dart"
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 25,
+        [_Location_line]: 102,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "softWrap",
+        [_Location_column]: 25,
+        [_Location_line]: 103,
+        [_Location_file]: null
+      });
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "overflow",
+        [_Location_column]: 25,
+        [_Location_line]: 104,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 25,
+        [_Location_line]: 105,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.constList([C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17, C[18] || CT.C18], T._LocationL());
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[14] || CT.C14,
+        [_Location_name]: null,
+        [_Location_column]: 23,
+        [_Location_line]: 101,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/grid_tile_bar.dart"
+      });
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 21,
+        [_Location_line]: 92,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 21,
+        [_Location_line]: 93,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 21,
+        [_Location_line]: 94,
+        [_Location_file]: null
+      });
+    },
+    get C20() {
+      return C[20] = dart.constList([C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23], T._LocationL());
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[20] || CT.C20,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 91,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/grid_tile_bar.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 91,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26], T._LocationL());
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 90,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/grid_tile_bar.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 21,
+        [_Location_line]: 113,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "softWrap",
+        [_Location_column]: 21,
+        [_Location_line]: 114,
+        [_Location_file]: null
+      });
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "overflow",
+        [_Location_column]: 21,
+        [_Location_line]: 115,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 116,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31, C[32] || CT.C32], T._LocationL());
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 112,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/grid_tile_bar.dart"
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 112,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.constList([C[35] || CT.C35], T._LocationL());
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[34] || CT.C34,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 111,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/grid_tile_bar.dart"
+      });
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: edge_insets.EdgeInsetsDirectional.prototype,
+        [EdgeInsetsDirectional_bottom]: 0,
+        [EdgeInsetsDirectional_end]: 0,
+        [EdgeInsetsDirectional_top]: 0,
+        [EdgeInsetsDirectional_start]: 8
+      });
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 25,
+        [_Location_line]: 120,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 80,
+        [_Location_line]: 120,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.constList([C[39] || CT.C39, C[40] || CT.C40], T._LocationL());
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[38] || CT.C38,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 120,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/grid_tile_bar.dart"
+      });
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 13,
+        [_Location_line]: 85,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 13,
+        [_Location_line]: 86,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.constList([C[43] || CT.C43, C[44] || CT.C44], T._LocationL());
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[42] || CT.C42,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 84,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/grid_tile_bar.dart"
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 9,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 82,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.constList([C[47] || CT.C47, C[48] || CT.C48], T._LocationL());
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[46] || CT.C46,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 80,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/grid_tile_bar.dart"
+      });
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 7,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 7,
+        [_Location_line]: 78,
+        [_Location_file]: null
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 7,
+        [_Location_line]: 79,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 80,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.constList([C[51] || CT.C51, C[52] || CT.C52, C[53] || CT.C53, C[54] || CT.C54], T._LocationL());
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[50] || CT.C50,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 76,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/grid_tile_bar.dart"
+      });
+    }
+  }, false);
+  var C = Array(55).fill(void 0);
+  var I = [
+    "file:///C:/src/flutter/packages/flutter/lib/src/material/grid_tile_bar.dart",
+    "package:flutter/src/material/grid_tile_bar.dart"
+  ];
+  var backgroundColor$ = dart.privateName(grid_tile_bar, "GridTileBar.backgroundColor");
+  var leading$ = dart.privateName(grid_tile_bar, "GridTileBar.leading");
+  var title$ = dart.privateName(grid_tile_bar, "GridTileBar.title");
+  var subtitle$ = dart.privateName(grid_tile_bar, "GridTileBar.subtitle");
+  var trailing$ = dart.privateName(grid_tile_bar, "GridTileBar.trailing");
+  var IconThemeData_size = dart.privateName(icon_theme_data, "IconThemeData.size");
+  var IconThemeData__opacity = dart.privateName(icon_theme_data, "IconThemeData._opacity");
+  var Color_value = dart.privateName(ui, "Color.value");
+  var IconThemeData_color = dart.privateName(icon_theme_data, "IconThemeData.color");
+  var EdgeInsetsDirectional_bottom = dart.privateName(edge_insets, "EdgeInsetsDirectional.bottom");
+  var EdgeInsetsDirectional_end = dart.privateName(edge_insets, "EdgeInsetsDirectional.end");
+  var EdgeInsetsDirectional_top = dart.privateName(edge_insets, "EdgeInsetsDirectional.top");
+  var EdgeInsetsDirectional_start = dart.privateName(edge_insets, "EdgeInsetsDirectional.start");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  grid_tile_bar.GridTileBar = class GridTileBar extends framework.StatelessWidget {
+    get backgroundColor() {
+      return this[backgroundColor$];
+    }
+    set backgroundColor(value) {
+      super.backgroundColor = value;
+    }
+    get leading() {
+      return this[leading$];
+    }
+    set leading(value) {
+      super.leading = value;
+    }
+    get title() {
+      return this[title$];
+    }
+    set title(value) {
+      super.title = value;
+    }
+    get subtitle() {
+      return this[subtitle$];
+    }
+    set subtitle(value) {
+      super.subtitle = value;
+    }
+    get trailing() {
+      return this[trailing$];
+    }
+    set trailing(value) {
+      super.trailing = value;
+    }
+    build(context) {
+      let t1;
+      if (context == null) dart.nullFailed(I[0], 60, 29, "context");
+      let decoration = null;
+      if (this.backgroundColor != null) decoration = new box_decoration.BoxDecoration.new({color: this.backgroundColor});
+      let padding = new edge_insets.EdgeInsetsDirectional.only({start: this.leading != null ? 8.0 : 16.0, end: this.trailing != null ? 8.0 : 16.0});
+      let theme = theme$.Theme.of(context);
+      let darkTheme = theme_data.ThemeData.new({brightness: ui.Brightness.dark, accentColor: theme.accentColor, accentColorBrightness: theme.accentColorBrightness});
+      return new container.Container.new({padding: padding, decoration: decoration, height: this.title != null && this.subtitle != null ? 68.0 : 48.0, child: new theme$.Theme.new({data: darkTheme, child: icon_theme.IconTheme.merge({data: C[0] || CT.C0, child: new basic.Row.new({crossAxisAlignment: flex.CrossAxisAlignment.center, children: (() => {
+                let t0 = T.JSArrayOfWidget().of([]);
+                if (this.leading != null) t0[$add](new basic.Padding.new({padding: C[2] || CT.C2, child: this.leading, $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}));
+                if (this.title != null && this.subtitle != null)
+                  t0[$add](new basic.Expanded.new({child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.center, crossAxisAlignment: flex.CrossAxisAlignment.start, children: T.JSArrayOfWidget().of([new text.DefaultTextStyle.new({style: dart.nullCheck(darkTheme.textTheme.subtitle1), softWrap: false, overflow: paragraph.TextOverflow.ellipsis, child: dart.nullCheck(this.title), $creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), new text.DefaultTextStyle.new({style: dart.nullCheck(darkTheme.textTheme.caption), softWrap: false, overflow: paragraph.TextOverflow.ellipsis, child: dart.nullCheck(this.subtitle), $creationLocationd_0dea112b090073317d4: C[13] || CT.C13})]), $creationLocationd_0dea112b090073317d4: C[19] || CT.C19}), $creationLocationd_0dea112b090073317d4: C[24] || CT.C24}));
+                else if (this.title != null || this.subtitle != null) t0[$add](new basic.Expanded.new({child: new text.DefaultTextStyle.new({style: dart.nullCheck(darkTheme.textTheme.subtitle1), softWrap: false, overflow: paragraph.TextOverflow.ellipsis, child: (t1 = this.title, t1 == null ? dart.nullCheck(this.subtitle) : t1), $creationLocationd_0dea112b090073317d4: C[27] || CT.C27}), $creationLocationd_0dea112b090073317d4: C[33] || CT.C33}));
+                if (this.trailing != null) t0[$add](new basic.Padding.new({padding: C[36] || CT.C36, child: this.trailing, $creationLocationd_0dea112b090073317d4: C[37] || CT.C37}));
+                return t0;
+              })(), $creationLocationd_0dea112b090073317d4: C[41] || CT.C41})}), $creationLocationd_0dea112b090073317d4: C[45] || CT.C45}), $creationLocationd_0dea112b090073317d4: C[49] || CT.C49});
+    }
+  };
+  (grid_tile_bar.GridTileBar.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let backgroundColor = opts && 'backgroundColor' in opts ? opts.backgroundColor : null;
+    let leading = opts && 'leading' in opts ? opts.leading : null;
+    let title = opts && 'title' in opts ? opts.title : null;
+    let subtitle = opts && 'subtitle' in opts ? opts.subtitle : null;
+    let trailing = opts && 'trailing' in opts ? opts.trailing : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[backgroundColor$] = backgroundColor;
+    this[leading$] = leading;
+    this[title$] = title;
+    this[subtitle$] = subtitle;
+    this[trailing$] = trailing;
+    grid_tile_bar.GridTileBar.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = grid_tile_bar.GridTileBar.prototype;
+  dart.addTypeTests(grid_tile_bar.GridTileBar);
+  dart.addTypeCaches(grid_tile_bar.GridTileBar);
+  dart.setMethodSignature(grid_tile_bar.GridTileBar, () => ({
+    __proto__: dart.getMethods(grid_tile_bar.GridTileBar.__proto__),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(grid_tile_bar.GridTileBar, I[1]);
+  dart.setFieldSignature(grid_tile_bar.GridTileBar, () => ({
+    __proto__: dart.getFields(grid_tile_bar.GridTileBar.__proto__),
+    backgroundColor: dart.finalFieldType(dart.nullable(ui.Color)),
+    leading: dart.finalFieldType(dart.nullable(framework.Widget)),
+    title: dart.finalFieldType(dart.nullable(framework.Widget)),
+    subtitle: dart.finalFieldType(dart.nullable(framework.Widget)),
+    trailing: dart.finalFieldType(dart.nullable(framework.Widget))
+  }));
+  dart.trackLibraries("packages/flutter/src/material/grid_tile_bar.dart", {
+    "package:flutter/src/material/grid_tile_bar.dart": grid_tile_bar
+  }, {
+  }, '{"version":3,"sourceRoot":"","sources":["grid_tile_bar.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAoCe;;;;;;IAKC;;;;;;IAKA;;;;;;IAKA;;;;;;IAKA;;;;;;UAGY;;;AACT;AACf,UAAI,AAAgB,8BAClB,AAAkD,aAArC,6CAAqB;AAER,oBAAgC,mDACnD,AAAQ,uBAAU,MAAM,WAC1B,AAAS,wBAAU,MAAM;AAGhB,kBAAc,gBAAG,OAAO;AACxB,sBAAY,sCACH,iCACV,AAAM,KAAD,qCACK,AAAM,KAAD;AAE9B,YAAO,uCACI,OAAO,cACJ,UAAU,UACb,AAAM,AAAQ,sBAAG,AAAS,wBAAW,OAAO,aAC9C,4BACC,SAAS,SACE,wDAER,uCACkC,0CACrB;;AAChB,oBAAI,AAAQ,sBACV,+DAAoE;AACtE,oBAAI,AAAM,sBAAW,AAAS;AAC5B,0DACS,yCACgC,mDACE,yCACrB,wBAChB,sCACsC,eAA7B,AAAU,AAAU,SAAX,iCACN,iBACa,wCACX,eAAL,sEAET,sCACoC,eAA3B,AAAU,AAAU,SAAX,+BACN,iBACa,wCACR,eAAR;oBAKZ,KAAI,AAAM,sBAAW,AAAS,uBACjC,wCACS,sCAC+B,eAA7B,AAAU,AAAU,SAAX,iCACN,iBACa,yCACV,iBAAN,aAAiB,eAAR;AAGtB,oBAAI,AAAS,uBACX,iEAAsE;;;IAMpF;;;QApGO;QACA;QACA;QACA;QACA;QACA;;IAJA;IACA;IACA;IACA;IACA;AACF,6DAAW,GAAG;;EAAC","file":"../../../../../../../packages/flutter/src/material/grid_tile_bar.dart.lib.js"}');
+  // Exports:
+  return {
+    src__material__grid_tile_bar: grid_tile_bar
+  };
+}));
+
+//# sourceMappingURL=grid_tile_bar.dart.lib.js.map
