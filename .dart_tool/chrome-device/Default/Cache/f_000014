@@ -1,79 +1,33 @@
-define(['dart_sdk', 'packages/http/src/byte_stream.dart', 'packages/http/src/utils.dart', 'packages/http/src/boundary_characters.dart', 'packages/http_parser/src/media_type.dart', 'packages/pedantic/pedantic.dart', 'packages/http/src/exception.dart'], (function load__packages__http__src__multipart_request_dart(dart_sdk, packages__http__src__byte_stream$46dart, packages__http__src__utils$46dart, packages__http__src__boundary_characters$46dart, packages__http_parser__src__media_type$46dart, packages__pedantic__pedantic$46dart, packages__http__src__exception$46dart) {
+define(['dart_sdk', 'packages/flutter/src/painting/box_border.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/painting/box_shadow.dart', 'packages/flutter/src/painting/gradient.dart', 'packages/flutter/src/foundation/collections.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/painting/colors.dart', 'packages/flutter/src/painting/decoration_image.dart', 'packages/flutter/src/painting/decoration.dart', 'packages/flutter/src/painting/_network_image_web.dart'], (function load__packages__flutter__src__painting__box_decoration_dart(dart_sdk, packages__flutter__src__painting__box_border$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__painting__box_shadow$46dart, packages__flutter__src__painting__gradient$46dart, packages__flutter__src__foundation__collections$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__painting__colors$46dart, packages__flutter__src__painting__decoration_image$46dart, packages__flutter__src__painting__decoration$46dart, packages__flutter__src__painting___network_image_web$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _js_helper = dart_sdk._js_helper;
-  const _interceptors = dart_sdk._interceptors;
-  const convert = dart_sdk.convert;
-  const async = dart_sdk.async;
-  const collection = dart_sdk.collection;
+  const ui = dart_sdk.ui;
+  const _internal = dart_sdk._internal;
   const math = dart_sdk.math;
-  const html = dart_sdk.html;
-  const typed_data = dart_sdk.typed_data;
-  const _native_typed_data = dart_sdk._native_typed_data;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const byte_stream = packages__http__src__byte_stream$46dart.src__byte_stream;
-  const utils = packages__http__src__utils$46dart.src__utils;
-  const boundary_characters = packages__http__src__boundary_characters$46dart.src__boundary_characters;
-  const media_type = packages__http_parser__src__media_type$46dart.src__media_type;
-  const pedantic = packages__pedantic__pedantic$46dart.pedantic;
-  const exception = packages__http__src__exception$46dart.src__exception;
-  var multipart_request = Object.create(dart.library);
-  var multipart_file_stub = Object.create(dart.library);
-  var multipart_file = Object.create(dart.library);
-  var streamed_request = Object.create(dart.library);
-  var browser_client = Object.create(dart.library);
-  var response$ = Object.create(dart.library);
-  var request$ = Object.create(dart.library);
-  var streamed_response = Object.create(dart.library);
-  var base_response = Object.create(dart.library);
-  var base_request = Object.create(dart.library);
-  var base_client = Object.create(dart.library);
-  var client$ = Object.create(dart.library);
-  var http = Object.create(dart.library);
-  var $length = dartx.length;
-  var $forEach = dartx.forEach;
-  var $_set = dartx._set;
-  var $entries = dartx.entries;
-  var $replaceAll = dartx.replaceAll;
-  var $_get = dartx._get;
-  var $toLowerCase = dartx.toLowerCase;
-  var $hashCode = dartx.hashCode;
-  var $onLoad = dartx.onLoad;
-  var $response = dartx.response;
-  var $asUint8List = dartx.asUint8List;
-  var $responseHeaders = dartx.responseHeaders;
-  var $onError = dartx.onError;
-  var $addAll = dartx.addAll;
-  var $cast = dartx.cast;
-  var $containsKey = dartx.containsKey;
-  var $remove = dartx.remove;
+  const box_border = packages__flutter__src__painting__box_border$46dart.src__painting__box_border;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const box_shadow = packages__flutter__src__painting__box_shadow$46dart.src__painting__box_shadow;
+  const gradient = packages__flutter__src__painting__gradient$46dart.src__painting__gradient;
+  const collections = packages__flutter__src__foundation__collections$46dart.src__foundation__collections;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const colors = packages__flutter__src__painting__colors$46dart.src__painting__colors;
+  const decoration_image = packages__flutter__src__painting__decoration_image$46dart.src__painting__decoration_image;
+  const decoration = packages__flutter__src__painting__decoration$46dart.src__painting__decoration;
+  const image_provider = packages__flutter__src__painting___network_image_web$46dart.src__painting__image_provider;
+  var box_decoration = Object.create(dart.library);
+  var $runtimeType = dartx.runtimeType;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    IdentityMapOfString$String: () => (T.IdentityMapOfString$String = dart.constFn(_js_helper.IdentityMap$(core.String, core.String)))(),
-    JSArrayOfMultipartFile: () => (T.JSArrayOfMultipartFile = dart.constFn(_interceptors.JSArray$(multipart_file.MultipartFile)))(),
-    StringAndStringTovoid: () => (T.StringAndStringTovoid = dart.constFn(dart.fnType(dart.void, [core.String, core.String])))(),
-    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
-    ListOfint: () => (T.ListOfint = dart.constFn(core.List$(core.int)))(),
-    _AsyncStarImplOfListOfint: () => (T._AsyncStarImplOfListOfint = dart.constFn(async._AsyncStarImpl$(T.ListOfint())))(),
-    intToint: () => (T.intToint = dart.constFn(dart.fnType(core.int, [core.int])))(),
-    LinkedHashMapOfString$String: () => (T.LinkedHashMapOfString$String = dart.constFn(collection.LinkedHashMap$(core.String, core.String)))(),
-    StringAndStringTobool: () => (T.StringAndStringTobool = dart.constFn(dart.fnType(core.bool, [core.String, core.String])))(),
-    StringToint: () => (T.StringToint = dart.constFn(dart.fnType(core.int, [core.String])))(),
-    ListOfintL: () => (T.ListOfintL = dart.constFn(core.List$(T.intL())))(),
-    ListLOfintL: () => (T.ListLOfintL = dart.constFn(dart.legacy(T.ListOfintL())))(),
-    _EmptyStreamOfListLOfintL: () => (T._EmptyStreamOfListLOfintL = dart.constFn(async._EmptyStream$(T.ListLOfintL())))(),
-    StreamControllerOfListOfint: () => (T.StreamControllerOfListOfint = dart.constFn(async.StreamController$(T.ListOfint())))(),
-    LinkedHashSetOfHttpRequest: () => (T.LinkedHashSetOfHttpRequest = dart.constFn(collection.LinkedHashSet$(html.HttpRequest)))(),
-    CompleterOfStreamedResponse: () => (T.CompleterOfStreamedResponse = dart.constFn(async.Completer$(streamed_response.StreamedResponse)))(),
-    ProgressEventToNull: () => (T.ProgressEventToNull = dart.constFn(dart.fnType(core.Null, [html.ProgressEvent])))(),
-    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
-    FutureOfResponse: () => (T.FutureOfResponse = dart.constFn(async.Future$(response$.Response)))(),
-    ClientToFutureOfResponse: () => (T.ClientToFutureOfResponse = dart.constFn(dart.fnType(T.FutureOfResponse(), [client$.Client])))(),
-    FutureOfString: () => (T.FutureOfString = dart.constFn(async.Future$(core.String)))(),
-    ClientToFutureOfString: () => (T.ClientToFutureOfString = dart.constFn(dart.fnType(T.FutureOfString(), [client$.Client])))(),
-    FutureOfUint8List: () => (T.FutureOfUint8List = dart.constFn(async.Future$(typed_data.Uint8List)))(),
-    ClientToFutureOfUint8List: () => (T.ClientToFutureOfUint8List = dart.constFn(dart.fnType(T.FutureOfUint8List(), [client$.Client])))()
+    BoxDecorationN: () => (T.BoxDecorationN = dart.constFn(dart.nullable(box_decoration.BoxDecoration)))(),
+    DiagnosticsPropertyOfDecorationImage: () => (T.DiagnosticsPropertyOfDecorationImage = dart.constFn(diagnostics.DiagnosticsProperty$(decoration_image.DecorationImage)))(),
+    DiagnosticsPropertyOfBoxBorder: () => (T.DiagnosticsPropertyOfBoxBorder = dart.constFn(diagnostics.DiagnosticsProperty$(box_border.BoxBorder)))(),
+    DiagnosticsPropertyOfBorderRadiusGeometry: () => (T.DiagnosticsPropertyOfBorderRadiusGeometry = dart.constFn(diagnostics.DiagnosticsProperty$(border_radius.BorderRadiusGeometry)))(),
+    IterablePropertyOfBoxShadow: () => (T.IterablePropertyOfBoxShadow = dart.constFn(diagnostics.IterableProperty$(box_shadow.BoxShadow)))(),
+    DiagnosticsPropertyOfGradient: () => (T.DiagnosticsPropertyOfGradient = dart.constFn(diagnostics.DiagnosticsProperty$(gradient.Gradient)))(),
+    EnumPropertyOfBoxShape: () => (T.EnumPropertyOfBoxShape = dart.constFn(diagnostics.EnumProperty$(box_border.BoxShape)))(),
+    BorderRadiusN: () => (T.BorderRadiusN = dart.constFn(dart.nullable(border_radius.BorderRadius)))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -89,1096 +43,445 @@ define(['dart_sdk', 'packages/http/src/byte_stream.dart', 'packages/http/src/uti
   });
   dart.defineLazy(CT, {
     get C0() {
-      return C[0] = dart.constList([13, 10], T.intL());
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: T._EmptyStreamOfListLOfintL().prototype
+      return C[0] = dart.const({
+        __proto__: box_border.BoxShape.prototype,
+        [_name]: "BoxShape.rectangle",
+        index: 0
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: byte_stream.ByteStream.prototype,
-        [StreamView__stream]: C[2] || CT.C2
+        __proto__: box_border.BoxShape.prototype,
+        [_name]: "BoxShape.circle",
+        index: 1
       });
-    },
-    get C3() {
-      return C[3] = dart.constMap(T.StringL(), T.StringL(), []);
     }
   }, false);
-  var C = Array(4).fill(void 0);
+  var C = Array(2).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/multipart_request.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/base_request.dart",
-    "package:http/src/base_request.dart",
-    "package:http/src/multipart_request.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/multipart_file_stub.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/multipart_file.dart",
-    "package:http/src/multipart_file.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/streamed_request.dart",
-    "package:http/src/streamed_request.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/browser_client.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/base_client.dart",
-    "package:http/src/base_client.dart",
-    "package:http/src/browser_client.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/response.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/base_response.dart",
-    "package:http/src/base_response.dart",
-    "package:http/src/response.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/request.dart",
-    "package:http/src/request.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/streamed_response.dart",
-    "package:http/src/streamed_response.dart",
-    "package:http/src/client.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/http.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/painting/box_decoration.dart",
+    "package:flutter/src/painting/box_decoration.dart"
   ];
-  var fields = dart.privateName(multipart_request, "MultipartRequest.fields");
-  var files = dart.privateName(multipart_request, "MultipartRequest.files");
-  var _headerForField = dart.privateName(multipart_request, "_headerForField");
-  var _headerForFile = dart.privateName(multipart_request, "_headerForFile");
-  var _boundaryString = dart.privateName(multipart_request, "_boundaryString");
-  var _finalize = dart.privateName(multipart_request, "_finalize");
-  var _browserEncode = dart.privateName(multipart_request, "_browserEncode");
-  var method$ = dart.privateName(base_request, "BaseRequest.method");
-  var url$ = dart.privateName(base_request, "BaseRequest.url");
-  var headers = dart.privateName(base_request, "BaseRequest.headers");
-  var _contentLength = dart.privateName(base_request, "_contentLength");
-  var _persistentConnection = dart.privateName(base_request, "_persistentConnection");
-  var _followRedirects = dart.privateName(base_request, "_followRedirects");
-  var _maxRedirects = dart.privateName(base_request, "_maxRedirects");
-  var _finalized = dart.privateName(base_request, "_finalized");
-  var _checkFinalized = dart.privateName(base_request, "_checkFinalized");
-  var StreamView__stream = dart.privateName(async, "StreamView._stream");
-  base_request.BaseRequest = class BaseRequest extends core.Object {
-    get method() {
-      return this[method$];
+  var color$ = dart.privateName(box_decoration, "BoxDecoration.color");
+  var image$ = dart.privateName(box_decoration, "BoxDecoration.image");
+  var border$ = dart.privateName(box_decoration, "BoxDecoration.border");
+  var borderRadius$ = dart.privateName(box_decoration, "BoxDecoration.borderRadius");
+  var boxShadow$ = dart.privateName(box_decoration, "BoxDecoration.boxShadow");
+  var gradient$ = dart.privateName(box_decoration, "BoxDecoration.gradient");
+  var backgroundBlendMode$ = dart.privateName(box_decoration, "BoxDecoration.backgroundBlendMode");
+  var shape$ = dart.privateName(box_decoration, "BoxDecoration.shape");
+  var _name = dart.privateName(box_border, "_name");
+  box_decoration.BoxDecoration = class BoxDecoration extends decoration.Decoration {
+    get color() {
+      return this[color$];
     }
-    set method(value) {
-      super.method = value;
+    set color(value) {
+      super.color = value;
     }
-    get url() {
-      return this[url$];
+    get image() {
+      return this[image$];
     }
-    set url(value) {
-      super.url = value;
+    set image(value) {
+      super.image = value;
     }
-    get headers() {
-      return this[headers];
+    get border() {
+      return this[border$];
     }
-    set headers(value) {
-      super.headers = value;
+    set border(value) {
+      super.border = value;
     }
-    get contentLength() {
-      return this[_contentLength];
+    get borderRadius() {
+      return this[borderRadius$];
     }
-    set contentLength(value) {
-      if (value != null && dart.notNull(value) < 0) {
-        dart.throw(new core.ArgumentError.new("Invalid content length " + dart.str(value) + "."));
-      }
-      this[_checkFinalized]();
-      this[_contentLength] = value;
+    set borderRadius(value) {
+      super.borderRadius = value;
     }
-    get persistentConnection() {
-      return this[_persistentConnection];
+    get boxShadow() {
+      return this[boxShadow$];
     }
-    set persistentConnection(value) {
-      if (value == null) dart.nullFailed(I[1], 54, 33, "value");
-      this[_checkFinalized]();
-      this[_persistentConnection] = value;
+    set boxShadow(value) {
+      super.boxShadow = value;
     }
-    get followRedirects() {
-      return this[_followRedirects];
+    get gradient() {
+      return this[gradient$];
     }
-    set followRedirects(value) {
-      if (value == null) dart.nullFailed(I[1], 65, 28, "value");
-      this[_checkFinalized]();
-      this[_followRedirects] = value;
+    set gradient(value) {
+      super.gradient = value;
     }
-    get maxRedirects() {
-      return this[_maxRedirects];
+    get backgroundBlendMode() {
+      return this[backgroundBlendMode$];
     }
-    set maxRedirects(value) {
-      if (value == null) dart.nullFailed(I[1], 77, 24, "value");
-      this[_checkFinalized]();
-      this[_maxRedirects] = value;
+    set backgroundBlendMode(value) {
+      super.backgroundBlendMode = value;
     }
-    get finalized() {
-      return this[_finalized];
+    get shape() {
+      return this[shape$];
     }
-    finalize() {
-      if (dart.test(this.finalized)) dart.throw(new core.StateError.new("Can't finalize a finalized Request."));
-      this[_finalized] = true;
-      return C[1] || CT.C1;
+    set shape(value) {
+      super.shape = value;
     }
-    send() {
-      return async.async(streamed_response.StreamedResponse, (function* send() {
-        let client = client$.Client.new();
-        try {
-          let response = (yield client.send(this));
-          let stream = utils.onDone(T.ListOfint(), response.stream, dart.bind(client, 'close'));
-          return new streamed_response.StreamedResponse.new(new byte_stream.ByteStream.new(stream), response.statusCode, {contentLength: response.contentLength, request: response.request, headers: response.headers, isRedirect: response.isRedirect, persistentConnection: response.persistentConnection, reasonPhrase: response.reasonPhrase});
-        } catch (e) {
-          let _ = dart.getThrown(e);
-          if (core.Object.is(_)) {
-            client.close();
-            dart.rethrow(e);
-          } else
-            throw e;
+    copyWith(opts) {
+      let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5;
+      let color = opts && 'color' in opts ? opts.color : null;
+      let image = opts && 'image' in opts ? opts.image : null;
+      let border = opts && 'border' in opts ? opts.border : null;
+      let borderRadius = opts && 'borderRadius' in opts ? opts.borderRadius : null;
+      let boxShadow = opts && 'boxShadow' in opts ? opts.boxShadow : null;
+      let gradient = opts && 'gradient' in opts ? opts.gradient : null;
+      let backgroundBlendMode = opts && 'backgroundBlendMode' in opts ? opts.backgroundBlendMode : null;
+      let shape = opts && 'shape' in opts ? opts.shape : null;
+      return new box_decoration.BoxDecoration.new({color: (t0 = color, t0 == null ? this.color : t0), image: (t0$ = image, t0$ == null ? this.image : t0$), border: (t0$0 = border, t0$0 == null ? this.border : t0$0), borderRadius: (t0$1 = borderRadius, t0$1 == null ? this.borderRadius : t0$1), boxShadow: (t0$2 = boxShadow, t0$2 == null ? this.boxShadow : t0$2), gradient: (t0$3 = gradient, t0$3 == null ? this.gradient : t0$3), backgroundBlendMode: (t0$4 = backgroundBlendMode, t0$4 == null ? this.backgroundBlendMode : t0$4), shape: (t0$5 = shape, t0$5 == null ? this.shape : t0$5)});
+    }
+    debugAssertIsValid() {
+      if (!(this.shape != box_border.BoxShape.circle || this.borderRadius == null)) dart.assertFailed(null, I[0], 131, 12, "shape != BoxShape.circle ||\r\n          borderRadius == null");
+      return super.debugAssertIsValid();
+    }
+    get padding() {
+      let t0;
+      t0 = this.border;
+      return t0 == null ? null : t0.dimensions;
+    }
+    getClipPath(rect, textDirection) {
+      let t0, t0$, t0$0;
+      if (rect == null) dart.nullFailed(I[0], 218, 25, "rect");
+      if (textDirection == null) dart.nullFailed(I[0], 218, 45, "textDirection");
+      switch (this.shape) {
+        case C[1] || CT.C1:
+        {
+          let center = rect.center;
+          let radius = dart.notNull(rect.shortestSide) / 2.0;
+          let square = new ui.Rect.fromCircle({center: center, radius: radius});
+          t0 = ui.Path.new();
+          return (() => {
+            t0.addOval(square);
+            return t0;
+          })();
         }
-      }).bind(this));
+        case C[0] || CT.C0:
+        {
+          if (this.borderRadius != null) {
+            t0$ = ui.Path.new();
+            return (() => {
+              t0$.addRRect(dart.nullCheck(this.borderRadius).resolve(textDirection).toRRect(rect));
+              return t0$;
+            })();
+          }
+          t0$0 = ui.Path.new();
+          return (() => {
+            t0$0.addRect(rect);
+            return t0$0;
+          })();
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
     }
-    [_checkFinalized]() {
-      if (!dart.test(this.finalized)) return;
-      dart.throw(new core.StateError.new("Can't modify a finalized Request."));
+    scale(factor) {
+      let t0;
+      if (factor == null) dart.nullFailed(I[0], 233, 30, "factor");
+      return new box_decoration.BoxDecoration.new({color: ui.Color.lerp(null, this.color, factor), image: this.image, border: box_border.BoxBorder.lerp(null, this.border, factor), borderRadius: border_radius.BorderRadiusGeometry.lerp(null, this.borderRadius, factor), boxShadow: box_shadow.BoxShadow.lerpList(null, this.boxShadow, factor), gradient: (t0 = this.gradient, t0 == null ? null : t0.scale(factor)), shape: this.shape});
+    }
+    get isComplex() {
+      return this.boxShadow != null;
+    }
+    lerpFrom(a, t) {
+      if (t == null) dart.nullFailed(I[0], 249, 49, "t");
+      if (a == null) return this.scale(t);
+      if (box_decoration.BoxDecoration.is(a)) return box_decoration.BoxDecoration.lerp(a, this, t);
+      return T.BoxDecorationN().as(super.lerpFrom(a, t));
+    }
+    lerpTo(b, t) {
+      if (t == null) dart.nullFailed(I[0], 258, 47, "t");
+      if (b == null) return this.scale(1.0 - dart.notNull(t));
+      if (box_decoration.BoxDecoration.is(b)) return box_decoration.BoxDecoration.lerp(this, b, t);
+      return T.BoxDecorationN().as(super.lerpTo(b, t));
+    }
+    static lerp(a, b, t) {
+      if (t == null) dart.nullFailed(I[0], 289, 73, "t");
+      if (!(t != null)) dart.assertFailed(null, I[0], 290, 12, "t != null");
+      if (a == null && b == null) return null;
+      if (a == null) return dart.nullCheck(b).scale(t);
+      if (b == null) return a.scale(1.0 - dart.notNull(t));
+      if (t === 0.0) return a;
+      if (t === 1.0) return b;
+      return new box_decoration.BoxDecoration.new({color: ui.Color.lerp(a.color, b.color, t), image: dart.notNull(t) < 0.5 ? a.image : b.image, border: box_border.BoxBorder.lerp(a.border, b.border, t), borderRadius: border_radius.BorderRadiusGeometry.lerp(a.borderRadius, b.borderRadius, t), boxShadow: box_shadow.BoxShadow.lerpList(a.boxShadow, b.boxShadow, t), gradient: gradient.Gradient.lerp(a.gradient, b.gradient, t), shape: dart.notNull(t) < 0.5 ? a.shape : b.shape});
+    }
+    _equals(other) {
+      if (other == null) return false;
+      if (this === other) return true;
+      if (!dart.equals(dart.runtimeType(other), this[$runtimeType])) return false;
+      return box_decoration.BoxDecoration.is(other) && dart.equals(other.color, this.color) && dart.equals(other.image, this.image) && dart.equals(other.border, this.border) && dart.equals(other.borderRadius, this.borderRadius) && dart.test(collections.listEquals(box_shadow.BoxShadow, other.boxShadow, this.boxShadow)) && dart.equals(other.gradient, this.gradient) && other.shape == this.shape;
+    }
+    get hashCode() {
+      return ui.hashValues(this.color, this.image, this.border, this.borderRadius, ui.hashList(this.boxShadow), this.gradient, this.shape);
+    }
+    debugFillProperties(properties) {
+      let t0;
+      if (properties == null) dart.nullFailed(I[0], 342, 56, "properties");
+      super.debugFillProperties(properties);
+      t0 = properties;
+      (() => {
+        t0.defaultDiagnosticsTreeStyle = diagnostics.DiagnosticsTreeStyle.whitespace;
+        t0.emptyBodyDescription = "<no decorations specified>";
+        return t0;
+      })();
+      properties.add(new colors.ColorProperty.new("color", this.color, {defaultValue: null}));
+      properties.add(new (T.DiagnosticsPropertyOfDecorationImage()).new("image", this.image, {defaultValue: null}));
+      properties.add(new (T.DiagnosticsPropertyOfBoxBorder()).new("border", this.border, {defaultValue: null}));
+      properties.add(new (T.DiagnosticsPropertyOfBorderRadiusGeometry()).new("borderRadius", this.borderRadius, {defaultValue: null}));
+      properties.add(new (T.IterablePropertyOfBoxShadow()).new("boxShadow", this.boxShadow, {defaultValue: null, style: diagnostics.DiagnosticsTreeStyle.whitespace}));
+      properties.add(new (T.DiagnosticsPropertyOfGradient()).new("gradient", this.gradient, {defaultValue: null}));
+      properties.add(new (T.EnumPropertyOfBoxShape()).new("shape", this.shape, {defaultValue: box_border.BoxShape.rectangle}));
+    }
+    hitTest(size, position, opts) {
+      if (size == null) dart.nullFailed(I[0], 358, 21, "size");
+      if (position == null) dart.nullFailed(I[0], 358, 34, "position");
+      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+      if (!(this.shape != null)) dart.assertFailed(null, I[0], 359, 12, "shape != null");
+      if (!dart.test(ui.Offset.zero['&'](size).contains(position))) dart.assertFailed(null, I[0], 360, 12, "(Offset.zero & size).contains(position)");
+      switch (this.shape) {
+        case C[0] || CT.C0:
+        {
+          if (this.borderRadius != null) {
+            let bounds = dart.nullCheck(this.borderRadius).resolve(textDirection).toRRect(ui.Offset.zero['&'](size));
+            return bounds.contains(position);
+          }
+          return true;
+        }
+        case C[1] || CT.C1:
+        {
+          let center = size.center(ui.Offset.zero);
+          let distance = position['-'](center).distance;
+          return dart.notNull(distance) <= math.min(core.double, size.width, size.height) / 2.0;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    createBoxPainter(onChanged = null) {
+      if (!(onChanged != null || this.image == null)) dart.assertFailed(null, I[0], 378, 12, "onChanged != null || image == null");
+      return new box_decoration._BoxDecorationPainter.new(this, onChanged);
+    }
+  };
+  (box_decoration.BoxDecoration.new = function(opts) {
+    let color = opts && 'color' in opts ? opts.color : null;
+    let image = opts && 'image' in opts ? opts.image : null;
+    let border = opts && 'border' in opts ? opts.border : null;
+    let borderRadius = opts && 'borderRadius' in opts ? opts.borderRadius : null;
+    let boxShadow = opts && 'boxShadow' in opts ? opts.boxShadow : null;
+    let gradient = opts && 'gradient' in opts ? opts.gradient : null;
+    let backgroundBlendMode = opts && 'backgroundBlendMode' in opts ? opts.backgroundBlendMode : null;
+    let shape = opts && 'shape' in opts ? opts.shape : C[0] || CT.C0;
+    if (shape == null) dart.nullFailed(I[0], 97, 10, "shape");
+    this[color$] = color;
+    this[image$] = image;
+    this[border$] = border;
+    this[borderRadius$] = borderRadius;
+    this[boxShadow$] = boxShadow;
+    this[gradient$] = gradient;
+    this[backgroundBlendMode$] = backgroundBlendMode;
+    this[shape$] = shape;
+    if (!(shape != null)) dart.assertFailed(null, I[0], 98, 15, "shape != null");
+    if (!(backgroundBlendMode == null || color != null || gradient != null)) dart.assertFailed("backgroundBlendMode applies to BoxDecoration's background color or " + "gradient, but no color or gradient was provided.", I[0], 100, 10, "backgroundBlendMode == null || color != null || gradient != null");
+    box_decoration.BoxDecoration.__proto__.new.call(this);
+    ;
+  }).prototype = box_decoration.BoxDecoration.prototype;
+  dart.addTypeTests(box_decoration.BoxDecoration);
+  dart.addTypeCaches(box_decoration.BoxDecoration);
+  dart.setMethodSignature(box_decoration.BoxDecoration, () => ({
+    __proto__: dart.getMethods(box_decoration.BoxDecoration.__proto__),
+    copyWith: dart.fnType(box_decoration.BoxDecoration, [], {backgroundBlendMode: dart.nullable(ui.BlendMode), border: dart.nullable(box_border.BoxBorder), borderRadius: dart.nullable(border_radius.BorderRadiusGeometry), boxShadow: dart.nullable(core.List$(box_shadow.BoxShadow)), color: dart.nullable(ui.Color), gradient: dart.nullable(gradient.Gradient), image: dart.nullable(decoration_image.DecorationImage), shape: dart.nullable(box_border.BoxShape)}, {}),
+    scale: dart.fnType(box_decoration.BoxDecoration, [core.double]),
+    lerpFrom: dart.fnType(dart.nullable(box_decoration.BoxDecoration), [dart.nullable(decoration.Decoration), core.double]),
+    lerpTo: dart.fnType(dart.nullable(box_decoration.BoxDecoration), [dart.nullable(decoration.Decoration), core.double]),
+    createBoxPainter: dart.fnType(box_decoration._BoxDecorationPainter, [], [dart.nullable(dart.fnType(dart.void, []))])
+  }));
+  dart.setLibraryUri(box_decoration.BoxDecoration, I[1]);
+  dart.setFieldSignature(box_decoration.BoxDecoration, () => ({
+    __proto__: dart.getFields(box_decoration.BoxDecoration.__proto__),
+    color: dart.finalFieldType(dart.nullable(ui.Color)),
+    image: dart.finalFieldType(dart.nullable(decoration_image.DecorationImage)),
+    border: dart.finalFieldType(dart.nullable(box_border.BoxBorder)),
+    borderRadius: dart.finalFieldType(dart.nullable(border_radius.BorderRadiusGeometry)),
+    boxShadow: dart.finalFieldType(dart.nullable(core.List$(box_shadow.BoxShadow))),
+    gradient: dart.finalFieldType(dart.nullable(gradient.Gradient)),
+    backgroundBlendMode: dart.finalFieldType(dart.nullable(ui.BlendMode)),
+    shape: dart.finalFieldType(box_border.BoxShape)
+  }));
+  dart.defineExtensionMethods(box_decoration.BoxDecoration, ['_equals']);
+  dart.defineExtensionAccessors(box_decoration.BoxDecoration, ['hashCode']);
+  var _cachedBackgroundPaint = dart.privateName(box_decoration, "_cachedBackgroundPaint");
+  var _rectForCachedBackgroundPaint = dart.privateName(box_decoration, "_rectForCachedBackgroundPaint");
+  var _imagePainter = dart.privateName(box_decoration, "_imagePainter");
+  var _decoration$ = dart.privateName(box_decoration, "_decoration");
+  var _getBackgroundPaint = dart.privateName(box_decoration, "_getBackgroundPaint");
+  var _paintBox = dart.privateName(box_decoration, "_paintBox");
+  var _paintShadows = dart.privateName(box_decoration, "_paintShadows");
+  var _paintBackgroundColor = dart.privateName(box_decoration, "_paintBackgroundColor");
+  var _paintBackgroundImage = dart.privateName(box_decoration, "_paintBackgroundImage");
+  box_decoration._BoxDecorationPainter = class _BoxDecorationPainter extends decoration.BoxPainter {
+    [_getBackgroundPaint](rect, textDirection) {
+      if (rect == null) dart.nullFailed(I[0], 393, 34, "rect");
+      if (!(rect != null)) dart.assertFailed(null, I[0], 394, 12, "rect != null");
+      if (!(this[_decoration$].gradient != null || this[_rectForCachedBackgroundPaint] == null)) dart.assertFailed(null, I[0], 395, 12, "_decoration.gradient != null || _rectForCachedBackgroundPaint == null");
+      if (this[_cachedBackgroundPaint] == null || this[_decoration$].gradient != null && !dart.equals(this[_rectForCachedBackgroundPaint], rect)) {
+        let paint = ui.Paint.new();
+        if (this[_decoration$].backgroundBlendMode != null) paint.blendMode = dart.nullCheck(this[_decoration$].backgroundBlendMode);
+        if (this[_decoration$].color != null) paint.color = dart.nullCheck(this[_decoration$].color);
+        if (this[_decoration$].gradient != null) {
+          paint.shader = dart.nullCheck(this[_decoration$].gradient).createShader(rect, {textDirection: textDirection});
+          this[_rectForCachedBackgroundPaint] = rect;
+        }
+        this[_cachedBackgroundPaint] = paint;
+      }
+      return dart.nullCheck(this[_cachedBackgroundPaint]);
+    }
+    [_paintBox](canvas, rect, paint, textDirection) {
+      if (canvas == null) dart.nullFailed(I[0], 414, 25, "canvas");
+      if (rect == null) dart.nullFailed(I[0], 414, 38, "rect");
+      if (paint == null) dart.nullFailed(I[0], 414, 50, "paint");
+      switch (this[_decoration$].shape) {
+        case C[1] || CT.C1:
+        {
+          if (!(this[_decoration$].borderRadius == null)) dart.assertFailed(null, I[0], 417, 16, "_decoration.borderRadius == null");
+          let center = rect.center;
+          let radius = dart.notNull(rect.shortestSide) / 2.0;
+          canvas.drawCircle(center, radius, paint);
+          break;
+        }
+        case C[0] || CT.C0:
+        {
+          if (this[_decoration$].borderRadius == null) {
+            canvas.drawRect(rect, paint);
+          } else {
+            canvas.drawRRect(dart.nullCheck(this[_decoration$].borderRadius).resolve(textDirection).toRRect(rect), paint);
+          }
+          break;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    [_paintShadows](canvas, rect, textDirection) {
+      if (canvas == null) dart.nullFailed(I[0], 432, 29, "canvas");
+      if (rect == null) dart.nullFailed(I[0], 432, 42, "rect");
+      if (this[_decoration$].boxShadow == null) return;
+      for (let boxShadow of dart.nullCheck(this[_decoration$].boxShadow)) {
+        let paint = boxShadow.toPaint();
+        let bounds = rect.shift(boxShadow.offset).inflate(boxShadow.spreadRadius);
+        this[_paintBox](canvas, bounds, paint, textDirection);
+      }
+    }
+    [_paintBackgroundColor](canvas, rect, textDirection) {
+      if (canvas == null) dart.nullFailed(I[0], 442, 37, "canvas");
+      if (rect == null) dart.nullFailed(I[0], 442, 50, "rect");
+      if (this[_decoration$].color != null || this[_decoration$].gradient != null) this[_paintBox](canvas, rect, this[_getBackgroundPaint](rect, textDirection), textDirection);
+    }
+    [_paintBackgroundImage](canvas, rect, configuration) {
+      let t0, t0$;
+      if (canvas == null) dart.nullFailed(I[0], 448, 37, "canvas");
+      if (rect == null) dart.nullFailed(I[0], 448, 50, "rect");
+      if (configuration == null) dart.nullFailed(I[0], 448, 75, "configuration");
+      if (this[_decoration$].image == null) return;
+      this[_imagePainter] == null ? this[_imagePainter] = dart.nullCheck(this[_decoration$].image).createPainter(dart.nullCheck(this.onChanged)) : null;
+      let clipPath = null;
+      switch (this[_decoration$].shape) {
+        case C[1] || CT.C1:
+        {
+          if (!(this[_decoration$].borderRadius == null)) dart.assertFailed(null, I[0], 455, 16, "_decoration.borderRadius == null");
+          let center = rect.center;
+          let radius = dart.notNull(rect.shortestSide) / 2.0;
+          let square = new ui.Rect.fromCircle({center: center, radius: radius});
+          clipPath = (t0 = ui.Path.new(), (() => {
+            t0.addOval(square);
+            return t0;
+          })());
+          break;
+        }
+        case C[0] || CT.C0:
+        {
+          if (this[_decoration$].borderRadius != null) clipPath = (t0$ = ui.Path.new(), (() => {
+            t0$.addRRect(dart.nullCheck(this[_decoration$].borderRadius).resolve(configuration.textDirection).toRRect(rect));
+            return t0$;
+          })());
+          break;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+      dart.nullCheck(this[_imagePainter]).paint(canvas, rect, clipPath, configuration);
+    }
+    dispose() {
+      let t0;
+      t0 = this[_imagePainter];
+      t0 == null ? null : t0.dispose();
+      super.dispose();
+    }
+    paint(canvas, offset, configuration) {
+      let t0;
+      if (canvas == null) dart.nullFailed(I[0], 477, 21, "canvas");
+      if (offset == null) dart.nullFailed(I[0], 477, 36, "offset");
+      if (configuration == null) dart.nullFailed(I[0], 477, 63, "configuration");
+      if (!(configuration != null)) dart.assertFailed(null, I[0], 478, 12, "configuration != null");
+      if (!(configuration.size != null)) dart.assertFailed(null, I[0], 479, 12, "configuration.size != null");
+      let rect = offset['&'](dart.nullCheck(configuration.size));
+      let textDirection = configuration.textDirection;
+      this[_paintShadows](canvas, rect, textDirection);
+      this[_paintBackgroundColor](canvas, rect, textDirection);
+      this[_paintBackgroundImage](canvas, rect, configuration);
+      t0 = this[_decoration$].border;
+      t0 == null ? null : t0.paint(canvas, rect, {shape: this[_decoration$].shape, borderRadius: T.BorderRadiusN().as(this[_decoration$].borderRadius), textDirection: configuration.textDirection});
     }
     toString() {
-      return dart.str(this.method) + " " + dart.str(this.url);
+      return "BoxPainter for " + dart.str(this[_decoration$]);
     }
   };
-  (base_request.BaseRequest.new = function(method, url) {
-    if (method == null) dart.nullFailed(I[1], 91, 20, "method");
-    if (url == null) dart.nullFailed(I[1], 91, 33, "url");
-    this[_contentLength] = null;
-    this[_persistentConnection] = true;
-    this[_followRedirects] = true;
-    this[_maxRedirects] = 5;
-    this[_finalized] = false;
-    this[method$] = method;
-    this[url$] = url;
-    this[headers] = T.LinkedHashMapOfString$String().new({equals: dart.fn((key1, key2) => {
-        if (key1 == null) dart.nullFailed(I[1], 93, 22, "key1");
-        if (key2 == null) dart.nullFailed(I[1], 93, 28, "key2");
-        return key1[$toLowerCase]() === key2[$toLowerCase]();
-      }, T.StringAndStringTobool()), hashCode: dart.fn(key => {
-        if (key == null) dart.nullFailed(I[1], 94, 24, "key");
-        return key[$toLowerCase]()[$hashCode];
-      }, T.StringToint())});
+  (box_decoration._BoxDecorationPainter.new = function(_decoration, onChanged) {
+    if (_decoration == null) dart.nullFailed(I[0], 385, 30, "_decoration");
+    this[_cachedBackgroundPaint] = null;
+    this[_rectForCachedBackgroundPaint] = null;
+    this[_imagePainter] = null;
+    this[_decoration$] = _decoration;
+    if (!(_decoration != null)) dart.assertFailed(null, I[0], 386, 14, "_decoration != null");
+    box_decoration._BoxDecorationPainter.__proto__.new.call(this, onChanged);
     ;
-  }).prototype = base_request.BaseRequest.prototype;
-  dart.addTypeTests(base_request.BaseRequest);
-  dart.addTypeCaches(base_request.BaseRequest);
-  dart.setMethodSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getMethods(base_request.BaseRequest.__proto__),
-    finalize: dart.fnType(byte_stream.ByteStream, []),
-    send: dart.fnType(async.Future$(streamed_response.StreamedResponse), []),
-    [_checkFinalized]: dart.fnType(dart.void, [])
+  }).prototype = box_decoration._BoxDecorationPainter.prototype;
+  dart.addTypeTests(box_decoration._BoxDecorationPainter);
+  dart.addTypeCaches(box_decoration._BoxDecorationPainter);
+  dart.setMethodSignature(box_decoration._BoxDecorationPainter, () => ({
+    __proto__: dart.getMethods(box_decoration._BoxDecorationPainter.__proto__),
+    [_getBackgroundPaint]: dart.fnType(ui.Paint, [ui.Rect, dart.nullable(ui.TextDirection)]),
+    [_paintBox]: dart.fnType(dart.void, [ui.Canvas, ui.Rect, ui.Paint, dart.nullable(ui.TextDirection)]),
+    [_paintShadows]: dart.fnType(dart.void, [ui.Canvas, ui.Rect, dart.nullable(ui.TextDirection)]),
+    [_paintBackgroundColor]: dart.fnType(dart.void, [ui.Canvas, ui.Rect, dart.nullable(ui.TextDirection)]),
+    [_paintBackgroundImage]: dart.fnType(dart.void, [ui.Canvas, ui.Rect, image_provider.ImageConfiguration]),
+    paint: dart.fnType(dart.void, [ui.Canvas, ui.Offset, image_provider.ImageConfiguration])
   }));
-  dart.setGetterSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getGetters(base_request.BaseRequest.__proto__),
-    contentLength: dart.nullable(core.int),
-    persistentConnection: core.bool,
-    followRedirects: core.bool,
-    maxRedirects: core.int,
-    finalized: core.bool
+  dart.setLibraryUri(box_decoration._BoxDecorationPainter, I[1]);
+  dart.setFieldSignature(box_decoration._BoxDecorationPainter, () => ({
+    __proto__: dart.getFields(box_decoration._BoxDecorationPainter.__proto__),
+    [_decoration$]: dart.finalFieldType(box_decoration.BoxDecoration),
+    [_cachedBackgroundPaint]: dart.fieldType(dart.nullable(ui.Paint)),
+    [_rectForCachedBackgroundPaint]: dart.fieldType(dart.nullable(ui.Rect)),
+    [_imagePainter]: dart.fieldType(dart.nullable(decoration_image.DecorationImagePainter))
   }));
-  dart.setSetterSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getSetters(base_request.BaseRequest.__proto__),
-    contentLength: dart.nullable(core.int),
-    persistentConnection: core.bool,
-    followRedirects: core.bool,
-    maxRedirects: core.int
-  }));
-  dart.setLibraryUri(base_request.BaseRequest, I[2]);
-  dart.setFieldSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getFields(base_request.BaseRequest.__proto__),
-    method: dart.finalFieldType(core.String),
-    url: dart.finalFieldType(core.Uri),
-    [_contentLength]: dart.fieldType(dart.nullable(core.int)),
-    [_persistentConnection]: dart.fieldType(core.bool),
-    [_followRedirects]: dart.fieldType(core.bool),
-    [_maxRedirects]: dart.fieldType(core.int),
-    headers: dart.finalFieldType(core.Map$(core.String, core.String)),
-    [_finalized]: dart.fieldType(core.bool)
-  }));
-  dart.defineExtensionMethods(base_request.BaseRequest, ['toString']);
-  multipart_request.MultipartRequest = class MultipartRequest extends base_request.BaseRequest {
-    get fields() {
-      return this[fields];
-    }
-    set fields(value) {
-      super.fields = value;
-    }
-    get files() {
-      return this[files];
-    }
-    set files(value) {
-      super.files = value;
-    }
-    get contentLength() {
-      let length = 0;
-      this.fields[$forEach](dart.fn((name, value) => {
-        if (name == null) dart.nullFailed(I[0], 57, 21, "name");
-        if (value == null) dart.nullFailed(I[0], 57, 27, "value");
-        length = length + ("--".length + 70 + "\r\n".length + dart.notNull(convert.utf8.encode(this[_headerForField](name, value))[$length]) + dart.notNull(convert.utf8.encode(value)[$length]) + "\r\n".length);
-      }, T.StringAndStringTovoid()));
-      for (let file of this.files) {
-        length = length + ("--".length + 70 + "\r\n".length + dart.notNull(convert.utf8.encode(this[_headerForFile](file))[$length]) + dart.notNull(file.length) + "\r\n".length);
-      }
-      return length + "--".length + 70 + "--\r\n".length;
-    }
-    set contentLength(value) {
-      dart.throw(new core.UnsupportedError.new("Cannot set the contentLength property of " + "multipart requests."));
-    }
-    finalize() {
-      let boundary = this[_boundaryString]();
-      this.headers[$_set]("content-type", "multipart/form-data; boundary=" + dart.str(boundary));
-      super.finalize();
-      return new byte_stream.ByteStream.new(this[_finalize](boundary));
-    }
-    [_finalize](boundary) {
-      if (boundary == null) dart.nullFailed(I[0], 95, 38, "boundary");
-      return new (T._AsyncStarImplOfListOfint()).new((function* _finalize(stream) {
-        let line = C[0] || CT.C0;
-        let separator = convert.utf8.encode("--" + dart.str(boundary) + "\r\n");
-        let close = convert.utf8.encode("--" + dart.str(boundary) + "--\r\n");
-        for (let field of this.fields[$entries]) {
-          if (stream.add(separator)) return;
-          yield;
-          if (stream.add(convert.utf8.encode(this[_headerForField](field.key, field.value)))) return;
-          yield;
-          if (stream.add(convert.utf8.encode(field.value))) return;
-          yield;
-          if (stream.add(line)) return;
-          yield;
-        }
-        for (let file of this.files) {
-          if (stream.add(separator)) return;
-          yield;
-          if (stream.add(convert.utf8.encode(this[_headerForFile](file)))) return;
-          yield;
-          if (stream.addStream(file.finalize())) return;
-          yield;
-          if (stream.add(line)) return;
-          yield;
-        }
-        if (stream.add(close)) return;
-        yield;
-      }).bind(this)).stream;
-    }
-    [_headerForField](name, value) {
-      if (name == null) dart.nullFailed(I[0], 119, 33, "name");
-      if (value == null) dart.nullFailed(I[0], 119, 46, "value");
-      let header = "content-disposition: form-data; name=\"" + dart.str(this[_browserEncode](name)) + "\"";
-      if (!dart.test(utils.isPlainAscii(value))) {
-        header = header + "\r\n" + "content-type: text/plain; charset=utf-8\r\n" + "content-transfer-encoding: binary";
-      }
-      return header + "\r\n\r\n";
-    }
-    [_headerForFile](file) {
-      if (file == null) dart.nullFailed(I[0], 133, 39, "file");
-      let header = "content-type: " + dart.str(file.contentType) + "\r\n" + "content-disposition: form-data; name=\"" + dart.str(this[_browserEncode](file.field)) + "\"";
-      if (file.filename != null) {
-        header = header + "; filename=\"" + dart.str(this[_browserEncode](dart.nullCheck(file.filename))) + "\"";
-      }
-      return header + "\r\n\r\n";
-    }
-    [_browserEncode](value) {
-      if (value == null) dart.nullFailed(I[0], 144, 32, "value");
-      return value[$replaceAll](multipart_request._newlineRegExp, "%0D%0A")[$replaceAll]("\"", "%22");
-    }
-    [_boundaryString]() {
-      let prefix = "dart-http-boundary-";
-      let list = T.ListOfint().generate(70 - prefix.length, dart.fn(index => {
-        if (index == null) dart.nullFailed(I[0], 157, 10, "index");
-        return boundary_characters.boundaryCharacters[$_get](multipart_request.MultipartRequest._random.nextInt(boundary_characters.boundaryCharacters[$length]));
-      }, T.intToint()), {growable: false});
-      return prefix + dart.str(core.String.fromCharCodes(list));
-    }
-  };
-  (multipart_request.MultipartRequest.new = function(method, url) {
-    if (method == null) dart.nullFailed(I[0], 48, 27, "method");
-    if (url == null) dart.nullFailed(I[0], 48, 39, "url");
-    this[fields] = new (T.IdentityMapOfString$String()).new();
-    this[files] = T.JSArrayOfMultipartFile().of([]);
-    multipart_request.MultipartRequest.__proto__.new.call(this, method, url);
-    ;
-  }).prototype = multipart_request.MultipartRequest.prototype;
-  dart.addTypeTests(multipart_request.MultipartRequest);
-  dart.addTypeCaches(multipart_request.MultipartRequest);
-  dart.setMethodSignature(multipart_request.MultipartRequest, () => ({
-    __proto__: dart.getMethods(multipart_request.MultipartRequest.__proto__),
-    [_finalize]: dart.fnType(async.Stream$(core.List$(core.int)), [core.String]),
-    [_headerForField]: dart.fnType(core.String, [core.String, core.String]),
-    [_headerForFile]: dart.fnType(core.String, [multipart_file.MultipartFile]),
-    [_browserEncode]: dart.fnType(core.String, [core.String]),
-    [_boundaryString]: dart.fnType(core.String, [])
-  }));
-  dart.setGetterSignature(multipart_request.MultipartRequest, () => ({
-    __proto__: dart.getGetters(multipart_request.MultipartRequest.__proto__),
-    contentLength: core.int
-  }));
-  dart.setLibraryUri(multipart_request.MultipartRequest, I[3]);
-  dart.setFieldSignature(multipart_request.MultipartRequest, () => ({
-    __proto__: dart.getFields(multipart_request.MultipartRequest.__proto__),
-    fields: dart.finalFieldType(core.Map$(core.String, core.String)),
-    files: dart.finalFieldType(core.List$(multipart_file.MultipartFile))
-  }));
-  dart.defineLazy(multipart_request.MultipartRequest, {
-    /*multipart_request.MultipartRequest._boundaryLength*/get _boundaryLength() {
-      return 70;
-    },
-    /*multipart_request.MultipartRequest._random*/get _random() {
-      return math.Random.new();
-    }
-  }, false);
-  dart.defineLazy(multipart_request, {
-    /*multipart_request._newlineRegExp*/get _newlineRegExp() {
-      return core.RegExp.new("\\r\\n|\\r|\\n");
-    }
-  }, false);
-  multipart_file_stub.multipartFileFromPath = function multipartFileFromPath(field, filePath, opts) {
-    if (field == null) dart.nullFailed(I[4], 9, 52, "field");
-    if (filePath == null) dart.nullFailed(I[4], 9, 66, "filePath");
-    let filename = opts && 'filename' in opts ? opts.filename : null;
-    let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-    return dart.throw(new core.UnsupportedError.new("MultipartFile is only supported where dart:io is available."));
-  };
-  var field$ = dart.privateName(multipart_file, "MultipartFile.field");
-  var length$ = dart.privateName(multipart_file, "MultipartFile.length");
-  var filename$ = dart.privateName(multipart_file, "MultipartFile.filename");
-  var contentType$ = dart.privateName(multipart_file, "MultipartFile.contentType");
-  var _isFinalized = dart.privateName(multipart_file, "_isFinalized");
-  var _stream = dart.privateName(multipart_file, "_stream");
-  multipart_file.MultipartFile = class MultipartFile extends core.Object {
-    get field() {
-      return this[field$];
-    }
-    set field(value) {
-      super.field = value;
-    }
-    get length() {
-      return this[length$];
-    }
-    set length(value) {
-      super.length = value;
-    }
-    get filename() {
-      return this[filename$];
-    }
-    set filename(value) {
-      super.filename = value;
-    }
-    get contentType() {
-      return this[contentType$];
-    }
-    set contentType(value) {
-      super.contentType = value;
-    }
-    get isFinalized() {
-      return this[_isFinalized];
-    }
-    static fromBytes(field, value, opts) {
-      if (field == null) dart.nullFailed(I[5], 60, 42, "field");
-      if (value == null) dart.nullFailed(I[5], 60, 59, "value");
-      let filename = opts && 'filename' in opts ? opts.filename : null;
-      let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-      let stream = byte_stream.ByteStream.fromBytes(value);
-      return new multipart_file.MultipartFile.new(field, stream, value[$length], {filename: filename, contentType: contentType});
-    }
-    static fromString(field, value, opts) {
-      if (field == null) dart.nullFailed(I[5], 73, 43, "field");
-      if (value == null) dart.nullFailed(I[5], 73, 57, "value");
-      let filename = opts && 'filename' in opts ? opts.filename : null;
-      let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-      contentType == null ? contentType = new media_type.MediaType.new("text", "plain") : null;
-      let encoding = utils.encodingForCharset(contentType.parameters[$_get]("charset"), convert.utf8);
-      contentType = contentType.change({parameters: new (T.IdentityMapOfString$String()).from(["charset", encoding.name])});
-      return multipart_file.MultipartFile.fromBytes(field, encoding.encode(value), {filename: filename, contentType: contentType});
-    }
-    static fromPath(field, filePath, opts) {
-      if (field == null) dart.nullFailed(I[5], 92, 48, "field");
-      if (filePath == null) dart.nullFailed(I[5], 92, 62, "filePath");
-      let filename = opts && 'filename' in opts ? opts.filename : null;
-      let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-      return multipart_file_stub.multipartFileFromPath(field, filePath, {filename: filename, contentType: contentType});
-    }
-    finalize() {
-      if (dart.test(this.isFinalized)) {
-        dart.throw(new core.StateError.new("Can't finalize a finalized MultipartFile."));
-      }
-      this[_isFinalized] = true;
-      return this[_stream];
-    }
-  };
-  (multipart_file.MultipartFile.new = function(field, stream, length, opts) {
-    let t1;
-    if (field == null) dart.nullFailed(I[5], 51, 22, "field");
-    if (stream == null) dart.nullFailed(I[5], 51, 47, "stream");
-    if (length == null) dart.nullFailed(I[5], 51, 60, "length");
-    let filename = opts && 'filename' in opts ? opts.filename : null;
-    let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-    this[_isFinalized] = false;
-    this[field$] = field;
-    this[length$] = length;
-    this[filename$] = filename;
-    this[_stream] = utils.toByteStream(stream);
-    this[contentType$] = (t1 = contentType, t1 == null ? new media_type.MediaType.new("application", "octet-stream") : t1);
-    ;
-  }).prototype = multipart_file.MultipartFile.prototype;
-  dart.addTypeTests(multipart_file.MultipartFile);
-  dart.addTypeCaches(multipart_file.MultipartFile);
-  dart.setMethodSignature(multipart_file.MultipartFile, () => ({
-    __proto__: dart.getMethods(multipart_file.MultipartFile.__proto__),
-    finalize: dart.fnType(byte_stream.ByteStream, [])
-  }));
-  dart.setGetterSignature(multipart_file.MultipartFile, () => ({
-    __proto__: dart.getGetters(multipart_file.MultipartFile.__proto__),
-    isFinalized: core.bool
-  }));
-  dart.setLibraryUri(multipart_file.MultipartFile, I[6]);
-  dart.setFieldSignature(multipart_file.MultipartFile, () => ({
-    __proto__: dart.getFields(multipart_file.MultipartFile.__proto__),
-    field: dart.finalFieldType(core.String),
-    length: dart.finalFieldType(core.int),
-    filename: dart.finalFieldType(dart.nullable(core.String)),
-    contentType: dart.finalFieldType(media_type.MediaType),
-    [_stream]: dart.finalFieldType(byte_stream.ByteStream),
-    [_isFinalized]: dart.fieldType(core.bool)
-  }));
-  var _controller = dart.privateName(streamed_request, "_controller");
-  streamed_request.StreamedRequest = class StreamedRequest extends base_request.BaseRequest {
-    get sink() {
-      return this[_controller].sink;
-    }
-    finalize() {
-      super.finalize();
-      return new byte_stream.ByteStream.new(this[_controller].stream);
-    }
-  };
-  (streamed_request.StreamedRequest.new = function(method, url) {
-    if (method == null) dart.nullFailed(I[7], 32, 26, "method");
-    if (url == null) dart.nullFailed(I[7], 32, 38, "url");
-    this[_controller] = T.StreamControllerOfListOfint().new({sync: true});
-    streamed_request.StreamedRequest.__proto__.new.call(this, method, url);
-    ;
-  }).prototype = streamed_request.StreamedRequest.prototype;
-  dart.addTypeTests(streamed_request.StreamedRequest);
-  dart.addTypeCaches(streamed_request.StreamedRequest);
-  dart.setGetterSignature(streamed_request.StreamedRequest, () => ({
-    __proto__: dart.getGetters(streamed_request.StreamedRequest.__proto__),
-    sink: async.EventSink$(core.List$(core.int))
-  }));
-  dart.setLibraryUri(streamed_request.StreamedRequest, I[8]);
-  dart.setFieldSignature(streamed_request.StreamedRequest, () => ({
-    __proto__: dart.getFields(streamed_request.StreamedRequest.__proto__),
-    [_controller]: dart.finalFieldType(async.StreamController$(core.List$(core.int)))
-  }));
-  var withCredentials = dart.privateName(browser_client, "BrowserClient.withCredentials");
-  var _xhrs = dart.privateName(browser_client, "_xhrs");
-  var _sendUnstreamed = dart.privateName(base_client, "_sendUnstreamed");
-  var _checkResponseSuccess = dart.privateName(base_client, "_checkResponseSuccess");
-  base_client.BaseClient = class BaseClient extends core.Object {
-    head(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 22, 29, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return this[_sendUnstreamed]("HEAD", url, headers);
-    }
-    get(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 26, 28, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return this[_sendUnstreamed]("GET", url, headers);
-    }
-    post(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 30, 29, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      let body = opts && 'body' in opts ? opts.body : null;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-      return this[_sendUnstreamed]("POST", url, headers, body, encoding);
-    }
-    put(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 35, 28, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      let body = opts && 'body' in opts ? opts.body : null;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-      return this[_sendUnstreamed]("PUT", url, headers, body, encoding);
-    }
-    patch(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 40, 30, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      let body = opts && 'body' in opts ? opts.body : null;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-      return this[_sendUnstreamed]("PATCH", url, headers, body, encoding);
-    }
-    delete(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 45, 31, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      let body = opts && 'body' in opts ? opts.body : null;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-      return this[_sendUnstreamed]("DELETE", url, headers, body, encoding);
-    }
-    read(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 50, 27, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return async.async(core.String, (function* read() {
-        let response = (yield this.get(url, {headers: headers}));
-        this[_checkResponseSuccess](url, response);
-        return response.body;
-      }).bind(this));
-    }
-    readBytes(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 57, 35, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return async.async(typed_data.Uint8List, (function* readBytes() {
-        let response = (yield this.get(url, {headers: headers}));
-        this[_checkResponseSuccess](url, response);
-        return response.bodyBytes;
-      }).bind(this));
-    }
-    [_sendUnstreamed](method, url, headers, body = null, encoding = null) {
-      if (method == null) dart.nullFailed(I[10], 75, 14, "method");
-      if (url == null) dart.nullFailed(I[10], 75, 26, "url");
-      return async.async(response$.Response, (function* _sendUnstreamed() {
-        let request = new request$.Request.new(method, url);
-        if (headers != null) request.headers[$addAll](headers);
-        if (encoding != null) request.encoding = encoding;
-        if (body != null) {
-          if (typeof body == 'string') {
-            request.body = body;
-          } else if (core.List.is(body)) {
-            request.bodyBytes = body[$cast](core.int);
-          } else if (core.Map.is(body)) {
-            request.bodyFields = body[$cast](core.String, core.String);
-          } else {
-            dart.throw(new core.ArgumentError.new("Invalid request body \"" + dart.str(body) + "\"."));
-          }
-        }
-        return response$.Response.fromStream(yield this.send(request));
-      }).bind(this));
-    }
-    [_checkResponseSuccess](url, response) {
-      if (url == null) dart.nullFailed(I[10], 97, 34, "url");
-      if (response == null) dart.nullFailed(I[10], 97, 48, "response");
-      if (dart.notNull(response.statusCode) < 400) return;
-      let message = "Request to " + dart.str(url) + " failed with status " + dart.str(response.statusCode);
-      if (response.reasonPhrase != null) {
-        message = message + ": " + dart.str(response.reasonPhrase);
-      }
-      dart.throw(new exception.ClientException.new(message + ".", url));
-    }
-    close() {
-    }
-  };
-  (base_client.BaseClient.new = function() {
-    ;
-  }).prototype = base_client.BaseClient.prototype;
-  dart.addTypeTests(base_client.BaseClient);
-  dart.addTypeCaches(base_client.BaseClient);
-  base_client.BaseClient[dart.implements] = () => [client$.Client];
-  dart.setMethodSignature(base_client.BaseClient, () => ({
-    __proto__: dart.getMethods(base_client.BaseClient.__proto__),
-    head: dart.fnType(async.Future$(response$.Response), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    get: dart.fnType(async.Future$(response$.Response), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    post: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    put: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    patch: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    delete: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    read: dart.fnType(async.Future$(core.String), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    readBytes: dart.fnType(async.Future$(typed_data.Uint8List), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    [_sendUnstreamed]: dart.fnType(async.Future$(response$.Response), [core.String, core.Uri, dart.nullable(core.Map$(core.String, core.String))], [dart.dynamic, dart.nullable(convert.Encoding)]),
-    [_checkResponseSuccess]: dart.fnType(dart.void, [core.Uri, response$.Response]),
-    close: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(base_client.BaseClient, I[11]);
-  browser_client.BrowserClient = class BrowserClient extends base_client.BaseClient {
-    get withCredentials() {
-      return this[withCredentials];
-    }
-    set withCredentials(value) {
-      this[withCredentials] = value;
-    }
-    send(request) {
-      if (request == null) dart.nullFailed(I[9], 44, 45, "request");
-      return async.async(streamed_response.StreamedResponse, (function* send() {
-        let t1;
-        let bytes = (yield request.finalize().toBytes());
-        let xhr = html.HttpRequest.new();
-        this[_xhrs].add(xhr);
-        t1 = xhr;
-        (() => {
-          t1.open(request.method, dart.str(request.url), {async: true});
-          t1.responseType = "arraybuffer";
-          t1.withCredentials = this.withCredentials;
-          return t1;
-        })();
-        request.headers[$forEach](dart.bind(xhr, 'setRequestHeader'));
-        let completer = T.CompleterOfStreamedResponse().new();
-        pedantic.unawaited(xhr[$onLoad].first.then(dart.void, dart.fn(_ => {
-          if (_ == null) dart.nullFailed(I[9], 56, 38, "_");
-          let body = typed_data.ByteBuffer.as(xhr[$response])[$asUint8List]();
-          completer.complete(new streamed_response.StreamedResponse.new(byte_stream.ByteStream.fromBytes(body), dart.nullCheck(xhr.status), {contentLength: body[$length], request: request, headers: xhr[$responseHeaders], reasonPhrase: xhr.statusText}));
-        }, T.ProgressEventToNull())));
-        pedantic.unawaited(xhr[$onError].first.then(dart.void, dart.fn(_ => {
-          if (_ == null) dart.nullFailed(I[9], 66, 39, "_");
-          completer.completeError(new exception.ClientException.new("XMLHttpRequest error.", request.url), core.StackTrace.current);
-        }, T.ProgressEventToNull())));
-        xhr.send(bytes);
-        try {
-          return yield completer.future;
-        } finally {
-          this[_xhrs].remove(xhr);
-        }
-      }).bind(this));
-    }
-    close() {
-      for (let xhr of this[_xhrs]) {
-        xhr.abort();
-      }
-    }
-  };
-  (browser_client.BrowserClient.new = function() {
-    this[_xhrs] = T.LinkedHashSetOfHttpRequest().new();
-    this[withCredentials] = false;
-    ;
-  }).prototype = browser_client.BrowserClient.prototype;
-  dart.addTypeTests(browser_client.BrowserClient);
-  dart.addTypeCaches(browser_client.BrowserClient);
-  dart.setMethodSignature(browser_client.BrowserClient, () => ({
-    __proto__: dart.getMethods(browser_client.BrowserClient.__proto__),
-    send: dart.fnType(async.Future$(streamed_response.StreamedResponse), [base_request.BaseRequest])
-  }));
-  dart.setLibraryUri(browser_client.BrowserClient, I[12]);
-  dart.setFieldSignature(browser_client.BrowserClient, () => ({
-    __proto__: dart.getFields(browser_client.BrowserClient.__proto__),
-    [_xhrs]: dart.finalFieldType(core.Set$(html.HttpRequest)),
-    withCredentials: dart.fieldType(core.bool)
-  }));
-  browser_client.createClient = function createClient() {
-    return new browser_client.BrowserClient.new();
-  };
-  var bodyBytes$ = dart.privateName(response$, "Response.bodyBytes");
-  var request$0 = dart.privateName(base_response, "BaseResponse.request");
-  var statusCode$ = dart.privateName(base_response, "BaseResponse.statusCode");
-  var reasonPhrase$ = dart.privateName(base_response, "BaseResponse.reasonPhrase");
-  var contentLength$ = dart.privateName(base_response, "BaseResponse.contentLength");
-  var headers$ = dart.privateName(base_response, "BaseResponse.headers");
-  var isRedirect$ = dart.privateName(base_response, "BaseResponse.isRedirect");
-  var persistentConnection$ = dart.privateName(base_response, "BaseResponse.persistentConnection");
-  base_response.BaseResponse = class BaseResponse extends core.Object {
-    get request() {
-      return this[request$0];
-    }
-    set request(value) {
-      super.request = value;
-    }
-    get statusCode() {
-      return this[statusCode$];
-    }
-    set statusCode(value) {
-      super.statusCode = value;
-    }
-    get reasonPhrase() {
-      return this[reasonPhrase$];
-    }
-    set reasonPhrase(value) {
-      super.reasonPhrase = value;
-    }
-    get contentLength() {
-      return this[contentLength$];
-    }
-    set contentLength(value) {
-      super.contentLength = value;
-    }
-    get headers() {
-      return this[headers$];
-    }
-    set headers(value) {
-      super.headers = value;
-    }
-    get isRedirect() {
-      return this[isRedirect$];
-    }
-    set isRedirect(value) {
-      super.isRedirect = value;
-    }
-    get persistentConnection() {
-      return this[persistentConnection$];
-    }
-    set persistentConnection(value) {
-      super.persistentConnection = value;
-    }
-  };
-  (base_response.BaseResponse.new = function(statusCode, opts) {
-    if (statusCode == null) dart.nullFailed(I[14], 37, 21, "statusCode");
-    let contentLength = opts && 'contentLength' in opts ? opts.contentLength : null;
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
-    if (headers == null) dart.nullFailed(I[14], 40, 12, "headers");
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    if (isRedirect == null) dart.nullFailed(I[14], 41, 12, "isRedirect");
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    if (persistentConnection == null) dart.nullFailed(I[14], 42, 12, "persistentConnection");
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    this[statusCode$] = statusCode;
-    this[contentLength$] = contentLength;
-    this[request$0] = request;
-    this[headers$] = headers;
-    this[isRedirect$] = isRedirect;
-    this[persistentConnection$] = persistentConnection;
-    this[reasonPhrase$] = reasonPhrase;
-    if (dart.notNull(this.statusCode) < 100) {
-      dart.throw(new core.ArgumentError.new("Invalid status code " + dart.str(this.statusCode) + "."));
-    } else if (this.contentLength != null && dart.nullCheck(this.contentLength) < 0) {
-      dart.throw(new core.ArgumentError.new("Invalid content length " + dart.str(this.contentLength) + "."));
-    }
-  }).prototype = base_response.BaseResponse.prototype;
-  dart.addTypeTests(base_response.BaseResponse);
-  dart.addTypeCaches(base_response.BaseResponse);
-  dart.setLibraryUri(base_response.BaseResponse, I[15]);
-  dart.setFieldSignature(base_response.BaseResponse, () => ({
-    __proto__: dart.getFields(base_response.BaseResponse.__proto__),
-    request: dart.finalFieldType(dart.nullable(base_request.BaseRequest)),
-    statusCode: dart.finalFieldType(core.int),
-    reasonPhrase: dart.finalFieldType(dart.nullable(core.String)),
-    contentLength: dart.finalFieldType(dart.nullable(core.int)),
-    headers: dart.finalFieldType(core.Map$(core.String, core.String)),
-    isRedirect: dart.finalFieldType(core.bool),
-    persistentConnection: dart.finalFieldType(core.bool)
-  }));
-  response$.Response = class Response extends base_response.BaseResponse {
-    get bodyBytes() {
-      return this[bodyBytes$];
-    }
-    set bodyBytes(value) {
-      super.bodyBytes = value;
-    }
-    get body() {
-      return response$._encodingForHeaders(this.headers).decode(this.bodyBytes);
-    }
-    static fromStream(response) {
-      if (response == null) dart.nullFailed(I[13], 62, 55, "response");
-      return async.async(response$.Response, function* fromStream() {
-        let body = (yield response.stream.toBytes());
-        return new response$.Response.bytes(body, response.statusCode, {request: response.request, headers: response.headers, isRedirect: response.isRedirect, persistentConnection: response.persistentConnection, reasonPhrase: response.reasonPhrase});
-      });
-    }
-  };
-  (response$.Response.new = function(body, statusCode, opts) {
-    if (body == null) dart.nullFailed(I[13], 31, 19, "body");
-    if (statusCode == null) dart.nullFailed(I[13], 31, 29, "statusCode");
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
-    if (headers == null) dart.nullFailed(I[13], 33, 27, "headers");
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    if (isRedirect == null) dart.nullFailed(I[13], 34, 12, "isRedirect");
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    if (persistentConnection == null) dart.nullFailed(I[13], 35, 12, "persistentConnection");
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    response$.Response.bytes.call(this, response$._encodingForHeaders(headers).encode(body), statusCode, {request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
-  }).prototype = response$.Response.prototype;
-  (response$.Response.bytes = function(bodyBytes, statusCode, opts) {
-    if (bodyBytes == null) dart.nullFailed(I[13], 45, 28, "bodyBytes");
-    if (statusCode == null) dart.nullFailed(I[13], 45, 43, "statusCode");
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
-    if (headers == null) dart.nullFailed(I[13], 47, 27, "headers");
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    if (isRedirect == null) dart.nullFailed(I[13], 48, 12, "isRedirect");
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    if (persistentConnection == null) dart.nullFailed(I[13], 49, 12, "persistentConnection");
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    this[bodyBytes$] = utils.toUint8List(bodyBytes);
-    response$.Response.__proto__.new.call(this, statusCode, {contentLength: bodyBytes[$length], request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
-    ;
-  }).prototype = response$.Response.prototype;
-  dart.addTypeTests(response$.Response);
-  dart.addTypeCaches(response$.Response);
-  dart.setGetterSignature(response$.Response, () => ({
-    __proto__: dart.getGetters(response$.Response.__proto__),
-    body: core.String
-  }));
-  dart.setLibraryUri(response$.Response, I[16]);
-  dart.setFieldSignature(response$.Response, () => ({
-    __proto__: dart.getFields(response$.Response.__proto__),
-    bodyBytes: dart.finalFieldType(typed_data.Uint8List)
-  }));
-  response$._encodingForHeaders = function _encodingForHeaders(headers) {
-    if (headers == null) dart.nullFailed(I[13], 77, 50, "headers");
-    return utils.encodingForCharset(response$._contentTypeForHeaders(headers).parameters[$_get]("charset"));
-  };
-  response$._contentTypeForHeaders = function _contentTypeForHeaders(headers) {
-    if (headers == null) dart.nullFailed(I[13], 83, 54, "headers");
-    let contentType = headers[$_get]("content-type");
-    if (contentType != null) return media_type.MediaType.parse(contentType);
-    return new media_type.MediaType.new("application", "octet-stream");
-  };
-  var _defaultEncoding = dart.privateName(request$, "_defaultEncoding");
-  var _bodyBytes = dart.privateName(request$, "_bodyBytes");
-  var _contentType = dart.privateName(request$, "_contentType");
-  var _checkFinalized$ = dart.privateName(request$, "_checkFinalized");
-  request$.Request = class Request extends base_request.BaseRequest {
-    get contentLength() {
-      return this.bodyBytes[$length];
-    }
-    set contentLength(value) {
-      dart.throw(new core.UnsupportedError.new("Cannot set the contentLength property of " + "non-streaming Request objects."));
-    }
-    get encoding() {
-      if (this[_contentType] == null || !dart.test(dart.nullCheck(this[_contentType]).parameters[$containsKey]("charset"))) {
-        return this[_defaultEncoding];
-      }
-      return utils.requiredEncodingForCharset(dart.nullCheck(dart.nullCheck(this[_contentType]).parameters[$_get]("charset")));
-    }
-    set encoding(value) {
-      if (value == null) dart.nullFailed(I[17], 59, 25, "value");
-      this[_checkFinalized$]();
-      this[_defaultEncoding] = value;
-      let contentType = this[_contentType];
-      if (contentType == null) return;
-      this[_contentType] = contentType.change({parameters: new (T.IdentityMapOfString$String()).from(["charset", value.name])});
-    }
-    get bodyBytes() {
-      return this[_bodyBytes];
-    }
-    set bodyBytes(value) {
-      if (value == null) dart.nullFailed(I[17], 76, 27, "value");
-      this[_checkFinalized$]();
-      this[_bodyBytes] = utils.toUint8List(value);
-    }
-    get body() {
-      return this.encoding.decode(this.bodyBytes);
-    }
-    set body(value) {
-      if (value == null) dart.nullFailed(I[17], 91, 19, "value");
-      this.bodyBytes = this.encoding.encode(value);
-      let contentType = this[_contentType];
-      if (contentType == null) {
-        this[_contentType] = new media_type.MediaType.new("text", "plain", new (T.IdentityMapOfString$String()).from(["charset", this.encoding.name]));
-      } else if (!dart.test(contentType.parameters[$containsKey]("charset"))) {
-        this[_contentType] = contentType.change({parameters: new (T.IdentityMapOfString$String()).from(["charset", this.encoding.name])});
-      }
-    }
-    get bodyFields() {
-      let contentType = this[_contentType];
-      if (contentType == null || contentType.mimeType !== "application/x-www-form-urlencoded") {
-        dart.throw(new core.StateError.new("Cannot access the body fields of a Request without " + "content-type \"application/x-www-form-urlencoded\"."));
-      }
-      return core.Uri.splitQueryString(this.body, {encoding: this.encoding});
-    }
-    set bodyFields(fields) {
-      if (fields == null) dart.nullFailed(I[17], 128, 38, "fields");
-      let contentType = this[_contentType];
-      if (contentType == null) {
-        this[_contentType] = new media_type.MediaType.new("application", "x-www-form-urlencoded");
-      } else if (contentType.mimeType !== "application/x-www-form-urlencoded") {
-        dart.throw(new core.StateError.new("Cannot set the body fields of a Request with " + "content-type \"" + dart.str(contentType.mimeType) + "\"."));
-      }
-      this.body = utils.mapToQuery(fields, {encoding: this.encoding});
-    }
-    finalize() {
-      super.finalize();
-      return byte_stream.ByteStream.fromBytes(this.bodyBytes);
-    }
-    get [_contentType]() {
-      let contentType = this.headers[$_get]("content-type");
-      if (contentType == null) return null;
-      return media_type.MediaType.parse(contentType);
-    }
-    set [_contentType](value) {
-      if (value == null) {
-        this.headers[$remove]("content-type");
-      } else {
-        this.headers[$_set]("content-type", dart.toString(value));
-      }
-    }
-    [_checkFinalized$]() {
-      if (!dart.test(this.finalized)) return;
-      dart.throw(new core.StateError.new("Can't modify a finalized Request."));
-    }
-  };
-  (request$.Request.new = function(method, url) {
-    if (method == null) dart.nullFailed(I[17], 140, 18, "method");
-    if (url == null) dart.nullFailed(I[17], 140, 30, "url");
-    this[_defaultEncoding] = convert.utf8;
-    this[_bodyBytes] = _native_typed_data.NativeUint8List.new(0);
-    request$.Request.__proto__.new.call(this, method, url);
-    ;
-  }).prototype = request$.Request.prototype;
-  dart.addTypeTests(request$.Request);
-  dart.addTypeCaches(request$.Request);
-  dart.setMethodSignature(request$.Request, () => ({
-    __proto__: dart.getMethods(request$.Request.__proto__),
-    [_checkFinalized$]: dart.fnType(dart.void, [])
-  }));
-  dart.setGetterSignature(request$.Request, () => ({
-    __proto__: dart.getGetters(request$.Request.__proto__),
-    contentLength: core.int,
-    encoding: convert.Encoding,
-    bodyBytes: typed_data.Uint8List,
-    body: core.String,
-    bodyFields: core.Map$(core.String, core.String),
-    [_contentType]: dart.nullable(media_type.MediaType)
-  }));
-  dart.setSetterSignature(request$.Request, () => ({
-    __proto__: dart.getSetters(request$.Request.__proto__),
-    encoding: convert.Encoding,
-    bodyBytes: core.List$(core.int),
-    body: core.String,
-    bodyFields: core.Map$(core.String, core.String),
-    [_contentType]: dart.nullable(media_type.MediaType)
-  }));
-  dart.setLibraryUri(request$.Request, I[18]);
-  dart.setFieldSignature(request$.Request, () => ({
-    __proto__: dart.getFields(request$.Request.__proto__),
-    [_defaultEncoding]: dart.fieldType(convert.Encoding),
-    [_bodyBytes]: dart.fieldType(typed_data.Uint8List)
-  }));
-  var stream$ = dart.privateName(streamed_response, "StreamedResponse.stream");
-  streamed_response.StreamedResponse = class StreamedResponse extends base_response.BaseResponse {
-    get stream() {
-      return this[stream$];
-    }
-    set stream(value) {
-      super.stream = value;
-    }
-  };
-  (streamed_response.StreamedResponse.new = function(stream, statusCode, opts) {
-    if (stream == null) dart.nullFailed(I[19], 21, 38, "stream");
-    if (statusCode == null) dart.nullFailed(I[19], 21, 50, "statusCode");
-    let contentLength = opts && 'contentLength' in opts ? opts.contentLength : null;
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
-    if (headers == null) dart.nullFailed(I[19], 24, 27, "headers");
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    if (isRedirect == null) dart.nullFailed(I[19], 25, 12, "isRedirect");
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    if (persistentConnection == null) dart.nullFailed(I[19], 26, 12, "persistentConnection");
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    this[stream$] = utils.toByteStream(stream);
-    streamed_response.StreamedResponse.__proto__.new.call(this, statusCode, {contentLength: contentLength, request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
-    ;
-  }).prototype = streamed_response.StreamedResponse.prototype;
-  dart.addTypeTests(streamed_response.StreamedResponse);
-  dart.addTypeCaches(streamed_response.StreamedResponse);
-  dart.setLibraryUri(streamed_response.StreamedResponse, I[20]);
-  dart.setFieldSignature(streamed_response.StreamedResponse, () => ({
-    __proto__: dart.getFields(streamed_response.StreamedResponse.__proto__),
-    stream: dart.finalFieldType(byte_stream.ByteStream)
-  }));
-  client$.Client = class Client extends core.Object {
-    static new() {
-      return browser_client.createClient();
-    }
-  };
-  (client$.Client[dart.mixinNew] = function() {
-  }).prototype = client$.Client.prototype;
-  dart.addTypeTests(client$.Client);
-  dart.addTypeCaches(client$.Client);
-  dart.setLibraryUri(client$.Client, I[21]);
-  http.head = function head(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 35, 27, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    return http._withClient(response$.Response, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 36, 18, "client");
-      return client.head(url, {headers: headers});
-    }, T.ClientToFutureOfResponse()));
-  };
-  http.get = function get(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 45, 26, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    return http._withClient(response$.Response, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 46, 18, "client");
-      return client.get(url, {headers: headers});
-    }, T.ClientToFutureOfResponse()));
-  };
-  http.post = function post(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 66, 27, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    let body = opts && 'body' in opts ? opts.body : null;
-    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-    return http._withClient(response$.Response, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 68, 18, "client");
-      return client.post(url, {headers: headers, body: body, encoding: encoding});
-    }, T.ClientToFutureOfResponse()));
-  };
-  http.put = function put(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 89, 26, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    let body = opts && 'body' in opts ? opts.body : null;
-    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-    return http._withClient(response$.Response, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 91, 18, "client");
-      return client.put(url, {headers: headers, body: body, encoding: encoding});
-    }, T.ClientToFutureOfResponse()));
-  };
-  http.patch = function patch(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 113, 28, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    let body = opts && 'body' in opts ? opts.body : null;
-    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-    return http._withClient(response$.Response, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 115, 18, "client");
-      return client.patch(url, {headers: headers, body: body, encoding: encoding});
-    }, T.ClientToFutureOfResponse()));
-  };
-  http.delete = function $delete(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 125, 29, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    let body = opts && 'body' in opts ? opts.body : null;
-    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-    return http._withClient(response$.Response, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 127, 18, "client");
-      return client.delete(url, {headers: headers, body: body, encoding: encoding});
-    }, T.ClientToFutureOfResponse()));
-  };
-  http.read = function read(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 142, 25, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    return http._withClient(core.String, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 143, 18, "client");
-      return client.read(url, {headers: headers});
-    }, T.ClientToFutureOfString()));
-  };
-  http.readBytes = function readBytes(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 158, 33, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    return http._withClient(typed_data.Uint8List, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 159, 18, "client");
-      return client.readBytes(url, {headers: headers});
-    }, T.ClientToFutureOfUint8List()));
-  };
-  http._withClient = function _withClient(T, fn) {
-    if (fn == null) dart.nullFailed(I[22], 161, 53, "fn");
-    return async.async(T, function* _withClient() {
-      let client = client$.Client.new();
-      try {
-        return yield fn(client);
-      } finally {
-        client.close();
-      }
-    });
-  };
-  dart.trackLibraries("packages/http/src/multipart_request.dart", {
-    "package:http/src/multipart_request.dart": multipart_request,
-    "package:http/src/multipart_file_stub.dart": multipart_file_stub,
-    "package:http/src/multipart_file.dart": multipart_file,
-    "package:http/src/streamed_request.dart": streamed_request,
-    "package:http/src/browser_client.dart": browser_client,
-    "package:http/src/response.dart": response$,
-    "package:http/src/request.dart": request$,
-    "package:http/src/streamed_response.dart": streamed_response,
-    "package:http/src/base_response.dart": base_response,
-    "package:http/src/base_request.dart": base_request,
-    "package:http/src/base_client.dart": base_client,
-    "package:http/src/client.dart": client$,
-    "package:http/http.dart": http
+  dart.defineExtensionMethods(box_decoration._BoxDecorationPainter, ['toString']);
+  dart.trackLibraries("packages/flutter/src/painting/box_decoration.dart", {
+    "package:flutter/src/painting/box_decoration.dart": box_decoration
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["base_request.dart","multipart_request.dart","multipart_file_stub.dart","multipart_file.dart","streamed_request.dart","base_client.dart","browser_client.dart","base_response.dart","response.dart","request.dart","streamed_response.dart","client.dart","../http.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/http/src/multipart_request.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["box_decoration.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/painting/box_decoration.dart.lib.js"}');
   // Exports:
   return {
-    src__multipart_request: multipart_request,
-    src__multipart_file_stub: multipart_file_stub,
-    src__multipart_file: multipart_file,
-    src__streamed_request: streamed_request,
-    src__browser_client: browser_client,
-    src__response: response$,
-    src__request: request$,
-    src__streamed_response: streamed_response,
-    src__base_response: base_response,
-    src__base_request: base_request,
-    src__base_client: base_client,
-    src__client: client$,
-    http: http
+    src__painting__box_decoration: box_decoration
   };
 }));
 
-//# sourceMappingURL=multipart_request.dart.lib.js.map
+//# sourceMappingURL=box_decoration.dart.lib.js.map

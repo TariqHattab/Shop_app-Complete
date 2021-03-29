@@ -1,34 +1,18 @@
-define(['dart_sdk', 'packages/flutter/src/gestures/binding.dart', 'packages/flutter/src/gestures/events.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/gestures/tap.dart', 'packages/flutter/src/gestures/constants.dart', 'packages/flutter/src/gestures/recognizer.dart'], (function load__packages__flutter__src__gestures__multitap_dart(dart_sdk, packages__flutter__src__gestures__binding$46dart, packages__flutter__src__gestures__events$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__gestures__tap$46dart, packages__flutter__src__gestures__constants$46dart, packages__flutter__src__gestures__recognizer$46dart) {
+define(['dart_sdk', 'packages/flutter/src/gestures/velocity_tracker.dart', 'packages/flutter/src/gestures/constants.dart', 'packages/flutter/src/gestures/arena.dart', 'packages/flutter/src/gestures/events.dart', 'packages/flutter/src/gestures/recognizer.dart'], (function load__packages__flutter__src__gestures__long_press_dart(dart_sdk, packages__flutter__src__gestures__velocity_tracker$46dart, packages__flutter__src__gestures__constants$46dart, packages__flutter__src__gestures__arena$46dart, packages__flutter__src__gestures__events$46dart, packages__flutter__src__gestures__recognizer$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const async = dart_sdk.async;
   const ui = dart_sdk.ui;
-  const _js_helper = dart_sdk._js_helper;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const binding = packages__flutter__src__gestures__binding$46dart.src__gestures__binding;
-  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
-  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
-  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
-  const tap = packages__flutter__src__gestures__tap$46dart.src__gestures__tap;
+  const velocity_tracker = packages__flutter__src__gestures__velocity_tracker$46dart.src__gestures__velocity_tracker;
   const constants = packages__flutter__src__gestures__constants$46dart.src__gestures__constants;
+  const arena = packages__flutter__src__gestures__arena$46dart.src__gestures__arena;
+  const events = packages__flutter__src__gestures__events$46dart.src__gestures__events;
   const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
-  var multitap = Object.create(dart.library);
-  var $_set = dartx._set;
-  var $_get = dartx._get;
-  var $remove = dartx.remove;
-  var $isEmpty = dartx.isEmpty;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $values = dartx.values;
-  var $toList = dartx.toList;
-  var $forEach = dartx.forEach;
-  var $containsKey = dartx.containsKey;
+  var long_press = Object.create(dart.library);
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    IdentityMapOfint$_TapTracker: () => (T.IdentityMapOfint$_TapTracker = dart.constFn(_js_helper.IdentityMap$(core.int, multitap._TapTracker)))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    IdentityMapOfint$_TapGesture: () => (T.IdentityMapOfint$_TapGesture = dart.constFn(_js_helper.IdentityMap$(core.int, multitap._TapGesture)))(),
-    ListOf_TapGesture: () => (T.ListOf_TapGesture = dart.constFn(core.List$(multitap._TapGesture)))()
+    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -45,577 +29,547 @@ define(['dart_sdk', 'packages/flutter/src/gestures/binding.dart', 'packages/flut
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: core.Duration.prototype,
-        [Duration__duration]: 0
+        __proto__: ui.Offset.prototype,
+        [OffsetBase__dy]: 0,
+        [OffsetBase__dx]: 0
+      });
+    },
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: velocity_tracker.Velocity.prototype,
+        [Velocity_pixelsPerSecond]: C[0] || CT.C0
       });
     }
   }, false);
-  var C = [void 0];
+  var C = Array(2).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/gestures/multitap.dart",
-    "package:flutter/src/gestures/multitap.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/gestures/long_press.dart",
+    "package:flutter/src/gestures/long_press.dart"
   ];
-  var _timeout = dart.privateName(multitap, "_timeout");
-  var _onTimeout = dart.privateName(multitap, "_onTimeout");
-  multitap._CountdownZoned = class _CountdownZoned extends core.Object {
-    get timeout() {
-      return this[_timeout];
+  var globalPosition$ = dart.privateName(long_press, "LongPressStartDetails.globalPosition");
+  var localPosition$ = dart.privateName(long_press, "LongPressStartDetails.localPosition");
+  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
+  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
+  long_press.LongPressStartDetails = class LongPressStartDetails extends core.Object {
+    get globalPosition() {
+      return this[globalPosition$];
     }
-    [_onTimeout]() {
-      this[_timeout] = true;
+    set globalPosition(value) {
+      super.globalPosition = value;
     }
-  };
-  (multitap._CountdownZoned.new = function(opts) {
-    let duration = opts && 'duration' in opts ? opts.duration : null;
-    if (duration == null) dart.nullFailed(I[0], 42, 39, "duration");
-    this[_timeout] = false;
-    if (!(duration != null)) dart.assertFailed(null, I[0], 43, 17, "duration != null");
-    async.Timer.new(duration, dart.bind(this, _onTimeout));
-  }).prototype = multitap._CountdownZoned.prototype;
-  dart.addTypeTests(multitap._CountdownZoned);
-  dart.addTypeCaches(multitap._CountdownZoned);
-  dart.setMethodSignature(multitap._CountdownZoned, () => ({
-    __proto__: dart.getMethods(multitap._CountdownZoned.__proto__),
-    [_onTimeout]: dart.fnType(dart.void, [])
-  }));
-  dart.setGetterSignature(multitap._CountdownZoned, () => ({
-    __proto__: dart.getGetters(multitap._CountdownZoned.__proto__),
-    timeout: core.bool
-  }));
-  dart.setLibraryUri(multitap._CountdownZoned, I[1]);
-  dart.setFieldSignature(multitap._CountdownZoned, () => ({
-    __proto__: dart.getFields(multitap._CountdownZoned.__proto__),
-    [_timeout]: dart.fieldType(core.bool)
-  }));
-  var _isTrackingPointer = dart.privateName(multitap, "_isTrackingPointer");
-  var _initialGlobalPosition = dart.privateName(multitap, "_initialGlobalPosition");
-  var _doubleTapMinTimeCountdown = dart.privateName(multitap, "_doubleTapMinTimeCountdown");
-  multitap._TapTracker = class _TapTracker extends core.Object {
-    startTrackingPointer(route, transform) {
-      if (route == null) dart.nullFailed(I[0], 79, 42, "route");
-      if (!dart.test(this[_isTrackingPointer])) {
-        this[_isTrackingPointer] = true;
-        dart.nullCheck(binding.GestureBinding.instance).pointerRouter.addRoute(this.pointer, route, transform);
-      }
+    get localPosition() {
+      return this[localPosition$];
     }
-    stopTrackingPointer(route) {
-      if (route == null) dart.nullFailed(I[0], 86, 41, "route");
-      if (dart.test(this[_isTrackingPointer])) {
-        this[_isTrackingPointer] = false;
-        dart.nullCheck(binding.GestureBinding.instance).pointerRouter.removeRoute(this.pointer, route);
-      }
-    }
-    isWithinGlobalTolerance(event, tolerance) {
-      if (event == null) dart.nullFailed(I[0], 93, 45, "event");
-      if (tolerance == null) dart.nullFailed(I[0], 93, 59, "tolerance");
-      let offset = event.position['-'](this[_initialGlobalPosition]);
-      return dart.notNull(offset.distance) <= dart.notNull(tolerance);
-    }
-    hasElapsedMinTime() {
-      return this[_doubleTapMinTimeCountdown].timeout;
-    }
-    hasSameButton(event) {
-      if (event == null) dart.nullFailed(I[0], 102, 39, "event");
-      return event.buttons == this.initialButtons;
+    set localPosition(value) {
+      super.localPosition = value;
     }
   };
-  (multitap._TapTracker.new = function(opts) {
-    let event = opts && 'event' in opts ? opts.event : null;
-    if (event == null) dart.nullFailed(I[0], 60, 31, "event");
-    let entry = opts && 'entry' in opts ? opts.entry : null;
-    if (entry == null) dart.nullFailed(I[0], 61, 19, "entry");
-    let doubleTapMinTime = opts && 'doubleTapMinTime' in opts ? opts.doubleTapMinTime : null;
-    if (doubleTapMinTime == null) dart.nullFailed(I[0], 62, 23, "doubleTapMinTime");
-    this[_isTrackingPointer] = false;
-    this.entry = entry;
-    if (!(doubleTapMinTime != null)) dart.assertFailed(null, I[0], 63, 15, "doubleTapMinTime != null");
-    if (!(event != null)) dart.assertFailed(null, I[0], 64, 15, "event != null");
-    if (!(event.buttons != null)) dart.assertFailed(null, I[0], 65, 15, "event.buttons != null");
-    this.pointer = event.pointer;
-    this[_initialGlobalPosition] = event.position;
-    this.initialButtons = event.buttons;
-    this[_doubleTapMinTimeCountdown] = new multitap._CountdownZoned.new({duration: doubleTapMinTime});
+  (long_press.LongPressStartDetails.new = function(opts) {
+    let t0;
+    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : C[0] || CT.C0;
+    if (globalPosition == null) dart.nullFailed(I[0], 57, 10, "globalPosition");
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    this[globalPosition$] = globalPosition;
+    if (!(globalPosition != null)) dart.assertFailed(null, I[0], 59, 15, "globalPosition != null");
+    this[localPosition$] = (t0 = localPosition, t0 == null ? globalPosition : t0);
     ;
-  }).prototype = multitap._TapTracker.prototype;
-  dart.addTypeTests(multitap._TapTracker);
-  dart.addTypeCaches(multitap._TapTracker);
-  dart.setMethodSignature(multitap._TapTracker, () => ({
-    __proto__: dart.getMethods(multitap._TapTracker.__proto__),
-    startTrackingPointer: dart.fnType(dart.void, [dart.fnType(dart.void, [events.PointerEvent]), dart.nullable(vector_math_64.Matrix4)]),
-    stopTrackingPointer: dart.fnType(dart.void, [dart.fnType(dart.void, [events.PointerEvent])]),
-    isWithinGlobalTolerance: dart.fnType(core.bool, [events.PointerEvent, core.double]),
-    hasElapsedMinTime: dart.fnType(core.bool, []),
-    hasSameButton: dart.fnType(core.bool, [events.PointerDownEvent])
+  }).prototype = long_press.LongPressStartDetails.prototype;
+  dart.addTypeTests(long_press.LongPressStartDetails);
+  dart.addTypeCaches(long_press.LongPressStartDetails);
+  dart.setLibraryUri(long_press.LongPressStartDetails, I[1]);
+  dart.setFieldSignature(long_press.LongPressStartDetails, () => ({
+    __proto__: dart.getFields(long_press.LongPressStartDetails.__proto__),
+    globalPosition: dart.finalFieldType(ui.Offset),
+    localPosition: dart.finalFieldType(ui.Offset)
   }));
-  dart.setLibraryUri(multitap._TapTracker, I[1]);
-  dart.setFieldSignature(multitap._TapTracker, () => ({
-    __proto__: dart.getFields(multitap._TapTracker.__proto__),
-    pointer: dart.finalFieldType(core.int),
-    entry: dart.finalFieldType(arena.GestureArenaEntry),
-    [_initialGlobalPosition]: dart.finalFieldType(ui.Offset),
-    initialButtons: dart.finalFieldType(core.int),
-    [_doubleTapMinTimeCountdown]: dart.finalFieldType(multitap._CountdownZoned),
-    [_isTrackingPointer]: dart.fieldType(core.bool)
+  var globalPosition$0 = dart.privateName(long_press, "LongPressMoveUpdateDetails.globalPosition");
+  var localPosition$0 = dart.privateName(long_press, "LongPressMoveUpdateDetails.localPosition");
+  var offsetFromOrigin$ = dart.privateName(long_press, "LongPressMoveUpdateDetails.offsetFromOrigin");
+  var localOffsetFromOrigin$ = dart.privateName(long_press, "LongPressMoveUpdateDetails.localOffsetFromOrigin");
+  long_press.LongPressMoveUpdateDetails = class LongPressMoveUpdateDetails extends core.Object {
+    get globalPosition() {
+      return this[globalPosition$0];
+    }
+    set globalPosition(value) {
+      super.globalPosition = value;
+    }
+    get localPosition() {
+      return this[localPosition$0];
+    }
+    set localPosition(value) {
+      super.localPosition = value;
+    }
+    get offsetFromOrigin() {
+      return this[offsetFromOrigin$];
+    }
+    set offsetFromOrigin(value) {
+      super.offsetFromOrigin = value;
+    }
+    get localOffsetFromOrigin() {
+      return this[localOffsetFromOrigin$];
+    }
+    set localOffsetFromOrigin(value) {
+      super.localOffsetFromOrigin = value;
+    }
+  };
+  (long_press.LongPressMoveUpdateDetails.new = function(opts) {
+    let t0, t0$;
+    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : C[0] || CT.C0;
+    if (globalPosition == null) dart.nullFailed(I[0], 81, 10, "globalPosition");
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let offsetFromOrigin = opts && 'offsetFromOrigin' in opts ? opts.offsetFromOrigin : C[0] || CT.C0;
+    if (offsetFromOrigin == null) dart.nullFailed(I[0], 83, 10, "offsetFromOrigin");
+    let localOffsetFromOrigin = opts && 'localOffsetFromOrigin' in opts ? opts.localOffsetFromOrigin : null;
+    this[globalPosition$0] = globalPosition;
+    this[offsetFromOrigin$] = offsetFromOrigin;
+    if (!(globalPosition != null)) dart.assertFailed(null, I[0], 85, 15, "globalPosition != null");
+    if (!(offsetFromOrigin != null)) dart.assertFailed(null, I[0], 86, 15, "offsetFromOrigin != null");
+    this[localPosition$0] = (t0 = localPosition, t0 == null ? globalPosition : t0);
+    this[localOffsetFromOrigin$] = (t0$ = localOffsetFromOrigin, t0$ == null ? offsetFromOrigin : t0$);
+    ;
+  }).prototype = long_press.LongPressMoveUpdateDetails.prototype;
+  dart.addTypeTests(long_press.LongPressMoveUpdateDetails);
+  dart.addTypeCaches(long_press.LongPressMoveUpdateDetails);
+  dart.setLibraryUri(long_press.LongPressMoveUpdateDetails, I[1]);
+  dart.setFieldSignature(long_press.LongPressMoveUpdateDetails, () => ({
+    __proto__: dart.getFields(long_press.LongPressMoveUpdateDetails.__proto__),
+    globalPosition: dart.finalFieldType(ui.Offset),
+    localPosition: dart.finalFieldType(ui.Offset),
+    offsetFromOrigin: dart.finalFieldType(ui.Offset),
+    localOffsetFromOrigin: dart.finalFieldType(ui.Offset)
   }));
-  var onDoubleTapDown = dart.privateName(multitap, "DoubleTapGestureRecognizer.onDoubleTapDown");
-  var onDoubleTap = dart.privateName(multitap, "DoubleTapGestureRecognizer.onDoubleTap");
-  var onDoubleTapCancel = dart.privateName(multitap, "DoubleTapGestureRecognizer.onDoubleTapCancel");
-  var _doubleTapTimer = dart.privateName(multitap, "_doubleTapTimer");
-  var _firstTap = dart.privateName(multitap, "_firstTap");
-  var _trackers = dart.privateName(multitap, "_trackers");
-  var _reset = dart.privateName(multitap, "_reset");
-  var _trackTap = dart.privateName(multitap, "_trackTap");
-  var _stopDoubleTapTimer = dart.privateName(multitap, "_stopDoubleTapTimer");
-  var _handleEvent = dart.privateName(multitap, "_handleEvent");
-  var _registerFirstTap = dart.privateName(multitap, "_registerFirstTap");
-  var _registerSecondTap = dart.privateName(multitap, "_registerSecondTap");
-  var _reject = dart.privateName(multitap, "_reject");
-  var _freezeTracker = dart.privateName(multitap, "_freezeTracker");
-  var _checkCancel = dart.privateName(multitap, "_checkCancel");
-  var _clearTrackers = dart.privateName(multitap, "_clearTrackers");
-  var _startDoubleTapTimer = dart.privateName(multitap, "_startDoubleTapTimer");
-  var _checkUp = dart.privateName(multitap, "_checkUp");
-  multitap.DoubleTapGestureRecognizer = class DoubleTapGestureRecognizer extends recognizer.GestureRecognizer {
-    get onDoubleTapDown() {
-      return this[onDoubleTapDown];
+  var globalPosition$1 = dart.privateName(long_press, "LongPressEndDetails.globalPosition");
+  var localPosition$1 = dart.privateName(long_press, "LongPressEndDetails.localPosition");
+  var velocity$ = dart.privateName(long_press, "LongPressEndDetails.velocity");
+  var Velocity_pixelsPerSecond = dart.privateName(velocity_tracker, "Velocity.pixelsPerSecond");
+  long_press.LongPressEndDetails = class LongPressEndDetails extends core.Object {
+    get globalPosition() {
+      return this[globalPosition$1];
     }
-    set onDoubleTapDown(value) {
-      this[onDoubleTapDown] = value;
+    set globalPosition(value) {
+      super.globalPosition = value;
     }
-    get onDoubleTap() {
-      return this[onDoubleTap];
+    get localPosition() {
+      return this[localPosition$1];
     }
-    set onDoubleTap(value) {
-      this[onDoubleTap] = value;
+    set localPosition(value) {
+      super.localPosition = value;
     }
-    get onDoubleTapCancel() {
-      return this[onDoubleTapCancel];
+    get velocity() {
+      return this[velocity$];
     }
-    set onDoubleTapCancel(value) {
-      this[onDoubleTapCancel] = value;
+    set velocity(value) {
+      super.velocity = value;
+    }
+  };
+  (long_press.LongPressEndDetails.new = function(opts) {
+    let t0;
+    let globalPosition = opts && 'globalPosition' in opts ? opts.globalPosition : C[0] || CT.C0;
+    if (globalPosition == null) dart.nullFailed(I[0], 119, 10, "globalPosition");
+    let localPosition = opts && 'localPosition' in opts ? opts.localPosition : null;
+    let velocity = opts && 'velocity' in opts ? opts.velocity : C[1] || CT.C1;
+    if (velocity == null) dart.nullFailed(I[0], 121, 10, "velocity");
+    this[globalPosition$1] = globalPosition;
+    this[velocity$] = velocity;
+    if (!(globalPosition != null)) dart.assertFailed(null, I[0], 122, 15, "globalPosition != null");
+    this[localPosition$1] = (t0 = localPosition, t0 == null ? globalPosition : t0);
+    ;
+  }).prototype = long_press.LongPressEndDetails.prototype;
+  dart.addTypeTests(long_press.LongPressEndDetails);
+  dart.addTypeCaches(long_press.LongPressEndDetails);
+  dart.setLibraryUri(long_press.LongPressEndDetails, I[1]);
+  dart.setFieldSignature(long_press.LongPressEndDetails, () => ({
+    __proto__: dart.getFields(long_press.LongPressEndDetails.__proto__),
+    globalPosition: dart.finalFieldType(ui.Offset),
+    localPosition: dart.finalFieldType(ui.Offset),
+    velocity: dart.finalFieldType(velocity_tracker.Velocity)
+  }));
+  var onLongPress = dart.privateName(long_press, "LongPressGestureRecognizer.onLongPress");
+  var onLongPressStart = dart.privateName(long_press, "LongPressGestureRecognizer.onLongPressStart");
+  var onLongPressMoveUpdate = dart.privateName(long_press, "LongPressGestureRecognizer.onLongPressMoveUpdate");
+  var onLongPressUp = dart.privateName(long_press, "LongPressGestureRecognizer.onLongPressUp");
+  var onLongPressEnd = dart.privateName(long_press, "LongPressGestureRecognizer.onLongPressEnd");
+  var onSecondaryLongPress = dart.privateName(long_press, "LongPressGestureRecognizer.onSecondaryLongPress");
+  var onSecondaryLongPressStart = dart.privateName(long_press, "LongPressGestureRecognizer.onSecondaryLongPressStart");
+  var onSecondaryLongPressMoveUpdate = dart.privateName(long_press, "LongPressGestureRecognizer.onSecondaryLongPressMoveUpdate");
+  var onSecondaryLongPressUp = dart.privateName(long_press, "LongPressGestureRecognizer.onSecondaryLongPressUp");
+  var onSecondaryLongPressEnd = dart.privateName(long_press, "LongPressGestureRecognizer.onSecondaryLongPressEnd");
+  var onTertiaryLongPress = dart.privateName(long_press, "LongPressGestureRecognizer.onTertiaryLongPress");
+  var onTertiaryLongPressStart = dart.privateName(long_press, "LongPressGestureRecognizer.onTertiaryLongPressStart");
+  var onTertiaryLongPressMoveUpdate = dart.privateName(long_press, "LongPressGestureRecognizer.onTertiaryLongPressMoveUpdate");
+  var onTertiaryLongPressUp = dart.privateName(long_press, "LongPressGestureRecognizer.onTertiaryLongPressUp");
+  var onTertiaryLongPressEnd = dart.privateName(long_press, "LongPressGestureRecognizer.onTertiaryLongPressEnd");
+  var _longPressAccepted = dart.privateName(long_press, "_longPressAccepted");
+  var _longPressOrigin = dart.privateName(long_press, "_longPressOrigin");
+  var _initialButtons = dart.privateName(long_press, "_initialButtons");
+  var _velocityTracker = dart.privateName(long_press, "_velocityTracker");
+  var _checkLongPressStart = dart.privateName(long_press, "_checkLongPressStart");
+  var _checkLongPressEnd = dart.privateName(long_press, "_checkLongPressEnd");
+  var _reset = dart.privateName(long_press, "_reset");
+  var _checkLongPressMoveUpdate = dart.privateName(long_press, "_checkLongPressMoveUpdate");
+  long_press.LongPressGestureRecognizer = class LongPressGestureRecognizer extends recognizer.PrimaryPointerGestureRecognizer {
+    get onLongPress() {
+      return this[onLongPress];
+    }
+    set onLongPress(value) {
+      this[onLongPress] = value;
+    }
+    get onLongPressStart() {
+      return this[onLongPressStart];
+    }
+    set onLongPressStart(value) {
+      this[onLongPressStart] = value;
+    }
+    get onLongPressMoveUpdate() {
+      return this[onLongPressMoveUpdate];
+    }
+    set onLongPressMoveUpdate(value) {
+      this[onLongPressMoveUpdate] = value;
+    }
+    get onLongPressUp() {
+      return this[onLongPressUp];
+    }
+    set onLongPressUp(value) {
+      this[onLongPressUp] = value;
+    }
+    get onLongPressEnd() {
+      return this[onLongPressEnd];
+    }
+    set onLongPressEnd(value) {
+      this[onLongPressEnd] = value;
+    }
+    get onSecondaryLongPress() {
+      return this[onSecondaryLongPress];
+    }
+    set onSecondaryLongPress(value) {
+      this[onSecondaryLongPress] = value;
+    }
+    get onSecondaryLongPressStart() {
+      return this[onSecondaryLongPressStart];
+    }
+    set onSecondaryLongPressStart(value) {
+      this[onSecondaryLongPressStart] = value;
+    }
+    get onSecondaryLongPressMoveUpdate() {
+      return this[onSecondaryLongPressMoveUpdate];
+    }
+    set onSecondaryLongPressMoveUpdate(value) {
+      this[onSecondaryLongPressMoveUpdate] = value;
+    }
+    get onSecondaryLongPressUp() {
+      return this[onSecondaryLongPressUp];
+    }
+    set onSecondaryLongPressUp(value) {
+      this[onSecondaryLongPressUp] = value;
+    }
+    get onSecondaryLongPressEnd() {
+      return this[onSecondaryLongPressEnd];
+    }
+    set onSecondaryLongPressEnd(value) {
+      this[onSecondaryLongPressEnd] = value;
+    }
+    get onTertiaryLongPress() {
+      return this[onTertiaryLongPress];
+    }
+    set onTertiaryLongPress(value) {
+      this[onTertiaryLongPress] = value;
+    }
+    get onTertiaryLongPressStart() {
+      return this[onTertiaryLongPressStart];
+    }
+    set onTertiaryLongPressStart(value) {
+      this[onTertiaryLongPressStart] = value;
+    }
+    get onTertiaryLongPressMoveUpdate() {
+      return this[onTertiaryLongPressMoveUpdate];
+    }
+    set onTertiaryLongPressMoveUpdate(value) {
+      this[onTertiaryLongPressMoveUpdate] = value;
+    }
+    get onTertiaryLongPressUp() {
+      return this[onTertiaryLongPressUp];
+    }
+    set onTertiaryLongPressUp(value) {
+      this[onTertiaryLongPressUp] = value;
+    }
+    get onTertiaryLongPressEnd() {
+      return this[onTertiaryLongPressEnd];
+    }
+    set onTertiaryLongPressEnd(value) {
+      this[onTertiaryLongPressEnd] = value;
     }
     isPointerAllowed(event) {
-      if (event == null) dart.nullFailed(I[0], 193, 42, "event");
-      if (this[_firstTap] == null) {
-        switch (event.buttons) {
-          case 1:
-          {
-            if (this.onDoubleTapDown == null && this.onDoubleTap == null && this.onDoubleTapCancel == null) return false;
-            break;
-          }
-          default:
-          {
-            return false;
-          }
+      if (event == null) dart.nullFailed(I[0], 334, 42, "event");
+      switch (event.buttons) {
+        case 1:
+        {
+          if (this.onLongPressStart == null && this.onLongPress == null && this.onLongPressMoveUpdate == null && this.onLongPressEnd == null && this.onLongPressUp == null) return false;
+          break;
+        }
+        case 2:
+        {
+          if (this.onSecondaryLongPressStart == null && this.onSecondaryLongPress == null && this.onSecondaryLongPressMoveUpdate == null && this.onSecondaryLongPressEnd == null && this.onSecondaryLongPressUp == null) return false;
+          break;
+        }
+        case 4:
+        {
+          if (this.onTertiaryLongPressStart == null && this.onTertiaryLongPress == null && this.onTertiaryLongPressMoveUpdate == null && this.onTertiaryLongPressEnd == null && this.onTertiaryLongPressUp == null) return false;
+          break;
+        }
+        default:
+        {
+          return false;
         }
       }
       return super.isPointerAllowed(event);
     }
-    addAllowedPointer(event) {
-      if (event == null) dart.nullFailed(I[0], 210, 43, "event");
-      if (this[_firstTap] != null) {
-        if (!dart.test(dart.nullCheck(this[_firstTap]).isWithinGlobalTolerance(event, 100))) {
-          return;
-        } else if (!dart.test(dart.nullCheck(this[_firstTap]).hasElapsedMinTime()) || !dart.test(dart.nullCheck(this[_firstTap]).hasSameButton(event))) {
-          this[_reset]();
-          return this[_trackTap](event);
-        } else if (this.onDoubleTapDown != null) {
-          let details = new tap.TapDownDetails.new({globalPosition: event.position, localPosition: event.localPosition, kind: this.getKindForPointer(event.pointer)});
-          this.invokeCallback(dart.void, "onDoubleTapDown", dart.fn(() => dart.nullCheck(this.onDoubleTapDown)(details), T.VoidTovoid()));
+    didExceedDeadline() {
+      this.resolve(arena.GestureDisposition.accepted);
+      this[_longPressAccepted] = true;
+      super.acceptGesture(dart.nullCheck(this.primaryPointer));
+      this[_checkLongPressStart]();
+    }
+    handlePrimaryPointer(event) {
+      if (event == null) dart.nullFailed(I[0], 376, 42, "event");
+      if (!dart.test(event.synthesized)) {
+        if (events.PointerDownEvent.is(event)) {
+          this[_velocityTracker] = new velocity_tracker.VelocityTracker.withKind(event.kind);
+          dart.nullCheck(this[_velocityTracker]).addPosition(event.timeStamp, event.localPosition);
+        }
+        if (events.PointerMoveEvent.is(event)) {
+          if (!(this[_velocityTracker] != null)) dart.assertFailed(null, I[0], 383, 16, "_velocityTracker != null");
+          dart.nullCheck(this[_velocityTracker]).addPosition(event.timeStamp, event.localPosition);
         }
       }
-      this[_trackTap](event);
-    }
-    [_trackTap](event) {
-      if (event == null) dart.nullFailed(I[0], 232, 35, "event");
-      this[_stopDoubleTapTimer]();
-      let tracker = new multitap._TapTracker.new({event: event, entry: dart.nullCheck(binding.GestureBinding.instance).gestureArena.add(event.pointer, this), doubleTapMinTime: constants.kDoubleTapMinTime});
-      this[_trackers][$_set](event.pointer, tracker);
-      tracker.startTrackingPointer(dart.bind(this, _handleEvent), event.transform);
-    }
-    [_handleEvent](event) {
-      if (event == null) dart.nullFailed(I[0], 243, 34, "event");
-      let tracker = dart.nullCheck(this[_trackers][$_get](event.pointer));
       if (events.PointerUpEvent.is(event)) {
-        if (this[_firstTap] == null)
-          this[_registerFirstTap](tracker);
-        else
-          this[_registerSecondTap](tracker);
-      } else if (events.PointerMoveEvent.is(event)) {
-        if (!dart.test(tracker.isWithinGlobalTolerance(event, 18))) this[_reject](tracker);
-      } else if (events.PointerCancelEvent.is(event)) {
-        this[_reject](tracker);
-      }
-    }
-    acceptGesture(pointer) {
-      if (pointer == null) dart.nullFailed(I[0], 259, 26, "pointer");
-    }
-    rejectGesture(pointer) {
-      if (pointer == null) dart.nullFailed(I[0], 262, 26, "pointer");
-      let tracker = this[_trackers][$_get](pointer);
-      if (tracker == null && this[_firstTap] != null && dart.nullCheck(this[_firstTap]).pointer == pointer) tracker = this[_firstTap];
-      if (tracker != null) this[_reject](tracker);
-    }
-    [_reject](tracker) {
-      if (tracker == null) dart.nullFailed(I[0], 274, 28, "tracker");
-      this[_trackers][$remove](tracker.pointer);
-      tracker.entry.resolve(arena.GestureDisposition.rejected);
-      this[_freezeTracker](tracker);
-      if (this[_firstTap] != null) {
-        if (dart.equals(tracker, this[_firstTap])) {
-          this[_reset]();
+        if (this[_longPressAccepted] === true) {
+          this[_checkLongPressEnd](event);
         } else {
-          this[_checkCancel]();
-          if (dart.test(this[_trackers][$isEmpty])) this[_reset]();
+          this.resolve(arena.GestureDisposition.rejected);
+        }
+        this[_reset]();
+      } else if (events.PointerCancelEvent.is(event)) {
+        this[_reset]();
+      } else if (events.PointerDownEvent.is(event)) {
+        this[_longPressOrigin] = recognizer.OffsetPair.fromEventPosition(event);
+        this[_initialButtons] = event.buttons;
+      } else if (events.PointerMoveEvent.is(event)) {
+        if (event.buttons != this[_initialButtons]) {
+          this.resolve(arena.GestureDisposition.rejected);
+          this.stopTrackingPointer(dart.nullCheck(this.primaryPointer));
+        } else if (dart.test(this[_longPressAccepted])) {
+          this[_checkLongPressMoveUpdate](event);
         }
       }
     }
-    dispose() {
-      this[_reset]();
-      super.dispose();
+    [_checkLongPressStart]() {
+      switch (this[_initialButtons]) {
+        case 1:
+        {
+          if (this.onLongPressStart != null) {
+            let details = new long_press.LongPressStartDetails.new({globalPosition: dart.nullCheck(this[_longPressOrigin]).global, localPosition: dart.nullCheck(this[_longPressOrigin]).local});
+            this.invokeCallback(dart.void, "onLongPressStart", dart.fn(() => dart.nullCheck(this.onLongPressStart)(details), T.VoidTovoid()));
+          }
+          if (this.onLongPress != null) {
+            this.invokeCallback(dart.void, "onLongPress", dart.nullCheck(this.onLongPress));
+          }
+          break;
+        }
+        case 2:
+        {
+          if (this.onSecondaryLongPressStart != null) {
+            let details = new long_press.LongPressStartDetails.new({globalPosition: dart.nullCheck(this[_longPressOrigin]).global, localPosition: dart.nullCheck(this[_longPressOrigin]).local});
+            this.invokeCallback(dart.void, "onSecondaryLongPressStart", dart.fn(() => dart.nullCheck(this.onSecondaryLongPressStart)(details), T.VoidTovoid()));
+          }
+          if (this.onSecondaryLongPress != null) {
+            this.invokeCallback(dart.void, "onSecondaryLongPress", dart.nullCheck(this.onSecondaryLongPress));
+          }
+          break;
+        }
+        case 4:
+        {
+          if (this.onTertiaryLongPressStart != null) {
+            let details = new long_press.LongPressStartDetails.new({globalPosition: dart.nullCheck(this[_longPressOrigin]).global, localPosition: dart.nullCheck(this[_longPressOrigin]).local});
+            this.invokeCallback(dart.void, "onTertiaryLongPressStart", dart.fn(() => dart.nullCheck(this.onTertiaryLongPressStart)(details), T.VoidTovoid()));
+          }
+          if (this.onTertiaryLongPress != null) {
+            this.invokeCallback(dart.void, "onTertiaryLongPress", dart.nullCheck(this.onTertiaryLongPress));
+          }
+          break;
+        }
+        default:
+        {
+          if (!false) dart.assertFailed("Unhandled button " + dart.str(this[_initialButtons]), I[0], 453, 16, "false");
+        }
+      }
+    }
+    [_checkLongPressMoveUpdate](event) {
+      if (event == null) dart.nullFailed(I[0], 457, 47, "event");
+      let details = new long_press.LongPressMoveUpdateDetails.new({globalPosition: event.position, localPosition: event.localPosition, offsetFromOrigin: event.position['-'](dart.nullCheck(this[_longPressOrigin]).global), localOffsetFromOrigin: event.localPosition['-'](dart.nullCheck(this[_longPressOrigin]).local)});
+      switch (this[_initialButtons]) {
+        case 1:
+        {
+          if (this.onLongPressMoveUpdate != null) {
+            this.invokeCallback(dart.void, "onLongPressMoveUpdate", dart.fn(() => dart.nullCheck(this.onLongPressMoveUpdate)(details), T.VoidTovoid()));
+          }
+          break;
+        }
+        case 2:
+        {
+          if (this.onSecondaryLongPressMoveUpdate != null) {
+            this.invokeCallback(dart.void, "onSecondaryLongPressMoveUpdate", dart.fn(() => dart.nullCheck(this.onSecondaryLongPressMoveUpdate)(details), T.VoidTovoid()));
+          }
+          break;
+        }
+        case 4:
+        {
+          if (this.onTertiaryLongPressMoveUpdate != null) {
+            this.invokeCallback(dart.void, "onTertiaryLongPressMoveUpdate", dart.fn(() => dart.nullCheck(this.onTertiaryLongPressMoveUpdate)(details), T.VoidTovoid()));
+          }
+          break;
+        }
+        default:
+        {
+          if (!false) dart.assertFailed("Unhandled button " + dart.str(this[_initialButtons]), I[0], 484, 16, "false");
+        }
+      }
+    }
+    [_checkLongPressEnd](event) {
+      if (event == null) dart.nullFailed(I[0], 488, 40, "event");
+      let estimate = dart.nullCheck(this[_velocityTracker]).getVelocityEstimate();
+      let velocity = estimate == null ? velocity_tracker.Velocity.zero : new velocity_tracker.Velocity.new({pixelsPerSecond: estimate.pixelsPerSecond});
+      let details = new long_press.LongPressEndDetails.new({globalPosition: event.position, localPosition: event.localPosition, velocity: velocity});
+      this[_velocityTracker] = null;
+      switch (this[_initialButtons]) {
+        case 1:
+        {
+          if (this.onLongPressEnd != null) {
+            this.invokeCallback(dart.void, "onLongPressEnd", dart.fn(() => dart.nullCheck(this.onLongPressEnd)(details), T.VoidTovoid()));
+          }
+          if (this.onLongPressUp != null) {
+            this.invokeCallback(dart.void, "onLongPressUp", dart.nullCheck(this.onLongPressUp));
+          }
+          break;
+        }
+        case 2:
+        {
+          if (this.onSecondaryLongPressEnd != null) {
+            this.invokeCallback(dart.void, "onSecondaryLongPressEnd", dart.fn(() => dart.nullCheck(this.onSecondaryLongPressEnd)(details), T.VoidTovoid()));
+          }
+          if (this.onSecondaryLongPressUp != null) {
+            this.invokeCallback(dart.void, "onSecondaryLongPressUp", dart.nullCheck(this.onSecondaryLongPressUp));
+          }
+          break;
+        }
+        case 4:
+        {
+          if (this.onTertiaryLongPressEnd != null) {
+            this.invokeCallback(dart.void, "onTertiaryLongPressEnd", dart.fn(() => dart.nullCheck(this.onTertiaryLongPressEnd)(details), T.VoidTovoid()));
+          }
+          if (this.onTertiaryLongPressUp != null) {
+            this.invokeCallback(dart.void, "onTertiaryLongPressUp", dart.nullCheck(this.onTertiaryLongPressUp));
+          }
+          break;
+        }
+        default:
+        {
+          if (!false) dart.assertFailed("Unhandled button " + dart.str(this[_initialButtons]), I[0], 526, 16, "false");
+        }
+      }
     }
     [_reset]() {
-      this[_stopDoubleTapTimer]();
-      if (this[_firstTap] != null) {
-        if (dart.test(this[_trackers][$isNotEmpty])) this[_checkCancel]();
-        let tracker = dart.nullCheck(this[_firstTap]);
-        this[_firstTap] = null;
-        this[_reject](tracker);
-        dart.nullCheck(binding.GestureBinding.instance).gestureArena.release(tracker.pointer);
+      this[_longPressAccepted] = false;
+      this[_longPressOrigin] = null;
+      this[_initialButtons] = null;
+      this[_velocityTracker] = null;
+    }
+    resolve(disposition) {
+      if (disposition == null) dart.nullFailed(I[0], 538, 35, "disposition");
+      if (dart.test(this[_longPressAccepted]) && disposition == arena.GestureDisposition.rejected) {
+        this[_reset]();
       }
-      this[_clearTrackers]();
-    }
-    [_registerFirstTap](tracker) {
-      if (tracker == null) dart.nullFailed(I[0], 310, 38, "tracker");
-      this[_startDoubleTapTimer]();
-      dart.nullCheck(binding.GestureBinding.instance).gestureArena.hold(tracker.pointer);
-      this[_freezeTracker](tracker);
-      this[_trackers][$remove](tracker.pointer);
-      this[_clearTrackers]();
-      this[_firstTap] = tracker;
-    }
-    [_registerSecondTap](tracker) {
-      if (tracker == null) dart.nullFailed(I[0], 321, 39, "tracker");
-      dart.nullCheck(this[_firstTap]).entry.resolve(arena.GestureDisposition.accepted);
-      tracker.entry.resolve(arena.GestureDisposition.accepted);
-      this[_freezeTracker](tracker);
-      this[_trackers][$remove](tracker.pointer);
-      this[_checkUp](tracker.initialButtons);
-      this[_reset]();
-    }
-    [_clearTrackers]() {
-      this[_trackers][$values][$toList]()[$forEach](dart.bind(this, _reject));
-      if (!dart.test(this[_trackers][$isEmpty])) dart.assertFailed(null, I[0], 332, 12, "_trackers.isEmpty");
-    }
-    [_freezeTracker](tracker) {
-      if (tracker == null) dart.nullFailed(I[0], 335, 35, "tracker");
-      tracker.stopTrackingPointer(dart.bind(this, _handleEvent));
-    }
-    [_startDoubleTapTimer]() {
-      this[_doubleTapTimer] == null ? this[_doubleTapTimer] = async.Timer.new(constants.kDoubleTapTimeout, dart.bind(this, _reset)) : null;
-    }
-    [_stopDoubleTapTimer]() {
-      if (this[_doubleTapTimer] != null) {
-        dart.nullCheck(this[_doubleTapTimer]).cancel();
-        this[_doubleTapTimer] = null;
-      }
-    }
-    [_checkUp](buttons) {
-      if (buttons == null) dart.nullFailed(I[0], 350, 21, "buttons");
-      if (!(buttons === 1)) dart.assertFailed(null, I[0], 351, 12, "buttons == kPrimaryButton");
-      if (this.onDoubleTap != null) this.invokeCallback(dart.void, "onDoubleTap", dart.nullCheck(this.onDoubleTap));
-    }
-    [_checkCancel]() {
-      if (this.onDoubleTapCancel != null) this.invokeCallback(dart.void, "onDoubleTapCancel", dart.nullCheck(this.onDoubleTapCancel));
-    }
-    get debugDescription() {
-      return "double tap";
-    }
-  };
-  (multitap.DoubleTapGestureRecognizer.new = function(opts) {
-    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
-    let kind = opts && 'kind' in opts ? opts.kind : null;
-    this[onDoubleTapDown] = null;
-    this[onDoubleTap] = null;
-    this[onDoubleTapCancel] = null;
-    this[_doubleTapTimer] = null;
-    this[_firstTap] = null;
-    this[_trackers] = new (T.IdentityMapOfint$_TapTracker()).new();
-    multitap.DoubleTapGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
-    ;
-  }).prototype = multitap.DoubleTapGestureRecognizer.prototype;
-  dart.addTypeTests(multitap.DoubleTapGestureRecognizer);
-  dart.addTypeCaches(multitap.DoubleTapGestureRecognizer);
-  dart.setMethodSignature(multitap.DoubleTapGestureRecognizer, () => ({
-    __proto__: dart.getMethods(multitap.DoubleTapGestureRecognizer.__proto__),
-    [_trackTap]: dart.fnType(dart.void, [events.PointerDownEvent]),
-    [_handleEvent]: dart.fnType(dart.void, [events.PointerEvent]),
-    acceptGesture: dart.fnType(dart.void, [core.int]),
-    rejectGesture: dart.fnType(dart.void, [core.int]),
-    [_reject]: dart.fnType(dart.void, [multitap._TapTracker]),
-    [_reset]: dart.fnType(dart.void, []),
-    [_registerFirstTap]: dart.fnType(dart.void, [multitap._TapTracker]),
-    [_registerSecondTap]: dart.fnType(dart.void, [multitap._TapTracker]),
-    [_clearTrackers]: dart.fnType(dart.void, []),
-    [_freezeTracker]: dart.fnType(dart.void, [multitap._TapTracker]),
-    [_startDoubleTapTimer]: dart.fnType(dart.void, []),
-    [_stopDoubleTapTimer]: dart.fnType(dart.void, []),
-    [_checkUp]: dart.fnType(dart.void, [core.int]),
-    [_checkCancel]: dart.fnType(dart.void, [])
-  }));
-  dart.setGetterSignature(multitap.DoubleTapGestureRecognizer, () => ({
-    __proto__: dart.getGetters(multitap.DoubleTapGestureRecognizer.__proto__),
-    debugDescription: core.String
-  }));
-  dart.setLibraryUri(multitap.DoubleTapGestureRecognizer, I[1]);
-  dart.setFieldSignature(multitap.DoubleTapGestureRecognizer, () => ({
-    __proto__: dart.getFields(multitap.DoubleTapGestureRecognizer.__proto__),
-    onDoubleTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [tap.TapDownDetails]))),
-    onDoubleTap: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-    onDoubleTapCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
-    [_doubleTapTimer]: dart.fieldType(dart.nullable(async.Timer)),
-    [_firstTap]: dart.fieldType(dart.nullable(multitap._TapTracker)),
-    [_trackers]: dart.finalFieldType(core.Map$(core.int, multitap._TapTracker))
-  }));
-  var _wonArena = dart.privateName(multitap, "_wonArena");
-  var _timer = dart.privateName(multitap, "_timer");
-  var _finalPosition = dart.privateName(multitap, "_finalPosition");
-  var _lastPosition = dart.privateName(multitap, "_lastPosition");
-  var _dispatchLongTap = dart.privateName(multitap, "_dispatchLongTap");
-  var _check = dart.privateName(multitap, "_check");
-  var _dispatchCancel = dart.privateName(multitap, "_dispatchCancel");
-  var _dispatchTap = dart.privateName(multitap, "_dispatchTap");
-  multitap._TapGesture = class _TapGesture extends multitap._TapTracker {
-    handleEvent(event) {
-      if (event == null) dart.nullFailed(I[0], 397, 33, "event");
-      if (!(event.pointer == this.pointer)) dart.assertFailed(null, I[0], 398, 12, "event.pointer == pointer");
-      if (events.PointerMoveEvent.is(event)) {
-        if (!dart.test(this.isWithinGlobalTolerance(event, events.computeHitSlop(event.kind))))
-          this.cancel();
-        else
-          this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
-      } else if (events.PointerCancelEvent.is(event)) {
-        this.cancel();
-      } else if (events.PointerUpEvent.is(event)) {
-        this.stopTrackingPointer(dart.bind(this, 'handleEvent'));
-        this[_finalPosition] = recognizer.OffsetPair.fromEventPosition(event);
-        this[_check]();
-      }
-    }
-    stopTrackingPointer(route) {
-      let t0;
-      if (route == null) dart.nullFailed(I[0], 414, 41, "route");
-      t0 = this[_timer];
-      t0 == null ? null : t0.cancel();
-      this[_timer] = null;
-      super.stopTrackingPointer(route);
-    }
-    accept() {
-      this[_wonArena] = true;
-      this[_check]();
-    }
-    reject() {
-      this.stopTrackingPointer(dart.bind(this, 'handleEvent'));
-      this.gestureRecognizer[_dispatchCancel](this.pointer);
-    }
-    cancel() {
-      if (dart.test(this[_wonArena]))
-        this.reject();
-      else
-        this.entry.resolve(arena.GestureDisposition.rejected);
-    }
-    [_check]() {
-      if (dart.test(this[_wonArena]) && this[_finalPosition] != null) this.gestureRecognizer[_dispatchTap](this.pointer, dart.nullCheck(this[_finalPosition]));
-    }
-  };
-  (multitap._TapGesture.new = function(opts) {
-    let gestureRecognizer = opts && 'gestureRecognizer' in opts ? opts.gestureRecognizer : null;
-    if (gestureRecognizer == null) dart.nullFailed(I[0], 371, 19, "gestureRecognizer");
-    let event = opts && 'event' in opts ? opts.event : null;
-    if (event == null) dart.nullFailed(I[0], 372, 27, "event");
-    let longTapDelay = opts && 'longTapDelay' in opts ? opts.longTapDelay : null;
-    if (longTapDelay == null) dart.nullFailed(I[0], 373, 23, "longTapDelay");
-    this[_wonArena] = false;
-    this[_timer] = null;
-    this[_finalPosition] = null;
-    this.gestureRecognizer = gestureRecognizer;
-    this[_lastPosition] = recognizer.OffsetPair.fromEventPosition(event);
-    multitap._TapGesture.__proto__.new.call(this, {event: events.PointerDownEvent.as(event), entry: dart.nullCheck(binding.GestureBinding.instance).gestureArena.add(event.pointer, gestureRecognizer), doubleTapMinTime: constants.kDoubleTapMinTime});
-    this.startTrackingPointer(dart.bind(this, 'handleEvent'), event.transform);
-    if (dart.test(longTapDelay['>'](core.Duration.zero))) {
-      this[_timer] = async.Timer.new(longTapDelay, dart.fn(() => {
-        this[_timer] = null;
-        this.gestureRecognizer[_dispatchLongTap](event.pointer, this[_lastPosition]);
-      }, T.VoidTovoid()));
-    }
-  }).prototype = multitap._TapGesture.prototype;
-  dart.addTypeTests(multitap._TapGesture);
-  dart.addTypeCaches(multitap._TapGesture);
-  dart.setMethodSignature(multitap._TapGesture, () => ({
-    __proto__: dart.getMethods(multitap._TapGesture.__proto__),
-    handleEvent: dart.fnType(dart.void, [events.PointerEvent]),
-    accept: dart.fnType(dart.void, []),
-    reject: dart.fnType(dart.void, []),
-    cancel: dart.fnType(dart.void, []),
-    [_check]: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(multitap._TapGesture, I[1]);
-  dart.setFieldSignature(multitap._TapGesture, () => ({
-    __proto__: dart.getFields(multitap._TapGesture.__proto__),
-    gestureRecognizer: dart.finalFieldType(multitap.MultiTapGestureRecognizer),
-    [_wonArena]: dart.fieldType(core.bool),
-    [_timer]: dart.fieldType(dart.nullable(async.Timer)),
-    [_lastPosition]: dart.fieldType(recognizer.OffsetPair),
-    [_finalPosition]: dart.fieldType(dart.nullable(recognizer.OffsetPair))
-  }));
-  var onTapDown = dart.privateName(multitap, "MultiTapGestureRecognizer.onTapDown");
-  var onTapUp = dart.privateName(multitap, "MultiTapGestureRecognizer.onTapUp");
-  var onTap = dart.privateName(multitap, "MultiTapGestureRecognizer.onTap");
-  var onTapCancel = dart.privateName(multitap, "MultiTapGestureRecognizer.onTapCancel");
-  var longTapDelay$ = dart.privateName(multitap, "MultiTapGestureRecognizer.longTapDelay");
-  var onLongTapDown = dart.privateName(multitap, "MultiTapGestureRecognizer.onLongTapDown");
-  var Duration__duration = dart.privateName(core, "Duration._duration");
-  var _gestureMap = dart.privateName(multitap, "_gestureMap");
-  multitap.MultiTapGestureRecognizer = class MultiTapGestureRecognizer extends recognizer.GestureRecognizer {
-    get onTapDown() {
-      return this[onTapDown];
-    }
-    set onTapDown(value) {
-      this[onTapDown] = value;
-    }
-    get onTapUp() {
-      return this[onTapUp];
-    }
-    set onTapUp(value) {
-      this[onTapUp] = value;
-    }
-    get onTap() {
-      return this[onTap];
-    }
-    set onTap(value) {
-      this[onTap] = value;
-    }
-    get onTapCancel() {
-      return this[onTapCancel];
-    }
-    set onTapCancel(value) {
-      this[onTapCancel] = value;
-    }
-    get longTapDelay() {
-      return this[longTapDelay$];
-    }
-    set longTapDelay(value) {
-      this[longTapDelay$] = value;
-    }
-    get onLongTapDown() {
-      return this[onLongTapDown];
-    }
-    set onLongTapDown(value) {
-      this[onLongTapDown] = value;
-    }
-    addAllowedPointer(event) {
-      if (event == null) dart.nullFailed(I[0], 490, 39, "event");
-      if (!!dart.test(this[_gestureMap][$containsKey](event.pointer))) dart.assertFailed(null, I[0], 491, 12, "!_gestureMap.containsKey(event.pointer)");
-      this[_gestureMap][$_set](event.pointer, new multitap._TapGesture.new({gestureRecognizer: this, event: event, longTapDelay: this.longTapDelay}));
-      if (this.onTapDown != null) this.invokeCallback(dart.void, "onTapDown", dart.fn(() => {
-        dart.nullCheck(this.onTapDown)(event.pointer, new tap.TapDownDetails.new({globalPosition: event.position, localPosition: event.localPosition, kind: event.kind}));
-      }, T.VoidTovoid()));
+      super.resolve(disposition);
     }
     acceptGesture(pointer) {
-      if (pointer == null) dart.nullFailed(I[0], 508, 26, "pointer");
-      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, I[0], 509, 12, "_gestureMap.containsKey(pointer)");
-      dart.nullCheck(this[_gestureMap][$_get](pointer)).accept();
-    }
-    rejectGesture(pointer) {
-      if (pointer == null) dart.nullFailed(I[0], 514, 26, "pointer");
-      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, I[0], 515, 12, "_gestureMap.containsKey(pointer)");
-      dart.nullCheck(this[_gestureMap][$_get](pointer)).reject();
-      if (!!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, I[0], 517, 12, "!_gestureMap.containsKey(pointer)");
-    }
-    [_dispatchCancel](pointer) {
-      if (pointer == null) dart.nullFailed(I[0], 520, 28, "pointer");
-      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, I[0], 521, 12, "_gestureMap.containsKey(pointer)");
-      this[_gestureMap][$remove](pointer);
-      if (this.onTapCancel != null) this.invokeCallback(dart.void, "onTapCancel", dart.fn(() => dart.nullCheck(this.onTapCancel)(pointer), T.VoidTovoid()));
-    }
-    [_dispatchTap](pointer, position) {
-      if (pointer == null) dart.nullFailed(I[0], 527, 25, "pointer");
-      if (position == null) dart.nullFailed(I[0], 527, 45, "position");
-      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, I[0], 528, 12, "_gestureMap.containsKey(pointer)");
-      this[_gestureMap][$remove](pointer);
-      if (this.onTapUp != null) this.invokeCallback(dart.void, "onTapUp", dart.fn(() => {
-        dart.nullCheck(this.onTapUp)(pointer, new tap.TapUpDetails.new({kind: this.getKindForPointer(pointer), localPosition: position.local, globalPosition: position.global}));
-      }, T.VoidTovoid()));
-      if (this.onTap != null) this.invokeCallback(dart.void, "onTap", dart.fn(() => dart.nullCheck(this.onTap)(pointer), T.VoidTovoid()));
-    }
-    [_dispatchLongTap](pointer, lastPosition) {
-      if (pointer == null) dart.nullFailed(I[0], 542, 29, "pointer");
-      if (lastPosition == null) dart.nullFailed(I[0], 542, 49, "lastPosition");
-      if (!dart.test(this[_gestureMap][$containsKey](pointer))) dart.assertFailed(null, I[0], 543, 12, "_gestureMap.containsKey(pointer)");
-      if (this.onLongTapDown != null) this.invokeCallback(dart.void, "onLongTapDown", dart.fn(() => {
-        dart.nullCheck(this.onLongTapDown)(pointer, new tap.TapDownDetails.new({globalPosition: lastPosition.global, localPosition: lastPosition.local, kind: this.getKindForPointer(pointer)}));
-      }, T.VoidTovoid()));
-    }
-    dispose() {
-      let localGestures = T.ListOf_TapGesture().from(this[_gestureMap][$values]);
-      for (let gesture of localGestures)
-        gesture.cancel();
-      if (!dart.test(this[_gestureMap][$isEmpty])) dart.assertFailed(null, I[0], 563, 12, "_gestureMap.isEmpty");
-      super.dispose();
+      if (pointer == null) dart.nullFailed(I[0], 548, 26, "pointer");
     }
     get debugDescription() {
-      return "multitap";
+      return "long press";
     }
   };
-  (multitap.MultiTapGestureRecognizer.new = function(opts) {
-    let longTapDelay = opts && 'longTapDelay' in opts ? opts.longTapDelay : C[0] || CT.C0;
-    if (longTapDelay == null) dart.nullFailed(I[0], 460, 10, "longTapDelay");
-    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+  (long_press.LongPressGestureRecognizer.new = function(opts) {
+    let t0;
+    let duration = opts && 'duration' in opts ? opts.duration : null;
+    let postAcceptSlopTolerance = opts && 'postAcceptSlopTolerance' in opts ? opts.postAcceptSlopTolerance : null;
     let kind = opts && 'kind' in opts ? opts.kind : null;
-    this[onTapDown] = null;
-    this[onTapUp] = null;
-    this[onTap] = null;
-    this[onTapCancel] = null;
-    this[onLongTapDown] = null;
-    this[_gestureMap] = new (T.IdentityMapOfint$_TapGesture()).new();
-    this[longTapDelay$] = longTapDelay;
-    multitap.MultiTapGestureRecognizer.__proto__.new.call(this, {debugOwner: debugOwner, kind: kind});
+    let debugOwner = opts && 'debugOwner' in opts ? opts.debugOwner : null;
+    this[_longPressAccepted] = false;
+    this[_longPressOrigin] = null;
+    this[_initialButtons] = null;
+    this[onLongPress] = null;
+    this[onLongPressStart] = null;
+    this[onLongPressMoveUpdate] = null;
+    this[onLongPressUp] = null;
+    this[onLongPressEnd] = null;
+    this[onSecondaryLongPress] = null;
+    this[onSecondaryLongPressStart] = null;
+    this[onSecondaryLongPressMoveUpdate] = null;
+    this[onSecondaryLongPressUp] = null;
+    this[onSecondaryLongPressEnd] = null;
+    this[onTertiaryLongPress] = null;
+    this[onTertiaryLongPressStart] = null;
+    this[onTertiaryLongPressMoveUpdate] = null;
+    this[onTertiaryLongPressUp] = null;
+    this[onTertiaryLongPressEnd] = null;
+    this[_velocityTracker] = null;
+    long_press.LongPressGestureRecognizer.__proto__.new.call(this, {deadline: (t0 = duration, t0 == null ? constants.kLongPressTimeout : t0), postAcceptSlopTolerance: postAcceptSlopTolerance, kind: kind, debugOwner: debugOwner});
     ;
-  }).prototype = multitap.MultiTapGestureRecognizer.prototype;
-  dart.addTypeTests(multitap.MultiTapGestureRecognizer);
-  dart.addTypeCaches(multitap.MultiTapGestureRecognizer);
-  dart.setMethodSignature(multitap.MultiTapGestureRecognizer, () => ({
-    __proto__: dart.getMethods(multitap.MultiTapGestureRecognizer.__proto__),
-    addAllowedPointer: dart.fnType(dart.void, [events.PointerEvent]),
-    acceptGesture: dart.fnType(dart.void, [core.int]),
-    rejectGesture: dart.fnType(dart.void, [core.int]),
-    [_dispatchCancel]: dart.fnType(dart.void, [core.int]),
-    [_dispatchTap]: dart.fnType(dart.void, [core.int, recognizer.OffsetPair]),
-    [_dispatchLongTap]: dart.fnType(dart.void, [core.int, recognizer.OffsetPair])
+  }).prototype = long_press.LongPressGestureRecognizer.prototype;
+  dart.addTypeTests(long_press.LongPressGestureRecognizer);
+  dart.addTypeCaches(long_press.LongPressGestureRecognizer);
+  dart.setMethodSignature(long_press.LongPressGestureRecognizer, () => ({
+    __proto__: dart.getMethods(long_press.LongPressGestureRecognizer.__proto__),
+    handlePrimaryPointer: dart.fnType(dart.void, [events.PointerEvent]),
+    [_checkLongPressStart]: dart.fnType(dart.void, []),
+    [_checkLongPressMoveUpdate]: dart.fnType(dart.void, [events.PointerEvent]),
+    [_checkLongPressEnd]: dart.fnType(dart.void, [events.PointerEvent]),
+    [_reset]: dart.fnType(dart.void, [])
   }));
-  dart.setGetterSignature(multitap.MultiTapGestureRecognizer, () => ({
-    __proto__: dart.getGetters(multitap.MultiTapGestureRecognizer.__proto__),
+  dart.setGetterSignature(long_press.LongPressGestureRecognizer, () => ({
+    __proto__: dart.getGetters(long_press.LongPressGestureRecognizer.__proto__),
     debugDescription: core.String
   }));
-  dart.setLibraryUri(multitap.MultiTapGestureRecognizer, I[1]);
-  dart.setFieldSignature(multitap.MultiTapGestureRecognizer, () => ({
-    __proto__: dart.getFields(multitap.MultiTapGestureRecognizer.__proto__),
-    onTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int, tap.TapDownDetails]))),
-    onTapUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int, tap.TapUpDetails]))),
-    onTap: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int]))),
-    onTapCancel: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int]))),
-    longTapDelay: dart.fieldType(core.Duration),
-    onLongTapDown: dart.fieldType(dart.nullable(dart.fnType(dart.void, [core.int, tap.TapDownDetails]))),
-    [_gestureMap]: dart.finalFieldType(core.Map$(core.int, multitap._TapGesture))
+  dart.setLibraryUri(long_press.LongPressGestureRecognizer, I[1]);
+  dart.setFieldSignature(long_press.LongPressGestureRecognizer, () => ({
+    __proto__: dart.getFields(long_press.LongPressGestureRecognizer.__proto__),
+    [_longPressAccepted]: dart.fieldType(core.bool),
+    [_longPressOrigin]: dart.fieldType(dart.nullable(recognizer.OffsetPair)),
+    [_initialButtons]: dart.fieldType(dart.nullable(core.int)),
+    onLongPress: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onLongPressStart: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressStartDetails]))),
+    onLongPressMoveUpdate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressMoveUpdateDetails]))),
+    onLongPressUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onLongPressEnd: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressEndDetails]))),
+    onSecondaryLongPress: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onSecondaryLongPressStart: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressStartDetails]))),
+    onSecondaryLongPressMoveUpdate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressMoveUpdateDetails]))),
+    onSecondaryLongPressUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onSecondaryLongPressEnd: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressEndDetails]))),
+    onTertiaryLongPress: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onTertiaryLongPressStart: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressStartDetails]))),
+    onTertiaryLongPressMoveUpdate: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressMoveUpdateDetails]))),
+    onTertiaryLongPressUp: dart.fieldType(dart.nullable(dart.fnType(dart.void, []))),
+    onTertiaryLongPressEnd: dart.fieldType(dart.nullable(dart.fnType(dart.void, [long_press.LongPressEndDetails]))),
+    [_velocityTracker]: dart.fieldType(dart.nullable(velocity_tracker.VelocityTracker))
   }));
-  dart.trackLibraries("packages/flutter/src/gestures/multitap.dart", {
-    "package:flutter/src/gestures/multitap.dart": multitap
+  dart.trackLibraries("packages/flutter/src/gestures/long_press.dart", {
+    "package:flutter/src/gestures/long_press.dart": long_press
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["multitap.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/gestures/multitap.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["long_press.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/gestures/long_press.dart.lib.js"}');
   // Exports:
   return {
-    src__gestures__multitap: multitap
+    src__gestures__long_press: long_press
   };
 }));
 
-//# sourceMappingURL=multitap.dart.lib.js.map
+//# sourceMappingURL=long_press.dart.lib.js.map

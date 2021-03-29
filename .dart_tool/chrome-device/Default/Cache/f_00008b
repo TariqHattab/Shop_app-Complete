@@ -1,33 +1,15 @@
-define(['dart_sdk'], (function load__packages__collection__src__canonicalized_map_dart(dart_sdk) {
+define(['dart_sdk'], (function load__packages__flutter__src__gestures__lsq_solver_dart(dart_sdk) {
   'use strict';
   const core = dart_sdk.core;
-  const _js_helper = dart_sdk._js_helper;
-  const collection = dart_sdk.collection;
+  const _native_typed_data = dart_sdk._native_typed_data;
+  const math = dart_sdk.math;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  var canonicalized_map = Object.create(dart.library);
+  var lsq_solver = Object.create(dart.library);
   var $_get = dartx._get;
   var $_set = dartx._set;
-  var $forEach = dartx.forEach;
-  var $map = dartx.map;
-  var $addEntries = dartx.addEntries;
-  var $cast = dartx.cast;
-  var $clear = dartx.clear;
-  var $containsKey = dartx.containsKey;
-  var $values = dartx.values;
-  var $any = dartx.any;
-  var $entries = dartx.entries;
-  var $isEmpty = dartx.isEmpty;
-  var $isNotEmpty = dartx.isNotEmpty;
   var $length = dartx.length;
-  var $putIfAbsent = dartx.putIfAbsent;
-  var $remove = dartx.remove;
-  var $removeWhere = dartx.removeWhere;
-  var $update = dartx.update;
-  var $updateAll = dartx.updateAll;
-  var $addAll = dartx.addAll;
-  var $containsValue = dartx.containsValue;
-  var $keys = dartx.keys;
   dart._checkModuleNullSafetyMode(false);
   var T = {
     _: () => T
@@ -46,304 +28,272 @@ define(['dart_sdk'], (function load__packages__collection__src__canonicalized_ma
   });
   var C = [];
   var I = [
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/collection-1.15.0/lib/src/canonicalized_map.dart",
-    "package:collection/src/canonicalized_map.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/gestures/lsq_solver.dart",
+    "package:flutter/src/gestures/lsq_solver.dart"
   ];
-  var _base = dart.privateName(canonicalized_map, "_base");
-  var _canonicalize = dart.privateName(canonicalized_map, "_canonicalize");
-  var _isValidKeyFn = dart.privateName(canonicalized_map, "_isValidKeyFn");
-  var _isValidKey = dart.privateName(canonicalized_map, "_isValidKey");
-  const _is_CanonicalizedMap_default = Symbol('_is_CanonicalizedMap_default');
-  canonicalized_map.CanonicalizedMap$ = dart.generic((C, K, V) => {
-    var LinkedMapOfC$MapEntryOfK$V = () => (LinkedMapOfC$MapEntryOfK$V = dart.constFn(_js_helper.LinkedMap$(C, MapEntryOfK$V())))();
-    var MapEntryOfC$MapEntryOfK$V = () => (MapEntryOfC$MapEntryOfK$V = dart.constFn(core.MapEntry$(C, MapEntryOfK$V())))();
-    var MapEntryOfK$VToMapEntryOfC$MapEntryOfK$V = () => (MapEntryOfK$VToMapEntryOfC$MapEntryOfK$V = dart.constFn(dart.fnType(MapEntryOfC$MapEntryOfK$V(), [MapEntryOfK$V()])))();
-    var MapEntryOfC$MapEntryOfK$VToMapEntryOfK$V = () => (MapEntryOfC$MapEntryOfK$VToMapEntryOfK$V = dart.constFn(dart.fnType(MapEntryOfK$V(), [MapEntryOfC$MapEntryOfK$V()])))();
-    var CAndMapEntryOfK$VTovoid = () => (CAndMapEntryOfK$VTovoid = dart.constFn(dart.fnType(dart.void, [C, MapEntryOfK$V()])))();
-    var CAndMapEntryOfK$VTobool = () => (CAndMapEntryOfK$VTobool = dart.constFn(dart.fnType(core.bool, [C, MapEntryOfK$V()])))();
-    var CAndMapEntryOfK$VToMapEntryOfK$V = () => (CAndMapEntryOfK$VToMapEntryOfK$V = dart.constFn(dart.fnType(MapEntryOfK$V(), [C, MapEntryOfK$V()])))();
-    var MapEntryOfK$V = () => (MapEntryOfK$V = dart.constFn(core.MapEntry$(K, V)))();
-    var MapOfK$V = () => (MapOfK$V = dart.constFn(core.Map$(K, V)))();
-    var KAndVTovoid = () => (KAndVTovoid = dart.constFn(dart.fnType(dart.void, [K, V])))();
-    var IterableOfMapEntryOfK$V = () => (IterableOfMapEntryOfK$V = dart.constFn(core.Iterable$(MapEntryOfK$V())))();
-    var MapEntryOfK$VTobool = () => (MapEntryOfK$VTobool = dart.constFn(dart.fnType(core.bool, [MapEntryOfK$V()])))();
-    var MapEntryOfK$VToK = () => (MapEntryOfK$VToK = dart.constFn(dart.fnType(K, [MapEntryOfK$V()])))();
-    var VoidToMapEntryOfK$V = () => (VoidToMapEntryOfK$V = dart.constFn(dart.fnType(MapEntryOfK$V(), [])))();
-    var MapEntryOfK$VToMapEntryOfK$V = () => (MapEntryOfK$VToMapEntryOfK$V = dart.constFn(dart.fnType(MapEntryOfK$V(), [MapEntryOfK$V()])))();
-    var KAndVToV = () => (KAndVToV = dart.constFn(dart.fnType(V, [K, V])))();
-    var MapEntryOfK$VToV = () => (MapEntryOfK$VToV = dart.constFn(dart.fnType(V, [MapEntryOfK$V()])))();
-    var VoidToV = () => (VoidToV = dart.constFn(dart.fnType(V, [])))();
-    var VToV = () => (VToV = dart.constFn(dart.fnType(V, [V])))();
-    var VoidToNV = () => (VoidToNV = dart.constFn(dart.nullable(VoidToV())))();
-    class CanonicalizedMap extends core.Object {
-      _get(key) {
-        let t0;
-        if (!dart.test(this[_isValidKey](key))) return null;
-        let pair = this[_base][$_get]((t0 = K.as(key), this[_canonicalize](t0)));
-        return pair == null ? null : pair.value;
-      }
-      _set(key, value$) {
-        let value = value$;
-        let t0;
-        K.as(key);
-        V.as(value);
-        if (!dart.test(this[_isValidKey](key))) return value$;
-        this[_base][$_set]((t0 = key, this[_canonicalize](t0)), new (MapEntryOfK$V()).__(key, value));
-        return value$;
-      }
-      addAll(other) {
-        MapOfK$V().as(other);
-        if (other == null) dart.nullFailed(I[0], 63, 25, "other");
-        other[$forEach](dart.fn((key, value) => {
-          let t1, t0;
-          t0 = key;
-          t1 = value;
-          this._set(t0, t1);
-          return t1;
-        }, KAndVTovoid()));
-      }
-      addEntries(entries) {
-        IterableOfMapEntryOfK$V().as(entries);
-        if (entries == null) dart.nullFailed(I[0], 68, 44, "entries");
-        return this[_base][$addEntries](entries[$map](MapEntryOfC$MapEntryOfK$V(), dart.fn(e => {
-          let t0;
-          if (e == null) dart.nullFailed(I[0], 69, 13, "e");
-          return new (MapEntryOfC$MapEntryOfK$V()).__((t0 = e.key, this[_canonicalize](t0)), new (MapEntryOfK$V()).__(e.key, e.value));
-        }, MapEntryOfK$VToMapEntryOfC$MapEntryOfK$V())));
-      }
-      cast(K2, V2) {
-        return this[_base][$cast](K2, V2);
-      }
-      clear() {
-        this[_base][$clear]();
-      }
-      containsKey(key) {
-        let t0;
-        if (!dart.test(this[_isValidKey](key))) return false;
-        return this[_base][$containsKey]((t0 = K.as(key), this[_canonicalize](t0)));
-      }
-      containsValue(value) {
-        return this[_base][$values][$any](dart.fn(pair => {
-          if (pair == null) dart.nullFailed(I[0], 87, 25, "pair");
-          return dart.equals(pair.value, value);
-        }, MapEntryOfK$VTobool()));
-      }
-      get entries() {
-        return this[_base][$entries][$map](MapEntryOfK$V(), dart.fn(e => {
-          if (e == null) dart.nullFailed(I[0], 91, 26, "e");
-          return new (MapEntryOfK$V()).__(e.value.key, e.value.value);
-        }, MapEntryOfC$MapEntryOfK$VToMapEntryOfK$V()));
-      }
-      forEach(f) {
-        if (f == null) dart.nullFailed(I[0], 94, 36, "f");
-        this[_base][$forEach](dart.fn((key, pair) => {
-          if (pair == null) dart.nullFailed(I[0], 95, 25, "pair");
-          return f(pair.key, pair.value);
-        }, CAndMapEntryOfK$VTovoid()));
-      }
-      get isEmpty() {
-        return this[_base][$isEmpty];
-      }
-      get isNotEmpty() {
-        return this[_base][$isNotEmpty];
-      }
-      get keys() {
-        return this[_base][$values][$map](K, dart.fn(pair => {
-          if (pair == null) dart.nullFailed(I[0], 105, 45, "pair");
-          return pair.key;
-        }, MapEntryOfK$VToK()));
-      }
-      get length() {
-        return this[_base][$length];
-      }
-      map(K2, V2, transform) {
-        if (transform == null) dart.nullFailed(I[0], 111, 59, "transform");
-        return this[_base][$map](K2, V2, dart.fn((_, pair) => {
-          if (pair == null) dart.nullFailed(I[0], 112, 21, "pair");
-          return transform(pair.key, pair.value);
-        }, dart.fnType(core.MapEntry$(K2, V2), [C, MapEntryOfK$V()])));
-      }
-      putIfAbsent(key, ifAbsent) {
-        let t0;
-        K.as(key);
-        VoidToV().as(ifAbsent);
-        if (ifAbsent == null) dart.nullFailed(I[0], 115, 37, "ifAbsent");
-        return this[_base][$putIfAbsent]((t0 = key, this[_canonicalize](t0)), dart.fn(() => new (MapEntryOfK$V()).__(key, ifAbsent()), VoidToMapEntryOfK$V())).value;
-      }
-      remove(key) {
-        let t0, t0$;
-        if (!dart.test(this[_isValidKey](key))) return null;
-        let pair = this[_base][$remove]((t0 = K.as(key), this[_canonicalize](t0)));
-        t0$ = pair;
-        return t0$ == null ? null : t0$.value;
-      }
-      removeWhere(test) {
-        if (test == null) dart.nullFailed(I[0], 129, 50, "test");
-        return this[_base][$removeWhere](dart.fn((_, pair) => {
-          if (pair == null) dart.nullFailed(I[0], 130, 29, "pair");
-          return test(pair.key, pair.value);
-        }, CAndMapEntryOfK$VTobool()));
-      }
-      retype(K2, V2) {
-        return this.cast(K2, V2);
-      }
-      update(key, update, opts) {
-        let t0;
-        K.as(key);
-        VToV().as(update);
-        if (update == null) dart.nullFailed(I[0], 136, 33, "update");
-        let ifAbsent = opts && 'ifAbsent' in opts ? opts.ifAbsent : null;
-        VoidToNV().as(ifAbsent);
-        return this[_base][$update]((t0 = key, this[_canonicalize](t0)), dart.fn(pair => {
-          if (pair == null) dart.nullFailed(I[0], 137, 41, "pair");
-          let value = pair.value;
-          let newValue = update(value);
-          if (core.identical(newValue, value)) return pair;
-          return new (MapEntryOfK$V()).__(key, newValue);
-        }, MapEntryOfK$VToMapEntryOfK$V()), {ifAbsent: ifAbsent == null ? null : dart.fn(() => new (MapEntryOfK$V()).__(key, ifAbsent()), VoidToMapEntryOfK$V())}).value;
-      }
-      updateAll(update) {
-        KAndVToV().as(update);
-        if (update == null) dart.nullFailed(I[0], 147, 45, "update");
-        return this[_base][$updateAll](dart.fn((_, pair) => {
-          if (pair == null) dart.nullFailed(I[0], 148, 27, "pair");
-          let value = pair.value;
-          let key = pair.key;
-          let newValue = update(key, value);
-          if (core.identical(value, newValue)) return pair;
-          return new (MapEntryOfK$V()).__(key, newValue);
-        }, CAndMapEntryOfK$VToMapEntryOfK$V()));
-      }
-      get values() {
-        return this[_base][$values][$map](V, dart.fn(pair => {
-          if (pair == null) dart.nullFailed(I[0], 157, 47, "pair");
-          return pair.value;
-        }, MapEntryOfK$VToV()));
-      }
-      toString() {
-        return collection.MapBase.mapToString(this);
-      }
-      [_isValidKey](key) {
-        return K.is(key) && (this[_isValidKeyFn] == null || dart.test(dart.nullCheck(this[_isValidKeyFn])(key)));
-      }
+  var _offset = dart.privateName(lsq_solver, "_offset");
+  var _length = dart.privateName(lsq_solver, "_length");
+  var _elements = dart.privateName(lsq_solver, "_elements");
+  lsq_solver._Vector = class _Vector extends core.Object {
+    _get(i) {
+      if (i == null) dart.nullFailed(I[0], 29, 26, "i");
+      return this[_elements][$_get](dart.notNull(i) + dart.notNull(this[_offset]));
     }
-    (CanonicalizedMap.new = function(canonicalize, opts) {
-      if (canonicalize == null) dart.nullFailed(I[0], 28, 38, "canonicalize");
-      let isValidKey = opts && 'isValidKey' in opts ? opts.isValidKey : null;
-      this[_base] = new (LinkedMapOfC$MapEntryOfK$V()).new();
-      this[_canonicalize] = canonicalize;
-      this[_isValidKeyFn] = isValidKey;
-      ;
-    }).prototype = CanonicalizedMap.prototype;
-    (CanonicalizedMap.from = function(other, canonicalize, opts) {
-      if (other == null) dart.nullFailed(I[0], 42, 35, "other");
-      if (canonicalize == null) dart.nullFailed(I[0], 42, 60, "canonicalize");
-      let isValidKey = opts && 'isValidKey' in opts ? opts.isValidKey : null;
-      this[_base] = new (LinkedMapOfC$MapEntryOfK$V()).new();
-      this[_canonicalize] = canonicalize;
-      this[_isValidKeyFn] = isValidKey;
-      this.addAll(other);
-    }).prototype = CanonicalizedMap.prototype;
-    CanonicalizedMap.prototype[dart.isMap] = true;
-    dart.addTypeTests(CanonicalizedMap);
-    CanonicalizedMap.prototype[_is_CanonicalizedMap_default] = true;
-    dart.addTypeCaches(CanonicalizedMap);
-    CanonicalizedMap[dart.implements] = () => [core.Map$(K, V)];
-    dart.setMethodSignature(CanonicalizedMap, () => ({
-      __proto__: dart.getMethods(CanonicalizedMap.__proto__),
-      _get: dart.fnType(dart.nullable(V), [dart.nullable(core.Object)]),
-      [$_get]: dart.fnType(dart.nullable(V), [dart.nullable(core.Object)]),
-      _set: dart.fnType(dart.void, [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      [$_set]: dart.fnType(dart.void, [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      addAll: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      [$addAll]: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      addEntries: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      [$addEntries]: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      cast: dart.gFnType((K2, V2) => [core.Map$(K2, V2), []], (K2, V2) => [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      [$cast]: dart.gFnType((K2, V2) => [core.Map$(K2, V2), []], (K2, V2) => [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      clear: dart.fnType(dart.void, []),
-      [$clear]: dart.fnType(dart.void, []),
-      containsKey: dart.fnType(core.bool, [dart.nullable(core.Object)]),
-      [$containsKey]: dart.fnType(core.bool, [dart.nullable(core.Object)]),
-      containsValue: dart.fnType(core.bool, [dart.nullable(core.Object)]),
-      [$containsValue]: dart.fnType(core.bool, [dart.nullable(core.Object)]),
-      forEach: dart.fnType(dart.void, [dart.fnType(dart.void, [K, V])]),
-      [$forEach]: dart.fnType(dart.void, [dart.fnType(dart.void, [K, V])]),
-      map: dart.gFnType((K2, V2) => [core.Map$(K2, V2), [dart.fnType(core.MapEntry$(K2, V2), [K, V])]], (K2, V2) => [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      [$map]: dart.gFnType((K2, V2) => [core.Map$(K2, V2), [dart.fnType(core.MapEntry$(K2, V2), [K, V])]], (K2, V2) => [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      putIfAbsent: dart.fnType(V, [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      [$putIfAbsent]: dart.fnType(V, [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      remove: dart.fnType(dart.nullable(V), [dart.nullable(core.Object)]),
-      [$remove]: dart.fnType(dart.nullable(V), [dart.nullable(core.Object)]),
-      removeWhere: dart.fnType(dart.void, [dart.fnType(core.bool, [K, V])]),
-      [$removeWhere]: dart.fnType(dart.void, [dart.fnType(core.bool, [K, V])]),
-      retype: dart.gFnType((K2, V2) => [core.Map$(K2, V2), []], (K2, V2) => [dart.nullable(core.Object), dart.nullable(core.Object)]),
-      update: dart.fnType(V, [dart.nullable(core.Object), dart.nullable(core.Object)], {ifAbsent: dart.nullable(core.Object)}, {}),
-      [$update]: dart.fnType(V, [dart.nullable(core.Object), dart.nullable(core.Object)], {ifAbsent: dart.nullable(core.Object)}, {}),
-      updateAll: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      [$updateAll]: dart.fnType(dart.void, [dart.nullable(core.Object)]),
-      [_isValidKey]: dart.fnType(core.bool, [dart.nullable(core.Object)])
-    }));
-    dart.setGetterSignature(CanonicalizedMap, () => ({
-      __proto__: dart.getGetters(CanonicalizedMap.__proto__),
-      entries: core.Iterable$(core.MapEntry$(K, V)),
-      [$entries]: core.Iterable$(core.MapEntry$(K, V)),
-      isEmpty: core.bool,
-      [$isEmpty]: core.bool,
-      isNotEmpty: core.bool,
-      [$isNotEmpty]: core.bool,
-      keys: core.Iterable$(K),
-      [$keys]: core.Iterable$(K),
-      length: core.int,
-      [$length]: core.int,
-      values: core.Iterable$(V),
-      [$values]: core.Iterable$(V)
-    }));
-    dart.setLibraryUri(CanonicalizedMap, I[1]);
-    dart.setFieldSignature(CanonicalizedMap, () => ({
-      __proto__: dart.getFields(CanonicalizedMap.__proto__),
-      [_canonicalize]: dart.finalFieldType(dart.fnType(C, [K])),
-      [_isValidKeyFn]: dart.finalFieldType(dart.nullable(dart.fnType(core.bool, [K]))),
-      [_base]: dart.finalFieldType(core.Map$(C, core.MapEntry$(K, V)))
-    }));
-    dart.defineExtensionMethods(CanonicalizedMap, [
-      '_get',
-      '_set',
-      'addAll',
-      'addEntries',
-      'cast',
-      'clear',
-      'containsKey',
-      'containsValue',
-      'forEach',
-      'map',
-      'putIfAbsent',
-      'remove',
-      'removeWhere',
-      'update',
-      'updateAll',
-      'toString'
-    ]);
-    dart.defineExtensionAccessors(CanonicalizedMap, [
-      'entries',
-      'isEmpty',
-      'isNotEmpty',
-      'keys',
-      'length',
-      'values'
-    ]);
-    return CanonicalizedMap;
-  });
-  canonicalized_map.CanonicalizedMap = canonicalized_map.CanonicalizedMap$();
-  dart.addTypeTests(canonicalized_map.CanonicalizedMap, _is_CanonicalizedMap_default);
-  dart.trackLibraries("packages/collection/src/canonicalized_map.dart", {
-    "package:collection/src/canonicalized_map.dart": canonicalized_map
+    _set(i, value$) {
+      let value = value$;
+      if (i == null) dart.nullFailed(I[0], 30, 25, "i");
+      if (value == null) dart.nullFailed(I[0], 30, 35, "value");
+      this[_elements][$_set](dart.notNull(i) + dart.notNull(this[_offset]), value);
+      return value$;
+    }
+    ['*'](a) {
+      if (a == null) dart.nullFailed(I[0], 34, 29, "a");
+      let result = 0.0;
+      for (let i = 0; i < dart.notNull(this[_length]); i = i + 1)
+        result = result + dart.notNull(this._get(i)) * dart.notNull(a._get(i));
+      return result;
+    }
+    norm() {
+      return math.sqrt(this['*'](this));
+    }
+  };
+  (lsq_solver._Vector.new = function(size) {
+    if (size == null) dart.nullFailed(I[0], 13, 15, "size");
+    this[_offset] = 0;
+    this[_length] = size;
+    this[_elements] = _native_typed_data.NativeFloat64List.new(size);
+    ;
+  }).prototype = lsq_solver._Vector.prototype;
+  (lsq_solver._Vector.fromVOL = function(values, offset, length) {
+    if (values == null) dart.nullFailed(I[0], 18, 32, "values");
+    if (offset == null) dart.nullFailed(I[0], 18, 44, "offset");
+    if (length == null) dart.nullFailed(I[0], 18, 56, "length");
+    this[_offset] = offset;
+    this[_length] = length;
+    this[_elements] = values;
+    ;
+  }).prototype = lsq_solver._Vector.prototype;
+  dart.addTypeTests(lsq_solver._Vector);
+  dart.addTypeCaches(lsq_solver._Vector);
+  dart.setMethodSignature(lsq_solver._Vector, () => ({
+    __proto__: dart.getMethods(lsq_solver._Vector.__proto__),
+    _get: dart.fnType(core.double, [core.int]),
+    _set: dart.fnType(dart.void, [core.int, core.double]),
+    '*': dart.fnType(core.double, [lsq_solver._Vector]),
+    norm: dart.fnType(core.double, [])
+  }));
+  dart.setLibraryUri(lsq_solver._Vector, I[1]);
+  dart.setFieldSignature(lsq_solver._Vector, () => ({
+    __proto__: dart.getFields(lsq_solver._Vector.__proto__),
+    [_offset]: dart.finalFieldType(core.int),
+    [_length]: dart.finalFieldType(core.int),
+    [_elements]: dart.finalFieldType(core.List$(core.double))
+  }));
+  var _columns = dart.privateName(lsq_solver, "_columns");
+  lsq_solver._Matrix = class _Matrix extends core.Object {
+    get(row, col) {
+      if (row == null) dart.nullFailed(I[0], 53, 18, "row");
+      if (col == null) dart.nullFailed(I[0], 53, 27, "col");
+      return this[_elements][$_get](dart.notNull(row) * dart.notNull(this[_columns]) + dart.notNull(col));
+    }
+    set(row, col, value) {
+      if (row == null) dart.nullFailed(I[0], 54, 16, "row");
+      if (col == null) dart.nullFailed(I[0], 54, 25, "col");
+      if (value == null) dart.nullFailed(I[0], 54, 37, "value");
+      this[_elements][$_set](dart.notNull(row) * dart.notNull(this[_columns]) + dart.notNull(col), value);
+    }
+    getRow(row) {
+      if (row == null) dart.nullFailed(I[0], 58, 22, "row");
+      return new lsq_solver._Vector.fromVOL(this[_elements], dart.notNull(row) * dart.notNull(this[_columns]), this[_columns]);
+    }
+  };
+  (lsq_solver._Matrix.new = function(rows, cols) {
+    if (rows == null) dart.nullFailed(I[0], 46, 15, "rows");
+    if (cols == null) dart.nullFailed(I[0], 46, 25, "cols");
+    this[_columns] = cols;
+    this[_elements] = _native_typed_data.NativeFloat64List.new(dart.notNull(rows) * dart.notNull(cols));
+    ;
+  }).prototype = lsq_solver._Matrix.prototype;
+  dart.addTypeTests(lsq_solver._Matrix);
+  dart.addTypeCaches(lsq_solver._Matrix);
+  dart.setMethodSignature(lsq_solver._Matrix, () => ({
+    __proto__: dart.getMethods(lsq_solver._Matrix.__proto__),
+    get: dart.fnType(core.double, [core.int, core.int]),
+    set: dart.fnType(dart.void, [core.int, core.int, core.double]),
+    getRow: dart.fnType(lsq_solver._Vector, [core.int])
+  }));
+  dart.setLibraryUri(lsq_solver._Matrix, I[1]);
+  dart.setFieldSignature(lsq_solver._Matrix, () => ({
+    __proto__: dart.getFields(lsq_solver._Matrix.__proto__),
+    [_columns]: dart.finalFieldType(core.int),
+    [_elements]: dart.finalFieldType(core.List$(core.double))
+  }));
+  var coefficients = dart.privateName(lsq_solver, "PolynomialFit.coefficients");
+  var __PolynomialFit_confidence = dart.privateName(lsq_solver, "_#PolynomialFit#confidence");
+  var __PolynomialFit_confidence_isSet = dart.privateName(lsq_solver, "_#PolynomialFit#confidence#isSet");
+  lsq_solver.PolynomialFit = class PolynomialFit extends core.Object {
+    get coefficients() {
+      return this[coefficients];
+    }
+    set coefficients(value) {
+      super.coefficients = value;
+    }
+    get confidence() {
+      let t0;
+      return dart.test(this[__PolynomialFit_confidence_isSet]) ? (t0 = this[__PolynomialFit_confidence], t0) : dart.throw(new _internal.LateError.fieldNI("confidence"));
+    }
+    set confidence(t0) {
+      if (t0 == null) dart.nullFailed(I[0], 78, 15, "null");
+      this[__PolynomialFit_confidence_isSet] = true;
+      this[__PolynomialFit_confidence] = t0;
+    }
+  };
+  (lsq_solver.PolynomialFit.new = function(degree) {
+    if (degree == null) dart.nullFailed(I[0], 70, 21, "degree");
+    this[__PolynomialFit_confidence] = null;
+    this[__PolynomialFit_confidence_isSet] = false;
+    this[coefficients] = _native_typed_data.NativeFloat64List.new(dart.notNull(degree) + 1);
+    ;
+  }).prototype = lsq_solver.PolynomialFit.prototype;
+  dart.addTypeTests(lsq_solver.PolynomialFit);
+  dart.addTypeCaches(lsq_solver.PolynomialFit);
+  dart.setGetterSignature(lsq_solver.PolynomialFit, () => ({
+    __proto__: dart.getGetters(lsq_solver.PolynomialFit.__proto__),
+    confidence: core.double
+  }));
+  dart.setSetterSignature(lsq_solver.PolynomialFit, () => ({
+    __proto__: dart.getSetters(lsq_solver.PolynomialFit.__proto__),
+    confidence: core.double
+  }));
+  dart.setLibraryUri(lsq_solver.PolynomialFit, I[1]);
+  dart.setFieldSignature(lsq_solver.PolynomialFit, () => ({
+    __proto__: dart.getFields(lsq_solver.PolynomialFit.__proto__),
+    coefficients: dart.finalFieldType(core.List$(core.double)),
+    [__PolynomialFit_confidence]: dart.fieldType(dart.nullable(core.double)),
+    [__PolynomialFit_confidence_isSet]: dart.fieldType(core.bool)
+  }));
+  var x$ = dart.privateName(lsq_solver, "LeastSquaresSolver.x");
+  var y$ = dart.privateName(lsq_solver, "LeastSquaresSolver.y");
+  var w$ = dart.privateName(lsq_solver, "LeastSquaresSolver.w");
+  lsq_solver.LeastSquaresSolver = class LeastSquaresSolver extends core.Object {
+    get x() {
+      return this[x$];
+    }
+    set x(value) {
+      super.x = value;
+    }
+    get y() {
+      return this[y$];
+    }
+    set y(value) {
+      super.y = value;
+    }
+    get w() {
+      return this[w$];
+    }
+    set w(value) {
+      super.w = value;
+    }
+    solve(degree) {
+      let t2, t1, t2$, t1$;
+      if (degree == null) dart.nullFailed(I[0], 102, 28, "degree");
+      if (dart.notNull(degree) > dart.notNull(this.x[$length])) return null;
+      let result = new lsq_solver.PolynomialFit.new(degree);
+      let m = this.x[$length];
+      let n = dart.notNull(degree) + 1;
+      let a = new lsq_solver._Matrix.new(n, m);
+      for (let h = 0; h < dart.notNull(m); h = h + 1) {
+        a.set(0, h, this.w[$_get](h));
+        for (let i = 1; i < n; i = i + 1)
+          a.set(i, h, dart.notNull(a.get(i - 1, h)) * dart.notNull(this.x[$_get](h)));
+      }
+      let q = new lsq_solver._Matrix.new(n, m);
+      let r = new lsq_solver._Matrix.new(n, n);
+      for (let j = 0; j < n; j = j + 1) {
+        for (let h = 0; h < dart.notNull(m); h = h + 1)
+          q.set(j, h, a.get(j, h));
+        for (let i = 0; i < j; i = i + 1) {
+          let dot = q.getRow(j)['*'](q.getRow(i));
+          for (let h = 0; h < dart.notNull(m); h = h + 1)
+            q.set(j, h, dart.notNull(q.get(j, h)) - dart.notNull(dot) * dart.notNull(q.get(i, h)));
+        }
+        let norm = q.getRow(j).norm();
+        if (dart.notNull(norm) < 1e-10) {
+          return null;
+        }
+        let inverseNorm = 1.0 / dart.notNull(norm);
+        for (let h = 0; h < dart.notNull(m); h = h + 1)
+          q.set(j, h, dart.notNull(q.get(j, h)) * inverseNorm);
+        for (let i = 0; i < n; i = i + 1)
+          r.set(j, i, i < j ? 0.0 : q.getRow(j)['*'](a.getRow(i)));
+      }
+      let wy = new lsq_solver._Vector.new(m);
+      for (let h = 0; h < dart.notNull(m); h = h + 1)
+        wy._set(h, dart.notNull(this.y[$_get](h)) * dart.notNull(this.w[$_get](h)));
+      for (let i = n - 1; i >= 0; i = i - 1) {
+        result.coefficients[$_set](i, q.getRow(i)['*'](wy));
+        for (let j = n - 1; j > i; j = j - 1) {
+          t1 = result.coefficients;
+          t2 = i;
+          t1[$_set](t2, dart.notNull(t1[$_get](t2)) - dart.notNull(r.get(i, j)) * dart.notNull(result.coefficients[$_get](j)));
+        }
+        t1$ = result.coefficients;
+        t2$ = i;
+        t1$[$_set](t2$, dart.notNull(t1$[$_get](t2$)) / dart.notNull(r.get(i, i)));
+      }
+      let yMean = 0.0;
+      for (let h = 0; h < dart.notNull(m); h = h + 1)
+        yMean = yMean + dart.notNull(this.y[$_get](h));
+      yMean = yMean / dart.notNull(m);
+      let sumSquaredError = 0.0;
+      let sumSquaredTotal = 0.0;
+      for (let h = 0; h < dart.notNull(m); h = h + 1) {
+        let term = 1.0;
+        let err = dart.notNull(this.y[$_get](h)) - dart.notNull(result.coefficients[$_get](0));
+        for (let i = 1; i < n; i = i + 1) {
+          term = term * dart.notNull(this.x[$_get](h));
+          err = err - term * dart.notNull(result.coefficients[$_get](i));
+        }
+        sumSquaredError = sumSquaredError + dart.notNull(this.w[$_get](h)) * dart.notNull(this.w[$_get](h)) * err * err;
+        let v = dart.notNull(this.y[$_get](h)) - yMean;
+        sumSquaredTotal = sumSquaredTotal + dart.notNull(this.w[$_get](h)) * dart.notNull(this.w[$_get](h)) * v * v;
+      }
+      result.confidence = sumSquaredTotal <= 1e-10 ? 1.0 : 1.0 - sumSquaredError / sumSquaredTotal;
+      return result;
+    }
+  };
+  (lsq_solver.LeastSquaresSolver.new = function(x, y, w) {
+    if (x == null) dart.nullFailed(I[0], 86, 27, "x");
+    if (y == null) dart.nullFailed(I[0], 86, 35, "y");
+    if (w == null) dart.nullFailed(I[0], 86, 43, "w");
+    this[x$] = x;
+    this[y$] = y;
+    this[w$] = w;
+    if (!(x[$length] == y[$length])) dart.assertFailed(null, I[0], 87, 14, "x.length == y.length");
+    if (!(y[$length] == w[$length])) dart.assertFailed(null, I[0], 88, 14, "y.length == w.length");
+    ;
+  }).prototype = lsq_solver.LeastSquaresSolver.prototype;
+  dart.addTypeTests(lsq_solver.LeastSquaresSolver);
+  dart.addTypeCaches(lsq_solver.LeastSquaresSolver);
+  dart.setMethodSignature(lsq_solver.LeastSquaresSolver, () => ({
+    __proto__: dart.getMethods(lsq_solver.LeastSquaresSolver.__proto__),
+    solve: dart.fnType(dart.nullable(lsq_solver.PolynomialFit), [core.int])
+  }));
+  dart.setLibraryUri(lsq_solver.LeastSquaresSolver, I[1]);
+  dart.setFieldSignature(lsq_solver.LeastSquaresSolver, () => ({
+    __proto__: dart.getFields(lsq_solver.LeastSquaresSolver.__proto__),
+    x: dart.finalFieldType(core.List$(core.double)),
+    y: dart.finalFieldType(core.List$(core.double)),
+    w: dart.finalFieldType(core.List$(core.double))
+  }));
+  dart.trackLibraries("packages/flutter/src/gestures/lsq_solver.dart", {
+    "package:flutter/src/gestures/lsq_solver.dart": lsq_solver
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["canonicalized_map.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/collection/src/canonicalized_map.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["lsq_solver.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/gestures/lsq_solver.dart.lib.js"}');
   // Exports:
   return {
-    src__canonicalized_map: canonicalized_map
+    src__gestures__lsq_solver: lsq_solver
   };
 }));
 
-//# sourceMappingURL=canonicalized_map.dart.lib.js.map
+//# sourceMappingURL=lsq_solver.dart.lib.js.map

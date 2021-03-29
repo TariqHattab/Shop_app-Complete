@@ -1,37 +1,82 @@
-define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart'], (function load__packages__nested__nested_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart) {
+define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/painting/box_decoration.dart', 'packages/flutter/src/painting/gradient.dart', 'packages/flutter/src/painting/alignment.dart', 'packages/flutter/src/widgets/single_child_scroll_view.dart', 'packages/flutter/src/rendering/flex.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/painting/border_radius.dart', 'packages/flutter/src/material/colors.dart', 'packages/flutter/src/painting/box_shadow.dart', 'packages/flutter/src/painting/strut_style.dart', 'packages/flutter/src/widgets/form.dart', 'packages/provider/src/provider.dart', 'packages/shop_app/providers/auth.dart', 'packages/shop_app/models/http_exception.dart', 'packages/flutter/src/material/card.dart', 'packages/flutter/src/painting/rounded_rectangle_border.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/material/text_form_field.dart', 'packages/flutter/src/services/text_input.dart', 'packages/flutter/src/material/progress_indicator.dart'], (function load__packages__shop_app__screens__auth_screen_dart(dart_sdk, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__painting__box_decoration$46dart, packages__flutter__src__painting__gradient$46dart, packages__flutter__src__painting__alignment$46dart, packages__flutter__src__widgets__single_child_scroll_view$46dart, packages__flutter__src__rendering__flex$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__painting__border_radius$46dart, packages__flutter__src__material__colors$46dart, packages__flutter__src__painting__box_shadow$46dart, packages__flutter__src__painting__strut_style$46dart, packages__flutter__src__widgets__form$46dart, packages__provider__src__provider$46dart, packages__shop_app__providers__auth$46dart, packages__shop_app__models__http_exception$46dart, packages__flutter__src__material__card$46dart, packages__flutter__src__painting__rounded_rectangle_border$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__material__text_form_field$46dart, packages__flutter__src__services__text_input$46dart, packages__flutter__src__material__progress_indicator$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const collection = dart_sdk.collection;
+  const ui = dart_sdk.ui;
+  const _interceptors = dart_sdk._interceptors;
+  const _js_helper = dart_sdk._js_helper;
+  const async = dart_sdk.async;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
   const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  var nested = Object.create(dart.library);
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $reversed = dartx.reversed;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const editable_text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__editable_text;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const dialog = packages__flutter__src__material__icon_button$46dart.src__material__dialog;
+  const input_decorator = packages__flutter__src__material__icon_button$46dart.src__material__input_decorator;
+  const raised_button = packages__flutter__src__material__icon_button$46dart.src__material__raised_button;
+  const flat_button = packages__flutter__src__material__icon_button$46dart.src__material__flat_button;
+  const theme_data = packages__flutter__src__material__icon_button$46dart.src__material__theme_data;
+  const box_decoration = packages__flutter__src__painting__box_decoration$46dart.src__painting__box_decoration;
+  const gradient = packages__flutter__src__painting__gradient$46dart.src__painting__gradient;
+  const alignment = packages__flutter__src__painting__alignment$46dart.src__painting__alignment;
+  const single_child_scroll_view = packages__flutter__src__widgets__single_child_scroll_view$46dart.src__widgets__single_child_scroll_view;
+  const flex = packages__flutter__src__rendering__flex$46dart.src__rendering__flex;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
+  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
+  const colors = packages__flutter__src__material__colors$46dart.src__material__colors;
+  const box_shadow = packages__flutter__src__painting__box_shadow$46dart.src__painting__box_shadow;
+  const text_style = packages__flutter__src__painting__strut_style$46dart.src__painting__text_style;
+  const form = packages__flutter__src__widgets__form$46dart.src__widgets__form;
+  const provider = packages__provider__src__provider$46dart.src__provider;
+  const auth = packages__shop_app__providers__auth$46dart.providers__auth;
+  const http_exception = packages__shop_app__models__http_exception$46dart.models__http_exception;
+  const card = packages__flutter__src__material__card$46dart.src__material__card;
+  const rounded_rectangle_border = packages__flutter__src__painting__rounded_rectangle_border$46dart.src__painting__rounded_rectangle_border;
+  const box = packages__flutter__src__rendering__layer$46dart.src__rendering__box;
+  const text_form_field = packages__flutter__src__material__text_form_field$46dart.src__material__text_form_field;
+  const text_input = packages__flutter__src__services__text_input$46dart.src__services__text_input;
+  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
+  var auth_screen = Object.create(dart.library);
+  var $toString = dartx.toString;
+  var $_get = dartx._get;
+  var $isEmpty = dartx.isEmpty;
+  var $contains = dartx.contains;
+  var $_set = dartx._set;
+  var $add = dartx.add;
   dart._checkModuleNullSafetyMode(false);
-  var T$ = {
-    _NestedHookElementL: () => (T$._NestedHookElementL = dart.constFn(dart.legacy(nested._NestedHookElement)))(),
-    LinkedHashSetOf_NestedHookElementL: () => (T$.LinkedHashSetOf_NestedHookElementL = dart.constFn(collection.LinkedHashSet$(T$._NestedHookElementL())))(),
-    NestedL: () => (T$.NestedL = dart.constFn(dart.legacy(nested.Nested)))(),
-    _LocationL: () => (T$._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
-    _NestedHookL: () => (T$._NestedHookL = dart.constFn(dart.legacy(nested._NestedHook)))(),
-    boolL: () => (T$.boolL = dart.constFn(dart.legacy(core.bool)))(),
-    ElementL: () => (T$.ElementL = dart.constFn(dart.legacy(framework.Element)))(),
-    ElementLToboolL: () => (T$.ElementLToboolL = dart.constFn(dart.fnType(T$.boolL(), [T$.ElementL()])))(),
-    ElementLTovoid: () => (T$.ElementLTovoid = dart.constFn(dart.fnType(dart.void, [T$.ElementL()])))(),
-    SingleChildStatelessWidgetL: () => (T$.SingleChildStatelessWidgetL = dart.constFn(dart.legacy(nested.SingleChildStatelessWidget)))(),
-    SingleChildStatefulWidgetL: () => (T$.SingleChildStatefulWidgetL = dart.constFn(dart.legacy(nested.SingleChildStatefulWidget)))(),
-    SingleChildStateOfSingleChildStatefulWidgetL: () => (T$.SingleChildStateOfSingleChildStatefulWidgetL = dart.constFn(nested.SingleChildState$(T$.SingleChildStatefulWidgetL())))(),
-    SingleChildStateLOfSingleChildStatefulWidgetL: () => (T$.SingleChildStateLOfSingleChildStatefulWidgetL = dart.constFn(dart.legacy(T$.SingleChildStateOfSingleChildStatefulWidgetL())))(),
-    SingleChildStatefulWidgetMixinL: () => (T$.SingleChildStatefulWidgetMixinL = dart.constFn(dart.legacy(nested.SingleChildStatefulWidgetMixin)))(),
-    StatefulWidgetL: () => (T$.StatefulWidgetL = dart.constFn(dart.legacy(framework.StatefulWidget)))(),
-    SingleChildStateMixinOfStatefulWidgetL: () => (T$.SingleChildStateMixinOfStatefulWidgetL = dart.constFn(nested.SingleChildStateMixin$(T$.StatefulWidgetL())))(),
-    SingleChildStateMixinLOfStatefulWidgetL: () => (T$.SingleChildStateMixinLOfStatefulWidgetL = dart.constFn(dart.legacy(T$.SingleChildStateMixinOfStatefulWidgetL())))()
+  var T = {
+    AuthModeL: () => (T.AuthModeL = dart.constFn(dart.legacy(auth_screen.AuthMode)))(),
+    ColorL: () => (T.ColorL = dart.constFn(dart.legacy(ui.Color)))(),
+    JSArrayOfColorL: () => (T.JSArrayOfColorL = dart.constFn(_interceptors.JSArray$(T.ColorL())))(),
+    doubleL: () => (T.doubleL = dart.constFn(dart.legacy(core.double)))(),
+    JSArrayOfdoubleL: () => (T.JSArrayOfdoubleL = dart.constFn(_interceptors.JSArray$(T.doubleL())))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    BoxShadowL: () => (T.BoxShadowL = dart.constFn(dart.legacy(box_shadow.BoxShadow)))(),
+    JSArrayOfBoxShadowL: () => (T.JSArrayOfBoxShadowL = dart.constFn(_interceptors.JSArray$(T.BoxShadowL())))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    JSArrayOfWidgetL: () => (T.JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(T.WidgetL())))(),
+    FormStateL: () => (T.FormStateL = dart.constFn(dart.legacy(form.FormState)))(),
+    GlobalKeyOfFormStateL: () => (T.GlobalKeyOfFormStateL = dart.constFn(framework.GlobalKey$(T.FormStateL())))(),
+    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
+    IdentityMapOfStringL$StringL: () => (T.IdentityMapOfStringL$StringL = dart.constFn(_js_helper.IdentityMap$(T.StringL(), T.StringL())))(),
+    AlertDialogL: () => (T.AlertDialogL = dart.constFn(dart.legacy(dialog.AlertDialog)))(),
+    BuildContextL: () => (T.BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))(),
+    BuildContextLToAlertDialogL: () => (T.BuildContextLToAlertDialogL = dart.constFn(dart.fnType(T.AlertDialogL(), [T.BuildContextL()])))(),
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
+    AuthL: () => (T.AuthL = dart.constFn(dart.legacy(auth.Auth)))(),
+    HttpExceptionL: () => (T.HttpExceptionL = dart.constFn(dart.legacy(http_exception.HttpException)))(),
+    StringLToStringL: () => (T.StringLToStringL = dart.constFn(dart.fnType(T.StringL(), [T.StringL()])))(),
+    StringLToNull: () => (T.StringLToNull = dart.constFn(dart.fnType(core.Null, [T.StringL()])))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
-  }, T$);
+  }, T);
   var S = {
     _: () => S
   };
@@ -42,624 +87,1217 @@ define(['dart_sdk', 'packages/flutter/src/widgets/widget_span.dart'], (function 
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "owner",
-        [_Location_column]: 9,
-        [_Location_line]: 105,
-        [_Location_file]: null
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: auth_screen.AuthMode.prototype,
+        [_name$]: "AuthMode.Signup",
+        index: 0
       });
     },
-    get C3() {
-      return C[3] = dart.const({
+    get C1() {
+      return C[1] = dart.const({
+        __proto__: auth_screen.AuthMode.prototype,
+        [_name$]: "AuthMode.Login",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], T.AuthModeL());
+    },
+    get C5() {
+      return C[5] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "wrappedWidget",
-        [_Location_column]: 9,
-        [_Location_line]: 106,
+        [_Location_name]: "decoration",
+        [_Location_column]: 13,
+        [_Location_line]: 24,
         [_Location_file]: null
       });
     },
     get C4() {
-      return C[4] = dart.const({
+      return C[4] = dart.constList([C[5] || CT.C5], T._LocationL());
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 23,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
         __proto__: widget_inspector._Location.prototype,
         [_Location_parameterLocations]: null,
-        [_Location_name]: "injectedChild",
-        [_Location_column]: 9,
-        [_Location_line]: 107,
+        [_Location_name]: "data",
+        [_Location_column]: 25,
+        [_Location_line]: 64,
         [_Location_file]: null
       });
     },
-    get C1() {
-      return C[1] = dart.constList([C[2] || CT.C2, C[3] || CT.C3, C[4] || CT.C4], T$._LocationL());
-    },
-    get C0() {
-      return C[0] = dart.const({
+    get C9() {
+      return C[9] = dart.const({
         __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "style",
+        [_Location_column]: 25,
+        [_Location_line]: 65,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.constList([C[8] || CT.C8, C[9] || CT.C9], T._LocationL());
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
         [_Location_name]: null,
-        [_Location_column]: 31,
-        [_Location_line]: 104,
-        [_Location_file]: "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/nested-0.0.4/lib/nested.dart"
+        [_Location_column]: 30,
+        [_Location_line]: 63,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "margin",
+        [_Location_column]: 23,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 23,
+        [_Location_line]: 47,
+        [_Location_file]: null
+      });
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "transform",
+        [_Location_column]: 23,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C15() {
+      return C[15] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 23,
+        [_Location_line]: 52,
+        [_Location_file]: null
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 23,
+        [_Location_line]: 63,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.constList([C[12] || CT.C12, C[13] || CT.C13, C[14] || CT.C14, C[15] || CT.C15, C[16] || CT.C16], T._LocationL());
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[11] || CT.C11,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 45,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19], T._LocationL());
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 44,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C21() {
+      return C[21] = dart.constList([], T._LocationL());
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[21] || CT.C21,
+        [_Location_name]: null,
+        [_Location_column]: 28,
+        [_Location_line]: 77,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "flex",
+        [_Location_column]: 21,
+        [_Location_line]: 76,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 77,
+        [_Location_file]: null
+      });
+    },
+    get C23() {
+      return C[23] = dart.constList([C[24] || CT.C24, C[25] || CT.C25], T._LocationL());
+    },
+    get C22() {
+      return C[22] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[23] || CT.C23,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 75,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C28() {
+      return C[28] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "mainAxisAlignment",
+        [_Location_column]: 17,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "crossAxisAlignment",
+        [_Location_column]: 17,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 17,
+        [_Location_line]: 43,
+        [_Location_file]: null
+      });
+    },
+    get C27() {
+      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30], T._LocationL());
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[27] || CT.C27,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 15,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 15,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.constList([C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35], T._LocationL());
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[32] || CT.C32,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 37,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 37,
+        [_Location_file]: null
+      });
+    },
+    get C37() {
+      return C[37] = dart.constList([C[38] || CT.C38], T._LocationL());
+    },
+    get C36() {
+      return C[36] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[37] || CT.C37,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 36,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 22,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41], T._LocationL());
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 21,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C44() {
+      return C[44] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 7,
+        [_Location_line]: 21,
+        [_Location_file]: null
+      });
+    },
+    get C43() {
+      return C[43] = dart.constList([C[44] || CT.C44], T._LocationL());
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[43] || CT.C43,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 19,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 27,
+        [_Location_line]: 112,
+        [_Location_file]: null
+      });
+    },
+    get C46() {
+      return C[46] = dart.constList([C[47] || CT.C47], T._LocationL());
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[46] || CT.C46,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 112,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 113,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.constList([C[50] || CT.C50], T._LocationL());
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[49] || CT.C49,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 113,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 15,
+        [_Location_line]: 112,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "content",
+        [_Location_column]: 15,
+        [_Location_line]: 113,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.constList([C[53] || CT.C53, C[54] || CT.C54], T._LocationL());
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[52] || CT.C52,
+        [_Location_name]: null,
+        [_Location_column]: 27,
+        [_Location_line]: 111,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 19,
+        [_Location_line]: 179,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "keyboardType",
+        [_Location_column]: 19,
+        [_Location_line]: 180,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 19,
+        [_Location_line]: 181,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onSaved",
+        [_Location_column]: 19,
+        [_Location_line]: 187,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.constList([C[57] || CT.C57, C[58] || CT.C58, C[59] || CT.C59, C[60] || CT.C60], T._LocationL());
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[56] || CT.C56,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 178,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 19,
+        [_Location_line]: 192,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "obscureText",
+        [_Location_column]: 19,
+        [_Location_line]: 193,
+        [_Location_file]: null
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 19,
+        [_Location_line]: 194,
+        [_Location_file]: null
+      });
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 19,
+        [_Location_line]: 195,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onSaved",
+        [_Location_column]: 19,
+        [_Location_line]: 201,
+        [_Location_file]: null
+      });
+    },
+    get C62() {
+      return C[62] = dart.constList([C[63] || CT.C63, C[64] || CT.C64, C[65] || CT.C65, C[66] || CT.C66, C[67] || CT.C67], T._LocationL());
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[62] || CT.C62,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 191,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "enabled",
+        [_Location_column]: 21,
+        [_Location_line]: 207,
+        [_Location_file]: null
+      });
+    },
+    get C71() {
+      return C[71] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "decoration",
+        [_Location_column]: 21,
+        [_Location_line]: 208,
+        [_Location_file]: null
+      });
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "obscureText",
+        [_Location_column]: 21,
+        [_Location_line]: 209,
+        [_Location_file]: null
+      });
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "validator",
+        [_Location_column]: 21,
+        [_Location_line]: 210,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C[69] = dart.constList([C[70] || CT.C70, C[71] || CT.C71, C[72] || CT.C72, C[73] || CT.C73], T._LocationL());
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[69] || CT.C69,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 206,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C76() {
+      return C[76] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 19,
+        [_Location_line]: 220,
+        [_Location_file]: null
+      });
+    },
+    get C75() {
+      return C[75] = dart.constList([C[76] || CT.C76], T._LocationL());
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[75] || CT.C75,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 219,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[21] || CT.C21,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 223,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 58,
+        [_Location_line]: 228,
+        [_Location_file]: null
+      });
+    },
+    get C79() {
+      return C[79] = dart.constList([C[80] || CT.C80], T._LocationL());
+    },
+    get C78() {
+      return C[78] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[79] || CT.C79,
+        [_Location_name]: null,
+        [_Location_column]: 25,
+        [_Location_line]: 228,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 227,
+        [_Location_file]: null
+      });
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 21,
+        [_Location_line]: 229,
+        [_Location_file]: null
+      });
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "shape",
+        [_Location_column]: 21,
+        [_Location_line]: 230,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C[86] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 21,
+        [_Location_line]: 233,
+        [_Location_file]: null
+      });
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 21,
+        [_Location_line]: 235,
+        [_Location_file]: null
+      });
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textColor",
+        [_Location_column]: 21,
+        [_Location_line]: 236,
+        [_Location_file]: null
+      });
+    },
+    get C82() {
+      return C[82] = dart.constList([C[83] || CT.C83, C[84] || CT.C84, C[85] || CT.C85, C[86] || CT.C86, C[87] || CT.C87, C[88] || CT.C88], T._LocationL());
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[82] || CT.C82,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 226,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C91() {
+      return C[91] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 84,
+        [_Location_line]: 260,
+        [_Location_file]: null
+      });
+    },
+    get C90() {
+      return C[90] = dart.constList([C[91] || CT.C91], T._LocationL());
+    },
+    get C89() {
+      return C[89] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[90] || CT.C90,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 259,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C94() {
+      return C[94] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 19,
+        [_Location_line]: 259,
+        [_Location_file]: null
+      });
+    },
+    get C95() {
+      return C[95] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 19,
+        [_Location_line]: 261,
+        [_Location_file]: null
+      });
+    },
+    get C96() {
+      return C[96] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 19,
+        [_Location_line]: 262,
+        [_Location_file]: null
+      });
+    },
+    get C97() {
+      return C[97] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "materialTapTargetSize",
+        [_Location_column]: 19,
+        [_Location_line]: 263,
+        [_Location_file]: null
+      });
+    },
+    get C98() {
+      return C[98] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textColor",
+        [_Location_column]: 19,
+        [_Location_line]: 264,
+        [_Location_file]: null
+      });
+    },
+    get C93() {
+      return C[93] = dart.constList([C[94] || CT.C94, C[95] || CT.C95, C[96] || CT.C96, C[97] || CT.C97, C[98] || CT.C98], T._LocationL());
+    },
+    get C92() {
+      return C[92] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[93] || CT.C93,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 258,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C101() {
+      return C[101] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 15,
+        [_Location_line]: 177,
+        [_Location_file]: null
+      });
+    },
+    get C100() {
+      return C[100] = dart.constList([C[101] || CT.C101], T._LocationL());
+    },
+    get C99() {
+      return C[99] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[100] || CT.C100,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 176,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C104() {
+      return C[104] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 13,
+        [_Location_line]: 176,
+        [_Location_file]: null
+      });
+    },
+    get C103() {
+      return C[103] = dart.constList([C[104] || CT.C104], T._LocationL());
+    },
+    get C102() {
+      return C[102] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[103] || CT.C103,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 175,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C107() {
+      return C[107] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "key",
+        [_Location_column]: 11,
+        [_Location_line]: 174,
+        [_Location_file]: null
+      });
+    },
+    get C108() {
+      return C[108] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 175,
+        [_Location_file]: null
+      });
+    },
+    get C106() {
+      return C[106] = dart.constList([C[107] || CT.C107, C[108] || CT.C108], T._LocationL());
+    },
+    get C105() {
+      return C[105] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[106] || CT.C106,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 173,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C111() {
+      return C[111] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "height",
+        [_Location_column]: 9,
+        [_Location_line]: 168,
+        [_Location_file]: null
+      });
+    },
+    get C112() {
+      return C[112] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "constraints",
+        [_Location_column]: 9,
+        [_Location_line]: 169,
+        [_Location_file]: null
+      });
+    },
+    get C113() {
+      return C[113] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 9,
+        [_Location_line]: 171,
+        [_Location_file]: null
+      });
+    },
+    get C114() {
+      return C[114] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 9,
+        [_Location_line]: 172,
+        [_Location_file]: null
+      });
+    },
+    get C115() {
+      return C[115] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 173,
+        [_Location_file]: null
+      });
+    },
+    get C110() {
+      return C[110] = dart.constList([C[111] || CT.C111, C[112] || CT.C112, C[113] || CT.C113, C[114] || CT.C114, C[115] || CT.C115], T._LocationL());
+    },
+    get C109() {
+      return C[109] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[110] || CT.C110,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 167,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
+      });
+    },
+    get C118() {
+      return C[118] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "shape",
+        [_Location_column]: 7,
+        [_Location_line]: 163,
+        [_Location_file]: null
+      });
+    },
+    get C119() {
+      return C[119] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "elevation",
+        [_Location_column]: 7,
+        [_Location_line]: 166,
+        [_Location_file]: null
+      });
+    },
+    get C120() {
+      return C[120] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 167,
+        [_Location_file]: null
+      });
+    },
+    get C117() {
+      return C[117] = dart.constList([C[118] || CT.C118, C[119] || CT.C119, C[120] || CT.C120], T._LocationL());
+    },
+    get C116() {
+      return C[116] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[117] || CT.C117,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 162,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/auth_screen.dart"
       });
     }
   }, false);
-  var C = Array(5).fill(void 0);
-  var I = [
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/nested-0.0.4/lib/nested.dart",
-    "package:nested/nested.dart"
-  ];
-  var _children = dart.privateName(nested, "_children");
-  var _child = dart.privateName(nested, "_child");
-  nested.Nested = class Nested extends framework.StatelessWidget {
-    build(context) {
-      dart.throw(new core.StateError.new("implemented internally"));
-    }
-    createElement() {
-      return new nested._NestedElement.new(this);
+  var C = Array(121).fill(void 0);
+  var I = ["package:shop_app/screens/auth_screen.dart"];
+  var _name$ = dart.privateName(auth_screen, "_name");
+  auth_screen.AuthMode = class AuthMode extends core.Object {
+    toString() {
+      return this[_name$];
     }
   };
-  (nested.Nested.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let children = opts && 'children' in opts ? opts.children : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    if (!(children != null)) dart.assertFailed(null, I[0], 71, 16, "children != null");
-    if (!(children != null && dart.test(children[$isNotEmpty]))) dart.assertFailed(null, I[0], 72, 16, "children != null && children.isNotEmpty");
-    this[_children] = children;
-    this[_child] = child;
-    nested.Nested.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (auth_screen.AuthMode.new = function(index, _name) {
+    this.index = index;
+    this[_name$] = _name;
     ;
-  }).prototype = nested.Nested.prototype;
-  dart.addTypeTests(nested.Nested);
-  dart.addTypeCaches(nested.Nested);
-  nested.Nested[dart.implements] = () => [nested.SingleChildWidget];
-  dart.setMethodSignature(nested.Nested, () => ({
-    __proto__: dart.getMethods(nested.Nested.__proto__),
-    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]),
-    createElement: dart.fnType(dart.legacy(nested._NestedElement), [])
+  }).prototype = auth_screen.AuthMode.prototype;
+  dart.addTypeTests(auth_screen.AuthMode);
+  dart.addTypeCaches(auth_screen.AuthMode);
+  dart.setMethodSignature(auth_screen.AuthMode, () => ({
+    __proto__: dart.getMethods(auth_screen.AuthMode.__proto__),
+    toString: dart.fnType(dart.legacy(core.String), []),
+    [$toString]: dart.fnType(dart.legacy(core.String), [])
   }));
-  dart.setLibraryUri(nested.Nested, I[1]);
-  dart.setFieldSignature(nested.Nested, () => ({
-    __proto__: dart.getFields(nested.Nested.__proto__),
-    [_children]: dart.finalFieldType(dart.legacy(core.List$(dart.legacy(nested.SingleChildWidget)))),
-    [_child]: dart.finalFieldType(dart.legacy(framework.Widget))
+  dart.setLibraryUri(auth_screen.AuthMode, I[0]);
+  dart.setFieldSignature(auth_screen.AuthMode, () => ({
+    __proto__: dart.getFields(auth_screen.AuthMode.__proto__),
+    index: dart.finalFieldType(dart.legacy(core.int)),
+    [_name$]: dart.finalFieldType(dart.legacy(core.String))
   }));
-  var _parent = dart.privateName(nested, "_parent");
+  dart.defineExtensionMethods(auth_screen.AuthMode, ['toString']);
+  auth_screen.AuthMode.Signup = C[0] || CT.C0;
+  auth_screen.AuthMode.Login = C[1] || CT.C1;
+  auth_screen.AuthMode.values = C[2] || CT.C2;
   var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
   var _Location_name = dart.privateName(widget_inspector, "_Location.name");
   var _Location_column = dart.privateName(widget_inspector, "_Location.column");
   var _Location_line = dart.privateName(widget_inspector, "_Location.line");
   var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  var _parent$ = dart.privateName(nested, "SingleChildWidgetElementMixin._parent");
-  nested.SingleChildWidgetElementMixin = class SingleChildWidgetElementMixin extends framework.Element {};
-  nested.SingleChildWidgetElementMixin[dart.mixinOn] = Element => class SingleChildWidgetElementMixin extends Element {
-    get [_parent]() {
-      return this[_parent$];
-    }
-    set [_parent](value) {
-      this[_parent$] = value;
-    }
-    mount(parent, newSlot) {
-      if (T$._NestedHookElementL().is(parent)) {
-        this[_parent] = parent;
-      }
-      super.mount(parent, newSlot);
-    }
-    activate() {
-      super.activate();
-      this.visitAncestorElements(dart.fn(parent => {
-        if (T$._NestedHookElementL().is(parent)) {
-          this[_parent] = parent;
-        }
-        return false;
-      }, T$.ElementLToboolL()));
+  auth_screen.AuthScreen = class AuthScreen extends framework.StatelessWidget {
+    build(context) {
+      let t0;
+      let deviceSize = media_query.MediaQuery.of(context).size;
+      return new scaffold.Scaffold.new({body: new basic.Stack.new({children: T.JSArrayOfWidgetL().of([new container.Container.new({decoration: new box_decoration.BoxDecoration.new({gradient: new gradient.LinearGradient.new({colors: T.JSArrayOfColorL().of([new ui.Color.fromRGBO(215, 117, 255, 1.0).withOpacity(0.5), new ui.Color.fromRGBO(255, 188, 117, 1.0).withOpacity(0.9)]), begin: alignment.Alignment.topLeft, end: alignment.Alignment.bottomRight, stops: T.JSArrayOfdoubleL().of([0.0, 1.0])})}), $creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), new single_child_scroll_view.SingleChildScrollView.new({child: new container.Container.new({height: deviceSize.height, width: deviceSize.width, child: new basic.Column.new({mainAxisAlignment: flex.MainAxisAlignment.center, crossAxisAlignment: flex.CrossAxisAlignment.center, children: T.JSArrayOfWidgetL().of([new basic.Flexible.new({child: new container.Container.new({margin: new edge_insets.EdgeInsets.only({bottom: 20.0}), padding: new edge_insets.EdgeInsets.symmetric({vertical: 8.0, horizontal: 94.0}), transform: (t0 = vector_math_64.Matrix4.rotationZ(-8 * 3.141592653589793 / 180), (() => {
+                          t0.translate(-10.0);
+                          return t0;
+                        })()), decoration: new box_decoration.BoxDecoration.new({borderRadius: new border_radius.BorderRadius.circular(20.0), color: colors.Colors.deepOrange.shade900, boxShadow: T.JSArrayOfBoxShadowL().of([new box_shadow.BoxShadow.new({blurRadius: 8.0, color: colors.Colors.black26, offset: new ui.Offset.new(0.0, 2.0)})])}), child: new text.Text.new("MyShop", {style: new text_style.TextStyle.new({color: theme.Theme.of(context).accentTextTheme.headline6.color, fontSize: 50.0, fontFamily: "Anton", fontWeight: ui.FontWeight.normal}), $creationLocationd_0dea112b090073317d4: C[6] || CT.C6}), $creationLocationd_0dea112b090073317d4: C[10] || CT.C10}), $creationLocationd_0dea112b090073317d4: C[17] || CT.C17}), new basic.Flexible.new({flex: dart.notNull(deviceSize.width) > 600 ? 2 : 1, child: new auth_screen.AuthCard.new({$creationLocationd_0dea112b090073317d4: C[20] || CT.C20}), $creationLocationd_0dea112b090073317d4: C[22] || CT.C22})]), $creationLocationd_0dea112b090073317d4: C[26] || CT.C26}), $creationLocationd_0dea112b090073317d4: C[31] || CT.C31}), $creationLocationd_0dea112b090073317d4: C[36] || CT.C36})]), $creationLocationd_0dea112b090073317d4: C[39] || CT.C39}), $creationLocationd_0dea112b090073317d4: C[42] || CT.C42});
     }
   };
-  (nested.SingleChildWidgetElementMixin[dart.mixinNew] = function() {
-    this[_parent$] = null;
-  }).prototype = nested.SingleChildWidgetElementMixin.prototype;
-  dart.addTypeTests(nested.SingleChildWidgetElementMixin);
-  dart.addTypeCaches(nested.SingleChildWidgetElementMixin);
-  nested.SingleChildWidgetElementMixin[dart.implements] = () => [framework.Element];
-  dart.setMethodSignature(nested.SingleChildWidgetElementMixin, () => ({
-    __proto__: dart.getMethods(nested.SingleChildWidgetElementMixin.__proto__),
-    mount: dart.fnType(dart.void, [dart.legacy(framework.Element), dart.dynamic])
+  (auth_screen.AuthScreen.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    auth_screen.AuthScreen.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = auth_screen.AuthScreen.prototype;
+  dart.addTypeTests(auth_screen.AuthScreen);
+  dart.addTypeCaches(auth_screen.AuthScreen);
+  dart.setMethodSignature(auth_screen.AuthScreen, () => ({
+    __proto__: dart.getMethods(auth_screen.AuthScreen.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
   }));
-  dart.setLibraryUri(nested.SingleChildWidgetElementMixin, I[1]);
-  dart.setFieldSignature(nested.SingleChildWidgetElementMixin, () => ({
-    __proto__: dart.getFields(nested.SingleChildWidgetElementMixin.__proto__),
-    [_parent]: dart.fieldType(dart.legacy(nested._NestedHookElement))
-  }));
-  const StatelessElement_SingleChildWidgetElementMixin$36 = class StatelessElement_SingleChildWidgetElementMixin extends framework.StatelessElement {};
-  (StatelessElement_SingleChildWidgetElementMixin$36.new = function(widget) {
-    nested.SingleChildWidgetElementMixin[dart.mixinNew].call(this);
-    StatelessElement_SingleChildWidgetElementMixin$36.__proto__.new.call(this, widget);
-  }).prototype = StatelessElement_SingleChildWidgetElementMixin$36.prototype;
-  dart.applyMixin(StatelessElement_SingleChildWidgetElementMixin$36, nested.SingleChildWidgetElementMixin);
-  nested._NestedElement = class _NestedElement extends StatelessElement_SingleChildWidgetElementMixin$36 {
-    get widget() {
-      return T$.NestedL().as(super.widget);
+  dart.setLibraryUri(auth_screen.AuthScreen, I[0]);
+  dart.defineLazy(auth_screen.AuthScreen, {
+    /*auth_screen.AuthScreen.routeName*/get routeName() {
+      return "/auth";
     }
-    build() {
-      let t0, t0$, t0$0;
-      let nestedHook = null;
-      let nextNode = (t0$ = (t0 = this[_parent], t0 == null ? null : t0.injectedChild), t0$ == null ? this.widget[_child] : t0$);
-      for (let child of this.widget[_children][$reversed]) {
-        nextNode = nestedHook = new nested._NestedHook.new({owner: this, wrappedWidget: child, injectedChild: nextNode, $creationLocationd_0dea112b090073317d4: C[0] || CT.C0});
-      }
-      if (nestedHook != null) {
-        for (let node of this.nodes) {
-          t0$0 = node;
-          (() => {
-            t0$0.wrappedChild = nestedHook.wrappedWidget;
-            t0$0.injectedChild = nestedHook.injectedChild;
-            return t0$0;
-          })();
-          let next = nestedHook.injectedChild;
-          if (T$._NestedHookL().is(next)) {
-            nestedHook = next;
+  }, true);
+  auth_screen.AuthCard = class AuthCard extends framework.StatefulWidget {
+    createState() {
+      return new auth_screen._AuthCardState.new();
+    }
+  };
+  (auth_screen.AuthCard.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    auth_screen.AuthCard.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = auth_screen.AuthCard.prototype;
+  dart.addTypeTests(auth_screen.AuthCard);
+  dart.addTypeCaches(auth_screen.AuthCard);
+  dart.setMethodSignature(auth_screen.AuthCard, () => ({
+    __proto__: dart.getMethods(auth_screen.AuthCard.__proto__),
+    createState: dart.fnType(dart.legacy(auth_screen._AuthCardState), [])
+  }));
+  dart.setLibraryUri(auth_screen.AuthCard, I[0]);
+  var _formKey = dart.privateName(auth_screen, "_formKey");
+  var _authMode = dart.privateName(auth_screen, "_authMode");
+  var _authData = dart.privateName(auth_screen, "_authData");
+  var _isLoading = dart.privateName(auth_screen, "_isLoading");
+  var _passwordController = dart.privateName(auth_screen, "_passwordController");
+  var _showErrorDialog = dart.privateName(auth_screen, "_showErrorDialog");
+  var _submit = dart.privateName(auth_screen, "_submit");
+  var _switchAuthMode = dart.privateName(auth_screen, "_switchAuthMode");
+  auth_screen._AuthCardState = class _AuthCardState extends framework.State$(dart.legacy(auth_screen.AuthCard)) {
+    [_showErrorDialog](massege) {
+      dialog.showDialog(dart.dynamic, {context: this.context, builder: dart.fn(ctx => new dialog.AlertDialog.new({title: new text.Text.new("Error Occurd", {$creationLocationd_0dea112b090073317d4: C[45] || CT.C45}), content: new text.Text.new(massege, {$creationLocationd_0dea112b090073317d4: C[48] || CT.C48}), $creationLocationd_0dea112b090073317d4: C[51] || CT.C51}), T.BuildContextLToAlertDialogL())});
+    }
+    [_submit]() {
+      return async.async(dart.void, (function* _submit() {
+        if (!dart.test(this[_formKey].currentState.validate())) {
+          return;
+        }
+        this[_formKey].currentState.save();
+        this.setState(dart.fn(() => {
+          this[_isLoading] = true;
+        }, T.VoidToNull()));
+        try {
+          if (this[_authMode] == auth_screen.AuthMode.Login) {
+            yield provider.Provider.of(T.AuthL(), this.context, {listen: false}).signIn(this[_authData][$_get]("email"), this[_authData][$_get]("password"));
           } else {
-            break;
+            yield provider.Provider.of(T.AuthL(), this.context, {listen: false}).signUp(this[_authData][$_get]("email"), this[_authData][$_get]("password"));
+          }
+        } catch (e$) {
+          let ex = dart.getThrown(e$);
+          if (T.HttpExceptionL().is(ex)) {
+            let e = ex;
+            this[_showErrorDialog](e.massage);
+          } else {
+            let e = ex;
+            this[_showErrorDialog](T.StringL().as(e));
           }
         }
-      }
-      return nextNode;
+        this.setState(dart.fn(() => {
+          this[_isLoading] = false;
+        }, T.VoidToNull()));
+      }).bind(this));
     }
-  };
-  (nested._NestedElement.new = function(widget) {
-    this.nodes = T$.LinkedHashSetOf_NestedHookElementL().new();
-    nested._NestedElement.__proto__.new.call(this, widget);
-    ;
-  }).prototype = nested._NestedElement.prototype;
-  dart.addTypeTests(nested._NestedElement);
-  dart.addTypeCaches(nested._NestedElement);
-  dart.setMethodSignature(nested._NestedElement, () => ({
-    __proto__: dart.getMethods(nested._NestedElement.__proto__),
-    build: dart.fnType(dart.legacy(framework.Widget), [])
-  }));
-  dart.setGetterSignature(nested._NestedElement, () => ({
-    __proto__: dart.getGetters(nested._NestedElement.__proto__),
-    widget: dart.legacy(nested.Nested)
-  }));
-  dart.setLibraryUri(nested._NestedElement, I[1]);
-  dart.setFieldSignature(nested._NestedElement, () => ({
-    __proto__: dart.getFields(nested._NestedElement.__proto__),
-    nodes: dart.finalFieldType(dart.legacy(core.Set$(dart.legacy(nested._NestedHookElement))))
-  }));
-  nested._NestedHook = class _NestedHook extends framework.StatelessWidget {
-    createElement() {
-      return new nested._NestedHookElement.new(this);
+    [_switchAuthMode]() {
+      if (this[_authMode] == auth_screen.AuthMode.Login) {
+        this.setState(dart.fn(() => {
+          this[_authMode] = auth_screen.AuthMode.Signup;
+        }, T.VoidToNull()));
+      } else {
+        this.setState(dart.fn(() => {
+          this[_authMode] = auth_screen.AuthMode.Login;
+        }, T.VoidToNull()));
+      }
     }
     build(context) {
-      return dart.throw(new core.StateError.new("handled internally"));
+      let deviceSize = media_query.MediaQuery.of(context).size;
+      return new card.Card.new({shape: new rounded_rectangle_border.RoundedRectangleBorder.new({borderRadius: new border_radius.BorderRadius.circular(10.0)}), elevation: 8.0, child: new container.Container.new({height: this[_authMode] == auth_screen.AuthMode.Signup ? 320.0 : 260.0, constraints: new box.BoxConstraints.new({minHeight: this[_authMode] == auth_screen.AuthMode.Signup ? 320.0 : 260.0}), width: dart.notNull(deviceSize.width) * 0.75, padding: new edge_insets.EdgeInsets.all(16.0), child: new form.Form.new({key: this[_formKey], child: new single_child_scroll_view.SingleChildScrollView.new({child: new basic.Column.new({children: (() => {
+                  let t2 = T.JSArrayOfWidgetL().of([new text_form_field.TextFormField.new({decoration: new input_decorator.InputDecoration.new({labelText: "E-Mail"}), keyboardType: text_input.TextInputType.emailAddress, validator: dart.fn(value => {
+                        if (value[$isEmpty] || !value[$contains]("@")) {
+                          return "Invalid email!";
+                        }
+                        return null;
+                      }, T.StringLToStringL()), onSaved: dart.fn(value => {
+                        this[_authData][$_set]("email", value);
+                      }, T.StringLToNull()), $creationLocationd_0dea112b090073317d4: C[55] || CT.C55}), new text_form_field.TextFormField.new({decoration: new input_decorator.InputDecoration.new({labelText: "Password"}), obscureText: true, controller: this[_passwordController], validator: dart.fn(value => {
+                        if (value[$isEmpty] || value.length < 5) {
+                          return "Password is too short!";
+                        }
+                        return null;
+                      }, T.StringLToStringL()), onSaved: dart.fn(value => {
+                        this[_authData][$_set]("password", value);
+                      }, T.StringLToNull()), $creationLocationd_0dea112b090073317d4: C[61] || CT.C61})]);
+                  if (this[_authMode] == auth_screen.AuthMode.Signup) t2[$add](new text_form_field.TextFormField.new({enabled: this[_authMode] == auth_screen.AuthMode.Signup, decoration: new input_decorator.InputDecoration.new({labelText: "Confirm Password"}), obscureText: true, validator: this[_authMode] == auth_screen.AuthMode.Signup ? dart.fn(value => {
+                      if (value != this[_passwordController].text) {
+                        return "Passwords do not match!";
+                      }
+                      return null;
+                    }, T.StringLToStringL()) : null, $creationLocationd_0dea112b090073317d4: C[68] || CT.C68}));
+                  t2[$add](new basic.SizedBox.new({height: 20.0, $creationLocationd_0dea112b090073317d4: C[74] || CT.C74}));
+                  if (dart.test(this[_isLoading]))
+                    t2[$add](new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C[77] || CT.C77}));
+                  else
+                    t2[$add](new raised_button.RaisedButton.new({child: new text.Text.new(this[_authMode] == auth_screen.AuthMode.Login ? "LOGIN" : "SIGN UP", {$creationLocationd_0dea112b090073317d4: C[78] || CT.C78}), onPressed: dart.bind(this, _submit), shape: new rounded_rectangle_border.RoundedRectangleBorder.new({borderRadius: new border_radius.BorderRadius.circular(30.0)}), padding: new edge_insets.EdgeInsets.symmetric({horizontal: 30.0, vertical: 8.0}), color: theme.Theme.of(context).primaryColor, textColor: theme.Theme.of(context).primaryTextTheme.button.color, $creationLocationd_0dea112b090073317d4: C[81] || CT.C81}));
+                  t2[$add](new flat_button.FlatButton.new({child: new text.Text.new((this[_authMode] == auth_screen.AuthMode.Login ? "SIGNUP" : "LOGIN") + " INSTEAD", {$creationLocationd_0dea112b090073317d4: C[89] || CT.C89}), onPressed: dart.bind(this, _switchAuthMode), padding: new edge_insets.EdgeInsets.symmetric({horizontal: 30.0, vertical: 4.0}), materialTapTargetSize: theme_data.MaterialTapTargetSize.shrinkWrap, textColor: theme.Theme.of(context).primaryColor, $creationLocationd_0dea112b090073317d4: C[92] || CT.C92}));
+                  return t2;
+                })(), $creationLocationd_0dea112b090073317d4: C[99] || CT.C99}), $creationLocationd_0dea112b090073317d4: C[102] || CT.C102}), $creationLocationd_0dea112b090073317d4: C[105] || CT.C105}), $creationLocationd_0dea112b090073317d4: C[109] || CT.C109}), $creationLocationd_0dea112b090073317d4: C[116] || CT.C116});
     }
   };
-  (nested._NestedHook.new = function(opts) {
-    let injectedChild = opts && 'injectedChild' in opts ? opts.injectedChild : null;
-    let wrappedWidget = opts && 'wrappedWidget' in opts ? opts.wrappedWidget : null;
-    let owner = opts && 'owner' in opts ? opts.owner : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this.injectedChild = injectedChild;
-    this.wrappedWidget = wrappedWidget;
-    this.owner = owner;
-    nested._NestedHook.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (auth_screen._AuthCardState.new = function() {
+    this[_formKey] = T.GlobalKeyOfFormStateL().new();
+    this[_authMode] = auth_screen.AuthMode.Login;
+    this[_authData] = new (T.IdentityMapOfStringL$StringL()).from(["email", "", "password", ""]);
+    this[_isLoading] = false;
+    this[_passwordController] = new editable_text.TextEditingController.new();
+    auth_screen._AuthCardState.__proto__.new.call(this);
     ;
-  }).prototype = nested._NestedHook.prototype;
-  dart.addTypeTests(nested._NestedHook);
-  dart.addTypeCaches(nested._NestedHook);
-  dart.setMethodSignature(nested._NestedHook, () => ({
-    __proto__: dart.getMethods(nested._NestedHook.__proto__),
-    createElement: dart.fnType(dart.legacy(nested._NestedHookElement), []),
+  }).prototype = auth_screen._AuthCardState.prototype;
+  dart.addTypeTests(auth_screen._AuthCardState);
+  dart.addTypeCaches(auth_screen._AuthCardState);
+  dart.setMethodSignature(auth_screen._AuthCardState, () => ({
+    __proto__: dart.getMethods(auth_screen._AuthCardState.__proto__),
+    [_showErrorDialog]: dart.fnType(dart.void, [dart.legacy(core.String)]),
+    [_submit]: dart.fnType(dart.legacy(async.Future$(dart.void)), []),
+    [_switchAuthMode]: dart.fnType(dart.void, []),
     build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
   }));
-  dart.setLibraryUri(nested._NestedHook, I[1]);
-  dart.setFieldSignature(nested._NestedHook, () => ({
-    __proto__: dart.getFields(nested._NestedHook.__proto__),
-    wrappedWidget: dart.finalFieldType(dart.legacy(nested.SingleChildWidget)),
-    injectedChild: dart.finalFieldType(dart.legacy(framework.Widget)),
-    owner: dart.finalFieldType(dart.legacy(nested._NestedElement))
+  dart.setLibraryUri(auth_screen._AuthCardState, I[0]);
+  dart.setFieldSignature(auth_screen._AuthCardState, () => ({
+    __proto__: dart.getFields(auth_screen._AuthCardState.__proto__),
+    [_formKey]: dart.finalFieldType(dart.legacy(framework.GlobalKey$(dart.legacy(form.FormState)))),
+    [_authMode]: dart.fieldType(dart.legacy(auth_screen.AuthMode)),
+    [_authData]: dart.fieldType(dart.legacy(core.Map$(dart.legacy(core.String), dart.legacy(core.String)))),
+    [_isLoading]: dart.fieldType(dart.legacy(core.bool)),
+    [_passwordController]: dart.finalFieldType(dart.legacy(editable_text.TextEditingController))
   }));
-  var _injectedChild = dart.privateName(nested, "_injectedChild");
-  var _wrappedChild = dart.privateName(nested, "_wrappedChild");
-  nested._NestedHookElement = class _NestedHookElement extends framework.StatelessElement {
-    get widget() {
-      return T$._NestedHookL().as(super.widget);
-    }
-    get injectedChild() {
-      return this[_injectedChild];
-    }
-    set injectedChild(value) {
-      let previous = this[_injectedChild];
-      if (T$._NestedHookL().is(value) && T$._NestedHookL().is(previous) && dart.test(framework.Widget.canUpdate(value.wrappedWidget, previous.wrappedWidget))) {
-        return;
-      }
-      if (!dart.equals(previous, value)) {
-        this[_injectedChild] = value;
-        this.visitChildren(dart.fn(e => e.markNeedsBuild(), T$.ElementLTovoid()));
-      }
-    }
-    get wrappedChild() {
-      return this[_wrappedChild];
-    }
-    set wrappedChild(value) {
-      if (!dart.equals(this[_wrappedChild], value)) {
-        this[_wrappedChild] = value;
-        this.markNeedsBuild();
-      }
-    }
-    mount(parent, newSlot) {
-      this.widget.owner.nodes.add(this);
-      this[_wrappedChild] = this.widget.wrappedWidget;
-      this[_injectedChild] = this.widget.injectedChild;
-      super.mount(parent, newSlot);
-    }
-    unmount() {
-      this.widget.owner.nodes.remove(this);
-      super.unmount();
-    }
-    build() {
-      return this.wrappedChild;
-    }
-  };
-  (nested._NestedHookElement.new = function(widget) {
-    this[_injectedChild] = null;
-    this[_wrappedChild] = null;
-    nested._NestedHookElement.__proto__.new.call(this, widget);
-    ;
-  }).prototype = nested._NestedHookElement.prototype;
-  dart.addTypeTests(nested._NestedHookElement);
-  dart.addTypeCaches(nested._NestedHookElement);
-  dart.setMethodSignature(nested._NestedHookElement, () => ({
-    __proto__: dart.getMethods(nested._NestedHookElement.__proto__),
-    mount: dart.fnType(dart.void, [dart.legacy(framework.Element), dart.dynamic]),
-    build: dart.fnType(dart.legacy(framework.Widget), [])
-  }));
-  dart.setGetterSignature(nested._NestedHookElement, () => ({
-    __proto__: dart.getGetters(nested._NestedHookElement.__proto__),
-    widget: dart.legacy(nested._NestedHook),
-    injectedChild: dart.legacy(framework.Widget),
-    wrappedChild: dart.legacy(nested.SingleChildWidget)
-  }));
-  dart.setSetterSignature(nested._NestedHookElement, () => ({
-    __proto__: dart.getSetters(nested._NestedHookElement.__proto__),
-    injectedChild: dart.legacy(framework.Widget),
-    wrappedChild: dart.legacy(nested.SingleChildWidget)
-  }));
-  dart.setLibraryUri(nested._NestedHookElement, I[1]);
-  dart.setFieldSignature(nested._NestedHookElement, () => ({
-    __proto__: dart.getFields(nested._NestedHookElement.__proto__),
-    [_injectedChild]: dart.fieldType(dart.legacy(framework.Widget)),
-    [_wrappedChild]: dart.fieldType(dart.legacy(nested.SingleChildWidget))
-  }));
-  nested.SingleChildWidget = class SingleChildWidget extends core.Object {};
-  (nested.SingleChildWidget.new = function() {
-    ;
-  }).prototype = nested.SingleChildWidget.prototype;
-  dart.addTypeTests(nested.SingleChildWidget);
-  dart.addTypeCaches(nested.SingleChildWidget);
-  nested.SingleChildWidget[dart.implements] = () => [framework.Widget];
-  dart.setLibraryUri(nested.SingleChildWidget, I[1]);
-  var _child$ = dart.privateName(nested, "SingleChildStatelessWidget._child");
-  nested.SingleChildStatelessWidget = class SingleChildStatelessWidget extends framework.StatelessWidget {
-    get [_child]() {
-      return this[_child$];
-    }
-    set [_child](value) {
-      super[_child] = value;
-    }
-    build(context) {
-      return this.buildWithChild(context, this[_child]);
-    }
-    createElement() {
-      return new nested.SingleChildStatelessElement.new(this);
-    }
-  };
-  (nested.SingleChildStatelessWidget.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[_child$] = child;
-    nested.SingleChildStatelessWidget.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = nested.SingleChildStatelessWidget.prototype;
-  dart.addTypeTests(nested.SingleChildStatelessWidget);
-  dart.addTypeCaches(nested.SingleChildStatelessWidget);
-  nested.SingleChildStatelessWidget[dart.implements] = () => [nested.SingleChildWidget];
-  dart.setMethodSignature(nested.SingleChildStatelessWidget, () => ({
-    __proto__: dart.getMethods(nested.SingleChildStatelessWidget.__proto__),
-    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)]),
-    createElement: dart.fnType(dart.legacy(nested.SingleChildStatelessElement), [])
-  }));
-  dart.setLibraryUri(nested.SingleChildStatelessWidget, I[1]);
-  dart.setFieldSignature(nested.SingleChildStatelessWidget, () => ({
-    __proto__: dart.getFields(nested.SingleChildStatelessWidget.__proto__),
-    [_child]: dart.finalFieldType(dart.legacy(framework.Widget))
-  }));
-  const StatelessElement_SingleChildWidgetElementMixin$36$ = class StatelessElement_SingleChildWidgetElementMixin extends framework.StatelessElement {};
-  (StatelessElement_SingleChildWidgetElementMixin$36$.new = function(widget) {
-    nested.SingleChildWidgetElementMixin[dart.mixinNew].call(this);
-    StatelessElement_SingleChildWidgetElementMixin$36$.__proto__.new.call(this, widget);
-  }).prototype = StatelessElement_SingleChildWidgetElementMixin$36$.prototype;
-  dart.applyMixin(StatelessElement_SingleChildWidgetElementMixin$36$, nested.SingleChildWidgetElementMixin);
-  nested.SingleChildStatelessElement = class SingleChildStatelessElement extends StatelessElement_SingleChildWidgetElementMixin$36$ {
-    build() {
-      if (this[_parent] != null) {
-        return this.widget.buildWithChild(this, this[_parent].injectedChild);
-      }
-      return super.build();
-    }
-    get widget() {
-      return T$.SingleChildStatelessWidgetL().as(super.widget);
-    }
-  };
-  (nested.SingleChildStatelessElement.new = function(widget) {
-    nested.SingleChildStatelessElement.__proto__.new.call(this, widget);
-    ;
-  }).prototype = nested.SingleChildStatelessElement.prototype;
-  dart.addTypeTests(nested.SingleChildStatelessElement);
-  dart.addTypeCaches(nested.SingleChildStatelessElement);
-  dart.setMethodSignature(nested.SingleChildStatelessElement, () => ({
-    __proto__: dart.getMethods(nested.SingleChildStatelessElement.__proto__),
-    build: dart.fnType(dart.legacy(framework.Widget), [])
-  }));
-  dart.setGetterSignature(nested.SingleChildStatelessElement, () => ({
-    __proto__: dart.getGetters(nested.SingleChildStatelessElement.__proto__),
-    widget: dart.legacy(nested.SingleChildStatelessWidget)
-  }));
-  dart.setLibraryUri(nested.SingleChildStatelessElement, I[1]);
-  var _child$0 = dart.privateName(nested, "SingleChildStatefulWidget._child");
-  nested.SingleChildStatefulWidget = class SingleChildStatefulWidget extends framework.StatefulWidget {
-    get [_child]() {
-      return this[_child$0];
-    }
-    set [_child](value) {
-      super[_child] = value;
-    }
-    createElement() {
-      return new nested.SingleChildStatefulElement.new(this);
-    }
-  };
-  (nested.SingleChildStatefulWidget.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[_child$0] = child;
-    nested.SingleChildStatefulWidget.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = nested.SingleChildStatefulWidget.prototype;
-  dart.addTypeTests(nested.SingleChildStatefulWidget);
-  dart.addTypeCaches(nested.SingleChildStatefulWidget);
-  nested.SingleChildStatefulWidget[dart.implements] = () => [nested.SingleChildWidget];
-  dart.setMethodSignature(nested.SingleChildStatefulWidget, () => ({
-    __proto__: dart.getMethods(nested.SingleChildStatefulWidget.__proto__),
-    createElement: dart.fnType(dart.legacy(nested.SingleChildStatefulElement), [])
-  }));
-  dart.setLibraryUri(nested.SingleChildStatefulWidget, I[1]);
-  dart.setFieldSignature(nested.SingleChildStatefulWidget, () => ({
-    __proto__: dart.getFields(nested.SingleChildStatefulWidget.__proto__),
-    [_child]: dart.finalFieldType(dart.legacy(framework.Widget))
-  }));
-  const _is_SingleChildState_default = Symbol('_is_SingleChildState_default');
-  nested.SingleChildState$ = dart.generic(T => {
-    class SingleChildState extends framework.State$(dart.legacy(T)) {
-      build(context) {
-        return this.buildWithChild(context, this.widget[_child]);
-      }
-    }
-    (SingleChildState.new = function() {
-      SingleChildState.__proto__.new.call(this);
-      ;
-    }).prototype = SingleChildState.prototype;
-    dart.addTypeTests(SingleChildState);
-    SingleChildState.prototype[_is_SingleChildState_default] = true;
-    dart.addTypeCaches(SingleChildState);
-    dart.setMethodSignature(SingleChildState, () => ({
-      __proto__: dart.getMethods(SingleChildState.__proto__),
-      build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
-    }));
-    dart.setLibraryUri(SingleChildState, I[1]);
-    return SingleChildState;
-  });
-  nested.SingleChildState = nested.SingleChildState$();
-  dart.addTypeTests(nested.SingleChildState, _is_SingleChildState_default);
-  const StatefulElement_SingleChildWidgetElementMixin$36 = class StatefulElement_SingleChildWidgetElementMixin extends framework.StatefulElement {};
-  (StatefulElement_SingleChildWidgetElementMixin$36.new = function(widget) {
-    nested.SingleChildWidgetElementMixin[dart.mixinNew].call(this);
-    StatefulElement_SingleChildWidgetElementMixin$36.__proto__.new.call(this, widget);
-  }).prototype = StatefulElement_SingleChildWidgetElementMixin$36.prototype;
-  dart.applyMixin(StatefulElement_SingleChildWidgetElementMixin$36, nested.SingleChildWidgetElementMixin);
-  nested.SingleChildStatefulElement = class SingleChildStatefulElement extends StatefulElement_SingleChildWidgetElementMixin$36 {
-    get widget() {
-      return T$.SingleChildStatefulWidgetL().as(super.widget);
-    }
-    get state() {
-      return T$.SingleChildStateLOfSingleChildStatefulWidgetL().as(super.state);
-    }
-    build() {
-      if (this[_parent] != null) {
-        return this.state.buildWithChild(this, this[_parent].injectedChild);
-      }
-      return super.build();
-    }
-  };
-  (nested.SingleChildStatefulElement.new = function(widget) {
-    nested.SingleChildStatefulElement.__proto__.new.call(this, widget);
-    ;
-  }).prototype = nested.SingleChildStatefulElement.prototype;
-  dart.addTypeTests(nested.SingleChildStatefulElement);
-  dart.addTypeCaches(nested.SingleChildStatefulElement);
-  dart.setMethodSignature(nested.SingleChildStatefulElement, () => ({
-    __proto__: dart.getMethods(nested.SingleChildStatefulElement.__proto__),
-    build: dart.fnType(dart.legacy(framework.Widget), [])
-  }));
-  dart.setGetterSignature(nested.SingleChildStatefulElement, () => ({
-    __proto__: dart.getGetters(nested.SingleChildStatefulElement.__proto__),
-    widget: dart.legacy(nested.SingleChildStatefulWidget),
-    state: dart.legacy(nested.SingleChildState$(dart.legacy(nested.SingleChildStatefulWidget)))
-  }));
-  dart.setLibraryUri(nested.SingleChildStatefulElement, I[1]);
-  var builder$ = dart.privateName(nested, "SingleChildBuilder.builder");
-  nested.SingleChildBuilder = class SingleChildBuilder extends nested.SingleChildStatelessWidget {
-    get builder() {
-      return this[builder$];
-    }
-    set builder(value) {
-      super.builder = value;
-    }
-    buildWithChild(context, child) {
-      let t1, t0;
-      t0 = context;
-      t1 = child;
-      return this.builder(t0, t1);
-    }
-  };
-  (nested.SingleChildBuilder.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let builder = opts && 'builder' in opts ? opts.builder : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[builder$] = builder;
-    if (!(builder != null)) dart.assertFailed(null, I[0], 352, 16, "builder != null");
-    nested.SingleChildBuilder.__proto__.new.call(this, {key: key, child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = nested.SingleChildBuilder.prototype;
-  dart.addTypeTests(nested.SingleChildBuilder);
-  dart.addTypeCaches(nested.SingleChildBuilder);
-  dart.setMethodSignature(nested.SingleChildBuilder, () => ({
-    __proto__: dart.getMethods(nested.SingleChildBuilder.__proto__),
-    buildWithChild: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext), dart.legacy(framework.Widget)])
-  }));
-  dart.setLibraryUri(nested.SingleChildBuilder, I[1]);
-  dart.setFieldSignature(nested.SingleChildBuilder, () => ({
-    __proto__: dart.getFields(nested.SingleChildBuilder.__proto__),
-    builder: dart.finalFieldType(dart.legacy(dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext), dart.legacy(framework.Widget)])))
-  }));
-  nested.SingleChildStatelessWidgetMixin = class SingleChildStatelessWidgetMixin extends core.Object {};
-  nested.SingleChildStatelessWidgetMixin[dart.mixinOn] = Object => class SingleChildStatelessWidgetMixin extends Object {
-    get [_child]() {
-      return this.child;
-    }
-    createElement() {
-      return new nested.SingleChildStatelessElement.new(this);
-    }
-    build(context) {
-      return this.buildWithChild(context, this.child);
-    }
-  };
-  (nested.SingleChildStatelessWidgetMixin[dart.mixinNew] = function() {
-  }).prototype = nested.SingleChildStatelessWidgetMixin.prototype;
-  dart.addTypeTests(nested.SingleChildStatelessWidgetMixin);
-  dart.addTypeCaches(nested.SingleChildStatelessWidgetMixin);
-  nested.SingleChildStatelessWidgetMixin[dart.implements] = () => [framework.StatelessWidget, nested.SingleChildStatelessWidget, core.Object];
-  dart.setMethodSignature(nested.SingleChildStatelessWidgetMixin, () => ({
-    __proto__: dart.getMethods(nested.SingleChildStatelessWidgetMixin.__proto__),
-    createElement: dart.fnType(dart.legacy(nested.SingleChildStatelessElement), []),
-    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
-  }));
-  dart.setGetterSignature(nested.SingleChildStatelessWidgetMixin, () => ({
-    __proto__: dart.getGetters(nested.SingleChildStatelessWidgetMixin.__proto__),
-    [_child]: dart.legacy(framework.Widget)
-  }));
-  dart.setLibraryUri(nested.SingleChildStatelessWidgetMixin, I[1]);
-  nested.SingleChildStatefulWidgetMixin = class SingleChildStatefulWidgetMixin extends framework.StatefulWidget {};
-  nested.SingleChildStatefulWidgetMixin[dart.mixinOn] = StatefulWidget => class SingleChildStatefulWidgetMixin extends StatefulWidget {
-    createElement() {
-      return new nested._SingleChildStatefulMixinElement.new(this);
-    }
-  };
-  dart.addTypeTests(nested.SingleChildStatefulWidgetMixin);
-  dart.addTypeCaches(nested.SingleChildStatefulWidgetMixin);
-  nested.SingleChildStatefulWidgetMixin[dart.implements] = () => [nested.SingleChildWidget, framework.StatefulWidget];
-  dart.setMethodSignature(nested.SingleChildStatefulWidgetMixin, () => ({
-    __proto__: dart.getMethods(nested.SingleChildStatefulWidgetMixin.__proto__),
-    createElement: dart.fnType(dart.legacy(nested._SingleChildStatefulMixinElement), [])
-  }));
-  dart.setLibraryUri(nested.SingleChildStatefulWidgetMixin, I[1]);
-  const _is_SingleChildStateMixin_default = Symbol('_is_SingleChildStateMixin_default');
-  nested.SingleChildStateMixin$ = dart.generic(T => {
-    class SingleChildStateMixin extends framework.State$(dart.legacy(T)) {}
-    SingleChildStateMixin[dart.mixinOn] = State => class SingleChildStateMixin extends State {
-      build(context) {
-        return this.buildWithChild(context, T$.SingleChildStatefulWidgetMixinL().as(this.widget).child);
-      }
-    };
-    dart.addTypeTests(SingleChildStateMixin);
-    SingleChildStateMixin.prototype[_is_SingleChildStateMixin_default] = true;
-    dart.addTypeCaches(SingleChildStateMixin);
-    SingleChildStateMixin[dart.implements] = () => [framework.State$(dart.legacy(T))];
-    dart.setMethodSignature(SingleChildStateMixin, () => ({
-      __proto__: dart.getMethods(SingleChildStateMixin.__proto__),
-      build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
-    }));
-    dart.setLibraryUri(SingleChildStateMixin, I[1]);
-    return SingleChildStateMixin;
-  });
-  nested.SingleChildStateMixin = nested.SingleChildStateMixin$();
-  dart.addTypeTests(nested.SingleChildStateMixin, _is_SingleChildStateMixin_default);
-  const StatefulElement_SingleChildWidgetElementMixin$36$ = class StatefulElement_SingleChildWidgetElementMixin extends framework.StatefulElement {};
-  (StatefulElement_SingleChildWidgetElementMixin$36$.new = function(widget) {
-    nested.SingleChildWidgetElementMixin[dart.mixinNew].call(this);
-    StatefulElement_SingleChildWidgetElementMixin$36$.__proto__.new.call(this, widget);
-  }).prototype = StatefulElement_SingleChildWidgetElementMixin$36$.prototype;
-  dart.applyMixin(StatefulElement_SingleChildWidgetElementMixin$36$, nested.SingleChildWidgetElementMixin);
-  nested._SingleChildStatefulMixinElement = class _SingleChildStatefulMixinElement extends StatefulElement_SingleChildWidgetElementMixin$36$ {
-    get widget() {
-      return T$.SingleChildStatefulWidgetMixinL().as(super.widget);
-    }
-    get state() {
-      return T$.SingleChildStateMixinLOfStatefulWidgetL().as(super.state);
-    }
-    build() {
-      if (this[_parent] != null) {
-        return this.state.buildWithChild(this, this[_parent].injectedChild);
-      }
-      return super.build();
-    }
-  };
-  (nested._SingleChildStatefulMixinElement.new = function(widget) {
-    nested._SingleChildStatefulMixinElement.__proto__.new.call(this, widget);
-    ;
-  }).prototype = nested._SingleChildStatefulMixinElement.prototype;
-  dart.addTypeTests(nested._SingleChildStatefulMixinElement);
-  dart.addTypeCaches(nested._SingleChildStatefulMixinElement);
-  dart.setMethodSignature(nested._SingleChildStatefulMixinElement, () => ({
-    __proto__: dart.getMethods(nested._SingleChildStatefulMixinElement.__proto__),
-    build: dart.fnType(dart.legacy(framework.Widget), [])
-  }));
-  dart.setGetterSignature(nested._SingleChildStatefulMixinElement, () => ({
-    __proto__: dart.getGetters(nested._SingleChildStatefulMixinElement.__proto__),
-    widget: dart.legacy(nested.SingleChildStatefulWidgetMixin),
-    state: dart.legacy(nested.SingleChildStateMixin$(dart.legacy(framework.StatefulWidget)))
-  }));
-  dart.setLibraryUri(nested._SingleChildStatefulMixinElement, I[1]);
-  nested.SingleChildInheritedElementMixin = class SingleChildInheritedElementMixin extends core.Object {};
-  nested.SingleChildInheritedElementMixin[dart.mixinOn] = _SingleChildInheritedElementMixin$36InheritedElement$36SingleChildWidgetElementMixin => class SingleChildInheritedElementMixin extends _SingleChildInheritedElementMixin$36InheritedElement$36SingleChildWidgetElementMixin {
-    build() {
-      if (this[_parent] != null) {
-        return this[_parent].injectedChild;
-      }
-      return super.build();
-    }
-  };
-  dart.addTypeTests(nested.SingleChildInheritedElementMixin);
-  dart.addTypeCaches(nested.SingleChildInheritedElementMixin);
-  nested.SingleChildInheritedElementMixin[dart.implements] = () => [nested.SingleChildWidgetElementMixin, framework.InheritedElement];
-  dart.setMethodSignature(nested.SingleChildInheritedElementMixin, () => ({
-    __proto__: dart.getMethods(nested.SingleChildInheritedElementMixin.__proto__),
-    build: dart.fnType(dart.legacy(framework.Widget), [])
-  }));
-  dart.setLibraryUri(nested.SingleChildInheritedElementMixin, I[1]);
-  dart.trackLibraries("packages/nested/nested.dart", {
-    "package:nested/nested.dart": nested
+  dart.trackLibraries("packages/shop_app/screens/auth_screen.dart", {
+    "package:shop_app/screens/auth_screen.dart": auth_screen
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["nested.dart","../../../../../packages/flutter/lib/src/widgets/framework.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/nested/nested.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["auth_screen.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/shop_app/screens/auth_screen.dart.lib.js"}');
   // Exports:
   return {
-    nested: nested
+    screens__auth_screen: auth_screen
   };
 }));
 
-//# sourceMappingURL=nested.dart.lib.js.map
+//# sourceMappingURL=auth_screen.dart.lib.js.map

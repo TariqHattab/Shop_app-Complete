@@ -1,54 +1,55 @@
-define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/services/text_editing.dart', 'packages/vector_math/vector_math_64.dart', 'packages/flutter/src/services/system_channels.dart', 'packages/flutter/src/foundation/debug.dart'], (function load__packages__flutter__src__services__text_input_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__services__text_editing$46dart, packages__vector_math__vector_math_64$46dart, packages__flutter__src__services__system_channels$46dart, packages__flutter__src__foundation__debug$46dart) {
+define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/gestures/recognizer.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/rendering/viewport_offset.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/foundation/key.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/rendering/sliver_grid.dart'], (function load__packages__flutter__src__widgets__scroll_view_dart(dart_sdk, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__gestures__recognizer$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__rendering__viewport_offset$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__foundation__key$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__rendering__sliver_grid$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _js_helper = dart_sdk._js_helper;
   const ui = dart_sdk.ui;
-  const io = dart_sdk.io;
   const _internal = dart_sdk._internal;
-  const async = dart_sdk.async;
   const _interceptors = dart_sdk._interceptors;
+  const math = dart_sdk.math;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
-  const text_editing = packages__flutter__src__services__text_editing$46dart.src__services__text_editing;
-  const vector_math_64 = packages__vector_math__vector_math_64$46dart.vector_math_64;
-  const system_channels = packages__flutter__src__services__system_channels$46dart.src__services__system_channels;
-  const message_codec = packages__flutter__src__services__system_channels$46dart.src__services__message_codec;
-  const platform_channel = packages__flutter__src__services__system_channels$46dart.src__services__platform_channel;
-  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const recognizer = packages__flutter__src__gestures__recognizer$46dart.src__gestures__recognizer;
+  const scroll_physics = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_physics;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const debug = packages__flutter__src__widgets__widget_span$46dart.src__widgets__debug;
+  const viewport = packages__flutter__src__widgets__widget_span$46dart.src__widgets__viewport;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const primary_scroll_controller = packages__flutter__src__widgets__widget_span$46dart.src__widgets__primary_scroll_controller;
+  const scrollable$ = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scrollable;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const notification_listener = packages__flutter__src__widgets__widget_span$46dart.src__widgets__notification_listener;
+  const scroll_notification = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_notification;
+  const focus_scope = packages__flutter__src__widgets__widget_span$46dart.src__widgets__focus_scope;
+  const scroll_controller = packages__flutter__src__widgets__widget_span$46dart.src__widgets__scroll_controller;
+  const media_query = packages__flutter__src__widgets__widget_span$46dart.src__widgets__media_query;
+  const sliver = packages__flutter__src__widgets__widget_span$46dart.src__widgets__sliver;
+  const viewport_offset = packages__flutter__src__rendering__viewport_offset$46dart.src__rendering__viewport_offset;
   const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
-  var text_input = Object.create(dart.library);
-  var autofill = Object.create(dart.library);
-  var $_get = dartx._get;
-  var $_set = dartx._set;
-  var $toString = dartx.toString;
-  var $hashCode = dartx.hashCode;
-  var $contains = dartx.contains;
-  var $keys = dartx.keys;
-  var $isNotEmpty = dartx.isNotEmpty;
-  var $map = dartx.map;
-  var $toList = dartx.toList;
-  var $any = dartx.any;
+  const assertions = packages__flutter__src__foundation__debug$46dart.src__foundation__assertions;
+  const key = packages__flutter__src__foundation__key$46dart.src__foundation__key;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const sliver_grid = packages__flutter__src__rendering__sliver_grid$46dart.src__rendering__sliver_grid;
+  var scroll_view = Object.create(dart.library);
+  var $length = dartx.length;
+  var $truncate = dartx.truncate;
+  var $isEven = dartx.isEven;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    SmartDashesTypeL: () => (T.SmartDashesTypeL = dart.constFn(dart.legacy(text_input.SmartDashesType)))(),
-    SmartQuotesTypeL: () => (T.SmartQuotesTypeL = dart.constFn(dart.legacy(text_input.SmartQuotesType)))(),
-    IdentityMapOfString$dynamic: () => (T.IdentityMapOfString$dynamic = dart.constFn(_js_helper.IdentityMap$(core.String, dart.dynamic)))(),
-    TextInputTypeL: () => (T.TextInputTypeL = dart.constFn(dart.legacy(text_input.TextInputType)))(),
-    StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
-    TextInputActionL: () => (T.TextInputActionL = dart.constFn(dart.legacy(text_input.TextInputAction)))(),
-    TextCapitalizationL: () => (T.TextCapitalizationL = dart.constFn(dart.legacy(text_input.TextCapitalization)))(),
-    FloatingCursorDragStateL: () => (T.FloatingCursorDragStateL = dart.constFn(dart.legacy(text_input.FloatingCursorDragState)))(),
-    intN: () => (T.intN = dart.constFn(dart.nullable(core.int)))(),
-    StringN: () => (T.StringN = dart.constFn(dart.nullable(core.String)))(),
-    boolN: () => (T.boolN = dart.constFn(dart.nullable(core.bool)))(),
+    ScrollViewKeyboardDismissBehaviorL: () => (T.ScrollViewKeyboardDismissBehaviorL = dart.constFn(dart.legacy(scroll_view.ScrollViewKeyboardDismissBehavior)))(),
     VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
-    MapOfString$dynamic: () => (T.MapOfString$dynamic = dart.constFn(core.Map$(core.String, dart.dynamic)))(),
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    JSArrayOfDiagnosticsNode: () => (T.JSArrayOfDiagnosticsNode = dart.constFn(_interceptors.JSArray$(diagnostics.DiagnosticsNode)))(),
-    TextInputConfigurationToMapOfString$dynamic: () => (T.TextInputConfigurationToMapOfString$dynamic = dart.constFn(dart.fnType(T.MapOfString$dynamic(), [text_input.TextInputConfiguration])))(),
-    AutofillClientTobool: () => (T.AutofillClientTobool = dart.constFn(dart.fnType(core.bool, [autofill.AutofillClient])))(),
-    AutofillClientToTextInputConfiguration: () => (T.AutofillClientToTextInputConfiguration = dart.constFn(dart.fnType(text_input.TextInputConfiguration, [autofill.AutofillClient])))()
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    BuildContextAndViewportOffsetToWidget: () => (T.BuildContextAndViewportOffsetToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, viewport_offset.ViewportOffset])))(),
+    NotificationListenerOfScrollUpdateNotification: () => (T.NotificationListenerOfScrollUpdateNotification = dart.constFn(notification_listener.NotificationListener$(scroll_notification.ScrollUpdateNotification)))(),
+    ScrollUpdateNotificationTobool: () => (T.ScrollUpdateNotificationTobool = dart.constFn(dart.fnType(core.bool, [scroll_notification.ScrollUpdateNotification])))(),
+    EnumPropertyOfAxis: () => (T.EnumPropertyOfAxis = dart.constFn(diagnostics.EnumProperty$(basic_types.Axis)))(),
+    DiagnosticsPropertyOfScrollController: () => (T.DiagnosticsPropertyOfScrollController = dart.constFn(diagnostics.DiagnosticsProperty$(scroll_controller.ScrollController)))(),
+    DiagnosticsPropertyOfScrollPhysics: () => (T.DiagnosticsPropertyOfScrollPhysics = dart.constFn(diagnostics.DiagnosticsProperty$(scroll_physics.ScrollPhysics)))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    JSArrayOfWidget: () => (T.JSArrayOfWidget = dart.constFn(_interceptors.JSArray$(framework.Widget)))(),
+    DiagnosticsPropertyOfEdgeInsetsGeometry: () => (T.DiagnosticsPropertyOfEdgeInsetsGeometry = dart.constFn(diagnostics.DiagnosticsProperty$(edge_insets.EdgeInsetsGeometry)))(),
+    BuildContextAndintToWidget: () => (T.BuildContextAndintToWidget = dart.constFn(dart.fnType(framework.Widget, [framework.BuildContext, core.int])))(),
+    intN: () => (T.intN = dart.constFn(dart.nullable(core.int)))(),
+    WidgetAndintTointN: () => (T.WidgetAndintTointN = dart.constFn(dart.fnType(T.intN(), [framework.Widget, core.int])))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -65,1733 +66,1368 @@ define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flu
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: text_input.SmartDashesType.prototype,
-        [_name$]: "SmartDashesType.disabled",
+        __proto__: scroll_view.ScrollViewKeyboardDismissBehavior.prototype,
+        [_name$]: "ScrollViewKeyboardDismissBehavior.manual",
         index: 0
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: text_input.SmartDashesType.prototype,
-        [_name$]: "SmartDashesType.enabled",
+        __proto__: scroll_view.ScrollViewKeyboardDismissBehavior.prototype,
+        [_name$]: "ScrollViewKeyboardDismissBehavior.onDrag",
         index: 1
       });
     },
     get C2() {
-      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], T.SmartDashesTypeL());
+      return C[2] = dart.constList([C[0] || CT.C0, C[1] || CT.C1], T.ScrollViewKeyboardDismissBehaviorL());
     },
     get C3() {
       return C[3] = dart.const({
-        __proto__: text_input.SmartQuotesType.prototype,
-        [_name$]: "SmartQuotesType.disabled",
-        index: 0
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.vertical",
+        index: 1
       });
     },
     get C4() {
       return C[4] = dart.const({
-        __proto__: text_input.SmartQuotesType.prototype,
-        [_name$]: "SmartQuotesType.enabled",
+        __proto__: recognizer.DragStartBehavior.prototype,
+        [_name$0]: "DragStartBehavior.start",
         index: 1
       });
     },
     get C5() {
-      return C[5] = dart.constList([C[3] || CT.C3, C[4] || CT.C4], T.SmartQuotesTypeL());
+      return C[5] = dart.const({
+        __proto__: ui.Clip.prototype,
+        [_name$1]: "Clip.hardEdge",
+        index: 1
+      });
     },
     get C6() {
       return C[6] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 0
+        __proto__: scroll_physics.AlwaysScrollableScrollPhysics.prototype,
+        [ScrollPhysics_parent]: null
       });
     },
     get C7() {
       return C[7] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 1
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.up",
+        index: 0
       });
     },
     get C8() {
       return C[8] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: false,
-        [signed$]: false,
-        [index$]: 2
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.down",
+        index: 2
       });
     },
     get C9() {
       return C[9] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 3
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.left",
+        index: 3
       });
     },
     get C10() {
       return C[10] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 4
-      });
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 5
-      });
-    },
-    get C12() {
-      return C[12] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 6
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.right",
+        index: 1
       });
     },
     get C13() {
       return C[13] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 7
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "axisDirection",
+        [_Location_column]: 9,
+        [_Location_line]: 354,
+        [_Location_file]: null
       });
     },
     get C14() {
       return C[14] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 8
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "offset",
+        [_Location_column]: 9,
+        [_Location_line]: 355,
+        [_Location_file]: null
       });
     },
     get C15() {
       return C[15] = dart.const({
-        __proto__: text_input.TextInputType.prototype,
-        [decimal$]: null,
-        [signed$]: null,
-        [index$]: 9
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "slivers",
+        [_Location_column]: 9,
+        [_Location_line]: 356,
+        [_Location_file]: null
       });
     },
     get C16() {
-      return C[16] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9, C[10] || CT.C10, C[11] || CT.C11, C[12] || CT.C12, C[13] || CT.C13, C[14] || CT.C14, C[15] || CT.C15], T.TextInputTypeL());
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "clipBehavior",
+        [_Location_column]: 9,
+        [_Location_line]: 357,
+        [_Location_file]: null
+      });
     },
-    get C17() {
-      return C[17] = dart.constList(["text", "multiline", "number", "phone", "datetime", "emailAddress", "url", "visiblePassword", "name", "address"], T.StringL());
+    get C12() {
+      return C[12] = dart.constList([C[13] || CT.C13, C[14] || CT.C14, C[15] || CT.C15, C[16] || CT.C16], T._LocationL());
     },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.none",
-        index: 0
+    get C11() {
+      return C[11] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[12] || CT.C12,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 353,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
       });
     },
     get C19() {
       return C[19] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.unspecified",
-        index: 1
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "axisDirection",
+        [_Location_column]: 7,
+        [_Location_line]: 361,
+        [_Location_file]: null
       });
     },
     get C20() {
       return C[20] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.done",
-        index: 2
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "offset",
+        [_Location_column]: 7,
+        [_Location_line]: 362,
+        [_Location_file]: null
       });
     },
     get C21() {
       return C[21] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.go",
-        index: 3
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "slivers",
+        [_Location_column]: 7,
+        [_Location_line]: 363,
+        [_Location_file]: null
       });
     },
     get C22() {
       return C[22] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.search",
-        index: 4
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "cacheExtent",
+        [_Location_column]: 7,
+        [_Location_line]: 364,
+        [_Location_file]: null
       });
     },
     get C23() {
       return C[23] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.send",
-        index: 5
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "center",
+        [_Location_column]: 7,
+        [_Location_line]: 365,
+        [_Location_file]: null
       });
     },
     get C24() {
       return C[24] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.next",
-        index: 6
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "anchor",
+        [_Location_column]: 7,
+        [_Location_line]: 366,
+        [_Location_file]: null
       });
     },
     get C25() {
       return C[25] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.previous",
-        index: 7
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "clipBehavior",
+        [_Location_column]: 7,
+        [_Location_line]: 367,
+        [_Location_file]: null
       });
     },
-    get C26() {
-      return C[26] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.continueAction",
-        index: 8
-      });
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25], T._LocationL());
     },
-    get C27() {
-      return C[27] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.join",
-        index: 9
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 360,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
       });
     },
     get C28() {
       return C[28] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.route",
-        index: 10
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "dragStartBehavior",
+        [_Location_column]: 7,
+        [_Location_line]: 379,
+        [_Location_file]: null
       });
     },
     get C29() {
       return C[29] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.emergencyCall",
-        index: 11
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "axisDirection",
+        [_Location_column]: 7,
+        [_Location_line]: 380,
+        [_Location_file]: null
       });
     },
     get C30() {
       return C[30] = dart.const({
-        __proto__: text_input.TextInputAction.prototype,
-        [_name$]: "TextInputAction.newline",
-        index: 12
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "controller",
+        [_Location_column]: 7,
+        [_Location_line]: 381,
+        [_Location_file]: null
       });
     },
     get C31() {
-      return C[31] = dart.constList([C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20, C[21] || CT.C21, C[22] || CT.C22, C[23] || CT.C23, C[24] || CT.C24, C[25] || CT.C25, C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30], T.TextInputActionL());
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "physics",
+        [_Location_column]: 7,
+        [_Location_line]: 382,
+        [_Location_file]: null
+      });
     },
     get C32() {
       return C[32] = dart.const({
-        __proto__: text_input.TextCapitalization.prototype,
-        [_name$]: "TextCapitalization.words",
-        index: 0
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "semanticChildCount",
+        [_Location_column]: 7,
+        [_Location_line]: 383,
+        [_Location_file]: null
       });
     },
     get C33() {
       return C[33] = dart.const({
-        __proto__: text_input.TextCapitalization.prototype,
-        [_name$]: "TextCapitalization.sentences",
-        index: 1
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "restorationId",
+        [_Location_column]: 7,
+        [_Location_line]: 384,
+        [_Location_file]: null
       });
     },
     get C34() {
       return C[34] = dart.const({
-        __proto__: text_input.TextCapitalization.prototype,
-        [_name$]: "TextCapitalization.characters",
-        index: 2
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "viewportBuilder",
+        [_Location_column]: 7,
+        [_Location_line]: 385,
+        [_Location_file]: null
       });
     },
-    get C35() {
-      return C[35] = dart.const({
-        __proto__: text_input.TextCapitalization.prototype,
-        [_name$]: "TextCapitalization.none",
-        index: 3
-      });
+    get C27() {
+      return C[27] = dart.constList([C[28] || CT.C28, C[29] || CT.C29, C[30] || CT.C30, C[31] || CT.C31, C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34], T._LocationL());
     },
-    get C36() {
-      return C[36] = dart.constList([C[32] || CT.C32, C[33] || CT.C33, C[34] || CT.C34, C[35] || CT.C35], T.TextCapitalizationL());
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[27] || CT.C27,
+        [_Location_name]: null,
+        [_Location_column]: 35,
+        [_Location_line]: 378,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
+      });
     },
     get C37() {
       return C[37] = dart.const({
-        __proto__: ui.Brightness.prototype,
-        [_name]: "Brightness.light",
-        index: 1
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 40,
+        [_Location_line]: 390,
+        [_Location_file]: null
       });
     },
-    get C38() {
-      return C[38] = dart.const({
-        __proto__: text_input.FloatingCursorDragState.prototype,
-        [_name$]: "FloatingCursorDragState.Start",
-        index: 0
-      });
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37], T._LocationL());
     },
-    get C39() {
-      return C[39] = dart.const({
-        __proto__: text_input.FloatingCursorDragState.prototype,
-        [_name$]: "FloatingCursorDragState.Update",
-        index: 1
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 35,
+        [_Location_line]: 390,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
       });
     },
     get C40() {
       return C[40] = dart.const({
-        __proto__: text_input.FloatingCursorDragState.prototype,
-        [_name$]: "FloatingCursorDragState.End",
-        index: 2
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 9,
+        [_Location_line]: 395,
+        [_Location_file]: null
       });
     },
     get C41() {
-      return C[41] = dart.constList([C[38] || CT.C38, C[39] || CT.C39, C[40] || CT.C40], T.FloatingCursorDragStateL());
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onNotification",
+        [_Location_column]: 9,
+        [_Location_line]: 396,
+        [_Location_file]: null
+      });
     },
-    get C43() {
-      return C[43] = dart.const({
-        __proto__: ui.TextAffinity.prototype,
-        [_name]: "TextAffinity.downstream",
-        index: 1
+    get C39() {
+      return C[39] = dart.constList([C[40] || CT.C40, C[41] || CT.C41], T._LocationL());
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[39] || CT.C39,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 394,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
       });
     },
     get C42() {
-      return C[42] = dart.const({
-        __proto__: text_editing.TextSelection.prototype,
-        [TextRange_end]: -1,
-        [TextRange_start]: -1,
-        [TextSelection_isDirectional]: false,
-        [TextSelection_affinity]: C[43] || CT.C43,
-        [TextSelection_extentOffset]: -1,
-        [TextSelection_baseOffset]: -1
-      });
-    },
-    get C44() {
-      return C[44] = dart.const({
-        __proto__: ui.TextRange.prototype,
-        [TextRange_end]: -1,
-        [TextRange_start]: -1
-      });
+      return C[42] = dart.constList([], T.WidgetL());
     },
     get C45() {
       return C[45] = dart.const({
-        __proto__: text_input.TextEditingValue.prototype,
-        [composing$]: C[44] || CT.C44,
-        [selection$]: C[42] || CT.C42,
-        [text$]: ""
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 11,
+        [_Location_line]: 712,
+        [_Location_file]: null
       });
     },
     get C46() {
       return C[46] = dart.const({
-        __proto__: ui.Size.prototype,
-        [OffsetBase__dy]: -1,
-        [OffsetBase__dx]: -1
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 11,
+        [_Location_line]: 717,
+        [_Location_file]: null
       });
     },
-    get C47() {
-      return C[47] = dart.constList([C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20, C[23] || CT.C23, C[21] || CT.C21, C[22] || CT.C22, C[24] || CT.C24, C[25] || CT.C25, C[30] || CT.C30], T.TextInputActionL());
+    get C44() {
+      return C[44] = dart.constList([C[45] || CT.C45, C[46] || CT.C46], T._LocationL());
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[44] || CT.C44,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 711,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 30,
+        [_Location_line]: 723,
+        [_Location_file]: null
+      });
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "sliver",
+        [_Location_column]: 57,
+        [_Location_line]: 723,
+        [_Location_file]: null
+      });
     },
     get C48() {
-      return C[48] = dart.constList([C[19] || CT.C19, C[20] || CT.C20, C[23] || CT.C23, C[21] || CT.C21, C[22] || CT.C22, C[24] || CT.C24, C[30] || CT.C30, C[26] || CT.C26, C[27] || CT.C27, C[28] || CT.C28, C[29] || CT.C29], T.TextInputActionL());
+      return C[48] = dart.constList([C[49] || CT.C49, C[50] || CT.C50], T._LocationL());
+    },
+    get C47() {
+      return C[47] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[48] || CT.C48,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 723,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
+      });
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "delegate",
+        [_Location_column]: 9,
+        [_Location_line]: 1455,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemExtent",
+        [_Location_column]: 9,
+        [_Location_line]: 1456,
+        [_Location_file]: null
+      });
+    },
+    get C52() {
+      return C[52] = dart.constList([C[53] || CT.C53, C[54] || CT.C54], T._LocationL());
+    },
+    get C51() {
+      return C[51] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[52] || CT.C52,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 1454,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
+      });
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "delegate",
+        [_Location_column]: 23,
+        [_Location_line]: 1459,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.constList([C[57] || CT.C57], T._LocationL());
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[56] || CT.C56,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 1459,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "delegate",
+        [_Location_column]: 7,
+        [_Location_line]: 2005,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "gridDelegate",
+        [_Location_column]: 7,
+        [_Location_line]: 2006,
+        [_Location_file]: null
+      });
+    },
+    get C59() {
+      return C[59] = dart.constList([C[60] || CT.C60, C[61] || CT.C61], T._LocationL());
+    },
+    get C58() {
+      return C[58] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[59] || CT.C59,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 2004,
+        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/widgets/scroll_view.dart"
+      });
     }
   }, false);
-  var C = Array(49).fill(void 0);
+  var C = Array(62).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/services/text_input.dart",
-    "package:flutter/src/services/text_input.dart",
-    "package:flutter/src/services/autofill.dart",
-    "file:///C:/src/flutter/packages/flutter/lib/src/services/autofill.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/widgets/scroll_view.dart",
+    "package:flutter/src/widgets/scroll_view.dart"
   ];
-  var _name$ = dart.privateName(text_input, "_name");
-  text_input.SmartDashesType = class SmartDashesType extends core.Object {
+  var _name$ = dart.privateName(scroll_view, "_name");
+  scroll_view.ScrollViewKeyboardDismissBehavior = class ScrollViewKeyboardDismissBehavior extends core.Object {
     toString() {
       return this[_name$];
     }
   };
-  (text_input.SmartDashesType.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 38, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 38, 6, "_name");
+  (scroll_view.ScrollViewKeyboardDismissBehavior.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[0], 30, 6, "index");
+    if (_name == null) dart.nullFailed(I[0], 30, 6, "_name");
     this.index = index;
     this[_name$] = _name;
     ;
-  }).prototype = text_input.SmartDashesType.prototype;
-  dart.addTypeTests(text_input.SmartDashesType);
-  dart.addTypeCaches(text_input.SmartDashesType);
-  dart.setLibraryUri(text_input.SmartDashesType, I[1]);
-  dart.setFieldSignature(text_input.SmartDashesType, () => ({
-    __proto__: dart.getFields(text_input.SmartDashesType.__proto__),
+  }).prototype = scroll_view.ScrollViewKeyboardDismissBehavior.prototype;
+  dart.addTypeTests(scroll_view.ScrollViewKeyboardDismissBehavior);
+  dart.addTypeCaches(scroll_view.ScrollViewKeyboardDismissBehavior);
+  dart.setLibraryUri(scroll_view.ScrollViewKeyboardDismissBehavior, I[1]);
+  dart.setFieldSignature(scroll_view.ScrollViewKeyboardDismissBehavior, () => ({
+    __proto__: dart.getFields(scroll_view.ScrollViewKeyboardDismissBehavior.__proto__),
     index: dart.finalFieldType(core.int),
     [_name$]: dart.finalFieldType(core.String)
   }));
-  dart.defineExtensionMethods(text_input.SmartDashesType, ['toString']);
-  text_input.SmartDashesType.disabled = C[0] || CT.C0;
-  text_input.SmartDashesType.enabled = C[1] || CT.C1;
-  text_input.SmartDashesType.values = C[2] || CT.C2;
-  text_input.SmartQuotesType = class SmartQuotesType extends core.Object {
-    toString() {
-      return this[_name$];
+  dart.defineExtensionMethods(scroll_view.ScrollViewKeyboardDismissBehavior, ['toString']);
+  scroll_view.ScrollViewKeyboardDismissBehavior.manual = C[0] || CT.C0;
+  scroll_view.ScrollViewKeyboardDismissBehavior.onDrag = C[1] || CT.C1;
+  scroll_view.ScrollViewKeyboardDismissBehavior.values = C[2] || CT.C2;
+  var scrollDirection$ = dart.privateName(scroll_view, "ScrollView.scrollDirection");
+  var reverse$ = dart.privateName(scroll_view, "ScrollView.reverse");
+  var controller$ = dart.privateName(scroll_view, "ScrollView.controller");
+  var primary$ = dart.privateName(scroll_view, "ScrollView.primary");
+  var physics$ = dart.privateName(scroll_view, "ScrollView.physics");
+  var shrinkWrap$ = dart.privateName(scroll_view, "ScrollView.shrinkWrap");
+  var center$ = dart.privateName(scroll_view, "ScrollView.center");
+  var anchor$ = dart.privateName(scroll_view, "ScrollView.anchor");
+  var cacheExtent$ = dart.privateName(scroll_view, "ScrollView.cacheExtent");
+  var semanticChildCount$ = dart.privateName(scroll_view, "ScrollView.semanticChildCount");
+  var dragStartBehavior$ = dart.privateName(scroll_view, "ScrollView.dragStartBehavior");
+  var keyboardDismissBehavior$ = dart.privateName(scroll_view, "ScrollView.keyboardDismissBehavior");
+  var restorationId$ = dart.privateName(scroll_view, "ScrollView.restorationId");
+  var clipBehavior$ = dart.privateName(scroll_view, "ScrollView.clipBehavior");
+  var _name = dart.privateName(basic_types, "_name");
+  var _name$0 = dart.privateName(recognizer, "_name");
+  var _name$1 = dart.privateName(ui, "_name");
+  var ScrollPhysics_parent = dart.privateName(scroll_physics, "ScrollPhysics.parent");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  scroll_view.ScrollView = class ScrollView extends framework.StatelessWidget {
+    get scrollDirection() {
+      return this[scrollDirection$];
     }
-  };
-  (text_input.SmartQuotesType.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 60, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 60, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = text_input.SmartQuotesType.prototype;
-  dart.addTypeTests(text_input.SmartQuotesType);
-  dart.addTypeCaches(text_input.SmartQuotesType);
-  dart.setLibraryUri(text_input.SmartQuotesType, I[1]);
-  dart.setFieldSignature(text_input.SmartQuotesType, () => ({
-    __proto__: dart.getFields(text_input.SmartQuotesType.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(text_input.SmartQuotesType, ['toString']);
-  text_input.SmartQuotesType.disabled = C[3] || CT.C3;
-  text_input.SmartQuotesType.enabled = C[4] || CT.C4;
-  text_input.SmartQuotesType.values = C[5] || CT.C5;
-  var index$ = dart.privateName(text_input, "TextInputType.index");
-  var signed$ = dart.privateName(text_input, "TextInputType.signed");
-  var decimal$ = dart.privateName(text_input, "TextInputType.decimal");
-  text_input.TextInputType = class TextInputType extends core.Object {
-    get index() {
-      return this[index$];
+    set scrollDirection(value) {
+      super.scrollDirection = value;
     }
-    set index(value) {
-      super.index = value;
+    get reverse() {
+      return this[reverse$];
     }
-    get signed() {
-      return this[signed$];
+    set reverse(value) {
+      super.reverse = value;
     }
-    set signed(value) {
-      super.signed = value;
+    get controller() {
+      return this[controller$];
     }
-    get decimal() {
-      return this[decimal$];
+    set controller(value) {
+      super.controller = value;
     }
-    set decimal(value) {
-      super.decimal = value;
+    get primary() {
+      return this[primary$];
     }
-    get [_name$]() {
-      return "TextInputType." + dart.str(text_input.TextInputType._names[$_get](this.index));
+    set primary(value) {
+      super.primary = value;
     }
-    toJson() {
-      return new (T.IdentityMapOfString$dynamic()).from(["name", this[_name$], "signed", this.signed, "decimal", this.decimal]);
+    get physics() {
+      return this[physics$];
     }
-    toString() {
-      return dart.str(object.objectRuntimeType(this, "TextInputType")) + "(" + "name: " + dart.str(this[_name$]) + ", " + "signed: " + dart.str(this.signed) + ", " + "decimal: " + dart.str(this.decimal) + ")";
+    set physics(value) {
+      super.physics = value;
     }
-    _equals(other) {
-      if (other == null) return false;
-      return text_input.TextInputType.is(other) && other.index == this.index && other.signed == this.signed && other.decimal == this.decimal;
+    get shrinkWrap() {
+      return this[shrinkWrap$];
     }
-    get hashCode() {
-      return ui.hashValues(this.index, this.signed, this.decimal);
+    set shrinkWrap(value) {
+      super.shrinkWrap = value;
     }
-  };
-  (text_input.TextInputType.__ = function(index) {
-    if (index == null) dart.nullFailed(I[0], 83, 30, "index");
-    this[index$] = index;
-    this[signed$] = null;
-    this[decimal$] = null;
-    ;
-  }).prototype = text_input.TextInputType.prototype;
-  (text_input.TextInputType.numberWithOptions = function(opts) {
-    let signed = opts && 'signed' in opts ? opts.signed : false;
-    let decimal = opts && 'decimal' in opts ? opts.decimal : false;
-    this[signed$] = signed;
-    this[decimal$] = decimal;
-    this[index$] = 2;
-    ;
-  }).prototype = text_input.TextInputType.prototype;
-  dart.addTypeTests(text_input.TextInputType);
-  dart.addTypeCaches(text_input.TextInputType);
-  dart.setMethodSignature(text_input.TextInputType, () => ({
-    __proto__: dart.getMethods(text_input.TextInputType.__proto__),
-    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
-  }));
-  dart.setGetterSignature(text_input.TextInputType, () => ({
-    __proto__: dart.getGetters(text_input.TextInputType.__proto__),
-    [_name$]: core.String
-  }));
-  dart.setLibraryUri(text_input.TextInputType, I[1]);
-  dart.setFieldSignature(text_input.TextInputType, () => ({
-    __proto__: dart.getFields(text_input.TextInputType.__proto__),
-    index: dart.finalFieldType(core.int),
-    signed: dart.finalFieldType(dart.nullable(core.bool)),
-    decimal: dart.finalFieldType(dart.nullable(core.bool))
-  }));
-  dart.defineExtensionMethods(text_input.TextInputType, ['toString', '_equals']);
-  dart.defineExtensionAccessors(text_input.TextInputType, ['hashCode']);
-  dart.defineLazy(text_input.TextInputType, {
-    /*text_input.TextInputType.text*/get text() {
-      return C[6] || CT.C6;
-    },
-    /*text_input.TextInputType.multiline*/get multiline() {
-      return C[7] || CT.C7;
-    },
-    /*text_input.TextInputType.number*/get number() {
-      return C[8] || CT.C8;
-    },
-    /*text_input.TextInputType.phone*/get phone() {
-      return C[9] || CT.C9;
-    },
-    /*text_input.TextInputType.datetime*/get datetime() {
-      return C[10] || CT.C10;
-    },
-    /*text_input.TextInputType.emailAddress*/get emailAddress() {
-      return C[11] || CT.C11;
-    },
-    /*text_input.TextInputType.url*/get url() {
-      return C[12] || CT.C12;
-    },
-    /*text_input.TextInputType.visiblePassword*/get visiblePassword() {
-      return C[13] || CT.C13;
-    },
-    /*text_input.TextInputType.name_*/get name_() {
-      return C[14] || CT.C14;
-    },
-    /*text_input.TextInputType.streetAddress*/get streetAddress() {
-      return C[15] || CT.C15;
-    },
-    /*text_input.TextInputType.values*/get values() {
-      return C[16] || CT.C16;
-    },
-    /*text_input.TextInputType._names*/get _names() {
-      return C[17] || CT.C17;
+    get center() {
+      return this[center$];
     }
-  }, false);
-  text_input.TextInputAction = class TextInputAction extends core.Object {
-    toString() {
-      return this[_name$];
+    set center(value) {
+      super.center = value;
     }
-  };
-  (text_input.TextInputAction.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 252, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 252, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = text_input.TextInputAction.prototype;
-  dart.addTypeTests(text_input.TextInputAction);
-  dart.addTypeCaches(text_input.TextInputAction);
-  dart.setLibraryUri(text_input.TextInputAction, I[1]);
-  dart.setFieldSignature(text_input.TextInputAction, () => ({
-    __proto__: dart.getFields(text_input.TextInputAction.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(text_input.TextInputAction, ['toString']);
-  text_input.TextInputAction.none = C[18] || CT.C18;
-  text_input.TextInputAction.unspecified = C[19] || CT.C19;
-  text_input.TextInputAction.done = C[20] || CT.C20;
-  text_input.TextInputAction.go = C[21] || CT.C21;
-  text_input.TextInputAction.search = C[22] || CT.C22;
-  text_input.TextInputAction.send = C[23] || CT.C23;
-  text_input.TextInputAction.next = C[24] || CT.C24;
-  text_input.TextInputAction.previous = C[25] || CT.C25;
-  text_input.TextInputAction.continueAction = C[26] || CT.C26;
-  text_input.TextInputAction.join = C[27] || CT.C27;
-  text_input.TextInputAction.route = C[28] || CT.C28;
-  text_input.TextInputAction.emergencyCall = C[29] || CT.C29;
-  text_input.TextInputAction.newline = C[30] || CT.C30;
-  text_input.TextInputAction.values = C[31] || CT.C31;
-  text_input.TextCapitalization = class TextCapitalization extends core.Object {
-    toString() {
-      return this[_name$];
+    get anchor() {
+      return this[anchor$];
     }
-  };
-  (text_input.TextCapitalization.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 408, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 408, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = text_input.TextCapitalization.prototype;
-  dart.addTypeTests(text_input.TextCapitalization);
-  dart.addTypeCaches(text_input.TextCapitalization);
-  dart.setLibraryUri(text_input.TextCapitalization, I[1]);
-  dart.setFieldSignature(text_input.TextCapitalization, () => ({
-    __proto__: dart.getFields(text_input.TextCapitalization.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(text_input.TextCapitalization, ['toString']);
-  text_input.TextCapitalization.words = C[32] || CT.C32;
-  text_input.TextCapitalization.sentences = C[33] || CT.C33;
-  text_input.TextCapitalization.characters = C[34] || CT.C34;
-  text_input.TextCapitalization.none = C[35] || CT.C35;
-  text_input.TextCapitalization.values = C[36] || CT.C36;
-  var inputType$ = dart.privateName(text_input, "TextInputConfiguration.inputType");
-  var readOnly$ = dart.privateName(text_input, "TextInputConfiguration.readOnly");
-  var obscureText$ = dart.privateName(text_input, "TextInputConfiguration.obscureText");
-  var autocorrect$ = dart.privateName(text_input, "TextInputConfiguration.autocorrect");
-  var autofillConfiguration$ = dart.privateName(text_input, "TextInputConfiguration.autofillConfiguration");
-  var smartDashesType$ = dart.privateName(text_input, "TextInputConfiguration.smartDashesType");
-  var smartQuotesType$ = dart.privateName(text_input, "TextInputConfiguration.smartQuotesType");
-  var enableSuggestions$ = dart.privateName(text_input, "TextInputConfiguration.enableSuggestions");
-  var actionLabel$ = dart.privateName(text_input, "TextInputConfiguration.actionLabel");
-  var inputAction$ = dart.privateName(text_input, "TextInputConfiguration.inputAction");
-  var textCapitalization$ = dart.privateName(text_input, "TextInputConfiguration.textCapitalization");
-  var keyboardAppearance$ = dart.privateName(text_input, "TextInputConfiguration.keyboardAppearance");
-  var _name = dart.privateName(ui, "_name");
-  text_input.TextInputConfiguration = class TextInputConfiguration extends core.Object {
-    get inputType() {
-      return this[inputType$];
+    set anchor(value) {
+      super.anchor = value;
     }
-    set inputType(value) {
-      super.inputType = value;
+    get cacheExtent() {
+      return this[cacheExtent$];
     }
-    get readOnly() {
-      return this[readOnly$];
+    set cacheExtent(value) {
+      super.cacheExtent = value;
     }
-    set readOnly(value) {
-      super.readOnly = value;
+    get semanticChildCount() {
+      return this[semanticChildCount$];
     }
-    get obscureText() {
-      return this[obscureText$];
+    set semanticChildCount(value) {
+      super.semanticChildCount = value;
     }
-    set obscureText(value) {
-      super.obscureText = value;
+    get dragStartBehavior() {
+      return this[dragStartBehavior$];
     }
-    get autocorrect() {
-      return this[autocorrect$];
+    set dragStartBehavior(value) {
+      super.dragStartBehavior = value;
     }
-    set autocorrect(value) {
-      super.autocorrect = value;
+    get keyboardDismissBehavior() {
+      return this[keyboardDismissBehavior$];
     }
-    get autofillConfiguration() {
-      return this[autofillConfiguration$];
+    set keyboardDismissBehavior(value) {
+      super.keyboardDismissBehavior = value;
     }
-    set autofillConfiguration(value) {
-      super.autofillConfiguration = value;
+    get restorationId() {
+      return this[restorationId$];
     }
-    get smartDashesType() {
-      return this[smartDashesType$];
+    set restorationId(value) {
+      super.restorationId = value;
     }
-    set smartDashesType(value) {
-      super.smartDashesType = value;
+    get clipBehavior() {
+      return this[clipBehavior$];
     }
-    get smartQuotesType() {
-      return this[smartQuotesType$];
+    set clipBehavior(value) {
+      super.clipBehavior = value;
     }
-    set smartQuotesType(value) {
-      super.smartQuotesType = value;
+    getDirection(context) {
+      if (context == null) dart.nullFailed(I[0], 306, 43, "context");
+      return basic.getAxisDirectionFromAxisReverseAndDirectionality(context, this.scrollDirection, this.reverse);
     }
-    get enableSuggestions() {
-      return this[enableSuggestions$];
-    }
-    set enableSuggestions(value) {
-      super.enableSuggestions = value;
-    }
-    get actionLabel() {
-      return this[actionLabel$];
-    }
-    set actionLabel(value) {
-      super.actionLabel = value;
-    }
-    get inputAction() {
-      return this[inputAction$];
-    }
-    set inputAction(value) {
-      super.inputAction = value;
-    }
-    get textCapitalization() {
-      return this[textCapitalization$];
-    }
-    set textCapitalization(value) {
-      super.textCapitalization = value;
-    }
-    get keyboardAppearance() {
-      return this[keyboardAppearance$];
-    }
-    set keyboardAppearance(value) {
-      super.keyboardAppearance = value;
-    }
-    toJson() {
-      return (() => {
-        let t0 = new (T.IdentityMapOfString$dynamic()).new();
-        t0[$_set]("inputType", this.inputType.toJson());
-        t0[$_set]("readOnly", this.readOnly);
-        t0[$_set]("obscureText", this.obscureText);
-        t0[$_set]("autocorrect", this.autocorrect);
-        t0[$_set]("smartDashesType", dart.toString(this.smartDashesType.index));
-        t0[$_set]("smartQuotesType", dart.toString(this.smartQuotesType.index));
-        t0[$_set]("enableSuggestions", this.enableSuggestions);
-        t0[$_set]("actionLabel", this.actionLabel);
-        t0[$_set]("inputAction", dart.toString(this.inputAction));
-        t0[$_set]("textCapitalization", dart.toString(this.textCapitalization));
-        t0[$_set]("keyboardAppearance", dart.toString(this.keyboardAppearance));
-        if (this.autofillConfiguration != null) t0[$_set]("autofill", dart.nullCheck(this.autofillConfiguration).toJson());
-        return t0;
-      })();
-    }
-  };
-  (text_input.TextInputConfiguration.new = function(opts) {
-    let t0, t0$;
-    let inputType = opts && 'inputType' in opts ? opts.inputType : C[6] || CT.C6;
-    if (inputType == null) dart.nullFailed(I[0], 454, 10, "inputType");
-    let readOnly = opts && 'readOnly' in opts ? opts.readOnly : false;
-    if (readOnly == null) dart.nullFailed(I[0], 455, 10, "readOnly");
-    let obscureText = opts && 'obscureText' in opts ? opts.obscureText : false;
-    if (obscureText == null) dart.nullFailed(I[0], 456, 10, "obscureText");
-    let autocorrect = opts && 'autocorrect' in opts ? opts.autocorrect : true;
-    if (autocorrect == null) dart.nullFailed(I[0], 457, 10, "autocorrect");
-    let smartDashesType = opts && 'smartDashesType' in opts ? opts.smartDashesType : null;
-    let smartQuotesType = opts && 'smartQuotesType' in opts ? opts.smartQuotesType : null;
-    let enableSuggestions = opts && 'enableSuggestions' in opts ? opts.enableSuggestions : true;
-    if (enableSuggestions == null) dart.nullFailed(I[0], 460, 10, "enableSuggestions");
-    let actionLabel = opts && 'actionLabel' in opts ? opts.actionLabel : null;
-    let inputAction = opts && 'inputAction' in opts ? opts.inputAction : C[20] || CT.C20;
-    if (inputAction == null) dart.nullFailed(I[0], 462, 10, "inputAction");
-    let keyboardAppearance = opts && 'keyboardAppearance' in opts ? opts.keyboardAppearance : C[37] || CT.C37;
-    if (keyboardAppearance == null) dart.nullFailed(I[0], 463, 10, "keyboardAppearance");
-    let textCapitalization = opts && 'textCapitalization' in opts ? opts.textCapitalization : C[35] || CT.C35;
-    if (textCapitalization == null) dart.nullFailed(I[0], 464, 10, "textCapitalization");
-    let autofillConfiguration = opts && 'autofillConfiguration' in opts ? opts.autofillConfiguration : null;
-    this[inputType$] = inputType;
-    this[readOnly$] = readOnly;
-    this[obscureText$] = obscureText;
-    this[autocorrect$] = autocorrect;
-    this[enableSuggestions$] = enableSuggestions;
-    this[actionLabel$] = actionLabel;
-    this[inputAction$] = inputAction;
-    this[keyboardAppearance$] = keyboardAppearance;
-    this[textCapitalization$] = textCapitalization;
-    this[autofillConfiguration$] = autofillConfiguration;
-    if (!(inputType != null)) dart.assertFailed(null, I[0], 466, 15, "inputType != null");
-    if (!(obscureText != null)) dart.assertFailed(null, I[0], 467, 15, "obscureText != null");
-    this[smartDashesType$] = (t0 = smartDashesType, t0 == null ? dart.test(obscureText) ? text_input.SmartDashesType.disabled : text_input.SmartDashesType.enabled : t0);
-    this[smartQuotesType$] = (t0$ = smartQuotesType, t0$ == null ? dart.test(obscureText) ? text_input.SmartQuotesType.disabled : text_input.SmartQuotesType.enabled : t0$);
-    if (!(autocorrect != null)) dart.assertFailed(null, I[0], 470, 15, "autocorrect != null");
-    if (!(enableSuggestions != null)) dart.assertFailed(null, I[0], 471, 15, "enableSuggestions != null");
-    if (!(keyboardAppearance != null)) dart.assertFailed(null, I[0], 472, 15, "keyboardAppearance != null");
-    if (!(inputAction != null)) dart.assertFailed(null, I[0], 473, 15, "inputAction != null");
-    if (!(textCapitalization != null)) dart.assertFailed(null, I[0], 474, 15, "textCapitalization != null");
-    ;
-  }).prototype = text_input.TextInputConfiguration.prototype;
-  dart.addTypeTests(text_input.TextInputConfiguration);
-  dart.addTypeCaches(text_input.TextInputConfiguration);
-  dart.setMethodSignature(text_input.TextInputConfiguration, () => ({
-    __proto__: dart.getMethods(text_input.TextInputConfiguration.__proto__),
-    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
-  }));
-  dart.setLibraryUri(text_input.TextInputConfiguration, I[1]);
-  dart.setFieldSignature(text_input.TextInputConfiguration, () => ({
-    __proto__: dart.getFields(text_input.TextInputConfiguration.__proto__),
-    inputType: dart.finalFieldType(text_input.TextInputType),
-    readOnly: dart.finalFieldType(core.bool),
-    obscureText: dart.finalFieldType(core.bool),
-    autocorrect: dart.finalFieldType(core.bool),
-    autofillConfiguration: dart.finalFieldType(dart.nullable(autofill.AutofillConfiguration)),
-    smartDashesType: dart.finalFieldType(text_input.SmartDashesType),
-    smartQuotesType: dart.finalFieldType(text_input.SmartQuotesType),
-    enableSuggestions: dart.finalFieldType(core.bool),
-    actionLabel: dart.finalFieldType(dart.nullable(core.String)),
-    inputAction: dart.finalFieldType(text_input.TextInputAction),
-    textCapitalization: dart.finalFieldType(text_input.TextCapitalization),
-    keyboardAppearance: dart.finalFieldType(ui.Brightness)
-  }));
-  text_input.FloatingCursorDragState = class FloatingCursorDragState extends core.Object {
-    toString() {
-      return this[_name$];
-    }
-  };
-  (text_input.FloatingCursorDragState.new = function(index, _name) {
-    if (index == null) dart.nullFailed(I[0], 621, 6, "index");
-    if (_name == null) dart.nullFailed(I[0], 621, 6, "_name");
-    this.index = index;
-    this[_name$] = _name;
-    ;
-  }).prototype = text_input.FloatingCursorDragState.prototype;
-  dart.addTypeTests(text_input.FloatingCursorDragState);
-  dart.addTypeCaches(text_input.FloatingCursorDragState);
-  dart.setLibraryUri(text_input.FloatingCursorDragState, I[1]);
-  dart.setFieldSignature(text_input.FloatingCursorDragState, () => ({
-    __proto__: dart.getFields(text_input.FloatingCursorDragState.__proto__),
-    index: dart.finalFieldType(core.int),
-    [_name$]: dart.finalFieldType(core.String)
-  }));
-  dart.defineExtensionMethods(text_input.FloatingCursorDragState, ['toString']);
-  text_input.FloatingCursorDragState.Start = C[38] || CT.C38;
-  text_input.FloatingCursorDragState.Update = C[39] || CT.C39;
-  text_input.FloatingCursorDragState.End = C[40] || CT.C40;
-  text_input.FloatingCursorDragState.values = C[41] || CT.C41;
-  var offset$ = dart.privateName(text_input, "RawFloatingCursorPoint.offset");
-  var state$ = dart.privateName(text_input, "RawFloatingCursorPoint.state");
-  text_input.RawFloatingCursorPoint = class RawFloatingCursorPoint extends core.Object {
-    get offset() {
-      return this[offset$];
-    }
-    set offset(value) {
-      super.offset = value;
-    }
-    get state() {
-      return this[state$];
-    }
-    set state(value) {
-      super.state = value;
-    }
-  };
-  (text_input.RawFloatingCursorPoint.new = function(opts) {
-    let offset = opts && 'offset' in opts ? opts.offset : null;
-    let state = opts && 'state' in opts ? opts.state : null;
-    if (state == null) dart.nullFailed(I[0], 642, 19, "state");
-    this[offset$] = offset;
-    this[state$] = state;
-    if (!(state != null)) dart.assertFailed(null, I[0], 643, 15, "state != null");
-    if (!(state != text_input.FloatingCursorDragState.Update || offset != null)) dart.assertFailed(null, I[0], 644, 15, "state != FloatingCursorDragState.Update || offset != null");
-    ;
-  }).prototype = text_input.RawFloatingCursorPoint.prototype;
-  dart.addTypeTests(text_input.RawFloatingCursorPoint);
-  dart.addTypeCaches(text_input.RawFloatingCursorPoint);
-  dart.setLibraryUri(text_input.RawFloatingCursorPoint, I[1]);
-  dart.setFieldSignature(text_input.RawFloatingCursorPoint, () => ({
-    __proto__: dart.getFields(text_input.RawFloatingCursorPoint.__proto__),
-    offset: dart.finalFieldType(dart.nullable(ui.Offset)),
-    state: dart.finalFieldType(text_input.FloatingCursorDragState)
-  }));
-  var text$ = dart.privateName(text_input, "TextEditingValue.text");
-  var selection$ = dart.privateName(text_input, "TextEditingValue.selection");
-  var composing$ = dart.privateName(text_input, "TextEditingValue.composing");
-  var TextRange_end = dart.privateName(ui, "TextRange.end");
-  var TextRange_start = dart.privateName(ui, "TextRange.start");
-  var TextSelection_isDirectional = dart.privateName(text_editing, "TextSelection.isDirectional");
-  var TextSelection_affinity = dart.privateName(text_editing, "TextSelection.affinity");
-  var TextSelection_extentOffset = dart.privateName(text_editing, "TextSelection.extentOffset");
-  var TextSelection_baseOffset = dart.privateName(text_editing, "TextSelection.baseOffset");
-  text_input.TextEditingValue = class TextEditingValue extends core.Object {
-    get text() {
-      return this[text$];
-    }
-    set text(value) {
-      super.text = value;
-    }
-    get selection() {
-      return this[selection$];
-    }
-    set selection(value) {
-      super.selection = value;
-    }
-    get composing() {
-      return this[composing$];
-    }
-    set composing(value) {
-      super.composing = value;
-    }
-    static fromJSON(encoded) {
-      let t1, t1$, t1$0, t1$1, t1$2, t1$3;
-      if (encoded == null) dart.nullFailed(I[0], 671, 58, "encoded");
-      return new text_input.TextEditingValue.new({text: core.String.as(encoded[$_get]("text")), selection: new text_editing.TextSelection.new({baseOffset: (t1 = T.intN().as(encoded[$_get]("selectionBase")), t1 == null ? -1 : t1), extentOffset: (t1$ = T.intN().as(encoded[$_get]("selectionExtent")), t1$ == null ? -1 : t1$), affinity: (t1$0 = text_input._toTextAffinity(T.StringN().as(encoded[$_get]("selectionAffinity"))), t1$0 == null ? ui.TextAffinity.downstream : t1$0), isDirectional: (t1$1 = T.boolN().as(encoded[$_get]("selectionIsDirectional")), t1$1 == null ? false : t1$1)}), composing: new ui.TextRange.new({start: (t1$2 = T.intN().as(encoded[$_get]("composingBase")), t1$2 == null ? -1 : t1$2), end: (t1$3 = T.intN().as(encoded[$_get]("composingExtent")), t1$3 == null ? -1 : t1$3)})});
-    }
-    toJSON() {
-      return new (T.IdentityMapOfString$dynamic()).from(["text", this.text, "selectionBase", this.selection.baseOffset, "selectionExtent", this.selection.extentOffset, "selectionAffinity", dart.toString(this.selection.affinity), "selectionIsDirectional", this.selection.isDirectional, "composingBase", this.composing.start, "composingExtent", this.composing.end]);
-    }
-    copyWith(opts) {
-      let t1, t1$, t1$0;
-      let text = opts && 'text' in opts ? opts.text : null;
-      let selection = opts && 'selection' in opts ? opts.selection : null;
-      let composing = opts && 'composing' in opts ? opts.composing : null;
-      return new text_input.TextEditingValue.new({text: (t1 = text, t1 == null ? this.text : t1), selection: (t1$ = selection, t1$ == null ? this.selection : t1$), composing: (t1$0 = composing, t1$0 == null ? this.composing : t1$0)});
-    }
-    get isComposingRangeValid() {
-      return dart.test(this.composing.isValid) && dart.test(this.composing.isNormalized) && dart.notNull(this.composing.end) <= this.text.length;
-    }
-    toString() {
-      return dart.str(object.objectRuntimeType(this, "TextEditingValue")) + "(text: ┤" + dart.str(this.text) + "├, selection: " + dart.str(this.selection) + ", composing: " + dart.str(this.composing) + ")";
-    }
-    _equals(other) {
-      if (other == null) return false;
-      if (this === other) return true;
-      return text_input.TextEditingValue.is(other) && other.text == this.text && dart.equals(other.selection, this.selection) && dart.equals(other.composing, this.composing);
-    }
-    get hashCode() {
-      return ui.hashValues(dart.hashCode(this.text), dart.hashCode(this.selection), dart.hashCode(this.composing));
-    }
-  };
-  (text_input.TextEditingValue.new = function(opts) {
-    let text = opts && 'text' in opts ? opts.text : "";
-    if (text == null) dart.nullFailed(I[0], 663, 10, "text");
-    let selection = opts && 'selection' in opts ? opts.selection : C[42] || CT.C42;
-    if (selection == null) dart.nullFailed(I[0], 664, 10, "selection");
-    let composing = opts && 'composing' in opts ? opts.composing : C[44] || CT.C44;
-    if (composing == null) dart.nullFailed(I[0], 665, 10, "composing");
-    this[text$] = text;
-    this[selection$] = selection;
-    this[composing$] = composing;
-    if (!(text != null)) dart.assertFailed(null, I[0], 666, 15, "text != null");
-    if (!(selection != null)) dart.assertFailed(null, I[0], 667, 15, "selection != null");
-    if (!(composing != null)) dart.assertFailed(null, I[0], 668, 15, "composing != null");
-    ;
-  }).prototype = text_input.TextEditingValue.prototype;
-  dart.addTypeTests(text_input.TextEditingValue);
-  dart.addTypeCaches(text_input.TextEditingValue);
-  dart.setMethodSignature(text_input.TextEditingValue, () => ({
-    __proto__: dart.getMethods(text_input.TextEditingValue.__proto__),
-    toJSON: dart.fnType(core.Map$(core.String, dart.dynamic), []),
-    copyWith: dart.fnType(text_input.TextEditingValue, [], {composing: dart.nullable(ui.TextRange), selection: dart.nullable(text_editing.TextSelection), text: dart.nullable(core.String)}, {})
-  }));
-  dart.setGetterSignature(text_input.TextEditingValue, () => ({
-    __proto__: dart.getGetters(text_input.TextEditingValue.__proto__),
-    isComposingRangeValid: core.bool
-  }));
-  dart.setLibraryUri(text_input.TextEditingValue, I[1]);
-  dart.setFieldSignature(text_input.TextEditingValue, () => ({
-    __proto__: dart.getFields(text_input.TextEditingValue.__proto__),
-    text: dart.finalFieldType(core.String),
-    selection: dart.finalFieldType(text_editing.TextSelection),
-    composing: dart.finalFieldType(ui.TextRange)
-  }));
-  dart.defineExtensionMethods(text_input.TextEditingValue, ['toString', '_equals']);
-  dart.defineExtensionAccessors(text_input.TextEditingValue, ['hashCode']);
-  dart.defineLazy(text_input.TextEditingValue, {
-    /*text_input.TextEditingValue.empty*/get empty() {
-      return C[45] || CT.C45;
-    }
-  }, false);
-  text_input.TextSelectionDelegate = class TextSelectionDelegate extends core.Object {
-    get cutEnabled() {
-      return true;
-    }
-    get copyEnabled() {
-      return true;
-    }
-    get pasteEnabled() {
-      return true;
-    }
-    get selectAllEnabled() {
-      return true;
-    }
-  };
-  (text_input.TextSelectionDelegate.new = function() {
-    ;
-  }).prototype = text_input.TextSelectionDelegate.prototype;
-  dart.addTypeTests(text_input.TextSelectionDelegate);
-  dart.addTypeCaches(text_input.TextSelectionDelegate);
-  dart.setGetterSignature(text_input.TextSelectionDelegate, () => ({
-    __proto__: dart.getGetters(text_input.TextSelectionDelegate.__proto__),
-    cutEnabled: core.bool,
-    copyEnabled: core.bool,
-    pasteEnabled: core.bool,
-    selectAllEnabled: core.bool
-  }));
-  dart.setLibraryUri(text_input.TextSelectionDelegate, I[1]);
-  text_input.TextInputClient = class TextInputClient extends core.Object {};
-  (text_input.TextInputClient.new = function() {
-    ;
-  }).prototype = text_input.TextInputClient.prototype;
-  dart.addTypeTests(text_input.TextInputClient);
-  dart.addTypeCaches(text_input.TextInputClient);
-  dart.setLibraryUri(text_input.TextInputClient, I[1]);
-  var _cachedSize = dart.privateName(text_input, "_cachedSize");
-  var _cachedTransform = dart.privateName(text_input, "_cachedTransform");
-  var _cachedRect = dart.privateName(text_input, "_cachedRect");
-  var _client$ = dart.privateName(text_input, "_client");
-  var _id = dart.privateName(text_input, "_id");
-  var _currentConnection = dart.privateName(text_input, "_currentConnection");
-  var _show = dart.privateName(text_input, "_show");
-  var _requestAutofill = dart.privateName(text_input, "_requestAutofill");
-  var _updateConfig = dart.privateName(text_input, "_updateConfig");
-  var _setEditingState = dart.privateName(text_input, "_setEditingState");
-  var _setEditableSizeAndTransform = dart.privateName(text_input, "_setEditableSizeAndTransform");
-  var OffsetBase__dy = dart.privateName(ui, "OffsetBase._dy");
-  var OffsetBase__dx = dart.privateName(ui, "OffsetBase._dx");
-  var _setComposingTextRect = dart.privateName(text_input, "_setComposingTextRect");
-  var _setStyle = dart.privateName(text_input, "_setStyle");
-  var _clearClient = dart.privateName(text_input, "_clearClient");
-  text_input.TextInputConnection = class TextInputConnection extends core.Object {
-    static debugResetId(opts) {
-      let to = opts && 'to' in opts ? opts.to : 1;
-      if (to == null) dart.nullFailed(I[0], 886, 33, "to");
-      if (!(to != null)) dart.assertFailed(null, I[0], 887, 12, "to != null");
+    buildViewport(context, offset, axisDirection, slivers) {
+      if (context == null) dart.nullFailed(I[0], 332, 18, "context");
+      if (offset == null) dart.nullFailed(I[0], 333, 20, "offset");
+      if (axisDirection == null) dart.nullFailed(I[0], 334, 19, "axisDirection");
+      if (slivers == null) dart.nullFailed(I[0], 335, 18, "slivers");
       if (!dart.test(dart.fn(() => {
-        text_input.TextInputConnection._nextId = to;
-        return true;
-      }, T.VoidTobool())())) dart.assertFailed(null, I[0], 888, 12, "() {\r\n      _nextId = to;\r\n      return true;\r\n    }()");
-    }
-    get attached() {
-      return dart.equals(text_input.TextInput._instance[_currentConnection], this);
-    }
-    show() {
-      if (!dart.test(this.attached)) dart.assertFailed(null, I[0], 901, 12, "attached");
-      text_input.TextInput._instance[_show]();
-    }
-    requestAutofill() {
-      if (!dart.test(this.attached)) dart.assertFailed(null, I[0], 914, 12, "attached");
-      text_input.TextInput._instance[_requestAutofill]();
-    }
-    updateConfig(configuration) {
-      if (configuration == null) dart.nullFailed(I[0], 920, 44, "configuration");
-      if (!dart.test(this.attached)) dart.assertFailed(null, I[0], 921, 12, "attached");
-      text_input.TextInput._instance[_updateConfig](configuration);
-    }
-    setEditingState(value) {
-      if (value == null) dart.nullFailed(I[0], 927, 41, "value");
-      if (!dart.test(this.attached)) dart.assertFailed(null, I[0], 928, 12, "attached");
-      text_input.TextInput._instance[_setEditingState](value);
-    }
-    setEditableSizeAndTransform(editableBoxSize, transform) {
-      if (editableBoxSize == null) dart.nullFailed(I[0], 941, 41, "editableBoxSize");
-      if (transform == null) dart.nullFailed(I[0], 941, 66, "transform");
-      if (!dart.equals(editableBoxSize, this[_cachedSize]) || !dart.equals(transform, this[_cachedTransform])) {
-        this[_cachedSize] = editableBoxSize;
-        this[_cachedTransform] = transform;
-        text_input.TextInput._instance[_setEditableSizeAndTransform](new (T.IdentityMapOfString$dynamic()).from(["width", editableBoxSize.width, "height", editableBoxSize.height, "transform", transform.storage]));
-      }
-    }
-    setComposingRect(rect) {
-      if (rect == null) dart.nullFailed(I[0], 962, 30, "rect");
-      if (!(rect != null)) dart.assertFailed(null, I[0], 963, 12, "rect != null");
-      if (dart.equals(rect, this[_cachedRect])) return;
-      this[_cachedRect] = rect;
-      let validRect = dart.test(rect.isFinite) ? rect : ui.Offset.zero['&'](C[46] || CT.C46);
-      text_input.TextInput._instance[_setComposingTextRect](new (T.IdentityMapOfString$dynamic()).from(["width", validRect.width, "height", validRect.height, "x", validRect.left, "y", validRect.top]));
-    }
-    setStyle(opts) {
-      let t1;
-      let fontFamily = opts && 'fontFamily' in opts ? opts.fontFamily : null;
-      let fontSize = opts && 'fontSize' in opts ? opts.fontSize : null;
-      let fontWeight = opts && 'fontWeight' in opts ? opts.fontWeight : null;
-      let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
-      if (textDirection == null) dart.nullFailed(I[0], 987, 28, "textDirection");
-      let textAlign = opts && 'textAlign' in opts ? opts.textAlign : null;
-      if (textAlign == null) dart.nullFailed(I[0], 988, 24, "textAlign");
-      if (!dart.test(this.attached)) dart.assertFailed(null, I[0], 990, 12, "attached");
-      text_input.TextInput._instance[_setStyle](new (T.IdentityMapOfString$dynamic()).from(["fontFamily", fontFamily, "fontSize", fontSize, "fontWeightIndex", (t1 = fontWeight, t1 == null ? null : t1.index), "textAlignIndex", textAlign.index, "textDirectionIndex", textDirection.index]));
-    }
-    close() {
-      if (dart.test(this.attached)) {
-        text_input.TextInput._instance[_clearClient]();
-      }
-      if (!!dart.test(this.attached)) dart.assertFailed(null, I[0], 1011, 12, "!attached");
-    }
-    connectionClosedReceived() {
-      text_input.TextInput._instance[_currentConnection] = null;
-      if (!!dart.test(this.attached)) dart.assertFailed(null, I[0], 1019, 12, "!attached");
-    }
-  };
-  (text_input.TextInputConnection.__ = function(_client) {
-    let t1;
-    if (_client == null) dart.nullFailed(I[0], 870, 30, "_client");
-    this[_cachedSize] = null;
-    this[_cachedTransform] = null;
-    this[_cachedRect] = null;
-    this[_client$] = _client;
-    if (!(_client != null)) dart.assertFailed(null, I[0], 871, 16, "_client != null");
-    this[_id] = (t1 = text_input.TextInputConnection._nextId, text_input.TextInputConnection._nextId = dart.notNull(t1) + 1, t1);
-    ;
-  }).prototype = text_input.TextInputConnection.prototype;
-  dart.addTypeTests(text_input.TextInputConnection);
-  dart.addTypeCaches(text_input.TextInputConnection);
-  dart.setMethodSignature(text_input.TextInputConnection, () => ({
-    __proto__: dart.getMethods(text_input.TextInputConnection.__proto__),
-    show: dart.fnType(dart.void, []),
-    requestAutofill: dart.fnType(dart.void, []),
-    updateConfig: dart.fnType(dart.void, [text_input.TextInputConfiguration]),
-    setEditingState: dart.fnType(dart.void, [text_input.TextEditingValue]),
-    setEditableSizeAndTransform: dart.fnType(dart.void, [ui.Size, vector_math_64.Matrix4]),
-    setComposingRect: dart.fnType(dart.void, [ui.Rect]),
-    setStyle: dart.fnType(dart.void, [], {}, {fontFamily: dart.nullable(core.String), fontSize: dart.nullable(core.double), fontWeight: dart.nullable(ui.FontWeight), textAlign: ui.TextAlign, textDirection: ui.TextDirection}),
-    close: dart.fnType(dart.void, []),
-    connectionClosedReceived: dart.fnType(dart.void, [])
-  }));
-  dart.setGetterSignature(text_input.TextInputConnection, () => ({
-    __proto__: dart.getGetters(text_input.TextInputConnection.__proto__),
-    attached: core.bool
-  }));
-  dart.setLibraryUri(text_input.TextInputConnection, I[1]);
-  dart.setFieldSignature(text_input.TextInputConnection, () => ({
-    __proto__: dart.getFields(text_input.TextInputConnection.__proto__),
-    [_cachedSize]: dart.fieldType(dart.nullable(ui.Size)),
-    [_cachedTransform]: dart.fieldType(dart.nullable(vector_math_64.Matrix4)),
-    [_cachedRect]: dart.fieldType(dart.nullable(ui.Rect)),
-    [_id]: dart.finalFieldType(core.int),
-    [_client$]: dart.finalFieldType(text_input.TextInputClient)
-  }));
-  dart.defineLazy(text_input.TextInputConnection, {
-    /*text_input.TextInputConnection._nextId*/get _nextId() {
-      return 1;
-    },
-    set _nextId(_) {}
-  }, false);
-  var __TextInput__channel = dart.privateName(text_input, "_#TextInput#_channel");
-  var __TextInput__channel_isSet = dart.privateName(text_input, "_#TextInput#_channel#isSet");
-  var __TextInput__currentConfiguration = dart.privateName(text_input, "_#TextInput#_currentConfiguration");
-  var __TextInput__currentConfiguration_isSet = dart.privateName(text_input, "_#TextInput#_currentConfiguration#isSet");
-  var _hidePending = dart.privateName(text_input, "_hidePending");
-  var _channel = dart.privateName(text_input, "_channel");
-  var _handleTextInputInvocation = dart.privateName(text_input, "_handleTextInputInvocation");
-  var _attach = dart.privateName(text_input, "_attach");
-  var _currentConfiguration = dart.privateName(text_input, "_currentConfiguration");
-  var _scheduleHide = dart.privateName(text_input, "_scheduleHide");
-  text_input.TextInput = class TextInput extends core.Object {
-    static setChannel(newChannel) {
-      if (newChannel == null) dart.nullFailed(I[0], 1143, 40, "newChannel");
-      if (!dart.test(dart.fn(() => {
-        let t1;
-        text_input.TextInput._instance[_channel] = (t1 = newChannel, (() => {
-          t1.setMethodCallHandler(dart.bind(text_input.TextInput._instance, _handleTextInputInvocation));
-          return t1;
-        })());
-        return true;
-      }, T.VoidTobool())())) dart.assertFailed(null, I[0], 1144, 12, "() {\r\n      _instance._channel = newChannel..setMethodCallHandler(_instance._handleTextInputInvocation);\r\n      return true;\r\n    }()");
-    }
-    static attach(client, configuration) {
-      if (client == null) dart.nullFailed(I[0], 1188, 53, "client");
-      if (configuration == null) dart.nullFailed(I[0], 1188, 84, "configuration");
-      if (!(client != null)) dart.assertFailed(null, I[0], 1189, 12, "client != null");
-      if (!(configuration != null)) dart.assertFailed(null, I[0], 1190, 12, "configuration != null");
-      let connection = new text_input.TextInputConnection.__(client);
-      text_input.TextInput._instance[_attach](connection, configuration);
-      return connection;
-    }
-    [_attach](connection, configuration) {
-      if (connection == null) dart.nullFailed(I[0], 1199, 36, "connection");
-      if (configuration == null) dart.nullFailed(I[0], 1199, 71, "configuration");
-      if (!(connection != null)) dart.assertFailed(null, I[0], 1200, 12, "connection != null");
-      if (!(connection[_client$] != null)) dart.assertFailed(null, I[0], 1201, 12, "connection._client != null");
-      if (!(configuration != null)) dart.assertFailed(null, I[0], 1202, 12, "configuration != null");
-      if (!dart.test(text_input.TextInput._debugEnsureInputActionWorksOnPlatform(configuration.inputAction))) dart.assertFailed(null, I[0], 1203, 12, "_debugEnsureInputActionWorksOnPlatform(configuration.inputAction)");
-      this[_channel].invokeMethod(dart.void, "TextInput.setClient", [connection[_id], configuration.toJson()]);
-      this[_currentConnection] = connection;
-      this[_currentConfiguration] = configuration;
-    }
-    static _debugEnsureInputActionWorksOnPlatform(inputAction) {
-      if (inputAction == null) dart.nullFailed(I[0], 1212, 70, "inputAction");
-      if (!dart.test(dart.fn(() => {
-        if (true) {
-          return true;
-        }
-        if (dart.test(io.Platform.isIOS)) {
-          if (!dart.test(text_input.TextInput._iOSSupportedInputActions[$contains](inputAction))) dart.assertFailed("The requested TextInputAction \"" + dart.str(inputAction) + "\" is not supported on iOS.", I[0], 1220, 11, "_iOSSupportedInputActions.contains(inputAction)");
-        } else if (dart.test(io.Platform.isAndroid)) {
-          if (!dart.test(text_input.TextInput._androidSupportedInputActions[$contains](inputAction))) dart.assertFailed("The requested TextInputAction \"" + dart.str(inputAction) + "\" is not supported on Android.", I[0], 1225, 11, "_androidSupportedInputActions.contains(inputAction)");
-        }
-        return true;
-      }, T.VoidTobool())())) dart.assertFailed(null, I[0], 1213, 12, "() {\r\n      if (kIsWeb) {\r\n        // TODO(flutterweb): what makes sense here?\r\n        return true;\r\n      }\r\n      if (Platform.isIOS) {\r\n        assert(\r\n          _iOSSupportedInputActions.contains(inputAction),\r\n          'The requested TextInputAction \"$inputAction\" is not supported on iOS.',\r\n        );\r\n      } else if (Platform.isAndroid) {\r\n        assert(\r\n          _androidSupportedInputActions.contains(inputAction),\r\n          'The requested TextInputAction \"$inputAction\" is not supported on Android.',\r\n        );\r\n      }\r\n      return true;\r\n    }()");
-      return true;
-    }
-    get [_channel]() {
-      let t1;
-      return dart.test(this[__TextInput__channel_isSet]) ? (t1 = this[__TextInput__channel], t1) : dart.throw(new _internal.LateError.fieldNI("_channel"));
-    }
-    set [_channel](t1) {
-      if (t1 == null) dart.nullFailed(I[0], 1234, 22, "null");
-      this[__TextInput__channel_isSet] = true;
-      this[__TextInput__channel] = t1;
-    }
-    get [_currentConfiguration]() {
-      let t2;
-      return dart.test(this[__TextInput__currentConfiguration_isSet]) ? (t2 = this[__TextInput__currentConfiguration], t2) : dart.throw(new _internal.LateError.fieldNI("_currentConfiguration"));
-    }
-    set [_currentConfiguration](t2) {
-      if (t2 == null) dart.nullFailed(I[0], 1237, 31, "null");
-      this[__TextInput__currentConfiguration_isSet] = true;
-      this[__TextInput__currentConfiguration] = t2;
-    }
-    [_handleTextInputInvocation](methodCall) {
-      if (methodCall == null) dart.nullFailed(I[0], 1239, 57, "methodCall");
-      return async.async(dart.dynamic, (function* _handleTextInputInvocation() {
-        let t4, t3;
-        if (this[_currentConnection] == null) return;
-        let method = methodCall.method;
-        if (method === "TextInputClient.requestExistingInputState") {
-          if (!(dart.nullCheck(this[_currentConnection])[_client$] != null)) dart.assertFailed(null, I[0], 1247, 14, "_currentConnection!._client != null");
-          this[_attach](dart.nullCheck(this[_currentConnection]), this[_currentConfiguration]);
-          let editingValue = dart.nullCheck(this[_currentConnection])[_client$].currentTextEditingValue;
-          if (editingValue != null) {
-            this[_setEditingState](editingValue);
-          }
-          return;
-        }
-        let args = core.List.as(methodCall.arguments);
-        if (method === "TextInputClient.updateEditingStateWithTag") {
-          let client = dart.nullCheck(this[_currentConnection])[_client$];
-          if (!(client != null)) dart.assertFailed(null, I[0], 1260, 14, "client != null");
-          let scope = client.currentAutofillScope;
-          let editingValue = T.MapOfString$dynamic().as(args[$_get](1));
-          for (let tag of editingValue[$keys]) {
-            let textEditingValue = text_input.TextEditingValue.fromJSON(T.MapOfString$dynamic().as(editingValue[$_get](tag)));
-            t3 = scope;
-            t3 == null ? null : (t4 = t3.getAutofillClient(tag), t4 == null ? null : t4.updateEditingValue(textEditingValue));
-          }
-          return;
-        }
-        let client = core.int.as(args[$_get](0));
-        if (client != dart.nullCheck(this[_currentConnection])[_id]) return;
-        switch (method) {
-          case "TextInputClient.updateEditingState":
+        switch (axisDirection) {
+          case C[7] || CT.C7:
+          case C[8] || CT.C8:
           {
-            dart.nullCheck(this[_currentConnection])[_client$].updateEditingValue(text_input.TextEditingValue.fromJSON(T.MapOfString$dynamic().as(args[$_get](1))));
-            break;
+            return debug.debugCheckHasDirectionality(context, {why: "to determine the cross-axis direction of the scroll view", hint: "Vertical scroll views create Viewport widgets that try to determine their cross axis direction " + "from the ambient Directionality."});
           }
-          case "TextInputClient.performAction":
+          case C[9] || CT.C9:
+          case C[10] || CT.C10:
           {
-            dart.nullCheck(this[_currentConnection])[_client$].performAction(text_input._toTextInputAction(core.String.as(args[$_get](1))));
-            break;
-          }
-          case "TextInputClient.performPrivateCommand":
-          {
-            dart.nullCheck(this[_currentConnection])[_client$].performPrivateCommand(core.String.as(dart.dsend(args[$_get](1), '_get', ["action"])), T.MapOfString$dynamic().as(dart.dsend(args[$_get](1), '_get', ["data"])));
-            break;
-          }
-          case "TextInputClient.updateFloatingCursor":
-          {
-            dart.nullCheck(this[_currentConnection])[_client$].updateFloatingCursor(text_input._toTextPoint(text_input._toTextCursorAction(core.String.as(args[$_get](1))), T.MapOfString$dynamic().as(args[$_get](2))));
-            break;
-          }
-          case "TextInputClient.onConnectionClosed":
-          {
-            dart.nullCheck(this[_currentConnection])[_client$].connectionClosed();
-            break;
-          }
-          case "TextInputClient.showAutocorrectionPromptRect":
-          {
-            dart.nullCheck(this[_currentConnection])[_client$].showAutocorrectionPromptRect(core.int.as(args[$_get](1)), core.int.as(args[$_get](2)));
-            break;
+            return true;
           }
           default:
           {
-            dart.throw(new message_codec.MissingPluginException.new());
+            dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
           }
         }
-      }).bind(this));
+      }, T.VoidTobool())())) dart.assertFailed(null, I[0], 337, 12, "() {\r\n      switch (axisDirection) {\r\n        case AxisDirection.up:\r\n        case AxisDirection.down:\r\n          return debugCheckHasDirectionality(\r\n            context,\r\n            why: 'to determine the cross-axis direction of the scroll view',\r\n            hint: 'Vertical scroll views create Viewport widgets that try to determine their cross axis direction '\r\n                  'from the ambient Directionality.',\r\n          );\r\n        case AxisDirection.left:\r\n        case AxisDirection.right:\r\n          return true;\r\n      }\r\n    }()");
+      if (dart.test(this.shrinkWrap)) {
+        return new viewport.ShrinkWrappingViewport.new({axisDirection: axisDirection, offset: offset, slivers: slivers, clipBehavior: this.clipBehavior, $creationLocationd_0dea112b090073317d4: C[11] || CT.C11});
+      }
+      return new viewport.Viewport.new({axisDirection: axisDirection, offset: offset, slivers: slivers, cacheExtent: this.cacheExtent, center: this.center, anchor: this.anchor, clipBehavior: this.clipBehavior, $creationLocationd_0dea112b090073317d4: C[17] || CT.C17});
     }
-    [_scheduleHide]() {
-      if (dart.test(this[_hidePending])) return;
-      this[_hidePending] = true;
-      async.scheduleMicrotask(dart.fn(() => {
-        this[_hidePending] = false;
-        if (this[_currentConnection] == null) this[_channel].invokeMethod(dart.void, "TextInput.hide");
-      }, T.VoidTovoid()));
+    build(context) {
+      if (context == null) dart.nullFailed(I[0], 372, 29, "context");
+      let slivers = this.buildSlivers(context);
+      let axisDirection = this.getDirection(context);
+      let scrollController = dart.test(this.primary) ? primary_scroll_controller.PrimaryScrollController.of(context) : this.controller;
+      let scrollable = new scrollable$.Scrollable.new({dragStartBehavior: this.dragStartBehavior, axisDirection: axisDirection, controller: scrollController, physics: this.physics, semanticChildCount: this.semanticChildCount, restorationId: this.restorationId, viewportBuilder: dart.fn((context, offset) => {
+          if (context == null) dart.nullFailed(I[0], 385, 38, "context");
+          if (offset == null) dart.nullFailed(I[0], 385, 62, "offset");
+          return this.buildViewport(context, offset, axisDirection, slivers);
+        }, T.BuildContextAndViewportOffsetToWidget()), $creationLocationd_0dea112b090073317d4: C[26] || CT.C26});
+      let scrollableResult = dart.test(this.primary) && scrollController != null ? new primary_scroll_controller.PrimaryScrollController.none({child: scrollable, $creationLocationd_0dea112b090073317d4: C[35] || CT.C35}) : scrollable;
+      if (this.keyboardDismissBehavior == scroll_view.ScrollViewKeyboardDismissBehavior.onDrag) {
+        return new (T.NotificationListenerOfScrollUpdateNotification()).new({child: scrollableResult, onNotification: dart.fn(notification => {
+            if (notification == null) dart.nullFailed(I[0], 396, 51, "notification");
+            let focusScope = focus_scope.FocusScope.of(context);
+            if (notification.dragDetails != null && dart.test(focusScope.hasFocus)) {
+              focusScope.unfocus();
+            }
+            return false;
+          }, T.ScrollUpdateNotificationTobool()), $creationLocationd_0dea112b090073317d4: C[38] || CT.C38});
+      } else {
+        return scrollableResult;
+      }
     }
-    [_clearClient]() {
-      this[_channel].invokeMethod(dart.void, "TextInput.clearClient");
-      this[_currentConnection] = null;
-      this[_scheduleHide]();
-    }
-    [_updateConfig](configuration) {
-      if (configuration == null) dart.nullFailed(I[0], 1328, 45, "configuration");
-      if (!(configuration != null)) dart.assertFailed(null, I[0], 1329, 12, "configuration != null");
-      this[_channel].invokeMethod(dart.void, "TextInput.updateConfig", configuration.toJson());
-    }
-    [_setEditingState](value) {
-      if (value == null) dart.nullFailed(I[0], 1336, 42, "value");
-      if (!(value != null)) dart.assertFailed(null, I[0], 1337, 12, "value != null");
-      this[_channel].invokeMethod(dart.void, "TextInput.setEditingState", value.toJSON());
-    }
-    [_show]() {
-      this[_channel].invokeMethod(dart.void, "TextInput.show");
-    }
-    [_requestAutofill]() {
-      this[_channel].invokeMethod(dart.void, "TextInput.requestAutofill");
-    }
-    [_setEditableSizeAndTransform](args) {
-      if (args == null) dart.nullFailed(I[0], 1352, 58, "args");
-      this[_channel].invokeMethod(dart.void, "TextInput.setEditableSizeAndTransform", args);
-    }
-    [_setComposingTextRect](args) {
-      if (args == null) dart.nullFailed(I[0], 1359, 51, "args");
-      this[_channel].invokeMethod(dart.void, "TextInput.setMarkedTextRect", args);
-    }
-    [_setStyle](args) {
-      if (args == null) dart.nullFailed(I[0], 1366, 39, "args");
-      this[_channel].invokeMethod(dart.void, "TextInput.setStyle", args);
-    }
-    static finishAutofillContext(opts) {
-      let shouldSave = opts && 'shouldSave' in opts ? opts.shouldSave : true;
-      if (shouldSave == null) dart.nullFailed(I[0], 1421, 44, "shouldSave");
-      if (!(shouldSave != null)) dart.assertFailed(null, I[0], 1422, 12, "shouldSave != null");
-      text_input.TextInput._instance[_channel].invokeMethod(dart.void, "TextInput.finishAutofillContext", shouldSave);
+    debugFillProperties(properties) {
+      if (properties == null) dart.nullFailed(I[0], 410, 56, "properties");
+      super.debugFillProperties(properties);
+      properties.add(new (T.EnumPropertyOfAxis()).new("scrollDirection", this.scrollDirection));
+      properties.add(new diagnostics.FlagProperty.new("reverse", {value: this.reverse, ifTrue: "reversed", showName: true}));
+      properties.add(new (T.DiagnosticsPropertyOfScrollController()).new("controller", this.controller, {showName: false, defaultValue: null}));
+      properties.add(new diagnostics.FlagProperty.new("primary", {value: this.primary, ifTrue: "using primary controller", showName: true}));
+      properties.add(new (T.DiagnosticsPropertyOfScrollPhysics()).new("physics", this.physics, {showName: false, defaultValue: null}));
+      properties.add(new diagnostics.FlagProperty.new("shrinkWrap", {value: this.shrinkWrap, ifTrue: "shrink-wrapping", showName: true}));
     }
   };
-  (text_input.TextInput.__ = function() {
-    this[__TextInput__channel] = null;
-    this[__TextInput__channel_isSet] = false;
-    this[_currentConnection] = null;
-    this[__TextInput__currentConfiguration] = null;
-    this[__TextInput__currentConfiguration_isSet] = false;
-    this[_hidePending] = false;
-    this[_channel] = system_channels.SystemChannels.textInput;
-    this[_channel].setMethodCallHandler(dart.bind(this, _handleTextInputInvocation));
-  }).prototype = text_input.TextInput.prototype;
-  dart.addTypeTests(text_input.TextInput);
-  dart.addTypeCaches(text_input.TextInput);
-  dart.setMethodSignature(text_input.TextInput, () => ({
-    __proto__: dart.getMethods(text_input.TextInput.__proto__),
-    [_attach]: dart.fnType(dart.void, [text_input.TextInputConnection, text_input.TextInputConfiguration]),
-    [_handleTextInputInvocation]: dart.fnType(async.Future, [message_codec.MethodCall]),
-    [_scheduleHide]: dart.fnType(dart.void, []),
-    [_clearClient]: dart.fnType(dart.void, []),
-    [_updateConfig]: dart.fnType(dart.void, [text_input.TextInputConfiguration]),
-    [_setEditingState]: dart.fnType(dart.void, [text_input.TextEditingValue]),
-    [_show]: dart.fnType(dart.void, []),
-    [_requestAutofill]: dart.fnType(dart.void, []),
-    [_setEditableSizeAndTransform]: dart.fnType(dart.void, [core.Map$(core.String, dart.dynamic)]),
-    [_setComposingTextRect]: dart.fnType(dart.void, [core.Map$(core.String, dart.dynamic)]),
-    [_setStyle]: dart.fnType(dart.void, [core.Map$(core.String, dart.dynamic)])
-  }));
-  dart.setGetterSignature(text_input.TextInput, () => ({
-    __proto__: dart.getGetters(text_input.TextInput.__proto__),
-    [_channel]: platform_channel.MethodChannel,
-    [_currentConfiguration]: text_input.TextInputConfiguration
-  }));
-  dart.setSetterSignature(text_input.TextInput, () => ({
-    __proto__: dart.getSetters(text_input.TextInput.__proto__),
-    [_channel]: platform_channel.MethodChannel,
-    [_currentConfiguration]: text_input.TextInputConfiguration
-  }));
-  dart.setLibraryUri(text_input.TextInput, I[1]);
-  dart.setFieldSignature(text_input.TextInput, () => ({
-    __proto__: dart.getFields(text_input.TextInput.__proto__),
-    [__TextInput__channel]: dart.fieldType(dart.nullable(platform_channel.MethodChannel)),
-    [__TextInput__channel_isSet]: dart.fieldType(core.bool),
-    [_currentConnection]: dart.fieldType(dart.nullable(text_input.TextInputConnection)),
-    [__TextInput__currentConfiguration]: dart.fieldType(dart.nullable(text_input.TextInputConfiguration)),
-    [__TextInput__currentConfiguration_isSet]: dart.fieldType(core.bool),
-    [_hidePending]: dart.fieldType(core.bool)
-  }));
-  dart.defineLazy(text_input.TextInput, {
-    /*text_input.TextInput._instance*/get _instance() {
-      return new text_input.TextInput.__();
-    },
-    /*text_input.TextInput._androidSupportedInputActions*/get _androidSupportedInputActions() {
-      return C[47] || CT.C47;
-    },
-    /*text_input.TextInput._iOSSupportedInputActions*/get _iOSSupportedInputActions() {
-      return C[48] || CT.C48;
-    }
-  }, false);
-  text_input._toTextAffinity = function _toTextAffinity(affinity) {
-    switch (affinity) {
-      case "TextAffinity.downstream":
-      {
-        return ui.TextAffinity.downstream;
-      }
-      case "TextAffinity.upstream":
-      {
-        return ui.TextAffinity.upstream;
-      }
-    }
-    return null;
-  };
-  text_input._toTextInputAction = function _toTextInputAction(action) {
-    if (action == null) dart.nullFailed(I[0], 1023, 43, "action");
-    switch (action) {
-      case "TextInputAction.none":
-      {
-        return text_input.TextInputAction.none;
-      }
-      case "TextInputAction.unspecified":
-      {
-        return text_input.TextInputAction.unspecified;
-      }
-      case "TextInputAction.go":
-      {
-        return text_input.TextInputAction.go;
-      }
-      case "TextInputAction.search":
-      {
-        return text_input.TextInputAction.search;
-      }
-      case "TextInputAction.send":
-      {
-        return text_input.TextInputAction.send;
-      }
-      case "TextInputAction.next":
-      {
-        return text_input.TextInputAction.next;
-      }
-      case "TextInputAction.previous":
-      {
-        return text_input.TextInputAction.previous;
-      }
-      case "TextInputAction.continue_action":
-      {
-        return text_input.TextInputAction.continueAction;
-      }
-      case "TextInputAction.join":
-      {
-        return text_input.TextInputAction.join;
-      }
-      case "TextInputAction.route":
-      {
-        return text_input.TextInputAction.route;
-      }
-      case "TextInputAction.emergencyCall":
-      {
-        return text_input.TextInputAction.emergencyCall;
-      }
-      case "TextInputAction.done":
-      {
-        return text_input.TextInputAction.done;
-      }
-      case "TextInputAction.newline":
-      {
-        return text_input.TextInputAction.newline;
-      }
-    }
-    dart.throw(new assertions.FlutterError.fromParts(T.JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("Unknown text input action: " + dart.str(action))])));
-  };
-  text_input._toTextCursorAction = function _toTextCursorAction(state) {
-    if (state == null) dart.nullFailed(I[0], 1055, 52, "state");
-    switch (state) {
-      case "FloatingCursorDragState.start":
-      {
-        return text_input.FloatingCursorDragState.Start;
-      }
-      case "FloatingCursorDragState.update":
-      {
-        return text_input.FloatingCursorDragState.Update;
-      }
-      case "FloatingCursorDragState.end":
-      {
-        return text_input.FloatingCursorDragState.End;
-      }
-    }
-    dart.throw(new assertions.FlutterError.fromParts(T.JSArrayOfDiagnosticsNode().of([new assertions.ErrorSummary.new("Unknown text cursor action: " + dart.str(state))])));
-  };
-  text_input._toTextPoint = function _toTextPoint(state, encoded) {
-    if (state == null) dart.nullFailed(I[0], 1067, 61, "state");
-    if (encoded == null) dart.nullFailed(I[0], 1067, 89, "encoded");
-    if (!(state != null)) dart.assertFailed("You must provide a state to set a new editing point.", I[0], 1068, 10, "state != null");
-    if (!(encoded[$_get]("X") != null)) dart.assertFailed("You must provide a value for the horizontal location of the floating cursor.", I[0], 1069, 10, "encoded['X'] != null");
-    if (!(encoded[$_get]("Y") != null)) dart.assertFailed("You must provide a value for the vertical location of the floating cursor.", I[0], 1070, 10, "encoded['Y'] != null");
-    let offset = state == text_input.FloatingCursorDragState.Update ? new ui.Offset.new(core.double.as(encoded[$_get]("X")), core.double.as(encoded[$_get]("Y"))) : ui.Offset.zero;
-    return new text_input.RawFloatingCursorPoint.new({offset: offset, state: state});
-  };
-  autofill.AutofillHints = class AutofillHints extends core.Object {};
-  (autofill.AutofillHints.__ = function() {
+  (scroll_view.ScrollView.new = function(opts) {
+    let t0, t0$;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
+    if (scrollDirection == null) dart.nullFailed(I[0], 81, 10, "scrollDirection");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 82, 10, "reverse");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let primary = opts && 'primary' in opts ? opts.primary : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
+    if (shrinkWrap == null) dart.nullFailed(I[0], 86, 10, "shrinkWrap");
+    let center = opts && 'center' in opts ? opts.center : null;
+    let anchor = opts && 'anchor' in opts ? opts.anchor : 0;
+    if (anchor == null) dart.nullFailed(I[0], 88, 10, "anchor");
+    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
+    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 91, 10, "dragStartBehavior");
+    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
+    if (keyboardDismissBehavior == null) dart.nullFailed(I[0], 92, 10, "keyboardDismissBehavior");
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
+    if (clipBehavior == null) dart.nullFailed(I[0], 94, 10, "clipBehavior");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[scrollDirection$] = scrollDirection;
+    this[reverse$] = reverse;
+    this[controller$] = controller;
+    this[shrinkWrap$] = shrinkWrap;
+    this[center$] = center;
+    this[anchor$] = anchor;
+    this[cacheExtent$] = cacheExtent;
+    this[semanticChildCount$] = semanticChildCount;
+    this[dragStartBehavior$] = dragStartBehavior;
+    this[keyboardDismissBehavior$] = keyboardDismissBehavior;
+    this[restorationId$] = restorationId;
+    this[clipBehavior$] = clipBehavior;
+    if (!(scrollDirection != null)) dart.assertFailed(null, I[0], 95, 15, "scrollDirection != null");
+    if (!(reverse != null)) dart.assertFailed(null, I[0], 96, 15, "reverse != null");
+    if (!(shrinkWrap != null)) dart.assertFailed(null, I[0], 97, 15, "shrinkWrap != null");
+    if (!(dragStartBehavior != null)) dart.assertFailed(null, I[0], 98, 15, "dragStartBehavior != null");
+    if (!(clipBehavior != null)) dart.assertFailed(null, I[0], 99, 15, "clipBehavior != null");
+    if (!!(controller != null && primary === true)) dart.assertFailed("Primary ScrollViews obtain their ScrollController via inheritance from a PrimaryScrollController widget. " + "You cannot both set primary to true and pass an explicit controller.", I[0], 100, 15, "!(controller != null && primary == true)");
+    if (!(!dart.test(shrinkWrap) || center == null)) dart.assertFailed(null, I[0], 104, 15, "!shrinkWrap || center == null");
+    if (!(anchor != null)) dart.assertFailed(null, I[0], 105, 15, "anchor != null");
+    if (!(dart.notNull(anchor) >= 0.0 && dart.notNull(anchor) <= 1.0)) dart.assertFailed(null, I[0], 106, 15, "anchor >= 0.0 && anchor <= 1.0");
+    if (!(semanticChildCount == null || dart.notNull(semanticChildCount) >= 0)) dart.assertFailed(null, I[0], 107, 15, "semanticChildCount == null || semanticChildCount >= 0");
+    this[primary$] = (t0 = primary, t0 == null ? controller == null && scrollDirection == basic_types.Axis.vertical : t0);
+    this[physics$] = (t0$ = physics, t0$ == null ? primary === true || primary == null && controller == null && scrollDirection == basic_types.Axis.vertical ? C[6] || CT.C6 : null : t0$);
+    scroll_view.ScrollView.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = autofill.AutofillHints.prototype;
-  dart.addTypeTests(autofill.AutofillHints);
-  dart.addTypeCaches(autofill.AutofillHints);
-  dart.setLibraryUri(autofill.AutofillHints, I[2]);
-  dart.defineLazy(autofill.AutofillHints, {
-    /*autofill.AutofillHints.addressCity*/get addressCity() {
-      return "addressCity";
-    },
-    /*autofill.AutofillHints.addressCityAndState*/get addressCityAndState() {
-      return "addressCityAndState";
-    },
-    /*autofill.AutofillHints.addressState*/get addressState() {
-      return "addressState";
-    },
-    /*autofill.AutofillHints.birthday*/get birthday() {
-      return "birthday";
-    },
-    /*autofill.AutofillHints.birthdayDay*/get birthdayDay() {
-      return "birthdayDay";
-    },
-    /*autofill.AutofillHints.birthdayMonth*/get birthdayMonth() {
-      return "birthdayMonth";
-    },
-    /*autofill.AutofillHints.birthdayYear*/get birthdayYear() {
-      return "birthdayYear";
-    },
-    /*autofill.AutofillHints.countryCode*/get countryCode() {
-      return "countryCode";
-    },
-    /*autofill.AutofillHints.countryName*/get countryName() {
-      return "countryName";
-    },
-    /*autofill.AutofillHints.creditCardExpirationDate*/get creditCardExpirationDate() {
-      return "creditCardExpirationDate";
-    },
-    /*autofill.AutofillHints.creditCardExpirationDay*/get creditCardExpirationDay() {
-      return "creditCardExpirationDay";
-    },
-    /*autofill.AutofillHints.creditCardExpirationMonth*/get creditCardExpirationMonth() {
-      return "creditCardExpirationMonth";
-    },
-    /*autofill.AutofillHints.creditCardExpirationYear*/get creditCardExpirationYear() {
-      return "creditCardExpirationYear";
-    },
-    /*autofill.AutofillHints.creditCardFamilyName*/get creditCardFamilyName() {
-      return "creditCardFamilyName";
-    },
-    /*autofill.AutofillHints.creditCardGivenName*/get creditCardGivenName() {
-      return "creditCardGivenName";
-    },
-    /*autofill.AutofillHints.creditCardMiddleName*/get creditCardMiddleName() {
-      return "creditCardMiddleName";
-    },
-    /*autofill.AutofillHints.creditCardName*/get creditCardName() {
-      return "creditCardName";
-    },
-    /*autofill.AutofillHints.creditCardNumber*/get creditCardNumber() {
-      return "creditCardNumber";
-    },
-    /*autofill.AutofillHints.creditCardSecurityCode*/get creditCardSecurityCode() {
-      return "creditCardSecurityCode";
-    },
-    /*autofill.AutofillHints.creditCardType*/get creditCardType() {
-      return "creditCardType";
-    },
-    /*autofill.AutofillHints.email*/get email() {
-      return "email";
-    },
-    /*autofill.AutofillHints.familyName*/get familyName() {
-      return "familyName";
-    },
-    /*autofill.AutofillHints.fullStreetAddress*/get fullStreetAddress() {
-      return "fullStreetAddress";
-    },
-    /*autofill.AutofillHints.gender*/get gender() {
-      return "gender";
-    },
-    /*autofill.AutofillHints.givenName*/get givenName() {
-      return "givenName";
-    },
-    /*autofill.AutofillHints.impp*/get impp() {
-      return "impp";
-    },
-    /*autofill.AutofillHints.jobTitle*/get jobTitle() {
-      return "jobTitle";
-    },
-    /*autofill.AutofillHints.language*/get language() {
-      return "language";
-    },
-    /*autofill.AutofillHints.location*/get location() {
-      return "location";
-    },
-    /*autofill.AutofillHints.middleInitial*/get middleInitial() {
-      return "middleInitial";
-    },
-    /*autofill.AutofillHints.middleName*/get middleName() {
-      return "middleName";
-    },
-    /*autofill.AutofillHints.name_*/get name_() {
-      return "name";
-    },
-    /*autofill.AutofillHints.namePrefix*/get namePrefix() {
-      return "namePrefix";
-    },
-    /*autofill.AutofillHints.nameSuffix*/get nameSuffix() {
-      return "nameSuffix";
-    },
-    /*autofill.AutofillHints.newPassword*/get newPassword() {
-      return "newPassword";
-    },
-    /*autofill.AutofillHints.newUsername*/get newUsername() {
-      return "newUsername";
-    },
-    /*autofill.AutofillHints.nickname*/get nickname() {
-      return "nickname";
-    },
-    /*autofill.AutofillHints.oneTimeCode*/get oneTimeCode() {
-      return "oneTimeCode";
-    },
-    /*autofill.AutofillHints.organizationName*/get organizationName() {
-      return "organizationName";
-    },
-    /*autofill.AutofillHints.password*/get password() {
-      return "password";
-    },
-    /*autofill.AutofillHints.photo*/get photo() {
-      return "photo";
-    },
-    /*autofill.AutofillHints.postalAddress*/get postalAddress() {
-      return "postalAddress";
-    },
-    /*autofill.AutofillHints.postalAddressExtended*/get postalAddressExtended() {
-      return "postalAddressExtended";
-    },
-    /*autofill.AutofillHints.postalAddressExtendedPostalCode*/get postalAddressExtendedPostalCode() {
-      return "postalAddressExtendedPostalCode";
-    },
-    /*autofill.AutofillHints.postalCode*/get postalCode() {
-      return "postalCode";
-    },
-    /*autofill.AutofillHints.streetAddressLevel1*/get streetAddressLevel1() {
-      return "streetAddressLevel1";
-    },
-    /*autofill.AutofillHints.streetAddressLevel2*/get streetAddressLevel2() {
-      return "streetAddressLevel2";
-    },
-    /*autofill.AutofillHints.streetAddressLevel3*/get streetAddressLevel3() {
-      return "streetAddressLevel3";
-    },
-    /*autofill.AutofillHints.streetAddressLevel4*/get streetAddressLevel4() {
-      return "streetAddressLevel4";
-    },
-    /*autofill.AutofillHints.streetAddressLine1*/get streetAddressLine1() {
-      return "streetAddressLine1";
-    },
-    /*autofill.AutofillHints.streetAddressLine2*/get streetAddressLine2() {
-      return "streetAddressLine2";
-    },
-    /*autofill.AutofillHints.streetAddressLine3*/get streetAddressLine3() {
-      return "streetAddressLine3";
-    },
-    /*autofill.AutofillHints.sublocality*/get sublocality() {
-      return "sublocality";
-    },
-    /*autofill.AutofillHints.telephoneNumber*/get telephoneNumber() {
-      return "telephoneNumber";
-    },
-    /*autofill.AutofillHints.telephoneNumberAreaCode*/get telephoneNumberAreaCode() {
-      return "telephoneNumberAreaCode";
-    },
-    /*autofill.AutofillHints.telephoneNumberCountryCode*/get telephoneNumberCountryCode() {
-      return "telephoneNumberCountryCode";
-    },
-    /*autofill.AutofillHints.telephoneNumberDevice*/get telephoneNumberDevice() {
-      return "telephoneNumberDevice";
-    },
-    /*autofill.AutofillHints.telephoneNumberExtension*/get telephoneNumberExtension() {
-      return "telephoneNumberExtension";
-    },
-    /*autofill.AutofillHints.telephoneNumberLocal*/get telephoneNumberLocal() {
-      return "telephoneNumberLocal";
-    },
-    /*autofill.AutofillHints.telephoneNumberLocalPrefix*/get telephoneNumberLocalPrefix() {
-      return "telephoneNumberLocalPrefix";
-    },
-    /*autofill.AutofillHints.telephoneNumberLocalSuffix*/get telephoneNumberLocalSuffix() {
-      return "telephoneNumberLocalSuffix";
-    },
-    /*autofill.AutofillHints.telephoneNumberNational*/get telephoneNumberNational() {
-      return "telephoneNumberNational";
-    },
-    /*autofill.AutofillHints.transactionAmount*/get transactionAmount() {
-      return "transactionAmount";
-    },
-    /*autofill.AutofillHints.transactionCurrency*/get transactionCurrency() {
-      return "transactionCurrency";
-    },
-    /*autofill.AutofillHints.url*/get url() {
-      return "url";
-    },
-    /*autofill.AutofillHints.username*/get username() {
-      return "username";
+  }).prototype = scroll_view.ScrollView.prototype;
+  dart.addTypeTests(scroll_view.ScrollView);
+  dart.addTypeCaches(scroll_view.ScrollView);
+  dart.setMethodSignature(scroll_view.ScrollView, () => ({
+    __proto__: dart.getMethods(scroll_view.ScrollView.__proto__),
+    getDirection: dart.fnType(basic_types.AxisDirection, [framework.BuildContext]),
+    buildViewport: dart.fnType(framework.Widget, [framework.BuildContext, viewport_offset.ViewportOffset, basic_types.AxisDirection, core.List$(framework.Widget)]),
+    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(scroll_view.ScrollView, I[1]);
+  dart.setFieldSignature(scroll_view.ScrollView, () => ({
+    __proto__: dart.getFields(scroll_view.ScrollView.__proto__),
+    scrollDirection: dart.finalFieldType(basic_types.Axis),
+    reverse: dart.finalFieldType(core.bool),
+    controller: dart.finalFieldType(dart.nullable(scroll_controller.ScrollController)),
+    primary: dart.finalFieldType(core.bool),
+    physics: dart.finalFieldType(dart.nullable(scroll_physics.ScrollPhysics)),
+    shrinkWrap: dart.finalFieldType(core.bool),
+    center: dart.finalFieldType(dart.nullable(key.Key)),
+    anchor: dart.finalFieldType(core.double),
+    cacheExtent: dart.finalFieldType(dart.nullable(core.double)),
+    semanticChildCount: dart.finalFieldType(dart.nullable(core.int)),
+    dragStartBehavior: dart.finalFieldType(recognizer.DragStartBehavior),
+    keyboardDismissBehavior: dart.finalFieldType(scroll_view.ScrollViewKeyboardDismissBehavior),
+    restorationId: dart.finalFieldType(dart.nullable(core.String)),
+    clipBehavior: dart.finalFieldType(ui.Clip)
+  }));
+  var slivers$ = dart.privateName(scroll_view, "CustomScrollView.slivers");
+  scroll_view.CustomScrollView = class CustomScrollView extends scroll_view.ScrollView {
+    get slivers() {
+      return this[slivers$];
     }
-  }, false);
-  var uniqueIdentifier$ = dart.privateName(autofill, "AutofillConfiguration.uniqueIdentifier");
-  var autofillHints$ = dart.privateName(autofill, "AutofillConfiguration.autofillHints");
-  var currentEditingValue$ = dart.privateName(autofill, "AutofillConfiguration.currentEditingValue");
-  autofill.AutofillConfiguration = class AutofillConfiguration extends core.Object {
-    get uniqueIdentifier() {
-      return this[uniqueIdentifier$];
+    set slivers(value) {
+      super.slivers = value;
     }
-    set uniqueIdentifier(value) {
-      super.uniqueIdentifier = value;
-    }
-    get autofillHints() {
-      return this[autofillHints$];
-    }
-    set autofillHints(value) {
-      super.autofillHints = value;
-    }
-    get currentEditingValue() {
-      return this[currentEditingValue$];
-    }
-    set currentEditingValue(value) {
-      super.currentEditingValue = value;
-    }
-    toJson() {
-      if (!dart.test(this.autofillHints[$isNotEmpty])) dart.assertFailed(null, I[3], 700, 12, "autofillHints.isNotEmpty");
-      return new (T.IdentityMapOfString$dynamic()).from(["uniqueIdentifier", this.uniqueIdentifier, "hints", this.autofillHints, "editingValue", this.currentEditingValue.toJSON()]);
+    buildSlivers(context) {
+      if (context == null) dart.nullFailed(I[0], 645, 42, "context");
+      return this.slivers;
     }
   };
-  (autofill.AutofillConfiguration.new = function(opts) {
-    let uniqueIdentifier = opts && 'uniqueIdentifier' in opts ? opts.uniqueIdentifier : null;
-    if (uniqueIdentifier == null) dart.nullFailed(I[3], 632, 19, "uniqueIdentifier");
-    let autofillHints = opts && 'autofillHints' in opts ? opts.autofillHints : null;
-    if (autofillHints == null) dart.nullFailed(I[3], 633, 19, "autofillHints");
-    let currentEditingValue = opts && 'currentEditingValue' in opts ? opts.currentEditingValue : null;
-    if (currentEditingValue == null) dart.nullFailed(I[3], 634, 19, "currentEditingValue");
-    this[uniqueIdentifier$] = uniqueIdentifier;
-    this[autofillHints$] = autofillHints;
-    this[currentEditingValue$] = currentEditingValue;
-    if (!(uniqueIdentifier != null)) dart.assertFailed(null, I[3], 635, 15, "uniqueIdentifier != null");
-    if (!(autofillHints != null)) dart.assertFailed(null, I[3], 636, 15, "autofillHints != null");
+  (scroll_view.CustomScrollView.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
+    if (scrollDirection == null) dart.nullFailed(I[0], 608, 10, "scrollDirection");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 609, 10, "reverse");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let primary = opts && 'primary' in opts ? opts.primary : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
+    if (shrinkWrap == null) dart.nullFailed(I[0], 613, 10, "shrinkWrap");
+    let center = opts && 'center' in opts ? opts.center : null;
+    let anchor = opts && 'anchor' in opts ? opts.anchor : 0;
+    if (anchor == null) dart.nullFailed(I[0], 615, 12, "anchor");
+    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
+    let slivers = opts && 'slivers' in opts ? opts.slivers : C[42] || CT.C42;
+    if (slivers == null) dart.nullFailed(I[0], 617, 10, "slivers");
+    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 619, 23, "dragStartBehavior");
+    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
+    if (keyboardDismissBehavior == null) dart.nullFailed(I[0], 620, 39, "keyboardDismissBehavior");
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
+    if (clipBehavior == null) dart.nullFailed(I[0], 622, 10, "clipBehavior");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[slivers$] = slivers;
+    scroll_view.CustomScrollView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, center: center, anchor: anchor, cacheExtent: cacheExtent, semanticChildCount: semanticChildCount, dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = autofill.AutofillConfiguration.prototype;
-  dart.addTypeTests(autofill.AutofillConfiguration);
-  dart.addTypeCaches(autofill.AutofillConfiguration);
-  dart.setMethodSignature(autofill.AutofillConfiguration, () => ({
-    __proto__: dart.getMethods(autofill.AutofillConfiguration.__proto__),
-    toJson: dart.fnType(core.Map$(core.String, dart.dynamic), [])
+  }).prototype = scroll_view.CustomScrollView.prototype;
+  dart.addTypeTests(scroll_view.CustomScrollView);
+  dart.addTypeCaches(scroll_view.CustomScrollView);
+  dart.setMethodSignature(scroll_view.CustomScrollView, () => ({
+    __proto__: dart.getMethods(scroll_view.CustomScrollView.__proto__),
+    buildSlivers: dart.fnType(core.List$(framework.Widget), [framework.BuildContext])
   }));
-  dart.setLibraryUri(autofill.AutofillConfiguration, I[2]);
-  dart.setFieldSignature(autofill.AutofillConfiguration, () => ({
-    __proto__: dart.getFields(autofill.AutofillConfiguration.__proto__),
-    uniqueIdentifier: dart.finalFieldType(core.String),
-    autofillHints: dart.finalFieldType(core.List$(core.String)),
-    currentEditingValue: dart.finalFieldType(text_input.TextEditingValue)
+  dart.setLibraryUri(scroll_view.CustomScrollView, I[1]);
+  dart.setFieldSignature(scroll_view.CustomScrollView, () => ({
+    __proto__: dart.getFields(scroll_view.CustomScrollView.__proto__),
+    slivers: dart.finalFieldType(core.List$(framework.Widget))
   }));
-  autofill.AutofillClient = class AutofillClient extends core.Object {};
-  (autofill.AutofillClient.new = function() {
-    ;
-  }).prototype = autofill.AutofillClient.prototype;
-  dart.addTypeTests(autofill.AutofillClient);
-  dart.addTypeCaches(autofill.AutofillClient);
-  dart.setLibraryUri(autofill.AutofillClient, I[2]);
-  autofill.AutofillScope = class AutofillScope extends core.Object {};
-  (autofill.AutofillScope.new = function() {
-    ;
-  }).prototype = autofill.AutofillScope.prototype;
-  dart.addTypeTests(autofill.AutofillScope);
-  dart.addTypeCaches(autofill.AutofillScope);
-  dart.setLibraryUri(autofill.AutofillScope, I[2]);
-  autofill._AutofillScopeTextInputConfiguration = class _AutofillScopeTextInputConfiguration extends text_input.TextInputConfiguration {
-    toJson() {
-      let result = super.toJson();
-      result[$_set]("fields", this.allConfigurations[$map](T.MapOfString$dynamic(), dart.fn(configuration => {
-        if (configuration == null) dart.nullFailed(I[3], 793, 36, "configuration");
-        return configuration.toJson();
-      }, T.TextInputConfigurationToMapOfString$dynamic()))[$toList]({growable: false}));
-      return result;
+  var padding$ = dart.privateName(scroll_view, "BoxScrollView.padding");
+  scroll_view.BoxScrollView = class BoxScrollView extends scroll_view.ScrollView {
+    get padding() {
+      return this[padding$];
+    }
+    set padding(value) {
+      super.padding = value;
+    }
+    buildSlivers(context) {
+      if (context == null) dart.nullFailed(I[0], 695, 42, "context");
+      let sliver = this.buildChildLayout(context);
+      let effectivePadding = this.padding;
+      if (this.padding == null) {
+        let mediaQuery = media_query.MediaQuery.maybeOf(context);
+        if (mediaQuery != null) {
+          let mediaQueryHorizontalPadding = mediaQuery.padding.copyWith({top: 0.0, bottom: 0.0});
+          let mediaQueryVerticalPadding = mediaQuery.padding.copyWith({left: 0.0, right: 0.0});
+          effectivePadding = this.scrollDirection == basic_types.Axis.vertical ? mediaQueryVerticalPadding : mediaQueryHorizontalPadding;
+          sliver = new media_query.MediaQuery.new({data: mediaQuery.copyWith({padding: this.scrollDirection == basic_types.Axis.vertical ? mediaQueryHorizontalPadding : mediaQueryVerticalPadding}), child: sliver, $creationLocationd_0dea112b090073317d4: C[43] || CT.C43});
+        }
+      }
+      if (effectivePadding != null) sliver = new basic.SliverPadding.new({padding: effectivePadding, sliver: sliver, $creationLocationd_0dea112b090073317d4: C[47] || CT.C47});
+      return T.JSArrayOfWidget().of([sliver]);
+    }
+    debugFillProperties(properties) {
+      if (properties == null) dart.nullFailed(I[0], 732, 56, "properties");
+      super.debugFillProperties(properties);
+      properties.add(new (T.DiagnosticsPropertyOfEdgeInsetsGeometry()).new("padding", this.padding, {defaultValue: null}));
     }
   };
-  (autofill._AutofillScopeTextInputConfiguration.new = function(opts) {
-    let allConfigurations = opts && 'allConfigurations' in opts ? opts.allConfigurations : null;
-    if (allConfigurations == null) dart.nullFailed(I[3], 770, 19, "allConfigurations");
-    let currentClientConfiguration = opts && 'currentClientConfiguration' in opts ? opts.currentClientConfiguration : null;
-    if (currentClientConfiguration == null) dart.nullFailed(I[3], 771, 37, "currentClientConfiguration");
-    this.allConfigurations = allConfigurations;
-    if (!(allConfigurations != null)) dart.assertFailed(null, I[3], 772, 15, "allConfigurations != null");
-    if (!(currentClientConfiguration != null)) dart.assertFailed(null, I[3], 773, 15, "currentClientConfiguration != null");
-    autofill._AutofillScopeTextInputConfiguration.__proto__.new.call(this, {inputType: currentClientConfiguration.inputType, obscureText: currentClientConfiguration.obscureText, autocorrect: currentClientConfiguration.autocorrect, smartDashesType: currentClientConfiguration.smartDashesType, smartQuotesType: currentClientConfiguration.smartQuotesType, enableSuggestions: currentClientConfiguration.enableSuggestions, inputAction: currentClientConfiguration.inputAction, textCapitalization: currentClientConfiguration.textCapitalization, keyboardAppearance: currentClientConfiguration.keyboardAppearance, actionLabel: currentClientConfiguration.actionLabel, autofillConfiguration: currentClientConfiguration.autofillConfiguration});
+  (scroll_view.BoxScrollView.new = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
+    if (scrollDirection == null) dart.nullFailed(I[0], 662, 10, "scrollDirection");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 663, 10, "reverse");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let primary = opts && 'primary' in opts ? opts.primary : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
+    if (shrinkWrap == null) dart.nullFailed(I[0], 667, 10, "shrinkWrap");
+    let padding = opts && 'padding' in opts ? opts.padding : null;
+    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
+    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 671, 23, "dragStartBehavior");
+    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
+    if (keyboardDismissBehavior == null) dart.nullFailed(I[0], 672, 39, "keyboardDismissBehavior");
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
+    if (clipBehavior == null) dart.nullFailed(I[0], 674, 10, "clipBehavior");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[padding$] = padding;
+    scroll_view.BoxScrollView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, cacheExtent: cacheExtent, semanticChildCount: semanticChildCount, dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = autofill._AutofillScopeTextInputConfiguration.prototype;
-  dart.addTypeTests(autofill._AutofillScopeTextInputConfiguration);
-  dart.addTypeCaches(autofill._AutofillScopeTextInputConfiguration);
-  dart.setLibraryUri(autofill._AutofillScopeTextInputConfiguration, I[2]);
-  dart.setFieldSignature(autofill._AutofillScopeTextInputConfiguration, () => ({
-    __proto__: dart.getFields(autofill._AutofillScopeTextInputConfiguration.__proto__),
-    allConfigurations: dart.finalFieldType(core.Iterable$(text_input.TextInputConfiguration))
+  }).prototype = scroll_view.BoxScrollView.prototype;
+  dart.addTypeTests(scroll_view.BoxScrollView);
+  dart.addTypeCaches(scroll_view.BoxScrollView);
+  dart.setMethodSignature(scroll_view.BoxScrollView, () => ({
+    __proto__: dart.getMethods(scroll_view.BoxScrollView.__proto__),
+    buildSlivers: dart.fnType(core.List$(framework.Widget), [framework.BuildContext])
   }));
-  autofill.AutofillScopeMixin = class AutofillScopeMixin extends core.Object {};
-  autofill.AutofillScopeMixin[dart.mixinOn] = Object => class AutofillScopeMixin extends Object {
-    attach(trigger, configuration) {
-      if (trigger == null) dart.nullFailed(I[3], 804, 46, "trigger");
-      if (configuration == null) dart.nullFailed(I[3], 804, 78, "configuration");
-      if (!(trigger != null)) dart.assertFailed(null, I[3], 805, 12, "trigger != null");
-      if (!!dart.test(this.autofillClients[$any](dart.fn(client => {
-        if (client == null) dart.nullFailed(I[3], 807, 44, "client");
-        return client.textInputConfiguration.autofillConfiguration == null;
-      }, T.AutofillClientTobool())))) dart.assertFailed("Every client in AutofillScope.autofillClients must enable autofill", I[3], 807, 7, "!autofillClients.any((AutofillClient client) => client.textInputConfiguration.autofillConfiguration == null)");
-      let inputConfiguration = new autofill._AutofillScopeTextInputConfiguration.new({allConfigurations: this.autofillClients[$map](text_input.TextInputConfiguration, dart.fn(client => {
-          if (client == null) dart.nullFailed(I[3], 812, 62, "client");
-          return client.textInputConfiguration;
-        }, T.AutofillClientToTextInputConfiguration())), currentClientConfiguration: configuration});
-      return text_input.TextInput.attach(trigger, inputConfiguration);
+  dart.setLibraryUri(scroll_view.BoxScrollView, I[1]);
+  dart.setFieldSignature(scroll_view.BoxScrollView, () => ({
+    __proto__: dart.getFields(scroll_view.BoxScrollView.__proto__),
+    padding: dart.finalFieldType(dart.nullable(edge_insets.EdgeInsetsGeometry))
+  }));
+  var itemExtent$ = dart.privateName(scroll_view, "ListView.itemExtent");
+  var childrenDelegate$ = dart.privateName(scroll_view, "ListView.childrenDelegate");
+  scroll_view.ListView = class ListView extends scroll_view.BoxScrollView {
+    get itemExtent() {
+      return this[itemExtent$];
+    }
+    set itemExtent(value) {
+      super.itemExtent = value;
+    }
+    get childrenDelegate() {
+      return this[childrenDelegate$];
+    }
+    set childrenDelegate(value) {
+      super.childrenDelegate = value;
+    }
+    buildChildLayout(context) {
+      if (context == null) dart.nullFailed(I[0], 1452, 40, "context");
+      if (this.itemExtent != null) {
+        return new sliver.SliverFixedExtentList.new({delegate: this.childrenDelegate, itemExtent: dart.nullCheck(this.itemExtent), $creationLocationd_0dea112b090073317d4: C[51] || CT.C51});
+      }
+      return new sliver.SliverList.new({delegate: this.childrenDelegate, $creationLocationd_0dea112b090073317d4: C[55] || CT.C55});
+    }
+    debugFillProperties(properties) {
+      if (properties == null) dart.nullFailed(I[0], 1463, 56, "properties");
+      super.debugFillProperties(properties);
+      properties.add(new diagnostics.DoubleProperty.new("itemExtent", this.itemExtent, {defaultValue: null}));
+    }
+    static _computeActualChildCount(itemCount) {
+      if (itemCount == null) dart.nullFailed(I[0], 1469, 43, "itemCount");
+      return math.max(core.int, 0, dart.notNull(itemCount) * 2 - 1);
     }
   };
-  (autofill.AutofillScopeMixin[dart.mixinNew] = function() {
-  }).prototype = autofill.AutofillScopeMixin.prototype;
-  dart.addTypeTests(autofill.AutofillScopeMixin);
-  dart.addTypeCaches(autofill.AutofillScopeMixin);
-  autofill.AutofillScopeMixin[dart.implements] = () => [autofill.AutofillScope, core.Object];
-  dart.setMethodSignature(autofill.AutofillScopeMixin, () => ({
-    __proto__: dart.getMethods(autofill.AutofillScopeMixin.__proto__),
-    attach: dart.fnType(text_input.TextInputConnection, [text_input.TextInputClient, text_input.TextInputConfiguration])
+  (scroll_view.ListView.new = function(opts) {
+    let t0;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
+    if (scrollDirection == null) dart.nullFailed(I[0], 1082, 10, "scrollDirection");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 1083, 10, "reverse");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let primary = opts && 'primary' in opts ? opts.primary : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
+    if (shrinkWrap == null) dart.nullFailed(I[0], 1087, 10, "shrinkWrap");
+    let padding = opts && 'padding' in opts ? opts.padding : null;
+    let itemExtent = opts && 'itemExtent' in opts ? opts.itemExtent : null;
+    let addAutomaticKeepAlives = opts && 'addAutomaticKeepAlives' in opts ? opts.addAutomaticKeepAlives : true;
+    if (addAutomaticKeepAlives == null) dart.nullFailed(I[0], 1090, 10, "addAutomaticKeepAlives");
+    let addRepaintBoundaries = opts && 'addRepaintBoundaries' in opts ? opts.addRepaintBoundaries : true;
+    if (addRepaintBoundaries == null) dart.nullFailed(I[0], 1091, 10, "addRepaintBoundaries");
+    let addSemanticIndexes = opts && 'addSemanticIndexes' in opts ? opts.addSemanticIndexes : true;
+    if (addSemanticIndexes == null) dart.nullFailed(I[0], 1092, 10, "addSemanticIndexes");
+    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
+    let children = opts && 'children' in opts ? opts.children : C[42] || CT.C42;
+    if (children == null) dart.nullFailed(I[0], 1094, 18, "children");
+    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 1096, 23, "dragStartBehavior");
+    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
+    if (keyboardDismissBehavior == null) dart.nullFailed(I[0], 1097, 39, "keyboardDismissBehavior");
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
+    if (clipBehavior == null) dart.nullFailed(I[0], 1099, 10, "clipBehavior");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[itemExtent$] = itemExtent;
+    this[childrenDelegate$] = new sliver.SliverChildListDelegate.new(children, {addAutomaticKeepAlives: addAutomaticKeepAlives, addRepaintBoundaries: addRepaintBoundaries, addSemanticIndexes: addSemanticIndexes});
+    scroll_view.ListView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: (t0 = semanticChildCount, t0 == null ? children[$length] : t0), dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = scroll_view.ListView.prototype;
+  (scroll_view.ListView.builder = function(opts) {
+    let t0;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
+    if (scrollDirection == null) dart.nullFailed(I[0], 1156, 10, "scrollDirection");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 1157, 10, "reverse");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let primary = opts && 'primary' in opts ? opts.primary : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
+    if (shrinkWrap == null) dart.nullFailed(I[0], 1161, 10, "shrinkWrap");
+    let padding = opts && 'padding' in opts ? opts.padding : null;
+    let itemExtent = opts && 'itemExtent' in opts ? opts.itemExtent : null;
+    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
+    if (itemBuilder == null) dart.nullFailed(I[0], 1164, 35, "itemBuilder");
+    let itemCount = opts && 'itemCount' in opts ? opts.itemCount : null;
+    let addAutomaticKeepAlives = opts && 'addAutomaticKeepAlives' in opts ? opts.addAutomaticKeepAlives : true;
+    if (addAutomaticKeepAlives == null) dart.nullFailed(I[0], 1166, 10, "addAutomaticKeepAlives");
+    let addRepaintBoundaries = opts && 'addRepaintBoundaries' in opts ? opts.addRepaintBoundaries : true;
+    if (addRepaintBoundaries == null) dart.nullFailed(I[0], 1167, 10, "addRepaintBoundaries");
+    let addSemanticIndexes = opts && 'addSemanticIndexes' in opts ? opts.addSemanticIndexes : true;
+    if (addSemanticIndexes == null) dart.nullFailed(I[0], 1168, 10, "addSemanticIndexes");
+    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
+    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 1171, 23, "dragStartBehavior");
+    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
+    if (keyboardDismissBehavior == null) dart.nullFailed(I[0], 1172, 39, "keyboardDismissBehavior");
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
+    if (clipBehavior == null) dart.nullFailed(I[0], 1174, 10, "clipBehavior");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[itemExtent$] = itemExtent;
+    if (!(itemCount == null || dart.notNull(itemCount) >= 0)) dart.assertFailed(null, I[0], 1175, 15, "itemCount == null || itemCount >= 0");
+    if (!(semanticChildCount == null || dart.notNull(semanticChildCount) <= dart.nullCheck(itemCount))) dart.assertFailed(null, I[0], 1176, 15, "semanticChildCount == null || semanticChildCount <= itemCount!");
+    this[childrenDelegate$] = new sliver.SliverChildBuilderDelegate.new(itemBuilder, {childCount: itemCount, addAutomaticKeepAlives: addAutomaticKeepAlives, addRepaintBoundaries: addRepaintBoundaries, addSemanticIndexes: addSemanticIndexes});
+    scroll_view.ListView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: (t0 = semanticChildCount, t0 == null ? itemCount : t0), dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = scroll_view.ListView.prototype;
+  (scroll_view.ListView.separated = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
+    if (scrollDirection == null) dart.nullFailed(I[0], 1250, 10, "scrollDirection");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 1251, 10, "reverse");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let primary = opts && 'primary' in opts ? opts.primary : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
+    if (shrinkWrap == null) dart.nullFailed(I[0], 1255, 10, "shrinkWrap");
+    let padding = opts && 'padding' in opts ? opts.padding : null;
+    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
+    if (itemBuilder == null) dart.nullFailed(I[0], 1257, 35, "itemBuilder");
+    let separatorBuilder = opts && 'separatorBuilder' in opts ? opts.separatorBuilder : null;
+    if (separatorBuilder == null) dart.nullFailed(I[0], 1258, 35, "separatorBuilder");
+    let itemCount = opts && 'itemCount' in opts ? opts.itemCount : null;
+    if (itemCount == null) dart.nullFailed(I[0], 1259, 18, "itemCount");
+    let addAutomaticKeepAlives = opts && 'addAutomaticKeepAlives' in opts ? opts.addAutomaticKeepAlives : true;
+    if (addAutomaticKeepAlives == null) dart.nullFailed(I[0], 1260, 10, "addAutomaticKeepAlives");
+    let addRepaintBoundaries = opts && 'addRepaintBoundaries' in opts ? opts.addRepaintBoundaries : true;
+    if (addRepaintBoundaries == null) dart.nullFailed(I[0], 1261, 10, "addRepaintBoundaries");
+    let addSemanticIndexes = opts && 'addSemanticIndexes' in opts ? opts.addSemanticIndexes : true;
+    if (addSemanticIndexes == null) dart.nullFailed(I[0], 1262, 10, "addSemanticIndexes");
+    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 1264, 23, "dragStartBehavior");
+    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
+    if (keyboardDismissBehavior == null) dart.nullFailed(I[0], 1265, 39, "keyboardDismissBehavior");
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
+    if (clipBehavior == null) dart.nullFailed(I[0], 1267, 10, "clipBehavior");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    if (!(itemBuilder != null)) dart.assertFailed(null, I[0], 1268, 15, "itemBuilder != null");
+    if (!(separatorBuilder != null)) dart.assertFailed(null, I[0], 1269, 15, "separatorBuilder != null");
+    if (!(itemCount != null && dart.notNull(itemCount) >= 0)) dart.assertFailed(null, I[0], 1270, 15, "itemCount != null && itemCount >= 0");
+    this[itemExtent$] = null;
+    this[childrenDelegate$] = new sliver.SliverChildBuilderDelegate.new(dart.fn((context, index) => {
+      if (context == null) dart.nullFailed(I[0], 1273, 24, "context");
+      if (index == null) dart.nullFailed(I[0], 1273, 37, "index");
+      let itemIndex = (dart.notNull(index) / 2)[$truncate]();
+      let widget = null;
+      if (index[$isEven]) {
+        widget = itemBuilder(context, itemIndex);
+      } else {
+        widget = separatorBuilder(context, itemIndex);
+        if (!dart.test(dart.fn(() => {
+          if (widget == null) {
+            dart.throw(assertions.FlutterError.new("separatorBuilder cannot return null."));
+          }
+          return true;
+        }, T.VoidTobool())())) dart.assertFailed(null, I[0], 1280, 21, "() {\r\n               if (widget == null) { // ignore: dead_code\r\n                 throw FlutterError('separatorBuilder cannot return null.');\r\n               }\r\n               return true;\r\n             }()");
+      }
+      return widget;
+    }, T.BuildContextAndintToWidget()), {childCount: scroll_view.ListView._computeActualChildCount(itemCount), addAutomaticKeepAlives: addAutomaticKeepAlives, addRepaintBoundaries: addRepaintBoundaries, addSemanticIndexes: addSemanticIndexes, semanticIndexCallback: dart.fn((_, index) => {
+        if (_ == null) dart.nullFailed(I[0], 1293, 41, "_");
+        if (index == null) dart.nullFailed(I[0], 1293, 48, "index");
+        return index[$isEven] ? (dart.notNull(index) / 2)[$truncate]() : null;
+      }, T.WidgetAndintTointN())});
+    scroll_view.ListView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: itemCount, dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = scroll_view.ListView.prototype;
+  (scroll_view.ListView.custom = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
+    if (scrollDirection == null) dart.nullFailed(I[0], 1401, 10, "scrollDirection");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 1402, 10, "reverse");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let primary = opts && 'primary' in opts ? opts.primary : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
+    if (shrinkWrap == null) dart.nullFailed(I[0], 1406, 10, "shrinkWrap");
+    let padding = opts && 'padding' in opts ? opts.padding : null;
+    let itemExtent = opts && 'itemExtent' in opts ? opts.itemExtent : null;
+    let childrenDelegate = opts && 'childrenDelegate' in opts ? opts.childrenDelegate : null;
+    if (childrenDelegate == null) dart.nullFailed(I[0], 1409, 19, "childrenDelegate");
+    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
+    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 1412, 23, "dragStartBehavior");
+    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
+    if (keyboardDismissBehavior == null) dart.nullFailed(I[0], 1413, 39, "keyboardDismissBehavior");
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
+    if (clipBehavior == null) dart.nullFailed(I[0], 1415, 10, "clipBehavior");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[itemExtent$] = itemExtent;
+    this[childrenDelegate$] = childrenDelegate;
+    if (!(childrenDelegate != null)) dart.assertFailed(null, I[0], 1416, 15, "childrenDelegate != null");
+    scroll_view.ListView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: semanticChildCount, dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = scroll_view.ListView.prototype;
+  dart.addTypeTests(scroll_view.ListView);
+  dart.addTypeCaches(scroll_view.ListView);
+  dart.setMethodSignature(scroll_view.ListView, () => ({
+    __proto__: dart.getMethods(scroll_view.ListView.__proto__),
+    buildChildLayout: dart.fnType(framework.Widget, [framework.BuildContext])
   }));
-  dart.setLibraryUri(autofill.AutofillScopeMixin, I[2]);
-  dart.trackLibraries("packages/flutter/src/services/text_input.dart", {
-    "package:flutter/src/services/text_input.dart": text_input,
-    "package:flutter/src/services/autofill.dart": autofill
+  dart.setLibraryUri(scroll_view.ListView, I[1]);
+  dart.setFieldSignature(scroll_view.ListView, () => ({
+    __proto__: dart.getFields(scroll_view.ListView.__proto__),
+    itemExtent: dart.finalFieldType(dart.nullable(core.double)),
+    childrenDelegate: dart.finalFieldType(sliver.SliverChildDelegate)
+  }));
+  var gridDelegate$ = dart.privateName(scroll_view, "GridView.gridDelegate");
+  var childrenDelegate$0 = dart.privateName(scroll_view, "GridView.childrenDelegate");
+  scroll_view.GridView = class GridView extends scroll_view.BoxScrollView {
+    get gridDelegate() {
+      return this[gridDelegate$];
+    }
+    set gridDelegate(value) {
+      super.gridDelegate = value;
+    }
+    get childrenDelegate() {
+      return this[childrenDelegate$0];
+    }
+    set childrenDelegate(value) {
+      super.childrenDelegate = value;
+    }
+    buildChildLayout(context) {
+      if (context == null) dart.nullFailed(I[0], 2003, 40, "context");
+      return new sliver.SliverGrid.new({delegate: this.childrenDelegate, gridDelegate: this.gridDelegate, $creationLocationd_0dea112b090073317d4: C[58] || CT.C58});
+    }
+  };
+  (scroll_view.GridView.new = function(opts) {
+    let t0;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
+    if (scrollDirection == null) dart.nullFailed(I[0], 1706, 10, "scrollDirection");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 1707, 10, "reverse");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let primary = opts && 'primary' in opts ? opts.primary : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
+    if (shrinkWrap == null) dart.nullFailed(I[0], 1711, 10, "shrinkWrap");
+    let padding = opts && 'padding' in opts ? opts.padding : null;
+    let gridDelegate = opts && 'gridDelegate' in opts ? opts.gridDelegate : null;
+    if (gridDelegate == null) dart.nullFailed(I[0], 1713, 19, "gridDelegate");
+    let addAutomaticKeepAlives = opts && 'addAutomaticKeepAlives' in opts ? opts.addAutomaticKeepAlives : true;
+    if (addAutomaticKeepAlives == null) dart.nullFailed(I[0], 1714, 10, "addAutomaticKeepAlives");
+    let addRepaintBoundaries = opts && 'addRepaintBoundaries' in opts ? opts.addRepaintBoundaries : true;
+    if (addRepaintBoundaries == null) dart.nullFailed(I[0], 1715, 10, "addRepaintBoundaries");
+    let addSemanticIndexes = opts && 'addSemanticIndexes' in opts ? opts.addSemanticIndexes : true;
+    if (addSemanticIndexes == null) dart.nullFailed(I[0], 1716, 10, "addSemanticIndexes");
+    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
+    let children = opts && 'children' in opts ? opts.children : C[42] || CT.C42;
+    if (children == null) dart.nullFailed(I[0], 1718, 18, "children");
+    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 1720, 23, "dragStartBehavior");
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
+    if (clipBehavior == null) dart.nullFailed(I[0], 1721, 10, "clipBehavior");
+    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
+    if (keyboardDismissBehavior == null) dart.nullFailed(I[0], 1722, 39, "keyboardDismissBehavior");
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[gridDelegate$] = gridDelegate;
+    if (!(gridDelegate != null)) dart.assertFailed(null, I[0], 1724, 15, "gridDelegate != null");
+    this[childrenDelegate$0] = new sliver.SliverChildListDelegate.new(children, {addAutomaticKeepAlives: addAutomaticKeepAlives, addRepaintBoundaries: addRepaintBoundaries, addSemanticIndexes: addSemanticIndexes});
+    scroll_view.GridView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: (t0 = semanticChildCount, t0 == null ? children[$length] : t0), dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = scroll_view.GridView.prototype;
+  (scroll_view.GridView.builder = function(opts) {
+    let t0;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
+    if (scrollDirection == null) dart.nullFailed(I[0], 1769, 10, "scrollDirection");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 1770, 10, "reverse");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let primary = opts && 'primary' in opts ? opts.primary : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
+    if (shrinkWrap == null) dart.nullFailed(I[0], 1774, 10, "shrinkWrap");
+    let padding = opts && 'padding' in opts ? opts.padding : null;
+    let gridDelegate = opts && 'gridDelegate' in opts ? opts.gridDelegate : null;
+    if (gridDelegate == null) dart.nullFailed(I[0], 1776, 19, "gridDelegate");
+    let itemBuilder = opts && 'itemBuilder' in opts ? opts.itemBuilder : null;
+    if (itemBuilder == null) dart.nullFailed(I[0], 1777, 35, "itemBuilder");
+    let itemCount = opts && 'itemCount' in opts ? opts.itemCount : null;
+    let addAutomaticKeepAlives = opts && 'addAutomaticKeepAlives' in opts ? opts.addAutomaticKeepAlives : true;
+    if (addAutomaticKeepAlives == null) dart.nullFailed(I[0], 1779, 10, "addAutomaticKeepAlives");
+    let addRepaintBoundaries = opts && 'addRepaintBoundaries' in opts ? opts.addRepaintBoundaries : true;
+    if (addRepaintBoundaries == null) dart.nullFailed(I[0], 1780, 10, "addRepaintBoundaries");
+    let addSemanticIndexes = opts && 'addSemanticIndexes' in opts ? opts.addSemanticIndexes : true;
+    if (addSemanticIndexes == null) dart.nullFailed(I[0], 1781, 10, "addSemanticIndexes");
+    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
+    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 1784, 23, "dragStartBehavior");
+    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
+    if (keyboardDismissBehavior == null) dart.nullFailed(I[0], 1785, 39, "keyboardDismissBehavior");
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
+    if (clipBehavior == null) dart.nullFailed(I[0], 1787, 10, "clipBehavior");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[gridDelegate$] = gridDelegate;
+    if (!(gridDelegate != null)) dart.assertFailed(null, I[0], 1788, 15, "gridDelegate != null");
+    this[childrenDelegate$0] = new sliver.SliverChildBuilderDelegate.new(itemBuilder, {childCount: itemCount, addAutomaticKeepAlives: addAutomaticKeepAlives, addRepaintBoundaries: addRepaintBoundaries, addSemanticIndexes: addSemanticIndexes});
+    scroll_view.GridView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: (t0 = semanticChildCount, t0 == null ? itemCount : t0), dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = scroll_view.GridView.prototype;
+  (scroll_view.GridView.custom = function(opts) {
+    let key = opts && 'key' in opts ? opts.key : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
+    if (scrollDirection == null) dart.nullFailed(I[0], 1822, 10, "scrollDirection");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 1823, 10, "reverse");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let primary = opts && 'primary' in opts ? opts.primary : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
+    if (shrinkWrap == null) dart.nullFailed(I[0], 1827, 10, "shrinkWrap");
+    let padding = opts && 'padding' in opts ? opts.padding : null;
+    let gridDelegate = opts && 'gridDelegate' in opts ? opts.gridDelegate : null;
+    if (gridDelegate == null) dart.nullFailed(I[0], 1829, 19, "gridDelegate");
+    let childrenDelegate = opts && 'childrenDelegate' in opts ? opts.childrenDelegate : null;
+    if (childrenDelegate == null) dart.nullFailed(I[0], 1830, 19, "childrenDelegate");
+    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
+    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 1833, 23, "dragStartBehavior");
+    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
+    if (keyboardDismissBehavior == null) dart.nullFailed(I[0], 1834, 39, "keyboardDismissBehavior");
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
+    if (clipBehavior == null) dart.nullFailed(I[0], 1836, 10, "clipBehavior");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[gridDelegate$] = gridDelegate;
+    this[childrenDelegate$0] = childrenDelegate;
+    if (!(gridDelegate != null)) dart.assertFailed(null, I[0], 1837, 15, "gridDelegate != null");
+    if (!(childrenDelegate != null)) dart.assertFailed(null, I[0], 1838, 15, "childrenDelegate != null");
+    scroll_view.GridView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: semanticChildCount, dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = scroll_view.GridView.prototype;
+  (scroll_view.GridView.count = function(opts) {
+    let t0;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
+    if (scrollDirection == null) dart.nullFailed(I[0], 1872, 10, "scrollDirection");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 1873, 10, "reverse");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let primary = opts && 'primary' in opts ? opts.primary : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
+    if (shrinkWrap == null) dart.nullFailed(I[0], 1877, 10, "shrinkWrap");
+    let padding = opts && 'padding' in opts ? opts.padding : null;
+    let crossAxisCount = opts && 'crossAxisCount' in opts ? opts.crossAxisCount : null;
+    if (crossAxisCount == null) dart.nullFailed(I[0], 1879, 18, "crossAxisCount");
+    let mainAxisSpacing = opts && 'mainAxisSpacing' in opts ? opts.mainAxisSpacing : 0;
+    if (mainAxisSpacing == null) dart.nullFailed(I[0], 1880, 12, "mainAxisSpacing");
+    let crossAxisSpacing = opts && 'crossAxisSpacing' in opts ? opts.crossAxisSpacing : 0;
+    if (crossAxisSpacing == null) dart.nullFailed(I[0], 1881, 12, "crossAxisSpacing");
+    let childAspectRatio = opts && 'childAspectRatio' in opts ? opts.childAspectRatio : 1;
+    if (childAspectRatio == null) dart.nullFailed(I[0], 1882, 12, "childAspectRatio");
+    let addAutomaticKeepAlives = opts && 'addAutomaticKeepAlives' in opts ? opts.addAutomaticKeepAlives : true;
+    if (addAutomaticKeepAlives == null) dart.nullFailed(I[0], 1883, 10, "addAutomaticKeepAlives");
+    let addRepaintBoundaries = opts && 'addRepaintBoundaries' in opts ? opts.addRepaintBoundaries : true;
+    if (addRepaintBoundaries == null) dart.nullFailed(I[0], 1884, 10, "addRepaintBoundaries");
+    let addSemanticIndexes = opts && 'addSemanticIndexes' in opts ? opts.addSemanticIndexes : true;
+    if (addSemanticIndexes == null) dart.nullFailed(I[0], 1885, 10, "addSemanticIndexes");
+    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
+    let children = opts && 'children' in opts ? opts.children : C[42] || CT.C42;
+    if (children == null) dart.nullFailed(I[0], 1887, 18, "children");
+    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 1889, 23, "dragStartBehavior");
+    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
+    if (keyboardDismissBehavior == null) dart.nullFailed(I[0], 1890, 39, "keyboardDismissBehavior");
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
+    if (clipBehavior == null) dart.nullFailed(I[0], 1892, 10, "clipBehavior");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[gridDelegate$] = new sliver_grid.SliverGridDelegateWithFixedCrossAxisCount.new({crossAxisCount: crossAxisCount, mainAxisSpacing: mainAxisSpacing, crossAxisSpacing: crossAxisSpacing, childAspectRatio: childAspectRatio});
+    this[childrenDelegate$0] = new sliver.SliverChildListDelegate.new(children, {addAutomaticKeepAlives: addAutomaticKeepAlives, addRepaintBoundaries: addRepaintBoundaries, addSemanticIndexes: addSemanticIndexes});
+    scroll_view.GridView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: (t0 = semanticChildCount, t0 == null ? children[$length] : t0), dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = scroll_view.GridView.prototype;
+  (scroll_view.GridView.extent = function(opts) {
+    let t0;
+    let key = opts && 'key' in opts ? opts.key : null;
+    let scrollDirection = opts && 'scrollDirection' in opts ? opts.scrollDirection : C[3] || CT.C3;
+    if (scrollDirection == null) dart.nullFailed(I[0], 1938, 10, "scrollDirection");
+    let reverse = opts && 'reverse' in opts ? opts.reverse : false;
+    if (reverse == null) dart.nullFailed(I[0], 1939, 10, "reverse");
+    let controller = opts && 'controller' in opts ? opts.controller : null;
+    let primary = opts && 'primary' in opts ? opts.primary : null;
+    let physics = opts && 'physics' in opts ? opts.physics : null;
+    let shrinkWrap = opts && 'shrinkWrap' in opts ? opts.shrinkWrap : false;
+    if (shrinkWrap == null) dart.nullFailed(I[0], 1943, 10, "shrinkWrap");
+    let padding = opts && 'padding' in opts ? opts.padding : null;
+    let maxCrossAxisExtent = opts && 'maxCrossAxisExtent' in opts ? opts.maxCrossAxisExtent : null;
+    if (maxCrossAxisExtent == null) dart.nullFailed(I[0], 1945, 21, "maxCrossAxisExtent");
+    let mainAxisSpacing = opts && 'mainAxisSpacing' in opts ? opts.mainAxisSpacing : 0;
+    if (mainAxisSpacing == null) dart.nullFailed(I[0], 1946, 12, "mainAxisSpacing");
+    let crossAxisSpacing = opts && 'crossAxisSpacing' in opts ? opts.crossAxisSpacing : 0;
+    if (crossAxisSpacing == null) dart.nullFailed(I[0], 1947, 12, "crossAxisSpacing");
+    let childAspectRatio = opts && 'childAspectRatio' in opts ? opts.childAspectRatio : 1;
+    if (childAspectRatio == null) dart.nullFailed(I[0], 1948, 12, "childAspectRatio");
+    let addAutomaticKeepAlives = opts && 'addAutomaticKeepAlives' in opts ? opts.addAutomaticKeepAlives : true;
+    if (addAutomaticKeepAlives == null) dart.nullFailed(I[0], 1949, 10, "addAutomaticKeepAlives");
+    let addRepaintBoundaries = opts && 'addRepaintBoundaries' in opts ? opts.addRepaintBoundaries : true;
+    if (addRepaintBoundaries == null) dart.nullFailed(I[0], 1950, 10, "addRepaintBoundaries");
+    let addSemanticIndexes = opts && 'addSemanticIndexes' in opts ? opts.addSemanticIndexes : true;
+    if (addSemanticIndexes == null) dart.nullFailed(I[0], 1951, 10, "addSemanticIndexes");
+    let cacheExtent = opts && 'cacheExtent' in opts ? opts.cacheExtent : null;
+    let children = opts && 'children' in opts ? opts.children : C[42] || CT.C42;
+    if (children == null) dart.nullFailed(I[0], 1953, 18, "children");
+    let semanticChildCount = opts && 'semanticChildCount' in opts ? opts.semanticChildCount : null;
+    let dragStartBehavior = opts && 'dragStartBehavior' in opts ? opts.dragStartBehavior : C[4] || CT.C4;
+    if (dragStartBehavior == null) dart.nullFailed(I[0], 1955, 23, "dragStartBehavior");
+    let keyboardDismissBehavior = opts && 'keyboardDismissBehavior' in opts ? opts.keyboardDismissBehavior : C[0] || CT.C0;
+    if (keyboardDismissBehavior == null) dart.nullFailed(I[0], 1956, 39, "keyboardDismissBehavior");
+    let restorationId = opts && 'restorationId' in opts ? opts.restorationId : null;
+    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : C[5] || CT.C5;
+    if (clipBehavior == null) dart.nullFailed(I[0], 1958, 10, "clipBehavior");
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    this[gridDelegate$] = new sliver_grid.SliverGridDelegateWithMaxCrossAxisExtent.new({maxCrossAxisExtent: maxCrossAxisExtent, mainAxisSpacing: mainAxisSpacing, crossAxisSpacing: crossAxisSpacing, childAspectRatio: childAspectRatio});
+    this[childrenDelegate$0] = new sliver.SliverChildListDelegate.new(children, {addAutomaticKeepAlives: addAutomaticKeepAlives, addRepaintBoundaries: addRepaintBoundaries, addSemanticIndexes: addSemanticIndexes});
+    scroll_view.GridView.__proto__.new.call(this, {key: key, scrollDirection: scrollDirection, reverse: reverse, controller: controller, primary: primary, physics: physics, shrinkWrap: shrinkWrap, padding: padding, cacheExtent: cacheExtent, semanticChildCount: (t0 = semanticChildCount, t0 == null ? children[$length] : t0), dragStartBehavior: dragStartBehavior, keyboardDismissBehavior: keyboardDismissBehavior, restorationId: restorationId, clipBehavior: clipBehavior, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+    ;
+  }).prototype = scroll_view.GridView.prototype;
+  dart.addTypeTests(scroll_view.GridView);
+  dart.addTypeCaches(scroll_view.GridView);
+  dart.setMethodSignature(scroll_view.GridView, () => ({
+    __proto__: dart.getMethods(scroll_view.GridView.__proto__),
+    buildChildLayout: dart.fnType(framework.Widget, [framework.BuildContext])
+  }));
+  dart.setLibraryUri(scroll_view.GridView, I[1]);
+  dart.setFieldSignature(scroll_view.GridView, () => ({
+    __proto__: dart.getFields(scroll_view.GridView.__proto__),
+    gridDelegate: dart.finalFieldType(sliver_grid.SliverGridDelegate),
+    childrenDelegate: dart.finalFieldType(sliver.SliverChildDelegate)
+  }));
+  dart.trackLibraries("packages/flutter/src/widgets/scroll_view.dart", {
+    "package:flutter/src/widgets/scroll_view.dart": scroll_view
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["text_input.dart","autofill.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/services/text_input.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["scroll_view.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/widgets/scroll_view.dart.lib.js"}');
   // Exports:
   return {
-    src__services__text_input: text_input,
-    src__services__autofill: autofill
+    src__widgets__scroll_view: scroll_view
   };
 }));
 
-//# sourceMappingURL=text_input.dart.lib.js.map
+//# sourceMappingURL=scroll_view.dart.lib.js.map

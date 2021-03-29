@@ -1,23 +1,23 @@
-define(['dart_sdk', 'packages/flutter/src/animation/animation_controller.dart', 'packages/flutter/src/animation/curves.dart', 'packages/flutter/src/foundation/change_notifier.dart', 'packages/flutter/src/animation/listener_helpers.dart', 'packages/flutter/src/widgets/widget_span.dart'], (function load__packages__flutter__src__material__tab_controller_dart(dart_sdk, packages__flutter__src__animation__animation_controller$46dart, packages__flutter__src__animation__curves$46dart, packages__flutter__src__foundation__change_notifier$46dart, packages__flutter__src__animation__listener_helpers$46dart, packages__flutter__src__widgets__widget_span$46dart) {
+define(['dart_sdk', 'packages/flutter/src/painting/basic_types.dart', 'packages/flutter/src/rendering/sliver.dart', 'packages/flutter/src/rendering/layer.dart', 'packages/flutter/src/foundation/debug.dart', 'packages/flutter/src/painting/edge_insets.dart'], (function load__packages__flutter__src__rendering__sliver_padding_dart(dart_sdk, packages__flutter__src__painting__basic_types$46dart, packages__flutter__src__rendering__sliver$46dart, packages__flutter__src__rendering__layer$46dart, packages__flutter__src__foundation__debug$46dart, packages__flutter__src__painting__edge_insets$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const _internal = dart_sdk._internal;
   const math = dart_sdk.math;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const animation_controller = packages__flutter__src__animation__animation_controller$46dart.src__animation__animation_controller;
-  const curves = packages__flutter__src__animation__curves$46dart.src__animation__curves;
-  const change_notifier = packages__flutter__src__foundation__change_notifier$46dart.src__foundation__change_notifier;
-  const animation = packages__flutter__src__animation__listener_helpers$46dart.src__animation__animation;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const ticker_provider = packages__flutter__src__widgets__widget_span$46dart.src__widgets__ticker_provider;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  var tab_controller = Object.create(dart.library);
-  var $toDouble = dartx.toDouble;
+  const basic_types = packages__flutter__src__painting__basic_types$46dart.src__painting__basic_types;
+  const sliver = packages__flutter__src__rendering__sliver$46dart.src__rendering__sliver;
+  const object = packages__flutter__src__rendering__layer$46dart.src__rendering__object;
+  const debug = packages__flutter__src__rendering__layer$46dart.src__rendering__debug;
+  const diagnostics = packages__flutter__src__foundation__debug$46dart.src__foundation__diagnostics;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  var sliver_padding = Object.create(dart.library);
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    VoidTovoid: () => (T.VoidTovoid = dart.constFn(dart.fnType(dart.void, [])))(),
-    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))()
+    VoidTobool: () => (T.VoidTobool = dart.constFn(dart.fnType(core.bool, [])))(),
+    DiagnosticsPropertyOfEdgeInsetsGeometry: () => (T.DiagnosticsPropertyOfEdgeInsetsGeometry = dart.constFn(diagnostics.DiagnosticsProperty$(edge_insets.EdgeInsetsGeometry)))(),
+    EnumPropertyOfTextDirection: () => (T.EnumPropertyOfTextDirection = dart.constFn(diagnostics.EnumProperty$(ui.TextDirection)))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -34,425 +34,414 @@ define(['dart_sdk', 'packages/flutter/src/animation/animation_controller.dart', 
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: core.Duration.prototype,
-        [Duration__duration]: 300000
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.up",
+        index: 0
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: curves.Cubic.prototype,
-        [Cubic_d]: 1,
-        [Cubic_c]: 0.25,
-        [Cubic_b]: 0.1,
-        [Cubic_a]: 0.25
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.right",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.down",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: basic_types.AxisDirection.prototype,
+        [_name]: "AxisDirection.left",
+        index: 3
       });
     },
     get C4() {
       return C[4] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "controller",
-        [_Location_column]: 7,
-        [_Location_line]: 441,
-        [_Location_file]: null
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.horizontal",
+        index: 0
       });
     },
     get C5() {
       return C[5] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "enabled",
-        [_Location_column]: 7,
-        [_Location_line]: 442,
-        [_Location_file]: null
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 443,
-        [_Location_file]: null
-      });
-    },
-    get C3() {
-      return C[3] = dart.constList([C[4] || CT.C4, C[5] || CT.C5, C[6] || CT.C6], T._LocationL());
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[3] || CT.C3,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 440,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/tab_controller.dart"
+        __proto__: basic_types.Axis.prototype,
+        [_name]: "Axis.vertical",
+        index: 1
       });
     }
   }, false);
-  var C = Array(7).fill(void 0);
+  var C = Array(6).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/material/tab_controller.dart",
-    "package:flutter/src/material/tab_controller.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/rendering/sliver_padding.dart",
+    "package:flutter/src/rendering/sliver_padding.dart"
   ];
-  var length$ = dart.privateName(tab_controller, "TabController.length");
-  var _indexIsChangingCount = dart.privateName(tab_controller, "_indexIsChangingCount");
-  var _index = dart.privateName(tab_controller, "_index");
-  var _previousIndex = dart.privateName(tab_controller, "_previousIndex");
-  var _animationController = dart.privateName(tab_controller, "_animationController");
-  var _copyWith = dart.privateName(tab_controller, "_copyWith");
-  var _changeIndex = dart.privateName(tab_controller, "_changeIndex");
-  var Duration__duration = dart.privateName(core, "Duration._duration");
-  var Cubic_d = dart.privateName(curves, "Cubic.d");
-  var Cubic_c = dart.privateName(curves, "Cubic.c");
-  var Cubic_b = dart.privateName(curves, "Cubic.b");
-  var Cubic_a = dart.privateName(curves, "Cubic.a");
-  tab_controller.TabController = class TabController extends change_notifier.ChangeNotifier {
-    get length() {
-      return this[length$];
-    }
-    set length(value) {
-      super.length = value;
-    }
-    [_copyWith](opts) {
-      let t0, t0$, t0$0;
-      let index = opts && 'index' in opts ? opts.index : null;
-      let length = opts && 'length' in opts ? opts.length : null;
-      let previousIndex = opts && 'previousIndex' in opts ? opts.previousIndex : null;
-      return new tab_controller.TabController.__({index: (t0 = index, t0 == null ? this[_index] : t0), length: (t0$ = length, t0$ == null ? this.length : t0$), animationController: this[_animationController], previousIndex: (t0$0 = previousIndex, t0$0 == null ? this[_previousIndex] : t0$0)});
-    }
-    get animation() {
-      let t0;
-      t0 = this[_animationController];
-      return t0 == null ? null : t0.view;
-    }
-    [_changeIndex](value, opts) {
-      if (value == null) dart.nullFailed(I[0], 210, 25, "value");
-      let duration = opts && 'duration' in opts ? opts.duration : null;
-      let curve = opts && 'curve' in opts ? opts.curve : null;
-      if (!(value != null)) dart.assertFailed(null, I[0], 211, 12, "value != null");
-      if (!(dart.notNull(value) >= 0 && (dart.notNull(value) < dart.notNull(this.length) || this.length === 0))) dart.assertFailed(null, I[0], 212, 12, "value >= 0 && (value < length || length == 0)");
-      if (!(duration != null || curve == null)) dart.assertFailed(null, I[0], 213, 12, "duration != null || curve == null");
-      if (!(dart.notNull(this[_indexIsChangingCount]) >= 0)) dart.assertFailed(null, I[0], 214, 12, "_indexIsChangingCount >= 0");
-      if (value == this[_index] || dart.notNull(this.length) < 2) return;
-      this[_previousIndex] = this.index;
-      this[_index] = value;
-      if (duration != null) {
-        this[_indexIsChangingCount] = dart.notNull(this[_indexIsChangingCount]) + 1;
-        this.notifyListeners();
-        dart.nullCheck(this[_animationController]).animateTo(this[_index][$toDouble](), {duration: duration, curve: dart.nullCheck(curve)}).whenCompleteOrCancel(dart.fn(() => {
-          if (this[_animationController] != null) {
-            this[_indexIsChangingCount] = dart.notNull(this[_indexIsChangingCount]) - 1;
-            this.notifyListeners();
-          }
-        }, T.VoidTovoid()));
-      } else {
-        this[_indexIsChangingCount] = dart.notNull(this[_indexIsChangingCount]) + 1;
-        dart.nullCheck(this[_animationController]).value = this[_index][$toDouble]();
-        this[_indexIsChangingCount] = dart.notNull(this[_indexIsChangingCount]) - 1;
-        this.notifyListeners();
-      }
-    }
-    get index() {
-      return this[_index];
-    }
-    set index(value) {
-      if (value == null) dart.nullFailed(I[0], 249, 17, "value");
-      this[_changeIndex](value);
-    }
-    get previousIndex() {
-      return this[_previousIndex];
-    }
-    get indexIsChanging() {
-      return this[_indexIsChangingCount] !== 0;
-    }
-    animateTo(value, opts) {
-      if (value == null) dart.nullFailed(I[0], 273, 22, "value");
-      let duration = opts && 'duration' in opts ? opts.duration : C[0] || CT.C0;
-      if (duration == null) dart.nullFailed(I[0], 273, 40, "duration");
-      let curve = opts && 'curve' in opts ? opts.curve : C[1] || CT.C1;
-      if (curve == null) dart.nullFailed(I[0], 273, 77, "curve");
-      this[_changeIndex](value, {duration: duration, curve: curve});
-    }
-    get offset() {
-      return dart.notNull(dart.nullCheck(this[_animationController]).value) - this[_index][$toDouble]();
-    }
-    set offset(value) {
-      if (value == null) dart.nullFailed(I[0], 286, 21, "value");
-      if (!(value != null)) dart.assertFailed(null, I[0], 287, 12, "value != null");
-      if (!(dart.notNull(value) >= -1.0 && dart.notNull(value) <= 1.0)) dart.assertFailed(null, I[0], 288, 12, "value >= -1.0 && value <= 1.0");
-      if (!!dart.test(this.indexIsChanging)) dart.assertFailed(null, I[0], 289, 12, "!indexIsChanging");
-      if (value == this.offset) return;
-      dart.nullCheck(this[_animationController]).value = dart.notNull(value) + this[_index][$toDouble]();
-    }
-    dispose() {
-      let t0;
-      t0 = this[_animationController];
-      t0 == null ? null : t0.dispose();
-      this[_animationController] = null;
-      super.dispose();
-    }
-  };
-  (tab_controller.TabController.new = function(opts) {
-    let initialIndex = opts && 'initialIndex' in opts ? opts.initialIndex : 0;
-    if (initialIndex == null) dart.nullFailed(I[0], 149, 23, "initialIndex");
-    let length = opts && 'length' in opts ? opts.length : null;
-    if (length == null) dart.nullFailed(I[0], 149, 55, "length");
-    let vsync = opts && 'vsync' in opts ? opts.vsync : null;
-    if (vsync == null) dart.nullFailed(I[0], 149, 87, "vsync");
-    this[_indexIsChangingCount] = 0;
-    this[length$] = length;
-    if (!(length != null && dart.notNull(length) >= 0)) dart.assertFailed(null, I[0], 150, 14, "length != null && length >= 0");
-    if (!(initialIndex != null && dart.notNull(initialIndex) >= 0 && (length === 0 || dart.notNull(initialIndex) < dart.notNull(length)))) dart.assertFailed(null, I[0], 151, 14, "initialIndex != null && initialIndex >= 0 && (length == 0 || initialIndex < length)");
-    this[_index] = initialIndex;
-    this[_previousIndex] = initialIndex;
-    this[_animationController] = new animation_controller.AnimationController.unbounded({value: initialIndex[$toDouble](), vsync: vsync});
-    tab_controller.TabController.__proto__.new.call(this);
-    ;
-  }).prototype = tab_controller.TabController.prototype;
-  (tab_controller.TabController.__ = function(opts) {
-    let index = opts && 'index' in opts ? opts.index : null;
-    if (index == null) dart.nullFailed(I[0], 162, 18, "index");
-    let previousIndex = opts && 'previousIndex' in opts ? opts.previousIndex : null;
-    if (previousIndex == null) dart.nullFailed(I[0], 163, 18, "previousIndex");
-    let animationController = opts && 'animationController' in opts ? opts.animationController : null;
-    let length = opts && 'length' in opts ? opts.length : null;
-    if (length == null) dart.nullFailed(I[0], 165, 19, "length");
-    this[_indexIsChangingCount] = 0;
-    this[length$] = length;
-    this[_index] = index;
-    this[_previousIndex] = previousIndex;
-    this[_animationController] = animationController;
-    tab_controller.TabController.__proto__.new.call(this);
-    ;
-  }).prototype = tab_controller.TabController.prototype;
-  dart.addTypeTests(tab_controller.TabController);
-  dart.addTypeCaches(tab_controller.TabController);
-  dart.setMethodSignature(tab_controller.TabController, () => ({
-    __proto__: dart.getMethods(tab_controller.TabController.__proto__),
-    [_copyWith]: dart.fnType(tab_controller.TabController, [], {}, {index: dart.nullable(core.int), length: dart.nullable(core.int), previousIndex: dart.nullable(core.int)}),
-    [_changeIndex]: dart.fnType(dart.void, [core.int], {curve: dart.nullable(curves.Curve), duration: dart.nullable(core.Duration)}, {}),
-    animateTo: dart.fnType(dart.void, [core.int], {curve: curves.Curve, duration: core.Duration}, {})
-  }));
-  dart.setGetterSignature(tab_controller.TabController, () => ({
-    __proto__: dart.getGetters(tab_controller.TabController.__proto__),
-    animation: dart.nullable(animation.Animation$(core.double)),
-    index: core.int,
-    previousIndex: core.int,
-    indexIsChanging: core.bool,
-    offset: core.double
-  }));
-  dart.setSetterSignature(tab_controller.TabController, () => ({
-    __proto__: dart.getSetters(tab_controller.TabController.__proto__),
-    index: core.int,
-    offset: core.double
-  }));
-  dart.setLibraryUri(tab_controller.TabController, I[1]);
-  dart.setFieldSignature(tab_controller.TabController, () => ({
-    __proto__: dart.getFields(tab_controller.TabController.__proto__),
-    [_animationController]: dart.fieldType(dart.nullable(animation_controller.AnimationController)),
-    length: dart.finalFieldType(core.int),
-    [_index]: dart.fieldType(core.int),
-    [_previousIndex]: dart.fieldType(core.int),
-    [_indexIsChangingCount]: dart.fieldType(core.int)
-  }));
-  var controller$ = dart.privateName(tab_controller, "_TabControllerScope.controller");
-  var enabled$ = dart.privateName(tab_controller, "_TabControllerScope.enabled");
-  tab_controller._TabControllerScope = class _TabControllerScope extends framework.InheritedWidget {
-    get controller() {
-      return this[controller$];
-    }
-    set controller(value) {
-      super.controller = value;
-    }
-    get enabled() {
-      return this[enabled$];
-    }
-    set enabled(value) {
-      super.enabled = value;
-    }
-    updateShouldNotify(old) {
-      tab_controller._TabControllerScope.as(old);
-      if (old == null) dart.nullFailed(I[0], 315, 47, "old");
-      return this.enabled != old.enabled || !dart.equals(this.controller, old.controller);
-    }
-  };
-  (tab_controller._TabControllerScope.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let controller = opts && 'controller' in opts ? opts.controller : null;
-    if (controller == null) dart.nullFailed(I[0], 306, 19, "controller");
-    let enabled = opts && 'enabled' in opts ? opts.enabled : null;
-    if (enabled == null) dart.nullFailed(I[0], 307, 19, "enabled");
-    let child = opts && 'child' in opts ? opts.child : null;
-    if (child == null) dart.nullFailed(I[0], 308, 21, "child");
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[controller$] = controller;
-    this[enabled$] = enabled;
-    tab_controller._TabControllerScope.__proto__.new.call(this, {key: key, child: child, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = tab_controller._TabControllerScope.prototype;
-  dart.addTypeTests(tab_controller._TabControllerScope);
-  dart.addTypeCaches(tab_controller._TabControllerScope);
-  dart.setMethodSignature(tab_controller._TabControllerScope, () => ({
-    __proto__: dart.getMethods(tab_controller._TabControllerScope.__proto__),
-    updateShouldNotify: dart.fnType(core.bool, [dart.nullable(core.Object)])
-  }));
-  dart.setLibraryUri(tab_controller._TabControllerScope, I[1]);
-  dart.setFieldSignature(tab_controller._TabControllerScope, () => ({
-    __proto__: dart.getFields(tab_controller._TabControllerScope.__proto__),
-    controller: dart.finalFieldType(tab_controller.TabController),
-    enabled: dart.finalFieldType(core.bool)
-  }));
-  var length$0 = dart.privateName(tab_controller, "DefaultTabController.length");
-  var initialIndex$ = dart.privateName(tab_controller, "DefaultTabController.initialIndex");
-  var child$ = dart.privateName(tab_controller, "DefaultTabController.child");
-  tab_controller.DefaultTabController = class DefaultTabController extends framework.StatefulWidget {
-    get length() {
-      return this[length$0];
-    }
-    set length(value) {
-      super.length = value;
-    }
-    get initialIndex() {
-      return this[initialIndex$];
-    }
-    set initialIndex(value) {
-      super.initialIndex = value;
-    }
-    get child() {
-      return this[child$];
-    }
-    set child(value) {
-      super.child = value;
-    }
-    static of(context) {
-      let t0;
-      if (context == null) dart.nullFailed(I[0], 410, 41, "context");
-      let scope = context.dependOnInheritedWidgetOfExactType(tab_controller._TabControllerScope);
-      t0 = scope;
-      return t0 == null ? null : t0.controller;
-    }
-    createState() {
-      return new tab_controller._DefaultTabControllerState.new();
-    }
-  };
-  (tab_controller.DefaultTabController.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let length = opts && 'length' in opts ? opts.length : null;
-    if (length == null) dart.nullFailed(I[0], 375, 19, "length");
-    let initialIndex = opts && 'initialIndex' in opts ? opts.initialIndex : 0;
-    if (initialIndex == null) dart.nullFailed(I[0], 376, 10, "initialIndex");
-    let child = opts && 'child' in opts ? opts.child : null;
-    if (child == null) dart.nullFailed(I[0], 377, 19, "child");
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[length$0] = length;
-    this[initialIndex$] = initialIndex;
-    this[child$] = child;
-    if (!(initialIndex != null)) dart.assertFailed(null, I[0], 378, 15, "initialIndex != null");
-    if (!(dart.notNull(length) >= 0)) dart.assertFailed(null, I[0], 379, 15, "length >= 0");
-    if (!(length === 0 || dart.notNull(initialIndex) >= 0 && dart.notNull(initialIndex) < dart.notNull(length))) dart.assertFailed(null, I[0], 380, 15, "length == 0 || (initialIndex >= 0 && initialIndex < length)");
-    tab_controller.DefaultTabController.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
-    ;
-  }).prototype = tab_controller.DefaultTabController.prototype;
-  dart.addTypeTests(tab_controller.DefaultTabController);
-  dart.addTypeCaches(tab_controller.DefaultTabController);
-  dart.setMethodSignature(tab_controller.DefaultTabController, () => ({
-    __proto__: dart.getMethods(tab_controller.DefaultTabController.__proto__),
-    createState: dart.fnType(tab_controller._DefaultTabControllerState, [])
-  }));
-  dart.setLibraryUri(tab_controller.DefaultTabController, I[1]);
-  dart.setFieldSignature(tab_controller.DefaultTabController, () => ({
-    __proto__: dart.getFields(tab_controller.DefaultTabController.__proto__),
-    length: dart.finalFieldType(core.int),
-    initialIndex: dart.finalFieldType(core.int),
-    child: dart.finalFieldType(framework.Widget)
-  }));
-  var ___DefaultTabControllerState__controller = dart.privateName(tab_controller, "_#_DefaultTabControllerState#_controller");
-  var ___DefaultTabControllerState__controller_isSet = dart.privateName(tab_controller, "_#_DefaultTabControllerState#_controller#isSet");
-  var _controller = dart.privateName(tab_controller, "_controller");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  const State_SingleTickerProviderStateMixin$36 = class State_SingleTickerProviderStateMixin extends framework.State$(tab_controller.DefaultTabController) {};
-  (State_SingleTickerProviderStateMixin$36.new = function() {
-    ticker_provider.SingleTickerProviderStateMixin$(tab_controller.DefaultTabController)[dart.mixinNew].call(this);
-    State_SingleTickerProviderStateMixin$36.__proto__.new.call(this);
-  }).prototype = State_SingleTickerProviderStateMixin$36.prototype;
-  dart.applyMixin(State_SingleTickerProviderStateMixin$36, ticker_provider.SingleTickerProviderStateMixin$(tab_controller.DefaultTabController));
-  tab_controller._DefaultTabControllerState = class _DefaultTabControllerState extends State_SingleTickerProviderStateMixin$36 {
-    get [_controller]() {
-      let t0;
-      return dart.test(this[___DefaultTabControllerState__controller_isSet]) ? (t0 = this[___DefaultTabControllerState__controller], t0) : dart.throw(new _internal.LateError.fieldNI("_controller"));
-    }
-    set [_controller](t0) {
-      if (t0 == null) dart.nullFailed(I[0], 420, 22, "null");
-      this[___DefaultTabControllerState__controller_isSet] = true;
-      this[___DefaultTabControllerState__controller] = t0;
-    }
-    initState() {
-      super.initState();
-      this[_controller] = new tab_controller.TabController.new({vsync: this, length: this.widget.length, initialIndex: this.widget.initialIndex});
-    }
-    dispose() {
-      this[_controller].dispose();
-      super.dispose();
-    }
-    build(context) {
-      if (context == null) dart.nullFailed(I[0], 439, 29, "context");
-      return new tab_controller._TabControllerScope.new({controller: this[_controller], enabled: ticker_provider.TickerMode.of(context), child: this.widget.child, $creationLocationd_0dea112b090073317d4: C[2] || CT.C2});
-    }
-    didUpdateWidget(oldWidget) {
-      tab_controller.DefaultTabController.as(oldWidget);
-      if (oldWidget == null) dart.nullFailed(I[0], 448, 45, "oldWidget");
-      super.didUpdateWidget(oldWidget);
-      if (oldWidget.length != this.widget.length) {
-        let newIndex = null;
-        let previousIndex = this[_controller].previousIndex;
-        if (dart.notNull(this[_controller].index) >= dart.notNull(this.widget.length)) {
-          newIndex = math.max(core.int, 0, dart.notNull(this.widget.length) - 1);
-          previousIndex = this[_controller].index;
+  var _name = dart.privateName(basic_types, "_name");
+  const RenderSliver_RenderObjectWithChildMixin$36 = class RenderSliver_RenderObjectWithChildMixin extends sliver.RenderSliver {};
+  (RenderSliver_RenderObjectWithChildMixin$36.new = function() {
+    object.RenderObjectWithChildMixin$(sliver.RenderSliver)[dart.mixinNew].call(this);
+    RenderSliver_RenderObjectWithChildMixin$36.__proto__.new.call(this);
+  }).prototype = RenderSliver_RenderObjectWithChildMixin$36.prototype;
+  dart.applyMixin(RenderSliver_RenderObjectWithChildMixin$36, object.RenderObjectWithChildMixin$(sliver.RenderSliver));
+  sliver_padding.RenderSliverEdgeInsetsPadding = class RenderSliverEdgeInsetsPadding extends RenderSliver_RenderObjectWithChildMixin$36 {
+    get beforePadding() {
+      if (!(this.constraints != null)) dart.assertFailed(null, I[0], 38, 12, "constraints != null");
+      if (!(this.constraints.axisDirection != null)) dart.assertFailed(null, I[0], 39, 12, "constraints.axisDirection != null");
+      if (!(this.constraints.growthDirection != null)) dart.assertFailed(null, I[0], 40, 12, "constraints.growthDirection != null");
+      if (!(this.resolvedPadding != null)) dart.assertFailed(null, I[0], 41, 12, "resolvedPadding != null");
+      switch (sliver.applyGrowthDirectionToAxisDirection(this.constraints.axisDirection, this.constraints.growthDirection)) {
+        case C[0] || CT.C0:
+        {
+          return dart.nullCheck(this.resolvedPadding).bottom;
         }
-        this[_controller] = this[_controller][_copyWith]({length: this.widget.length, index: newIndex, previousIndex: previousIndex});
+        case C[1] || CT.C1:
+        {
+          return dart.nullCheck(this.resolvedPadding).left;
+        }
+        case C[2] || CT.C2:
+        {
+          return dart.nullCheck(this.resolvedPadding).top;
+        }
+        case C[3] || CT.C3:
+        {
+          return dart.nullCheck(this.resolvedPadding).right;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
       }
     }
+    get afterPadding() {
+      if (!(this.constraints != null)) dart.assertFailed(null, I[0], 59, 12, "constraints != null");
+      if (!(this.constraints.axisDirection != null)) dart.assertFailed(null, I[0], 60, 12, "constraints.axisDirection != null");
+      if (!(this.constraints.growthDirection != null)) dart.assertFailed(null, I[0], 61, 12, "constraints.growthDirection != null");
+      if (!(this.resolvedPadding != null)) dart.assertFailed(null, I[0], 62, 12, "resolvedPadding != null");
+      switch (sliver.applyGrowthDirectionToAxisDirection(this.constraints.axisDirection, this.constraints.growthDirection)) {
+        case C[0] || CT.C0:
+        {
+          return dart.nullCheck(this.resolvedPadding).top;
+        }
+        case C[1] || CT.C1:
+        {
+          return dart.nullCheck(this.resolvedPadding).right;
+        }
+        case C[2] || CT.C2:
+        {
+          return dart.nullCheck(this.resolvedPadding).bottom;
+        }
+        case C[3] || CT.C3:
+        {
+          return dart.nullCheck(this.resolvedPadding).left;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    get mainAxisPadding() {
+      if (!(this.constraints != null)) dart.assertFailed(null, I[0], 82, 12, "constraints != null");
+      if (!(this.constraints.axis != null)) dart.assertFailed(null, I[0], 83, 12, "constraints.axis != null");
+      if (!(this.resolvedPadding != null)) dart.assertFailed(null, I[0], 84, 12, "resolvedPadding != null");
+      return dart.nullCheck(this.resolvedPadding).along(this.constraints.axis);
+    }
+    get crossAxisPadding() {
+      if (!(this.constraints != null)) dart.assertFailed(null, I[0], 95, 12, "constraints != null");
+      if (!(this.constraints.axis != null)) dart.assertFailed(null, I[0], 96, 12, "constraints.axis != null");
+      if (!(this.resolvedPadding != null)) dart.assertFailed(null, I[0], 97, 12, "resolvedPadding != null");
+      switch (this.constraints.axis) {
+        case C[4] || CT.C4:
+        {
+          return dart.nullCheck(this.resolvedPadding).vertical;
+        }
+        case C[5] || CT.C5:
+        {
+          return dart.nullCheck(this.resolvedPadding).horizontal;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    setupParentData(child) {
+      object.RenderObject.as(child);
+      if (child == null) dart.nullFailed(I[0], 107, 37, "child");
+      if (!sliver.SliverPhysicalParentData.is(child.parentData)) child.parentData = new sliver.SliverPhysicalParentData.new();
+    }
+    performLayout() {
+      let constraints = this.constraints;
+      if (!(this.resolvedPadding != null)) dart.assertFailed(null, I[0], 115, 12, "resolvedPadding != null");
+      let beforePadding = this.beforePadding;
+      let afterPadding = this.afterPadding;
+      let mainAxisPadding = this.mainAxisPadding;
+      let crossAxisPadding = this.crossAxisPadding;
+      if (this.child == null) {
+        this.geometry = new sliver.SliverGeometry.new({scrollExtent: mainAxisPadding, paintExtent: math.min(core.double, mainAxisPadding, constraints.remainingPaintExtent), maxPaintExtent: mainAxisPadding});
+        return;
+      }
+      let beforePaddingPaintExtent = this.calculatePaintOffset(constraints, {from: 0.0, to: beforePadding});
+      let overlap = constraints.overlap;
+      if (dart.notNull(overlap) > 0) {
+        overlap = math.max(core.double, 0.0, dart.notNull(constraints.overlap) - dart.notNull(beforePaddingPaintExtent));
+      }
+      dart.nullCheck(this.child).layout(constraints.copyWith({scrollOffset: math.max(core.double, 0.0, dart.notNull(constraints.scrollOffset) - dart.notNull(beforePadding)), cacheOrigin: math.min(core.double, 0.0, dart.notNull(constraints.cacheOrigin) + dart.notNull(beforePadding)), overlap: overlap, remainingPaintExtent: dart.notNull(constraints.remainingPaintExtent) - dart.notNull(this.calculatePaintOffset(constraints, {from: 0.0, to: beforePadding})), remainingCacheExtent: dart.notNull(constraints.remainingCacheExtent) - dart.notNull(this.calculateCacheOffset(constraints, {from: 0.0, to: beforePadding})), crossAxisExtent: math.max(core.double, 0.0, dart.notNull(constraints.crossAxisExtent) - dart.notNull(crossAxisPadding)), precedingScrollExtent: dart.notNull(beforePadding) + dart.notNull(constraints.precedingScrollExtent)}), {parentUsesSize: true});
+      let childLayoutGeometry = dart.nullCheck(dart.nullCheck(this.child).geometry);
+      if (childLayoutGeometry.scrollOffsetCorrection != null) {
+        this.geometry = new sliver.SliverGeometry.new({scrollOffsetCorrection: childLayoutGeometry.scrollOffsetCorrection});
+        return;
+      }
+      let afterPaddingPaintExtent = this.calculatePaintOffset(constraints, {from: dart.notNull(beforePadding) + dart.notNull(childLayoutGeometry.scrollExtent), to: dart.notNull(mainAxisPadding) + dart.notNull(childLayoutGeometry.scrollExtent)});
+      let mainAxisPaddingPaintExtent = dart.notNull(beforePaddingPaintExtent) + dart.notNull(afterPaddingPaintExtent);
+      let beforePaddingCacheExtent = this.calculateCacheOffset(constraints, {from: 0.0, to: beforePadding});
+      let afterPaddingCacheExtent = this.calculateCacheOffset(constraints, {from: dart.notNull(beforePadding) + dart.notNull(childLayoutGeometry.scrollExtent), to: dart.notNull(mainAxisPadding) + dart.notNull(childLayoutGeometry.scrollExtent)});
+      let mainAxisPaddingCacheExtent = dart.notNull(afterPaddingCacheExtent) + dart.notNull(beforePaddingCacheExtent);
+      let paintExtent = math.min(core.double, dart.notNull(beforePaddingPaintExtent) + math.max(core.num, childLayoutGeometry.paintExtent, dart.notNull(childLayoutGeometry.layoutExtent) + dart.notNull(afterPaddingPaintExtent)), constraints.remainingPaintExtent);
+      this.geometry = new sliver.SliverGeometry.new({paintOrigin: childLayoutGeometry.paintOrigin, scrollExtent: dart.notNull(mainAxisPadding) + dart.notNull(childLayoutGeometry.scrollExtent), paintExtent: paintExtent, layoutExtent: math.min(core.double, mainAxisPaddingPaintExtent + dart.notNull(childLayoutGeometry.layoutExtent), paintExtent), cacheExtent: math.min(core.double, mainAxisPaddingCacheExtent + dart.notNull(childLayoutGeometry.cacheExtent), constraints.remainingCacheExtent), maxPaintExtent: dart.notNull(mainAxisPadding) + dart.notNull(childLayoutGeometry.maxPaintExtent), hitTestExtent: math.max(core.double, mainAxisPaddingPaintExtent + dart.notNull(childLayoutGeometry.paintExtent), dart.notNull(beforePaddingPaintExtent) + dart.notNull(childLayoutGeometry.hitTestExtent)), hasVisualOverflow: childLayoutGeometry.hasVisualOverflow});
+      let childParentData = sliver.SliverPhysicalParentData.as(dart.nullCheck(dart.nullCheck(this.child).parentData));
+      if (!(constraints.axisDirection != null)) dart.assertFailed(null, I[0], 192, 12, "constraints.axisDirection != null");
+      if (!(constraints.growthDirection != null)) dart.assertFailed(null, I[0], 193, 12, "constraints.growthDirection != null");
+      switch (sliver.applyGrowthDirectionToAxisDirection(constraints.axisDirection, constraints.growthDirection)) {
+        case C[0] || CT.C0:
+        {
+          childParentData.paintOffset = new ui.Offset.new(dart.nullCheck(this.resolvedPadding).left, this.calculatePaintOffset(constraints, {from: dart.notNull(dart.nullCheck(this.resolvedPadding).bottom) + dart.notNull(childLayoutGeometry.scrollExtent), to: dart.notNull(dart.nullCheck(this.resolvedPadding).bottom) + dart.notNull(childLayoutGeometry.scrollExtent) + dart.notNull(dart.nullCheck(this.resolvedPadding).top)}));
+          break;
+        }
+        case C[1] || CT.C1:
+        {
+          childParentData.paintOffset = new ui.Offset.new(this.calculatePaintOffset(constraints, {from: 0.0, to: dart.nullCheck(this.resolvedPadding).left}), dart.nullCheck(this.resolvedPadding).top);
+          break;
+        }
+        case C[2] || CT.C2:
+        {
+          childParentData.paintOffset = new ui.Offset.new(dart.nullCheck(this.resolvedPadding).left, this.calculatePaintOffset(constraints, {from: 0.0, to: dart.nullCheck(this.resolvedPadding).top}));
+          break;
+        }
+        case C[3] || CT.C3:
+        {
+          childParentData.paintOffset = new ui.Offset.new(this.calculatePaintOffset(constraints, {from: dart.notNull(dart.nullCheck(this.resolvedPadding).right) + dart.notNull(childLayoutGeometry.scrollExtent), to: dart.notNull(dart.nullCheck(this.resolvedPadding).right) + dart.notNull(childLayoutGeometry.scrollExtent) + dart.notNull(dart.nullCheck(this.resolvedPadding).left)}), dart.nullCheck(this.resolvedPadding).top);
+          break;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+      if (!(childParentData.paintOffset != null)) dart.assertFailed(null, I[0], 208, 12, "childParentData.paintOffset != null");
+      if (!(beforePadding == this.beforePadding)) dart.assertFailed(null, I[0], 209, 12, "beforePadding == this.beforePadding");
+      if (!(afterPadding == this.afterPadding)) dart.assertFailed(null, I[0], 210, 12, "afterPadding == this.afterPadding");
+      if (!(mainAxisPadding == this.mainAxisPadding)) dart.assertFailed(null, I[0], 211, 12, "mainAxisPadding == this.mainAxisPadding");
+      if (!(crossAxisPadding == this.crossAxisPadding)) dart.assertFailed(null, I[0], 212, 12, "crossAxisPadding == this.crossAxisPadding");
+    }
+    hitTestChildren(result, opts) {
+      if (result == null) dart.nullFailed(I[0], 216, 44, "result");
+      let mainAxisPosition = opts && 'mainAxisPosition' in opts ? opts.mainAxisPosition : null;
+      if (mainAxisPosition == null) dart.nullFailed(I[0], 216, 70, "mainAxisPosition");
+      let crossAxisPosition = opts && 'crossAxisPosition' in opts ? opts.crossAxisPosition : null;
+      if (crossAxisPosition == null) dart.nullFailed(I[0], 216, 104, "crossAxisPosition");
+      if (this.child != null && dart.notNull(dart.nullCheck(dart.nullCheck(this.child).geometry).hitTestExtent) > 0.0) {
+        let childParentData = sliver.SliverPhysicalParentData.as(dart.nullCheck(dart.nullCheck(this.child).parentData));
+        result.addWithAxisOffset({mainAxisPosition: mainAxisPosition, crossAxisPosition: crossAxisPosition, mainAxisOffset: this.childMainAxisPosition(dart.nullCheck(this.child)), crossAxisOffset: this.childCrossAxisPosition(dart.nullCheck(this.child)), paintOffset: childParentData.paintOffset, hitTest: dart.bind(dart.nullCheck(this.child), 'hitTest')});
+      }
+      return false;
+    }
+    childMainAxisPosition(child) {
+      sliver.RenderSliver.as(child);
+      if (child == null) dart.nullFailed(I[0], 232, 45, "child");
+      if (!(child != null)) dart.assertFailed(null, I[0], 233, 12, "child != null");
+      if (!dart.equals(child, this.child)) dart.assertFailed(null, I[0], 234, 12, "child == this.child");
+      return this.calculatePaintOffset(this.constraints, {from: 0.0, to: this.beforePadding});
+    }
+    childCrossAxisPosition(child) {
+      sliver.RenderSliver.as(child);
+      if (child == null) dart.nullFailed(I[0], 239, 46, "child");
+      if (!(child != null)) dart.assertFailed(null, I[0], 240, 12, "child != null");
+      if (!dart.equals(child, this.child)) dart.assertFailed(null, I[0], 241, 12, "child == this.child");
+      if (!(this.constraints != null)) dart.assertFailed(null, I[0], 242, 12, "constraints != null");
+      if (!(this.constraints.axisDirection != null)) dart.assertFailed(null, I[0], 243, 12, "constraints.axisDirection != null");
+      if (!(this.constraints.growthDirection != null)) dart.assertFailed(null, I[0], 244, 12, "constraints.growthDirection != null");
+      if (!(this.resolvedPadding != null)) dart.assertFailed(null, I[0], 245, 12, "resolvedPadding != null");
+      switch (sliver.applyGrowthDirectionToAxisDirection(this.constraints.axisDirection, this.constraints.growthDirection)) {
+        case C[0] || CT.C0:
+        case C[2] || CT.C2:
+        {
+          return dart.nullCheck(this.resolvedPadding).left;
+        }
+        case C[3] || CT.C3:
+        case C[1] || CT.C1:
+        {
+          return dart.nullCheck(this.resolvedPadding).top;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    childScrollOffset(child) {
+      object.RenderObject.as(child);
+      if (child == null) dart.nullFailed(I[0], 257, 42, "child");
+      if (!dart.equals(child.parent, this)) dart.assertFailed(null, I[0], 258, 12, "child.parent == this");
+      return this.beforePadding;
+    }
+    applyPaintTransform(child, transform) {
+      object.RenderObject.as(child);
+      if (child == null) dart.nullFailed(I[0], 263, 41, "child");
+      if (transform == null) dart.nullFailed(I[0], 263, 56, "transform");
+      if (!(child != null)) dart.assertFailed(null, I[0], 264, 12, "child != null");
+      if (!dart.equals(child, this.child)) dart.assertFailed(null, I[0], 265, 12, "child == this.child");
+      let childParentData = sliver.SliverPhysicalParentData.as(dart.nullCheck(child.parentData));
+      childParentData.applyPaintTransform(transform);
+    }
+    paint(context, offset) {
+      if (context == null) dart.nullFailed(I[0], 271, 30, "context");
+      if (offset == null) dart.nullFailed(I[0], 271, 46, "offset");
+      if (this.child != null && dart.test(dart.nullCheck(dart.nullCheck(this.child).geometry).visible)) {
+        let childParentData = sliver.SliverPhysicalParentData.as(dart.nullCheck(dart.nullCheck(this.child).parentData));
+        context.paintChild(dart.nullCheck(this.child), offset['+'](childParentData.paintOffset));
+      }
+    }
+    debugPaint(context, offset) {
+      if (context == null) dart.nullFailed(I[0], 279, 35, "context");
+      if (offset == null) dart.nullFailed(I[0], 279, 51, "offset");
+      super.debugPaint(context, offset);
+      if (!dart.test(dart.fn(() => {
+        if (dart.test(debug.debugPaintSizeEnabled)) {
+          let parentSize = this.getAbsoluteSize();
+          let outerRect = offset['&'](parentSize);
+          let innerRect = null;
+          if (this.child != null) {
+            let childSize = dart.nullCheck(this.child).getAbsoluteSize();
+            let childParentData = sliver.SliverPhysicalParentData.as(dart.nullCheck(dart.nullCheck(this.child).parentData));
+            innerRect = offset['+'](childParentData.paintOffset)['&'](childSize);
+            if (!(dart.notNull(innerRect.top) >= dart.notNull(outerRect.top))) dart.assertFailed(null, I[0], 290, 18, "innerRect.top >= outerRect.top");
+            if (!(dart.notNull(innerRect.left) >= dart.notNull(outerRect.left))) dart.assertFailed(null, I[0], 291, 18, "innerRect.left >= outerRect.left");
+            if (!(dart.notNull(innerRect.right) <= dart.notNull(outerRect.right))) dart.assertFailed(null, I[0], 292, 18, "innerRect.right <= outerRect.right");
+            if (!(dart.notNull(innerRect.bottom) <= dart.notNull(outerRect.bottom))) dart.assertFailed(null, I[0], 293, 18, "innerRect.bottom <= outerRect.bottom");
+          }
+          debug.debugPaintPadding(context.canvas, outerRect, innerRect);
+        }
+        return true;
+      }, T.VoidTobool())())) dart.assertFailed(null, I[0], 281, 12, "() {\r\n      if (debugPaintSizeEnabled) {\r\n        final Size parentSize = getAbsoluteSize();\r\n        final Rect outerRect = offset & parentSize;\r\n        Rect? innerRect;\r\n        if (child != null) {\r\n          final Size childSize = child!.getAbsoluteSize();\r\n          final SliverPhysicalParentData childParentData = child!.parentData! as SliverPhysicalParentData;\r\n          innerRect = (offset + childParentData.paintOffset) & childSize;\r\n          assert(innerRect.top >= outerRect.top);\r\n          assert(innerRect.left >= outerRect.left);\r\n          assert(innerRect.right <= outerRect.right);\r\n          assert(innerRect.bottom <= outerRect.bottom);\r\n        }\r\n        debugPaintPadding(context.canvas, outerRect, innerRect);\r\n      }\r\n      return true;\r\n    }()");
+    }
   };
-  (tab_controller._DefaultTabControllerState.new = function() {
-    this[___DefaultTabControllerState__controller] = null;
-    this[___DefaultTabControllerState__controller_isSet] = false;
-    tab_controller._DefaultTabControllerState.__proto__.new.call(this);
+  (sliver_padding.RenderSliverEdgeInsetsPadding.new = function() {
+    sliver_padding.RenderSliverEdgeInsetsPadding.__proto__.new.call(this);
     ;
-  }).prototype = tab_controller._DefaultTabControllerState.prototype;
-  dart.addTypeTests(tab_controller._DefaultTabControllerState);
-  dart.addTypeCaches(tab_controller._DefaultTabControllerState);
-  dart.setMethodSignature(tab_controller._DefaultTabControllerState, () => ({
-    __proto__: dart.getMethods(tab_controller._DefaultTabControllerState.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }).prototype = sliver_padding.RenderSliverEdgeInsetsPadding.prototype;
+  dart.addTypeTests(sliver_padding.RenderSliverEdgeInsetsPadding);
+  dart.addTypeCaches(sliver_padding.RenderSliverEdgeInsetsPadding);
+  dart.setMethodSignature(sliver_padding.RenderSliverEdgeInsetsPadding, () => ({
+    __proto__: dart.getMethods(sliver_padding.RenderSliverEdgeInsetsPadding.__proto__),
+    performLayout: dart.fnType(dart.void, [])
   }));
-  dart.setGetterSignature(tab_controller._DefaultTabControllerState, () => ({
-    __proto__: dart.getGetters(tab_controller._DefaultTabControllerState.__proto__),
-    [_controller]: tab_controller.TabController
+  dart.setGetterSignature(sliver_padding.RenderSliverEdgeInsetsPadding, () => ({
+    __proto__: dart.getGetters(sliver_padding.RenderSliverEdgeInsetsPadding.__proto__),
+    beforePadding: core.double,
+    afterPadding: core.double,
+    mainAxisPadding: core.double,
+    crossAxisPadding: core.double
   }));
-  dart.setSetterSignature(tab_controller._DefaultTabControllerState, () => ({
-    __proto__: dart.getSetters(tab_controller._DefaultTabControllerState.__proto__),
-    [_controller]: tab_controller.TabController
+  dart.setLibraryUri(sliver_padding.RenderSliverEdgeInsetsPadding, I[1]);
+  var _resolvedPadding = dart.privateName(sliver_padding, "_resolvedPadding");
+  var _padding = dart.privateName(sliver_padding, "_padding");
+  var _textDirection = dart.privateName(sliver_padding, "_textDirection");
+  var _resolve = dart.privateName(sliver_padding, "_resolve");
+  var _markNeedsResolution = dart.privateName(sliver_padding, "_markNeedsResolution");
+  sliver_padding.RenderSliverPadding = class RenderSliverPadding extends sliver_padding.RenderSliverEdgeInsetsPadding {
+    get resolvedPadding() {
+      return this[_resolvedPadding];
+    }
+    [_resolve]() {
+      if (this.resolvedPadding != null) return;
+      this[_resolvedPadding] = this.padding.resolve(this.textDirection);
+      if (!dart.test(dart.nullCheck(this.resolvedPadding).isNonNegative)) dart.assertFailed(null, I[0], 332, 12, "resolvedPadding!.isNonNegative");
+    }
+    [_markNeedsResolution]() {
+      this[_resolvedPadding] = null;
+      this.markNeedsLayout();
+    }
+    get padding() {
+      return this[_padding];
+    }
+    set padding(value) {
+      if (value == null) dart.nullFailed(I[0], 346, 34, "value");
+      if (!(value != null)) dart.assertFailed(null, I[0], 347, 12, "value != null");
+      if (!dart.test(this.padding.isNonNegative)) dart.assertFailed(null, I[0], 348, 12, "padding.isNonNegative");
+      if (dart.equals(this[_padding], value)) return;
+      this[_padding] = value;
+      this[_markNeedsResolution]();
+    }
+    get textDirection() {
+      return this[_textDirection];
+    }
+    set textDirection(value) {
+      if (this[_textDirection] == value) return;
+      this[_textDirection] = value;
+      this[_markNeedsResolution]();
+    }
+    performLayout() {
+      this[_resolve]();
+      super.performLayout();
+    }
+    debugFillProperties(properties) {
+      if (properties == null) dart.nullFailed(I[0], 375, 56, "properties");
+      super.debugFillProperties(properties);
+      properties.add(new (T.DiagnosticsPropertyOfEdgeInsetsGeometry()).new("padding", this.padding));
+      properties.add(new (T.EnumPropertyOfTextDirection()).new("textDirection", this.textDirection, {defaultValue: null}));
+    }
+  };
+  (sliver_padding.RenderSliverPadding.new = function(opts) {
+    let padding = opts && 'padding' in opts ? opts.padding : null;
+    if (padding == null) dart.nullFailed(I[0], 314, 33, "padding");
+    let textDirection = opts && 'textDirection' in opts ? opts.textDirection : null;
+    let child = opts && 'child' in opts ? opts.child : null;
+    this[_resolvedPadding] = null;
+    if (!(padding != null)) dart.assertFailed(null, I[0], 317, 15, "padding != null");
+    if (!dart.test(padding.isNonNegative)) dart.assertFailed(null, I[0], 318, 15, "padding.isNonNegative");
+    this[_padding] = padding;
+    this[_textDirection] = textDirection;
+    sliver_padding.RenderSliverPadding.__proto__.new.call(this);
+    this.child = child;
+  }).prototype = sliver_padding.RenderSliverPadding.prototype;
+  dart.addTypeTests(sliver_padding.RenderSliverPadding);
+  dart.addTypeCaches(sliver_padding.RenderSliverPadding);
+  dart.setMethodSignature(sliver_padding.RenderSliverPadding, () => ({
+    __proto__: dart.getMethods(sliver_padding.RenderSliverPadding.__proto__),
+    [_resolve]: dart.fnType(dart.void, []),
+    [_markNeedsResolution]: dart.fnType(dart.void, [])
   }));
-  dart.setLibraryUri(tab_controller._DefaultTabControllerState, I[1]);
-  dart.setFieldSignature(tab_controller._DefaultTabControllerState, () => ({
-    __proto__: dart.getFields(tab_controller._DefaultTabControllerState.__proto__),
-    [___DefaultTabControllerState__controller]: dart.fieldType(dart.nullable(tab_controller.TabController)),
-    [___DefaultTabControllerState__controller_isSet]: dart.fieldType(core.bool)
+  dart.setGetterSignature(sliver_padding.RenderSliverPadding, () => ({
+    __proto__: dart.getGetters(sliver_padding.RenderSliverPadding.__proto__),
+    resolvedPadding: dart.nullable(edge_insets.EdgeInsets),
+    padding: edge_insets.EdgeInsetsGeometry,
+    textDirection: dart.nullable(ui.TextDirection)
   }));
-  dart.trackLibraries("packages/flutter/src/material/tab_controller.dart", {
-    "package:flutter/src/material/tab_controller.dart": tab_controller
+  dart.setSetterSignature(sliver_padding.RenderSliverPadding, () => ({
+    __proto__: dart.getSetters(sliver_padding.RenderSliverPadding.__proto__),
+    padding: edge_insets.EdgeInsetsGeometry,
+    textDirection: dart.nullable(ui.TextDirection)
+  }));
+  dart.setLibraryUri(sliver_padding.RenderSliverPadding, I[1]);
+  dart.setFieldSignature(sliver_padding.RenderSliverPadding, () => ({
+    __proto__: dart.getFields(sliver_padding.RenderSliverPadding.__proto__),
+    [_resolvedPadding]: dart.fieldType(dart.nullable(edge_insets.EdgeInsets)),
+    [_padding]: dart.fieldType(edge_insets.EdgeInsetsGeometry),
+    [_textDirection]: dart.fieldType(dart.nullable(ui.TextDirection))
+  }));
+  dart.trackLibraries("packages/flutter/src/rendering/sliver_padding.dart", {
+    "package:flutter/src/rendering/sliver_padding.dart": sliver_padding
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["tab_controller.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/material/tab_controller.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["sliver_padding.dart"],"names":[],"mappings":"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","file":"../../../../../../../packages/flutter/src/rendering/sliver_padding.dart.lib.js"}');
   // Exports:
   return {
-    src__material__tab_controller: tab_controller
+    src__rendering__sliver_padding: sliver_padding
   };
 }));
 
-//# sourceMappingURL=tab_controller.dart.lib.js.map
+//# sourceMappingURL=sliver_padding.dart.lib.js.map
