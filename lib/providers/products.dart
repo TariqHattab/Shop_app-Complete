@@ -41,9 +41,10 @@ class Products with ChangeNotifier {
     // ),
   ];
   String authToken;
-
-  void updateAuth(String token) {
+  String userId;
+  void updateAuthInfo(String token, String newUserId) {
     authToken = token;
+    userId = newUserId;
   }
 
   List<Product> get items {
@@ -60,7 +61,7 @@ class Products with ChangeNotifier {
 
   Future<void> getProducts() async {
     final params = {'auth': authToken};
-    final url = Uri.https('flutter-shop-app-ef724-default-rtdb.firebaseio.com',
+    var url = Uri.https('flutter-shop-app-ef724-default-rtdb.firebaseio.com',
         '/products.json', params);
     try {
       final response = await http.get(url);
@@ -70,6 +71,12 @@ class Products with ChangeNotifier {
         notifyListeners();
         return;
       }
+      url = Uri.https('flutter-shop-app-ef724-default-rtdb.firebaseio.com',
+          '/userFavorites/$userId.json', params);
+      final responseFav = await http.get(url);
+
+      final favoriteData = jsonDecode(responseFav.body) as Map<String, dynamic>;
+      print(responseFav.statusCode);
       List<Product> loadedProducts = [];
 
       extractedData.forEach((prodId, prodData) {
@@ -79,7 +86,8 @@ class Products with ChangeNotifier {
           description: prodData['description'],
           imageUrl: prodData['imageUrl'],
           price: prodData['price'],
-          isFavorite: prodData['isFavorite'],
+          isFavorite:
+              favoriteData == null ? false : favoriteData[prodId] ?? false,
         ));
       });
 
@@ -159,6 +167,7 @@ class Products with ChangeNotifier {
     try {
       final response = await http.post(url,
           body: jsonEncode({
+            'creatorId': userId,
             'title': newProduct.title,
             'description': newProduct.description,
             'price': newProduct.price,
