@@ -19,9 +19,11 @@ class OrderItem {
 
 class Orders with ChangeNotifier {
   List<OrderItem> _orders = [];
-  final String authToken;
+  String authToken;
 
-  Orders(this.authToken, this._orders);
+  void updateAuth(String token) {
+    authToken = token;
+  }
 
   List<OrderItem> get orders {
     return [..._orders];

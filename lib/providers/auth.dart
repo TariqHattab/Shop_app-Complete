@@ -13,6 +13,10 @@ class Auth with ChangeNotifier {
     return token != null;
   }
 
+  String get userId {
+    return _userId;
+  }
+
   String get token {
     if (_expiryDate != null &&
         _token != null &&
@@ -42,6 +46,7 @@ class Auth with ChangeNotifier {
         throw HttpException(extractedData['error']['message']);
       }
       _token = extractedData['idToken'];
+      _userId = extractedData['localId'];
       _expiryDate = DateTime.now().add(
         Duration(
           seconds: int.parse(extractedData['expiresIn']),

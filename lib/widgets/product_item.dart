@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/auth.dart';
 import '../providers/cart.dart';
 import '../screens/poduct_detail_screen.dart';
 import '../providers/product.dart';
@@ -21,6 +22,7 @@ class ProductItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final loadedProduct = Provider.of<Product>(context, listen: false);
     final loadedCart = Provider.of<Cart>(context, listen: false);
+    final String authToken = Provider.of<Auth>(context, listen: false).token;
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
       child: GridTile(
@@ -49,7 +51,7 @@ class ProductItem extends StatelessWidget {
               ),
               onPressed: () async {
                 try {
-                  await loadedProduct.toggleIsFavorite();
+                  await loadedProduct.toggleIsFavorite(authToken);
                 } catch (e) {
                   ScaffoldMessenger.of(context).hideCurrentSnackBar();
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
