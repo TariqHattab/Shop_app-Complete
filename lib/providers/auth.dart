@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:shop_app/models/http_exception.dart';
+
+import '../models/http_exception.dart';
 
 class Auth with ChangeNotifier {
   String _token;
@@ -54,11 +56,38 @@ class Auth with ChangeNotifier {
           seconds: int.parse(extractedData['expiresIn']),
         ),
       );
-      autoLogout();
+      setAutoLogout();
       notifyListeners(); //  do not forget it
+      var perfs = await SharedPreferences.getInstance();
+      var userData = jsonEncode({
+        'token': _token,
+        'userId': _userId,
+        'expiryDate': _expiryDate.toIso8601String(),
+      });
+      perfs.setString('userData', userData);
     } catch (e) {
       throw e;
     }
+  }
+
+  Future<bool> tryAutoLogin() async {
+    var perfs = await SharedPreferences.getInstance();
+    if (!perfs.containsKey('userData')) {
+      return false;
+    }
+    var extractedData =
+        jsonDecode(perfs.getString('userData')) as Map<String, Object>;
+    var expiryDate = DateTime.parse(extractedData['expiryDate']);
+    if (expiryDate.isBefore(DateTime.now())) {
+      return false;
+    }
+    _token = extractedData['token'];
+    _userId = extractedData['userId'];
+    print('userID is : ' + _userId);
+    _expiryDate = expiryDate;
+    notifyListeners();
+    setAutoLogout();
+    return true;
   }
 
   Future<void> signUp(String email, String password) async {
@@ -70,15 +99,22 @@ class Auth with ChangeNotifier {
     return authenticate(email, password, 'signInWithPassword');
   }
 
-  void logout() {
+  Future<void> logout() async {
     _token = null;
     _userId = null;
     _expiryDate = null;
-    timerToLogout.cancel();
+    if (timerToLogout != null) {
+      timerToLogout.cancel();
+      timerToLogout = null;
+    }
     notifyListeners();
+    //without clearing the shared preferences data on the device the logout method won't work.
+    var perfs = await SharedPreferences.getInstance();
+    //perfs.remove('userData');//works fine if you just want to delete userData
+    perfs.clear();
   }
 
-  void autoLogout() {
+  void setAutoLogout() {
     if (timerToLogout != null) {
       timerToLogout.cancel();
       return;

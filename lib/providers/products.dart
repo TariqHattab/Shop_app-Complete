@@ -61,13 +61,14 @@ class Products with ChangeNotifier {
 
   Future<void> getProducts([bool filterByUser = false]) async {
     print(authToken);
-    Map<String, dynamic> filterParams = filterByUser
+    Map<String, String> filterParams = filterByUser
         ? {
-            'orderBy': "creatorId",
-            'equalTo': userId,
+            'orderBy': jsonEncode('creatorId'),
+            'equalTo': jsonEncode(userId),
           }
         : {};
     Map<String, String> params = {'auth': authToken, ...filterParams};
+    print(params);
     var url = Uri.https('flutter-shop-app-ef724-default-rtdb.firebaseio.com',
         '/products.json', params);
     try {

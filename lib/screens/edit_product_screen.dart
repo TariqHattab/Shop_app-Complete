@@ -25,8 +25,6 @@ class _EditProductScreenState extends State<EditProductScreen> {
   var _id;
   var _isFavorite;
 
-  Product _editedProduct;
-
   @override
   void dispose() {
     _priceFocuseNode.dispose();
