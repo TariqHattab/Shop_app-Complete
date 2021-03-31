@@ -59,8 +59,15 @@ class Products with ChangeNotifier {
     return _items.firstWhere((product) => product.id == id);
   }
 
-  Future<void> getProducts() async {
-    final params = {'auth': authToken};
+  Future<void> getProducts([bool filterByUser = false]) async {
+    print(authToken);
+    Map<String, dynamic> filterParams = filterByUser
+        ? {
+            'orderBy': "creatorId",
+            'equalTo': userId,
+          }
+        : {};
+    Map<String, String> params = {'auth': authToken, ...filterParams};
     var url = Uri.https('flutter-shop-app-ef724-default-rtdb.firebaseio.com',
         '/products.json', params);
     try {
@@ -71,12 +78,17 @@ class Products with ChangeNotifier {
         notifyListeners();
         return;
       }
-      url = Uri.https('flutter-shop-app-ef724-default-rtdb.firebaseio.com',
-          '/userFavorites/$userId.json', params);
-      final responseFav = await http.get(url);
+      var responseFav;
+      var favoriteData;
+      if (!filterByUser) {
+        url = Uri.https('flutter-shop-app-ef724-default-rtdb.firebaseio.com',
+            '/userFavorites/$userId.json', params);
+        responseFav = await http.get(url);
 
-      final favoriteData = jsonDecode(responseFav.body) as Map<String, dynamic>;
-      print(responseFav.statusCode);
+        favoriteData = jsonDecode(responseFav.body) as Map<String, dynamic>;
+        print(responseFav.statusCode);
+      }
+
       List<Product> loadedProducts = [];
 
       extractedData.forEach((prodId, prodData) {
@@ -117,18 +129,19 @@ class Products with ChangeNotifier {
   Future<void> updateProduct(String productId, Product updatedProduct) async {
     var indexProd = _items.indexWhere((element) => element.id == productId);
 
-    final params = {'auth': authToken};
+    final params = {"auth": authToken};
     final url = Uri.https('flutter-shop-app-ef724-default-rtdb.firebaseio.com',
         '/products/$productId.json', params);
 
     if (indexProd >= 0) {
-      http.patch(url,
+      final response = await http.patch(url,
           body: jsonEncode({
             "title": updatedProduct.title,
             "description": updatedProduct.description,
             "price": updatedProduct.price,
             "imageUrl": updatedProduct.imageUrl,
           }));
+      print(response.body);
       _items[indexProd] = updatedProduct;
       notifyListeners();
     } else {
