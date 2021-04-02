@@ -1,24 +1,24 @@
-define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/painting/rounded_rectangle_border.dart', 'packages/flutter/src/painting/borders.dart', 'packages/flutter/src/painting/border_radius.dart'], (function load__packages__flutter__src__material__card_dart(dart_sdk, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__painting__rounded_rectangle_border$46dart, packages__flutter__src__painting__borders$46dart, packages__flutter__src__painting__border_radius$46dart) {
+define(['dart_sdk', 'packages/flutter/src/foundation/object.dart', 'packages/flutter/src/animation/listener_helpers.dart'], (function load__packages__flutter__src__material__arc_dart(dart_sdk, packages__flutter__src__foundation__object$46dart, packages__flutter__src__animation__listener_helpers$46dart) {
   'use strict';
   const core = dart_sdk.core;
   const ui = dart_sdk.ui;
+  const math = dart_sdk.math;
+  const _internal = dart_sdk._internal;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const theme$ = packages__flutter__src__material__icon_button$46dart.src__material__theme;
-  const card_theme = packages__flutter__src__material__icon_button$46dart.src__material__card_theme;
-  const material = packages__flutter__src__material__icon_button$46dart.src__material__material;
-  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
-  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
-  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
-  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
-  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
-  const rounded_rectangle_border = packages__flutter__src__painting__rounded_rectangle_border$46dart.src__painting__rounded_rectangle_border;
-  const borders = packages__flutter__src__painting__borders$46dart.src__painting__borders;
-  const border_radius = packages__flutter__src__painting__border_radius$46dart.src__painting__border_radius;
-  var card = Object.create(dart.library);
+  const object = packages__flutter__src__foundation__object$46dart.src__foundation__object;
+  const tween = packages__flutter__src__animation__listener_helpers$46dart.src__animation__tween;
+  var arc = Object.create(dart.library);
+  var $abs = dartx.abs;
+  var $sign = dartx.sign;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))()
+    VoidTodouble: () => (T.VoidTodouble = dart.constFn(dart.fnType(core.double, [])))(),
+    OffsetN: () => (T.OffsetN = dart.constFn(dart.nullable(ui.Offset)))(),
+    _CornerIdL: () => (T._CornerIdL = dart.constFn(dart.legacy(arc._CornerId)))(),
+    _DiagonalTodouble: () => (T._DiagonalTodouble = dart.constFn(dart.fnType(core.double, [arc._Diagonal])))(),
+    RectN: () => (T.RectN = dart.constFn(dart.nullable(ui.Rect)))(),
+    _DiagonalL: () => (T._DiagonalL = dart.constFn(dart.legacy(arc._Diagonal)))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -35,409 +35,565 @@ define(['dart_sdk', 'packages/flutter/src/material/icon_button.dart', 'packages/
   dart.defineLazy(CT, {
     get C0() {
       return C[0] = dart.const({
-        __proto__: edge_insets.EdgeInsets.prototype,
-        [EdgeInsets_bottom]: 4,
-        [EdgeInsets_right]: 4,
-        [EdgeInsets_top]: 4,
-        [EdgeInsets_left]: 4
-      });
-    },
-    get C3() {
-      return C[3] = dart.const({
-        __proto__: borders.BorderStyle.prototype,
-        [_name]: "BorderStyle.none",
+        __proto__: arc._CornerId.prototype,
+        [_name$]: "_CornerId.topLeft",
         index: 0
-      });
-    },
-    get C4() {
-      return C[4] = dart.const({
-        __proto__: ui.Color.prototype,
-        [Color_value]: 4278190080.0
-      });
-    },
-    get C2() {
-      return C[2] = dart.const({
-        __proto__: borders.BorderSide.prototype,
-        [BorderSide_style]: C[3] || CT.C3,
-        [BorderSide_width]: 0,
-        [BorderSide_color]: C[4] || CT.C4
-      });
-    },
-    get C6() {
-      return C[6] = dart.const({
-        __proto__: ui.Radius.prototype,
-        [Radius_y]: 4,
-        [Radius_x]: 4
-      });
-    },
-    get C5() {
-      return C[5] = dart.const({
-        __proto__: border_radius.BorderRadius.prototype,
-        [BorderRadius_bottomRight]: C[6] || CT.C6,
-        [BorderRadius_bottomLeft]: C[6] || CT.C6,
-        [BorderRadius_topRight]: C[6] || CT.C6,
-        [BorderRadius_topLeft]: C[6] || CT.C6
       });
     },
     get C1() {
       return C[1] = dart.const({
-        __proto__: rounded_rectangle_border.RoundedRectangleBorder.prototype,
-        [OutlinedBorder_side]: C[2] || CT.C2,
-        [RoundedRectangleBorder_borderRadius]: C[5] || CT.C5
+        __proto__: arc._CornerId.prototype,
+        [_name$]: "_CornerId.topRight",
+        index: 1
+      });
+    },
+    get C2() {
+      return C[2] = dart.const({
+        __proto__: arc._CornerId.prototype,
+        [_name$]: "_CornerId.bottomLeft",
+        index: 2
+      });
+    },
+    get C3() {
+      return C[3] = dart.const({
+        __proto__: arc._CornerId.prototype,
+        [_name$]: "_CornerId.bottomRight",
+        index: 3
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[0] || CT.C0, C[1] || CT.C1, C[2] || CT.C2, C[3] || CT.C3], T._CornerIdL());
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: arc._Diagonal.prototype,
+        [endId$]: C[3] || CT.C3,
+        [beginId$]: C[0] || CT.C0
+      });
+    },
+    get C7() {
+      return C[7] = dart.const({
+        __proto__: arc._Diagonal.prototype,
+        [endId$]: C[0] || CT.C0,
+        [beginId$]: C[3] || CT.C3
+      });
+    },
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: arc._Diagonal.prototype,
+        [endId$]: C[2] || CT.C2,
+        [beginId$]: C[1] || CT.C1
       });
     },
     get C9() {
       return C[9] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "explicitChildNodes",
-        [_Location_column]: 13,
-        [_Location_line]: 213,
-        [_Location_file]: null
+        __proto__: arc._Diagonal.prototype,
+        [endId$]: C[1] || CT.C1,
+        [beginId$]: C[2] || CT.C2
       });
     },
-    get C10() {
-      return C[10] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 13,
-        [_Location_line]: 214,
-        [_Location_file]: null
-      });
-    },
-    get C8() {
-      return C[8] = dart.constList([C[9] || CT.C9, C[10] || CT.C10], T._LocationL());
-    },
-    get C7() {
-      return C[7] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[8] || CT.C8,
-        [_Location_name]: null,
-        [_Location_column]: 18,
-        [_Location_line]: 212,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/card.dart"
-      });
-    },
-    get C13() {
-      return C[13] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "type",
-        [_Location_column]: 11,
-        [_Location_line]: 203,
-        [_Location_file]: null
-      });
-    },
-    get C14() {
-      return C[14] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "shadowColor",
-        [_Location_column]: 11,
-        [_Location_line]: 204,
-        [_Location_file]: null
-      });
-    },
-    get C15() {
-      return C[15] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "color",
-        [_Location_column]: 11,
-        [_Location_line]: 205,
-        [_Location_file]: null
-      });
-    },
-    get C16() {
-      return C[16] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "elevation",
-        [_Location_column]: 11,
-        [_Location_line]: 206,
-        [_Location_file]: null
-      });
-    },
-    get C17() {
-      return C[17] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "shape",
-        [_Location_column]: 11,
-        [_Location_line]: 207,
-        [_Location_file]: null
-      });
-    },
-    get C18() {
-      return C[18] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "borderOnForeground",
-        [_Location_column]: 11,
-        [_Location_line]: 210,
-        [_Location_file]: null
-      });
-    },
-    get C19() {
-      return C[19] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "clipBehavior",
-        [_Location_column]: 11,
-        [_Location_line]: 211,
-        [_Location_file]: null
-      });
-    },
-    get C20() {
-      return C[20] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 11,
-        [_Location_line]: 212,
-        [_Location_file]: null
-      });
-    },
-    get C12() {
-      return C[12] = dart.constList([C[13] || CT.C13, C[14] || CT.C14, C[15] || CT.C15, C[16] || CT.C16, C[17] || CT.C17, C[18] || CT.C18, C[19] || CT.C19, C[20] || CT.C20], T._LocationL());
-    },
-    get C11() {
-      return C[11] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[12] || CT.C12,
-        [_Location_name]: null,
-        [_Location_column]: 16,
-        [_Location_line]: 202,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/card.dart"
-      });
-    },
-    get C23() {
-      return C[23] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "margin",
-        [_Location_column]: 9,
-        [_Location_line]: 201,
-        [_Location_file]: null
-      });
-    },
-    get C24() {
-      return C[24] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 9,
-        [_Location_line]: 202,
-        [_Location_file]: null
-      });
-    },
-    get C22() {
-      return C[22] = dart.constList([C[23] || CT.C23, C[24] || CT.C24], T._LocationL());
-    },
-    get C21() {
-      return C[21] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[22] || CT.C22,
-        [_Location_name]: null,
-        [_Location_column]: 14,
-        [_Location_line]: 200,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/card.dart"
-      });
-    },
-    get C27() {
-      return C[27] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "container",
-        [_Location_column]: 7,
-        [_Location_line]: 199,
-        [_Location_file]: null
-      });
-    },
-    get C28() {
-      return C[28] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: null,
-        [_Location_name]: "child",
-        [_Location_column]: 7,
-        [_Location_line]: 200,
-        [_Location_file]: null
-      });
-    },
-    get C26() {
-      return C[26] = dart.constList([C[27] || CT.C27, C[28] || CT.C28], T._LocationL());
-    },
-    get C25() {
-      return C[25] = dart.const({
-        __proto__: widget_inspector._Location.prototype,
-        [_Location_parameterLocations]: C[26] || CT.C26,
-        [_Location_name]: null,
-        [_Location_column]: 12,
-        [_Location_line]: 198,
-        [_Location_file]: "file:///C:/src/flutter/packages/flutter/lib/src/material/card.dart"
-      });
+    get C5() {
+      return C[5] = dart.constList([C[6] || CT.C6, C[7] || CT.C7, C[8] || CT.C8, C[9] || CT.C9], T._DiagonalL());
     }
   }, false);
-  var C = Array(29).fill(void 0);
+  var C = Array(10).fill(void 0);
   var I = [
-    "file:///C:/src/flutter/packages/flutter/lib/src/material/card.dart",
-    "package:flutter/src/material/card.dart"
+    "file:///C:/src/flutter/packages/flutter/lib/src/material/arc.dart",
+    "package:flutter/src/material/arc.dart"
   ];
-  var color$ = dart.privateName(card, "Card.color");
-  var shadowColor$ = dart.privateName(card, "Card.shadowColor");
-  var elevation$ = dart.privateName(card, "Card.elevation");
-  var shape$ = dart.privateName(card, "Card.shape");
-  var borderOnForeground$ = dart.privateName(card, "Card.borderOnForeground");
-  var clipBehavior$ = dart.privateName(card, "Card.clipBehavior");
-  var margin$ = dart.privateName(card, "Card.margin");
-  var semanticContainer$ = dart.privateName(card, "Card.semanticContainer");
-  var child$ = dart.privateName(card, "Card.child");
-  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
-  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
-  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
-  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
-  var _name = dart.privateName(borders, "_name");
-  var BorderSide_style = dart.privateName(borders, "BorderSide.style");
-  var BorderSide_width = dart.privateName(borders, "BorderSide.width");
-  var Color_value = dart.privateName(ui, "Color.value");
-  var BorderSide_color = dart.privateName(borders, "BorderSide.color");
-  var OutlinedBorder_side = dart.privateName(borders, "OutlinedBorder.side");
-  var Radius_y = dart.privateName(ui, "Radius.y");
-  var Radius_x = dart.privateName(ui, "Radius.x");
-  var BorderRadius_bottomRight = dart.privateName(border_radius, "BorderRadius.bottomRight");
-  var BorderRadius_bottomLeft = dart.privateName(border_radius, "BorderRadius.bottomLeft");
-  var BorderRadius_topRight = dart.privateName(border_radius, "BorderRadius.topRight");
-  var BorderRadius_topLeft = dart.privateName(border_radius, "BorderRadius.topLeft");
-  var RoundedRectangleBorder_borderRadius = dart.privateName(rounded_rectangle_border, "RoundedRectangleBorder.borderRadius");
-  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
-  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
-  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
-  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
-  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
-  card.Card = class Card extends framework.StatelessWidget {
-    get color() {
-      return this[color$];
+  var _dirty = dart.privateName(arc, "_dirty");
+  var _center = dart.privateName(arc, "_center");
+  var _radius = dart.privateName(arc, "_radius");
+  var _beginAngle = dart.privateName(arc, "_beginAngle");
+  var _endAngle = dart.privateName(arc, "_endAngle");
+  var _initialize = dart.privateName(arc, "_initialize");
+  arc.MaterialPointArcTween = class MaterialPointArcTween extends tween.Tween$(ui.Offset) {
+    [_initialize]() {
+      if (!(this.begin != null)) dart.assertFailed(null, I[0], 46, 12, "this.begin != null");
+      if (!(this.end != null)) dart.assertFailed(null, I[0], 47, 12, "this.end != null");
+      let begin = dart.nullCheck(this.begin);
+      let end = dart.nullCheck(this.end);
+      let delta = end['-'](begin);
+      let deltaX = delta.dx[$abs]();
+      let deltaY = delta.dy[$abs]();
+      let distanceFromAtoB = delta.distance;
+      let c = new ui.Offset.new(end.dx, begin.dy);
+      const sweepAngle = () => {
+        return 2.0 * math.asin(dart.notNull(distanceFromAtoB) / (2.0 * dart.nullCheck(this[_radius])));
+      };
+      dart.fn(sweepAngle, T.VoidTodouble());
+      if (deltaX > 2 && deltaY > 2) {
+        if (deltaX < deltaY) {
+          this[_radius] = dart.notNull(distanceFromAtoB) * dart.notNull(distanceFromAtoB) / dart.notNull(c['-'](begin).distance) / 2.0;
+          this[_center] = new ui.Offset.new(dart.notNull(end.dx) + dart.nullCheck(this[_radius]) * (dart.notNull(begin.dx) - dart.notNull(end.dx))[$sign], end.dy);
+          if (dart.notNull(begin.dx) < dart.notNull(end.dx)) {
+            this[_beginAngle] = dart.notNull(sweepAngle()) * (dart.notNull(begin.dy) - dart.notNull(end.dy))[$sign];
+            this[_endAngle] = 0.0;
+          } else {
+            this[_beginAngle] = 3.141592653589793 + dart.notNull(sweepAngle()) * (dart.notNull(end.dy) - dart.notNull(begin.dy))[$sign];
+            this[_endAngle] = 3.141592653589793;
+          }
+        } else {
+          this[_radius] = dart.notNull(distanceFromAtoB) * dart.notNull(distanceFromAtoB) / dart.notNull(c['-'](end).distance) / 2.0;
+          this[_center] = new ui.Offset.new(begin.dx, dart.notNull(begin.dy) + (dart.notNull(end.dy) - dart.notNull(begin.dy))[$sign] * dart.nullCheck(this[_radius]));
+          if (dart.notNull(begin.dy) < dart.notNull(end.dy)) {
+            this[_beginAngle] = -3.141592653589793 / 2.0;
+            this[_endAngle] = dart.nullCheck(this[_beginAngle]) + dart.notNull(sweepAngle()) * (dart.notNull(end.dx) - dart.notNull(begin.dx))[$sign];
+          } else {
+            this[_beginAngle] = 3.141592653589793 / 2.0;
+            this[_endAngle] = dart.nullCheck(this[_beginAngle]) + dart.notNull(sweepAngle()) * (dart.notNull(begin.dx) - dart.notNull(end.dx))[$sign];
+          }
+        }
+        if (!(this[_beginAngle] != null)) dart.assertFailed(null, I[0], 83, 14, "_beginAngle != null");
+        if (!(this[_endAngle] != null)) dart.assertFailed(null, I[0], 84, 14, "_endAngle != null");
+      } else {
+        this[_beginAngle] = null;
+        this[_endAngle] = null;
+      }
+      this[_dirty] = false;
     }
-    set color(value) {
-      super.color = value;
+    get center() {
+      if (this.begin == null || this.end == null) return null;
+      if (dart.test(this[_dirty])) this[_initialize]();
+      return this[_center];
     }
-    get shadowColor() {
-      return this[shadowColor$];
+    get radius() {
+      if (this.begin == null || this.end == null) return null;
+      if (dart.test(this[_dirty])) this[_initialize]();
+      return this[_radius];
     }
-    set shadowColor(value) {
-      super.shadowColor = value;
+    get beginAngle() {
+      if (this.begin == null || this.end == null) return null;
+      if (dart.test(this[_dirty])) this[_initialize]();
+      return this[_beginAngle];
     }
-    get elevation() {
-      return this[elevation$];
+    get endAngle() {
+      if (this.begin == null || this.end == null) return null;
+      if (dart.test(this[_dirty])) this[_initialize]();
+      return this[_beginAngle];
     }
-    set elevation(value) {
-      super.elevation = value;
+    set begin(value) {
+      T.OffsetN().as(value);
+      if (!dart.equals(value, this.begin)) {
+        super.begin = value;
+        this[_dirty] = true;
+      }
     }
-    get shape() {
-      return this[shape$];
+    get begin() {
+      return super.begin;
     }
-    set shape(value) {
-      super.shape = value;
+    set end(value) {
+      T.OffsetN().as(value);
+      if (!dart.equals(value, this.end)) {
+        super.end = value;
+        this[_dirty] = true;
+      }
     }
-    get borderOnForeground() {
-      return this[borderOnForeground$];
+    get end() {
+      return super.end;
     }
-    set borderOnForeground(value) {
-      super.borderOnForeground = value;
+    lerp(t) {
+      if (t == null) dart.nullFailed(I[0], 159, 22, "t");
+      if (dart.test(this[_dirty])) this[_initialize]();
+      if (t === 0.0) return dart.nullCheck(this.begin);
+      if (t === 1.0) return dart.nullCheck(this.end);
+      if (this[_beginAngle] == null || this[_endAngle] == null) return dart.nullCheck(ui.Offset.lerp(this.begin, this.end, t));
+      let angle = dart.nullCheck(ui.lerpDouble(this[_beginAngle], this[_endAngle], t));
+      let x = math.cos(angle) * dart.nullCheck(this[_radius]);
+      let y = math.sin(angle) * dart.nullCheck(this[_radius]);
+      return dart.nullCheck(this[_center])['+'](new ui.Offset.new(x, y));
     }
-    get clipBehavior() {
-      return this[clipBehavior$];
-    }
-    set clipBehavior(value) {
-      super.clipBehavior = value;
-    }
-    get margin() {
-      return this[margin$];
-    }
-    set margin(value) {
-      super.margin = value;
-    }
-    get semanticContainer() {
-      return this[semanticContainer$];
-    }
-    set semanticContainer(value) {
-      super.semanticContainer = value;
-    }
-    get child() {
-      return this[child$];
-    }
-    set child(value) {
-      super.child = value;
-    }
-    build(context) {
-      let t0, t0$, t0$0, t0$1, t0$2, t0$3, t0$4, t0$5, t0$6, t0$7, t0$8, t0$9;
-      if (context == null) dart.nullFailed(I[0], 194, 29, "context");
-      let theme = theme$.Theme.of(context);
-      let cardTheme = card_theme.CardTheme.of(context);
-      return new basic.Semantics.new({container: this.semanticContainer, child: new container.Container.new({margin: (t0$ = (t0 = this.margin, t0 == null ? cardTheme.margin : t0), t0$ == null ? C[0] || CT.C0 : t0$), child: new material.Material.new({type: material.MaterialType.card, shadowColor: (t0$1 = (t0$0 = this.shadowColor, t0$0 == null ? cardTheme.shadowColor : t0$0), t0$1 == null ? theme.shadowColor : t0$1), color: (t0$3 = (t0$2 = this.color, t0$2 == null ? cardTheme.color : t0$2), t0$3 == null ? theme.cardColor : t0$3), elevation: (t0$5 = (t0$4 = this.elevation, t0$4 == null ? cardTheme.elevation : t0$4), t0$5 == null ? 1 : t0$5), shape: (t0$7 = (t0$6 = this.shape, t0$6 == null ? cardTheme.shape : t0$6), t0$7 == null ? C[1] || CT.C1 : t0$7), borderOnForeground: this.borderOnForeground, clipBehavior: (t0$9 = (t0$8 = this.clipBehavior, t0$8 == null ? cardTheme.clipBehavior : t0$8), t0$9 == null ? ui.Clip.none : t0$9), child: new basic.Semantics.new({explicitChildNodes: !dart.test(this.semanticContainer), child: this.child, $creationLocationd_0dea112b090073317d4: C[7] || CT.C7}), $creationLocationd_0dea112b090073317d4: C[11] || CT.C11}), $creationLocationd_0dea112b090073317d4: C[21] || CT.C21}), $creationLocationd_0dea112b090073317d4: C[25] || CT.C25});
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "MaterialPointArcTween")) + "(" + dart.str(this.begin) + " → " + dart.str(this.end) + "; center=" + dart.str(this.center) + ", radius=" + dart.str(this.radius) + ", beginAngle=" + dart.str(this.beginAngle) + ", endAngle=" + dart.str(this.endAngle) + ")";
     }
   };
-  (card.Card.new = function(opts) {
-    let key = opts && 'key' in opts ? opts.key : null;
-    let color = opts && 'color' in opts ? opts.color : null;
-    let shadowColor = opts && 'shadowColor' in opts ? opts.shadowColor : null;
-    let elevation = opts && 'elevation' in opts ? opts.elevation : null;
-    let shape = opts && 'shape' in opts ? opts.shape : null;
-    let borderOnForeground = opts && 'borderOnForeground' in opts ? opts.borderOnForeground : true;
-    if (borderOnForeground == null) dart.nullFailed(I[0], 110, 10, "borderOnForeground");
-    let margin = opts && 'margin' in opts ? opts.margin : null;
-    let clipBehavior = opts && 'clipBehavior' in opts ? opts.clipBehavior : null;
-    let child = opts && 'child' in opts ? opts.child : null;
-    let semanticContainer = opts && 'semanticContainer' in opts ? opts.semanticContainer : true;
-    if (semanticContainer == null) dart.nullFailed(I[0], 114, 10, "semanticContainer");
-    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
-    this[color$] = color;
-    this[shadowColor$] = shadowColor;
-    this[elevation$] = elevation;
-    this[shape$] = shape;
-    this[borderOnForeground$] = borderOnForeground;
-    this[margin$] = margin;
-    this[clipBehavior$] = clipBehavior;
-    this[child$] = child;
-    this[semanticContainer$] = semanticContainer;
-    if (!(elevation == null || dart.notNull(elevation) >= 0.0)) dart.assertFailed(null, I[0], 115, 15, "elevation == null || elevation >= 0.0");
-    if (!(borderOnForeground != null)) dart.assertFailed(null, I[0], 116, 15, "borderOnForeground != null");
-    card.Card.__proto__.new.call(this, {key: key, $creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
+  (arc.MaterialPointArcTween.new = function(opts) {
+    let begin = opts && 'begin' in opts ? opts.begin : null;
+    let end = opts && 'end' in opts ? opts.end : null;
+    this[_dirty] = true;
+    this[_center] = null;
+    this[_radius] = null;
+    this[_beginAngle] = null;
+    this[_endAngle] = null;
+    arc.MaterialPointArcTween.__proto__.new.call(this, {begin: begin, end: end});
     ;
-  }).prototype = card.Card.prototype;
-  dart.addTypeTests(card.Card);
-  dart.addTypeCaches(card.Card);
-  dart.setMethodSignature(card.Card, () => ({
-    __proto__: dart.getMethods(card.Card.__proto__),
-    build: dart.fnType(framework.Widget, [framework.BuildContext])
+  }).prototype = arc.MaterialPointArcTween.prototype;
+  dart.addTypeTests(arc.MaterialPointArcTween);
+  dart.addTypeCaches(arc.MaterialPointArcTween);
+  dart.setMethodSignature(arc.MaterialPointArcTween, () => ({
+    __proto__: dart.getMethods(arc.MaterialPointArcTween.__proto__),
+    [_initialize]: dart.fnType(dart.void, [])
   }));
-  dart.setLibraryUri(card.Card, I[1]);
-  dart.setFieldSignature(card.Card, () => ({
-    __proto__: dart.getFields(card.Card.__proto__),
-    color: dart.finalFieldType(dart.nullable(ui.Color)),
-    shadowColor: dart.finalFieldType(dart.nullable(ui.Color)),
-    elevation: dart.finalFieldType(dart.nullable(core.double)),
-    shape: dart.finalFieldType(dart.nullable(borders.ShapeBorder)),
-    borderOnForeground: dart.finalFieldType(core.bool),
-    clipBehavior: dart.finalFieldType(dart.nullable(ui.Clip)),
-    margin: dart.finalFieldType(dart.nullable(edge_insets.EdgeInsetsGeometry)),
-    semanticContainer: dart.finalFieldType(core.bool),
-    child: dart.finalFieldType(dart.nullable(framework.Widget))
+  dart.setGetterSignature(arc.MaterialPointArcTween, () => ({
+    __proto__: dart.getGetters(arc.MaterialPointArcTween.__proto__),
+    center: dart.nullable(ui.Offset),
+    radius: dart.nullable(core.double),
+    beginAngle: dart.nullable(core.double),
+    endAngle: dart.nullable(core.double)
   }));
-  dart.defineLazy(card.Card, {
-    /*card.Card._defaultElevation*/get _defaultElevation() {
-      return 1;
+  dart.setSetterSignature(arc.MaterialPointArcTween, () => ({
+    __proto__: dart.getSetters(arc.MaterialPointArcTween.__proto__),
+    begin: dart.nullable(core.Object),
+    end: dart.nullable(core.Object)
+  }));
+  dart.setLibraryUri(arc.MaterialPointArcTween, I[1]);
+  dart.setFieldSignature(arc.MaterialPointArcTween, () => ({
+    __proto__: dart.getFields(arc.MaterialPointArcTween.__proto__),
+    [_dirty]: dart.fieldType(core.bool),
+    [_center]: dart.fieldType(dart.nullable(ui.Offset)),
+    [_radius]: dart.fieldType(dart.nullable(core.double)),
+    [_beginAngle]: dart.fieldType(dart.nullable(core.double)),
+    [_endAngle]: dart.fieldType(dart.nullable(core.double))
+  }));
+  dart.defineExtensionMethods(arc.MaterialPointArcTween, ['toString']);
+  var _name$ = dart.privateName(arc, "_name");
+  arc._CornerId = class _CornerId extends core.Object {
+    toString() {
+      return this[_name$];
+    }
+  };
+  (arc._CornerId.new = function(index, _name) {
+    if (index == null) dart.nullFailed(I[0], 180, 6, "index");
+    if (_name == null) dart.nullFailed(I[0], 180, 6, "_name");
+    this.index = index;
+    this[_name$] = _name;
+    ;
+  }).prototype = arc._CornerId.prototype;
+  dart.addTypeTests(arc._CornerId);
+  dart.addTypeCaches(arc._CornerId);
+  dart.setLibraryUri(arc._CornerId, I[1]);
+  dart.setFieldSignature(arc._CornerId, () => ({
+    __proto__: dart.getFields(arc._CornerId.__proto__),
+    index: dart.finalFieldType(core.int),
+    [_name$]: dart.finalFieldType(core.String)
+  }));
+  dart.defineExtensionMethods(arc._CornerId, ['toString']);
+  arc._CornerId.topLeft = C[0] || CT.C0;
+  arc._CornerId.topRight = C[1] || CT.C1;
+  arc._CornerId.bottomLeft = C[2] || CT.C2;
+  arc._CornerId.bottomRight = C[3] || CT.C3;
+  arc._CornerId.values = C[4] || CT.C4;
+  var beginId$ = dart.privateName(arc, "_Diagonal.beginId");
+  var endId$ = dart.privateName(arc, "_Diagonal.endId");
+  arc._Diagonal = class _Diagonal extends core.Object {
+    get beginId() {
+      return this[beginId$];
+    }
+    set beginId(value) {
+      super.beginId = value;
+    }
+    get endId() {
+      return this[endId$];
+    }
+    set endId(value) {
+      super.endId = value;
+    }
+  };
+  (arc._Diagonal.new = function(beginId, endId) {
+    if (beginId == null) dart.nullFailed(I[0], 188, 24, "beginId");
+    if (endId == null) dart.nullFailed(I[0], 188, 38, "endId");
+    this[beginId$] = beginId;
+    this[endId$] = endId;
+    ;
+  }).prototype = arc._Diagonal.prototype;
+  dart.addTypeTests(arc._Diagonal);
+  dart.addTypeCaches(arc._Diagonal);
+  dart.setLibraryUri(arc._Diagonal, I[1]);
+  dart.setFieldSignature(arc._Diagonal, () => ({
+    __proto__: dart.getFields(arc._Diagonal.__proto__),
+    beginId: dart.finalFieldType(arc._CornerId),
+    endId: dart.finalFieldType(arc._CornerId)
+  }));
+  var __MaterialRectArcTween__beginArc = dart.privateName(arc, "_#MaterialRectArcTween#_beginArc");
+  var __MaterialRectArcTween__beginArc_isSet = dart.privateName(arc, "_#MaterialRectArcTween#_beginArc#isSet");
+  var __MaterialRectArcTween__endArc = dart.privateName(arc, "_#MaterialRectArcTween#_endArc");
+  var __MaterialRectArcTween__endArc_isSet = dart.privateName(arc, "_#MaterialRectArcTween#_endArc#isSet");
+  var _diagonalSupport = dart.privateName(arc, "_diagonalSupport");
+  var _beginArc = dart.privateName(arc, "_beginArc");
+  var _cornerFor = dart.privateName(arc, "_cornerFor");
+  var _endArc = dart.privateName(arc, "_endArc");
+  arc.MaterialRectArcTween = class MaterialRectArcTween extends tween.RectTween {
+    [_initialize]() {
+      if (!(this.begin != null)) dart.assertFailed(null, I[0], 249, 12, "begin != null");
+      if (!(this.end != null)) dart.assertFailed(null, I[0], 250, 12, "end != null");
+      let centersVector = dart.nullCheck(this.end).center['-'](dart.nullCheck(this.begin).center);
+      let diagonal = arc._maxBy(arc._Diagonal, arc._allDiagonals, dart.fn(d => {
+        if (d == null) dart.nullFailed(I[0], 252, 76, "d");
+        return this[_diagonalSupport](centersVector, d);
+      }, T._DiagonalTodouble()));
+      this[_beginArc] = new arc.MaterialPointArcTween.new({begin: this[_cornerFor](dart.nullCheck(this.begin), diagonal.beginId), end: this[_cornerFor](dart.nullCheck(this.end), diagonal.beginId)});
+      this[_endArc] = new arc.MaterialPointArcTween.new({begin: this[_cornerFor](dart.nullCheck(this.begin), diagonal.endId), end: this[_cornerFor](dart.nullCheck(this.end), diagonal.endId)});
+      this[_dirty] = false;
+    }
+    [_diagonalSupport](centersVector, diagonal) {
+      if (centersVector == null) dart.nullFailed(I[0], 264, 34, "centersVector");
+      if (diagonal == null) dart.nullFailed(I[0], 264, 59, "diagonal");
+      let delta = this[_cornerFor](dart.nullCheck(this.begin), diagonal.endId)['-'](this[_cornerFor](dart.nullCheck(this.begin), diagonal.beginId));
+      let length = delta.distance;
+      return dart.notNull(centersVector.dx) * dart.notNull(delta.dx) / dart.notNull(length) + dart.notNull(centersVector.dy) * dart.notNull(delta.dy) / dart.notNull(length);
+    }
+    [_cornerFor](rect, id) {
+      if (rect == null) dart.nullFailed(I[0], 270, 26, "rect");
+      if (id == null) dart.nullFailed(I[0], 270, 42, "id");
+      switch (id) {
+        case C[0] || CT.C0:
+        {
+          return rect.topLeft;
+        }
+        case C[1] || CT.C1:
+        {
+          return rect.topRight;
+        }
+        case C[2] || CT.C2:
+        {
+          return rect.bottomLeft;
+        }
+        case C[3] || CT.C3:
+        {
+          return rect.bottomRight;
+        }
+        default:
+        {
+          dart.throw(new _internal.ReachabilityError.new("`null` encountered as case in a switch expression with a non-nullable enum type."));
+        }
+      }
+    }
+    get beginArc() {
+      if (this.begin == null) return null;
+      if (dart.test(this[_dirty])) this[_initialize]();
+      return this[_beginArc];
+    }
+    get [_beginArc]() {
+      let t0;
+      return dart.test(this[__MaterialRectArcTween__beginArc_isSet]) ? (t0 = this[__MaterialRectArcTween__beginArc], t0) : dart.throw(new _internal.LateError.fieldNI("_beginArc"));
+    }
+    set [_beginArc](t0) {
+      if (t0 == null) dart.nullFailed(I[0], 288, 30, "null");
+      this[__MaterialRectArcTween__beginArc_isSet] = true;
+      this[__MaterialRectArcTween__beginArc] = t0;
+    }
+    get endArc() {
+      if (this.end == null) return null;
+      if (dart.test(this[_dirty])) this[_initialize]();
+      return this[_endArc];
+    }
+    get [_endArc]() {
+      let t1;
+      return dart.test(this[__MaterialRectArcTween__endArc_isSet]) ? (t1 = this[__MaterialRectArcTween__endArc], t1) : dart.throw(new _internal.LateError.fieldNI("_endArc"));
+    }
+    set [_endArc](t1) {
+      if (t1 == null) dart.nullFailed(I[0], 299, 30, "null");
+      this[__MaterialRectArcTween__endArc_isSet] = true;
+      this[__MaterialRectArcTween__endArc] = t1;
+    }
+    set begin(value) {
+      T.RectN().as(value);
+      if (!dart.equals(value, this.begin)) {
+        super.begin = value;
+        this[_dirty] = true;
+      }
+    }
+    get begin() {
+      return super.begin;
+    }
+    set end(value) {
+      T.RectN().as(value);
+      if (!dart.equals(value, this.end)) {
+        super.end = value;
+        this[_dirty] = true;
+      }
+    }
+    get end() {
+      return super.end;
+    }
+    lerp(t) {
+      if (t == null) dart.nullFailed(I[0], 318, 20, "t");
+      if (dart.test(this[_dirty])) this[_initialize]();
+      if (t === 0.0) return dart.nullCheck(this.begin);
+      if (t === 1.0) return dart.nullCheck(this.end);
+      return new ui.Rect.fromPoints(this[_beginArc].lerp(t), this[_endArc].lerp(t));
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "MaterialRectArcTween")) + "(" + dart.str(this.begin) + " → " + dart.str(this.end) + "; beginArc=" + dart.str(this.beginArc) + ", endArc=" + dart.str(this.endArc) + ")";
+    }
+  };
+  (arc.MaterialRectArcTween.new = function(opts) {
+    let begin = opts && 'begin' in opts ? opts.begin : null;
+    let end = opts && 'end' in opts ? opts.end : null;
+    this[_dirty] = true;
+    this[__MaterialRectArcTween__beginArc] = null;
+    this[__MaterialRectArcTween__beginArc_isSet] = false;
+    this[__MaterialRectArcTween__endArc] = null;
+    this[__MaterialRectArcTween__endArc_isSet] = false;
+    arc.MaterialRectArcTween.__proto__.new.call(this, {begin: begin, end: end});
+    ;
+  }).prototype = arc.MaterialRectArcTween.prototype;
+  dart.addTypeTests(arc.MaterialRectArcTween);
+  dart.addTypeCaches(arc.MaterialRectArcTween);
+  dart.setMethodSignature(arc.MaterialRectArcTween, () => ({
+    __proto__: dart.getMethods(arc.MaterialRectArcTween.__proto__),
+    [_initialize]: dart.fnType(dart.void, []),
+    [_diagonalSupport]: dart.fnType(core.double, [ui.Offset, arc._Diagonal]),
+    [_cornerFor]: dart.fnType(ui.Offset, [ui.Rect, arc._CornerId]),
+    lerp: dart.fnType(ui.Rect, [core.double])
+  }));
+  dart.setGetterSignature(arc.MaterialRectArcTween, () => ({
+    __proto__: dart.getGetters(arc.MaterialRectArcTween.__proto__),
+    beginArc: dart.nullable(arc.MaterialPointArcTween),
+    [_beginArc]: arc.MaterialPointArcTween,
+    endArc: dart.nullable(arc.MaterialPointArcTween),
+    [_endArc]: arc.MaterialPointArcTween
+  }));
+  dart.setSetterSignature(arc.MaterialRectArcTween, () => ({
+    __proto__: dart.getSetters(arc.MaterialRectArcTween.__proto__),
+    [_beginArc]: arc.MaterialPointArcTween,
+    [_endArc]: arc.MaterialPointArcTween,
+    begin: dart.nullable(core.Object),
+    end: dart.nullable(core.Object)
+  }));
+  dart.setLibraryUri(arc.MaterialRectArcTween, I[1]);
+  dart.setFieldSignature(arc.MaterialRectArcTween, () => ({
+    __proto__: dart.getFields(arc.MaterialRectArcTween.__proto__),
+    [_dirty]: dart.fieldType(core.bool),
+    [__MaterialRectArcTween__beginArc]: dart.fieldType(dart.nullable(arc.MaterialPointArcTween)),
+    [__MaterialRectArcTween__beginArc_isSet]: dart.fieldType(core.bool),
+    [__MaterialRectArcTween__endArc]: dart.fieldType(dart.nullable(arc.MaterialPointArcTween)),
+    [__MaterialRectArcTween__endArc_isSet]: dart.fieldType(core.bool)
+  }));
+  dart.defineExtensionMethods(arc.MaterialRectArcTween, ['toString']);
+  var __MaterialRectCenterArcTween__centerArc = dart.privateName(arc, "_#MaterialRectCenterArcTween#_centerArc");
+  var __MaterialRectCenterArcTween__centerArc_isSet = dart.privateName(arc, "_#MaterialRectCenterArcTween#_centerArc#isSet");
+  var _centerArc = dart.privateName(arc, "_centerArc");
+  arc.MaterialRectCenterArcTween = class MaterialRectCenterArcTween extends tween.RectTween {
+    [_initialize]() {
+      if (!(this.begin != null)) dart.assertFailed(null, I[0], 364, 12, "begin != null");
+      if (!(this.end != null)) dart.assertFailed(null, I[0], 365, 12, "end != null");
+      this[_centerArc] = new arc.MaterialPointArcTween.new({begin: dart.nullCheck(this.begin).center, end: dart.nullCheck(this.end).center});
+      this[_dirty] = false;
+    }
+    get centerArc() {
+      if (this.begin == null || this.end == null) return null;
+      if (dart.test(this[_dirty])) this[_initialize]();
+      return this[_centerArc];
+    }
+    get [_centerArc]() {
+      let t2;
+      return dart.test(this[__MaterialRectCenterArcTween__centerArc_isSet]) ? (t2 = this[__MaterialRectCenterArcTween__centerArc], t2) : dart.throw(new _internal.LateError.fieldNI("_centerArc"));
+    }
+    set [_centerArc](t2) {
+      if (t2 == null) dart.nullFailed(I[0], 382, 30, "null");
+      this[__MaterialRectCenterArcTween__centerArc_isSet] = true;
+      this[__MaterialRectCenterArcTween__centerArc] = t2;
+    }
+    set begin(value) {
+      T.RectN().as(value);
+      if (!dart.equals(value, this.begin)) {
+        super.begin = value;
+        this[_dirty] = true;
+      }
+    }
+    get begin() {
+      return super.begin;
+    }
+    set end(value) {
+      T.RectN().as(value);
+      if (!dart.equals(value, this.end)) {
+        super.end = value;
+        this[_dirty] = true;
+      }
+    }
+    get end() {
+      return super.end;
+    }
+    lerp(t) {
+      if (t == null) dart.nullFailed(I[0], 401, 20, "t");
+      if (dart.test(this[_dirty])) this[_initialize]();
+      if (t === 0.0) return dart.nullCheck(this.begin);
+      if (t === 1.0) return dart.nullCheck(this.end);
+      let center = this[_centerArc].lerp(t);
+      let width = dart.nullCheck(ui.lerpDouble(dart.nullCheck(this.begin).width, dart.nullCheck(this.end).width, t));
+      let height = dart.nullCheck(ui.lerpDouble(dart.nullCheck(this.begin).height, dart.nullCheck(this.end).height, t));
+      return new ui.Rect.fromLTWH(dart.notNull(center.dx) - width / 2.0, dart.notNull(center.dy) - height / 2.0, width, height);
+    }
+    toString() {
+      return dart.str(object.objectRuntimeType(this, "MaterialRectCenterArcTween")) + "(" + dart.str(this.begin) + " → " + dart.str(this.end) + "; centerArc=" + dart.str(this.centerArc) + ")";
+    }
+  };
+  (arc.MaterialRectCenterArcTween.new = function(opts) {
+    let begin = opts && 'begin' in opts ? opts.begin : null;
+    let end = opts && 'end' in opts ? opts.end : null;
+    this[_dirty] = true;
+    this[__MaterialRectCenterArcTween__centerArc] = null;
+    this[__MaterialRectCenterArcTween__centerArc_isSet] = false;
+    arc.MaterialRectCenterArcTween.__proto__.new.call(this, {begin: begin, end: end});
+    ;
+  }).prototype = arc.MaterialRectCenterArcTween.prototype;
+  dart.addTypeTests(arc.MaterialRectCenterArcTween);
+  dart.addTypeCaches(arc.MaterialRectCenterArcTween);
+  dart.setMethodSignature(arc.MaterialRectCenterArcTween, () => ({
+    __proto__: dart.getMethods(arc.MaterialRectCenterArcTween.__proto__),
+    [_initialize]: dart.fnType(dart.void, []),
+    lerp: dart.fnType(ui.Rect, [core.double])
+  }));
+  dart.setGetterSignature(arc.MaterialRectCenterArcTween, () => ({
+    __proto__: dart.getGetters(arc.MaterialRectCenterArcTween.__proto__),
+    centerArc: dart.nullable(arc.MaterialPointArcTween),
+    [_centerArc]: arc.MaterialPointArcTween
+  }));
+  dart.setSetterSignature(arc.MaterialRectCenterArcTween, () => ({
+    __proto__: dart.getSetters(arc.MaterialRectCenterArcTween.__proto__),
+    [_centerArc]: arc.MaterialPointArcTween,
+    begin: dart.nullable(core.Object),
+    end: dart.nullable(core.Object)
+  }));
+  dart.setLibraryUri(arc.MaterialRectCenterArcTween, I[1]);
+  dart.setFieldSignature(arc.MaterialRectCenterArcTween, () => ({
+    __proto__: dart.getFields(arc.MaterialRectCenterArcTween.__proto__),
+    [_dirty]: dart.fieldType(core.bool),
+    [__MaterialRectCenterArcTween__centerArc]: dart.fieldType(dart.nullable(arc.MaterialPointArcTween)),
+    [__MaterialRectCenterArcTween__centerArc_isSet]: dart.fieldType(core.bool)
+  }));
+  dart.defineExtensionMethods(arc.MaterialRectCenterArcTween, ['toString']);
+  arc._maxBy = function _maxBy(T, input, keyFunc) {
+    if (input == null) dart.nullFailed(I[0], 203, 25, "input");
+    if (keyFunc == null) dart.nullFailed(I[0], 203, 44, "keyFunc");
+    let maxValue = null;
+    let maxValue$35isSet = false;
+    function maxValue$35get() {
+      return maxValue$35isSet ? maxValue : dart.throw(new _internal.LateError.localNI("maxValue"));
+    }
+    dart.fn(maxValue$35get, dart.fnType(T, []));
+    function maxValue$35set(t6) {
+      maxValue$35isSet = true;
+      return maxValue = t6;
+    }
+    dart.fn(maxValue$35set, dart.fnType(dart.dynamic, [T]));
+    let maxKey = null;
+    for (let value of input) {
+      let key = keyFunc(value);
+      if (maxKey == null || dart.notNull(key) > dart.notNull(maxKey)) {
+        maxValue$35set(value);
+        maxKey = key;
+      }
+    }
+    return maxValue$35get();
+  };
+  dart.defineLazy(arc, {
+    /*arc._kOnAxisDelta*/get _kOnAxisDelta() {
+      return 2;
+    },
+    /*arc._allDiagonals*/get _allDiagonals() {
+      return C[5] || CT.C5;
     }
   }, false);
-  dart.trackLibraries("packages/flutter/src/material/card.dart", {
-    "package:flutter/src/material/card.dart": card
+  dart.trackLibraries("packages/flutter/src/material/arc.dart", {
+    "package:flutter/src/material/arc.dart": arc
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["card.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IA4He;;;;;;IAOA;;;;;;IASC;;;;;;IASK;;;;;;IAMR;;;;;;IAMC;;;;;;IASc;;;;;;IAaf;;;;;;IAKG;;;;;;UAKY;;;AACR,kBAAc,gBAAG,OAAO;AACxB,sBAAsB,wBAAG,OAAO;AAEhD,YAAO,qCACM,+BACJ,sCAC8B,OAApB,kBAAP,aAAU,AAAU,SAAD,eAAZ,2CACR,iCACc,0CAC+B,QAAzB,yBAAZ,eAAe,AAAU,SAAD,sBAAZ,eAA4B,AAAM,KAAD,8BAC1B,QAAnB,mBAAN,eAAS,AAAU,SAAD,gBAAZ,eAAsB,AAAM,KAAD,gCACI,QAAvB,uBAAV,eAAa,AAAU,SAAD,oBAAZ,kCACW,QAAnB,mBAAN,eAAS,AAAU,SAAD,gBAAZ,0DAGO,wCACiC,QAA1B,0BAAb,eAAgB,AAAU,SAAD,uBAAZ,eAAkC,6BACtD,6CACe,WAAC,gCACd;IAKjB;;;QAlHO;QACA;QACA;QACA;QACA;QACA;;QACA;QACA;QACA;QACA;;;IARA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;IACA;UACK,AAAU,AAAQ,SAAT,YAAsB,aAAV,SAAS,KAAI;UAClC,AAAmB,kBAAD;AACzB,6CAAW,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;MA0EA,2BAAiB","file":"../../../../../../../packages/flutter/src/material/card.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["arc.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AA6CI,YAAY,AAAM;AAClB,YAAY,AAAI;AAEH,kBAAkB,eAAL;AACb,gBAAc,eAAH;AAGX,kBAAQ,AAAI,GAAD,MAAG,KAAK;AACnB,mBAAS,AAAM,AAAG,KAAJ;AACd,mBAAS,AAAM,AAAG,KAAJ;AACd,6BAAmB,AAAM,KAAD;AACxB,cAAI,kBAAO,AAAI,GAAD,KAAK,AAAM,KAAD;AAErC,YAAO;AAAgB,cAAA,AAAI,OAAE,UAA2B,aAAjB,gBAAgB,KAAI,AAAI,MAAS,eAAP;;;AAEjE,UAAI,AAAO,MAAD,QAAoB,AAAO,MAAD;AAClC,YAAI,AAAO,MAAD,GAAG,MAAM;AACyD,UAA1E,gBAA2B,AAAmB,AAAuB,aAA3D,gBAAgB,iBAAG,gBAAgB,iBAAI,AAAE,AAAS,CAAV,MAAG,KAAK,cAAa;AACD,UAAtE,gBAAU,kBAAc,aAAP,AAAI,GAAD,OAAa,AAAE,eAAT,iBAA+B,CAAV,aAAT,AAAM,KAAD,oBAAM,AAAI,GAAD,cAAW,AAAI,GAAD;AAClE,cAAa,aAAT,AAAM,KAAD,oBAAM,AAAI,GAAD;AACqC,YAArD,oBAA2B,aAAb,UAAU,MAAyB,CAAV,aAAT,AAAM,KAAD,oBAAM,AAAI,GAAD;AAC7B,YAAf,kBAAY;;AAEmD,YAA/D,oBAAsB,oBAAe,aAAb,UAAU,MAAyB,CAAZ,aAAP,AAAI,GAAD,oBAAM,AAAM,KAAD;AACnC,YAAnB;;;AAGsE,UAAxE,gBAA2B,AAAmB,AAAqB,aAAzD,gBAAgB,iBAAG,gBAAgB,iBAAI,AAAE,AAAO,CAAR,MAAG,GAAG,cAAa;AACK,UAA1E,gBAAU,kBAAO,AAAM,KAAD,KAAc,aAAT,AAAM,KAAD,OAA0B,AAAK,CAAjB,aAAP,AAAI,GAAD,oBAAM,AAAM,KAAD,eAAmB,eAAP;AACjE,cAAa,aAAT,AAAM,KAAD,oBAAM,AAAI,GAAD;AACY,YAA5B,oBAAc,AAAS,qBAAE;AACyC,YAAlE,kBAAuB,AAAE,eAAb,qBAA4B,aAAb,UAAU,MAAyB,CAAZ,aAAP,AAAI,GAAD,oBAAM,AAAM,KAAD;;AAE9B,YAA3B,oBAAsB,oBAAE;AAC0C,YAAlE,kBAAuB,AAAE,eAAb,qBAA4B,aAAb,UAAU,MAAyB,CAAV,aAAT,AAAM,KAAD,oBAAM,AAAI,GAAD;;;AAG7D,cAAO,AAAY;AACnB,cAAO,AAAU;;AAEC,QAAlB,oBAAc;AACE,QAAhB,kBAAY;;AAEA,MAAd,eAAS;IACX;;AAKE,UAAI,AAAM,sBAAW,AAAI,kBACvB,MAAO;AACT,oBAAI,eACF,AAAa;AACf,YAAO;IACT;;AAME,UAAI,AAAM,sBAAW,AAAI,kBACvB,MAAO;AACT,oBAAI,eACF,AAAa;AACf,YAAO;IACT;;AASE,UAAI,AAAM,sBAAW,AAAI,kBACvB,MAAO;AACT,oBAAI,eACF,AAAa;AACf,YAAO;IACT;;AASE,UAAI,AAAM,sBAAW,AAAI,kBACvB,MAAO;AACT,oBAAI,eACF,AAAa;AACf,YAAO;IACT;;qBAIkB;AAChB,UAAU,aAAN,KAAK,EAAI;AACQ,QAAb,cAAQ,KAAK;AACN,QAAb,eAAS;;IAEb;;;;;qBAGgB;AACd,UAAU,aAAN,KAAK,EAAI;AACM,QAAX,YAAM,KAAK;AACJ,QAAb,eAAS;;IAEb;;;;;UAGmB;AACjB,oBAAI,eACF,AAAa;AACf,UAAI,AAAE,CAAD,KAAI,KACP,MAAY,gBAAL;AACT,UAAI,AAAE,CAAD,KAAI,KACP,MAAU,gBAAH;AACT,UAAI,AAAY,6BAAW,AAAU,yBACnC,MAAiC,gBAAnB,eAAK,YAAO,UAAK,CAAC;AACrB,kBAA6C,eAArC,cAAW,mBAAa,iBAAW,CAAC;AAC5C,cAAI,AAAgB,SAAP,KAAK,IAAW,eAAP;AACtB,cAAI,AAAgB,SAAP,KAAK,IAAW,eAAP;AACnC,YAAc,AAAE,gBAAT,oBAAW,kBAAO,CAAC,EAAE,CAAC;IAC/B;;AAIE,YAA4J,UAAlJ,yBAAkB,MAAM,4BAAyB,eAAE,cAAK,iBAAS,YAAG,uBAAU,eAAM,uBAAU,eAAM,2BAAc,mBAAU,yBAAY,iBAAQ;IAC5J;;;QA1IU;QACA;IAGL,eAAS;IA0DN;IAWA;IAcA;IAcA;AAnGH,+DAAa,KAAK,OAAO,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;IAgJpC;;;QALK;;;;;EAKL;;;;;;;;;;;;;;;;;;IAIkB;;;;;;IACA;;;;;;;gCAFK,SAAc;QAAd;QAAc;IAAd;IAAc;;EAAM;;;;;;;;;;;;;;;;;;;AA6DvC,YAAO,AAAM;AACb,YAAO,AAAI;AACE,0BAAmB,AAAE,AAAO,eAAZ,sBAAmB,AAAE,eAAP;AAC3B,qBAAW,0BAAkB,mBAAe;YAAW;AAAM,sCAAiB,aAAa,EAAE,CAAC;;AAI7G,MAHD,kBAAY,0CACH,iBAAgB,eAAL,aAAQ,AAAS,QAAD,gBAC7B,iBAAc,eAAH,WAAM,AAAS,QAAD;AAK/B,MAHD,gBAAU,0CACD,iBAAgB,eAAL,aAAQ,AAAS,QAAD,cAC7B,iBAAc,eAAH,WAAM,AAAS,QAAD;AAElB,MAAd,eAAS;IACX;uBAE+B,eAAyB;UAAzB;UAAyB;AACzC,kBAAQ,AAAmC,iBAAnB,eAAL,aAAQ,AAAS,QAAD,aAAU,iBAAgB,eAAL,aAAQ,AAAS,QAAD;AACxE,mBAAS,AAAM,KAAD;AAC3B,YAAwB,AAAW,AAAS,cAArC,AAAc,aAAD,oBAAM,AAAM,KAAD,oBAAM,MAAM,IAAoB,AAAW,aAA5B,AAAc,aAAD,oBAAM,AAAM,KAAD,oBAAM,MAAM;IACpF;iBAEuB,MAAgB;UAAhB;UAAgB;AACrC,cAAQ,EAAE;;;AACgB,gBAAO,AAAK,KAAD;;;;AACV,gBAAO,AAAK,KAAD;;;;AACT,gBAAO,AAAK,KAAD;;;;AACV,gBAAO,AAAK,KAAD;;;;AAJzC;;;IAMF;;AAKE,UAAI,AAAM,oBACR,MAAO;AACT,oBAAI,eACF,AAAa;AACf,YAAO;IACT;;;AAC2B;IAAS;;;AAAT;;IAAS;;AAKlC,UAAI,AAAI,kBACN,MAAO;AACT,oBAAI,eACF,AAAa;AACf,YAAO;IACT;;;AAC2B;IAAO;;;AAAP;;IAAO;;mBAGlB;AACd,UAAU,aAAN,KAAK,EAAI;AACQ,QAAb,cAAQ,KAAK;AACN,QAAb,eAAS;;IAEb;;;;;mBAGc;AACZ,UAAU,aAAN,KAAK,EAAI;AACM,QAAX,YAAM,KAAK;AACJ,QAAb,eAAS;;IAEb;;;;;UAGiB;AACf,oBAAI,eACF,AAAa;AACf,UAAI,AAAE,CAAD,KAAI,KACP,MAAY,gBAAL;AACT,UAAI,AAAE,CAAD,KAAI,KACP,MAAU,gBAAH;AACT,YAAY,wBAAW,AAAU,qBAAK,CAAC,GAAG,AAAQ,mBAAK,CAAC;IAC1D;;AAIE,YAAmH,UAAzG,yBAAkB,MAAM,2BAAwB,eAAE,cAAK,iBAAS,YAAG,yBAAY,iBAAQ,uBAAU,eAAM;IACnH;;;QAzFQ;QACA;IAGH,eAAS;6CA0Ca;;2CAWA;;AAvDtB,8DAAa,KAAK,OAAO,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAwHhC,YAAO,AAAM;AACb,YAAO,AAAI;AAIV,MAHD,mBAAa,0CACC,AAAE,eAAP,yBACC,AAAE,eAAL;AAEO,MAAd,eAAS;IACX;;AAKE,UAAI,AAAM,sBAAW,AAAI,kBACvB,MAAO;AACT,oBAAI,eACF,AAAa;AACf,YAAO;IACT;;;AAC2B;IAAU;;;AAAV;;IAAU;;mBAGrB;AACd,UAAU,aAAN,KAAK,EAAI;AACQ,QAAb,cAAQ,KAAK;AACN,QAAb,eAAS;;IAEb;;;;;mBAGc;AACZ,UAAU,aAAN,KAAK,EAAI;AACM,QAAX,YAAM,KAAK;AACJ,QAAb,eAAS;;IAEb;;;;;UAGiB;AACf,oBAAI,eACF,AAAa;AACf,UAAI,AAAE,CAAD,KAAI,KACP,MAAY,gBAAL;AACT,UAAI,AAAE,CAAD,KAAI,KACP,MAAU,gBAAH;AACI,mBAAS,AAAW,sBAAK,CAAC;AAC1B,kBAA+C,eAAvC,cAAgB,AAAE,eAAP,mBAAiB,AAAE,eAAL,iBAAY,CAAC;AAC9C,mBAAkD,eAAzC,cAAgB,AAAE,eAAP,oBAAkB,AAAE,eAAL,kBAAa,CAAC;AAC9D,YAAY,sBAAmB,aAAV,AAAO,MAAD,OAAM,AAAM,KAAD,GAAG,KAAe,aAAV,AAAO,MAAD,OAAM,AAAO,MAAD,GAAG,KAAK,KAAK,EAAE,MAAM;IACvF;;AAIE,YAA2G,UAAjG,yBAAkB,MAAM,iCAA8B,eAAE,cAAK,iBAAS,YAAG,0BAAa,kBAAS;IAC3G;;;QA5DQ;QACA;IAGH,eAAS;oDAqBa;;AAvBtB,oEAAa,KAAK,OAAO,GAAG;;EAAC;;;;;;;;;;;;;;;;;;;;;;;;;;;kCA5JZ,OAAmB;QAAnB;QAAmB;AAClC;;;;;;;;;;;AACC;AACR,aAAa,QAAS,MAAK;AACZ,gBAAM,AAAO,OAAA,CAAC,KAAK;AAChC,UAAI,AAAO,MAAD,YAAgB,aAAJ,GAAG,iBAAG,MAAM;AAChB,QAAhB,eAAW,KAAK;AACJ,QAAZ,SAAS,GAAG;;;AAGhB,UAAO;EACT;;MAxMa,iBAAa;;;MAmLJ,iBAAa","file":"../../../../../../../packages/flutter/src/material/arc.dart.lib.js"}');
   // Exports:
   return {
-    src__material__card: card
+    src__material__arc: arc
   };
 }));
 
-//# sourceMappingURL=card.dart.lib.js.map
+//# sourceMappingURL=arc.dart.lib.js.map

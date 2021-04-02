@@ -1,79 +1,79 @@
-define(['dart_sdk', 'packages/http/src/byte_stream.dart', 'packages/http/src/utils.dart', 'packages/http/src/boundary_characters.dart', 'packages/http_parser/src/media_type.dart', 'packages/pedantic/pedantic.dart', 'packages/http/src/exception.dart'], (function load__packages__http__src__multipart_request_dart(dart_sdk, packages__http__src__byte_stream$46dart, packages__http__src__utils$46dart, packages__http__src__boundary_characters$46dart, packages__http_parser__src__media_type$46dart, packages__pedantic__pedantic$46dart, packages__http__src__exception$46dart) {
+define(['dart_sdk', 'packages/provider/src/provider.dart', 'packages/shop_app/providers/products.dart', 'packages/flutter/src/material/icon_button.dart', 'packages/flutter/src/widgets/widget_span.dart', 'packages/flutter/src/widgets/icon.dart', 'packages/flutter/src/material/icons.dart', 'packages/flutter/src/widgets/async.dart', 'packages/flutter/src/material/progress_indicator.dart', 'packages/flutter/src/material/refresh_indicator.dart', 'packages/provider/src/selector.dart', 'packages/flutter/src/painting/edge_insets.dart', 'packages/flutter/src/widgets/scroll_view.dart', 'packages/flutter/src/material/circle_avatar.dart', 'packages/flutter/src/painting/_network_image_web.dart', 'packages/shop_app/providers/auth.dart', 'packages/shop_app/providers/orders.dart', 'packages/shop_app/widgets/order_item.dart'], (function load__packages__shop_app__screens__user_products_screen_dart(dart_sdk, packages__provider__src__provider$46dart, packages__shop_app__providers__products$46dart, packages__flutter__src__material__icon_button$46dart, packages__flutter__src__widgets__widget_span$46dart, packages__flutter__src__widgets__icon$46dart, packages__flutter__src__material__icons$46dart, packages__flutter__src__widgets__async$46dart, packages__flutter__src__material__progress_indicator$46dart, packages__flutter__src__material__refresh_indicator$46dart, packages__provider__src__selector$46dart, packages__flutter__src__painting__edge_insets$46dart, packages__flutter__src__widgets__scroll_view$46dart, packages__flutter__src__material__circle_avatar$46dart, packages__flutter__src__painting___network_image_web$46dart, packages__shop_app__providers__auth$46dart, packages__shop_app__providers__orders$46dart, packages__shop_app__widgets__order_item$46dart) {
   'use strict';
   const core = dart_sdk.core;
-  const _js_helper = dart_sdk._js_helper;
   const _interceptors = dart_sdk._interceptors;
-  const convert = dart_sdk.convert;
   const async = dart_sdk.async;
-  const collection = dart_sdk.collection;
-  const math = dart_sdk.math;
-  const html = dart_sdk.html;
-  const typed_data = dart_sdk.typed_data;
-  const _native_typed_data = dart_sdk._native_typed_data;
+  const _js_helper = dart_sdk._js_helper;
+  const ui = dart_sdk.ui;
   const dart = dart_sdk.dart;
   const dartx = dart_sdk.dartx;
-  const byte_stream = packages__http__src__byte_stream$46dart.src__byte_stream;
-  const utils = packages__http__src__utils$46dart.src__utils;
-  const boundary_characters = packages__http__src__boundary_characters$46dart.src__boundary_characters;
-  const media_type = packages__http_parser__src__media_type$46dart.src__media_type;
-  const pedantic = packages__pedantic__pedantic$46dart.pedantic;
-  const exception = packages__http__src__exception$46dart.src__exception;
-  var multipart_request = Object.create(dart.library);
-  var multipart_file_stub = Object.create(dart.library);
-  var multipart_file = Object.create(dart.library);
-  var streamed_request = Object.create(dart.library);
-  var browser_client = Object.create(dart.library);
-  var response$ = Object.create(dart.library);
-  var request$ = Object.create(dart.library);
-  var streamed_response = Object.create(dart.library);
-  var base_response = Object.create(dart.library);
-  var base_request = Object.create(dart.library);
-  var base_client = Object.create(dart.library);
-  var client$ = Object.create(dart.library);
-  var http = Object.create(dart.library);
-  var $length = dartx.length;
-  var $forEach = dartx.forEach;
-  var $_set = dartx._set;
-  var $entries = dartx.entries;
-  var $replaceAll = dartx.replaceAll;
+  const provider = packages__provider__src__provider$46dart.src__provider;
+  const products = packages__shop_app__providers__products$46dart.providers__products;
+  const scaffold = packages__flutter__src__material__icon_button$46dart.src__material__scaffold;
+  const app_bar = packages__flutter__src__material__icon_button$46dart.src__material__app_bar;
+  const icon_button = packages__flutter__src__material__icon_button$46dart.src__material__icon_button;
+  const list_tile = packages__flutter__src__material__icon_button$46dart.src__material__list_tile;
+  const theme = packages__flutter__src__material__icon_button$46dart.src__material__theme;
+  const snack_bar = packages__flutter__src__material__icon_button$46dart.src__material__snack_bar;
+  const divider = packages__flutter__src__material__icon_button$46dart.src__material__divider;
+  const drawer = packages__flutter__src__material__icon_button$46dart.src__material__drawer;
+  const text = packages__flutter__src__widgets__widget_span$46dart.src__widgets__text;
+  const widget_inspector = packages__flutter__src__widgets__widget_span$46dart.src__widgets__widget_inspector;
+  const navigator = packages__flutter__src__widgets__widget_span$46dart.src__widgets__navigator;
+  const framework = packages__flutter__src__widgets__widget_span$46dart.src__widgets__framework;
+  const basic = packages__flutter__src__widgets__widget_span$46dart.src__widgets__basic;
+  const container = packages__flutter__src__widgets__widget_span$46dart.src__widgets__container;
+  const icon = packages__flutter__src__widgets__icon$46dart.src__widgets__icon;
+  const icons = packages__flutter__src__material__icons$46dart.src__material__icons;
+  const async$ = packages__flutter__src__widgets__async$46dart.src__widgets__async;
+  const progress_indicator = packages__flutter__src__material__progress_indicator$46dart.src__material__progress_indicator;
+  const refresh_indicator = packages__flutter__src__material__refresh_indicator$46dart.src__material__refresh_indicator;
+  const consumer = packages__provider__src__selector$46dart.src__consumer;
+  const edge_insets = packages__flutter__src__painting__edge_insets$46dart.src__painting__edge_insets;
+  const scroll_view = packages__flutter__src__widgets__scroll_view$46dart.src__widgets__scroll_view;
+  const circle_avatar = packages__flutter__src__material__circle_avatar$46dart.src__material__circle_avatar;
+  const _network_image_web = packages__flutter__src__painting___network_image_web$46dart.src__painting___network_image_web;
+  const auth = packages__shop_app__providers__auth$46dart.providers__auth;
+  const orders = packages__shop_app__providers__orders$46dart.providers__orders;
+  const order_item = packages__shop_app__widgets__order_item$46dart.widgets__order_item;
+  var user_products_screen = Object.create(dart.library);
+  var main_drawer = Object.create(dart.library);
+  var orders_screen = Object.create(dart.library);
   var $_get = dartx._get;
-  var $toLowerCase = dartx.toLowerCase;
-  var $hashCode = dartx.hashCode;
-  var $onLoad = dartx.onLoad;
-  var $response = dartx.response;
-  var $asUint8List = dartx.asUint8List;
-  var $responseHeaders = dartx.responseHeaders;
-  var $onError = dartx.onError;
-  var $addAll = dartx.addAll;
-  var $cast = dartx.cast;
-  var $containsKey = dartx.containsKey;
-  var $remove = dartx.remove;
+  var $length = dartx.length;
   dart._checkModuleNullSafetyMode(false);
   var T = {
-    IdentityMapOfString$String: () => (T.IdentityMapOfString$String = dart.constFn(_js_helper.IdentityMap$(core.String, core.String)))(),
-    JSArrayOfMultipartFile: () => (T.JSArrayOfMultipartFile = dart.constFn(_interceptors.JSArray$(multipart_file.MultipartFile)))(),
-    StringAndStringTovoid: () => (T.StringAndStringTovoid = dart.constFn(dart.fnType(dart.void, [core.String, core.String])))(),
-    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
-    ListOfint: () => (T.ListOfint = dart.constFn(core.List$(core.int)))(),
-    _AsyncStarImplOfListOfint: () => (T._AsyncStarImplOfListOfint = dart.constFn(async._AsyncStarImpl$(T.ListOfint())))(),
-    intToint: () => (T.intToint = dart.constFn(dart.fnType(core.int, [core.int])))(),
-    LinkedHashMapOfString$String: () => (T.LinkedHashMapOfString$String = dart.constFn(collection.LinkedHashMap$(core.String, core.String)))(),
-    StringAndStringTobool: () => (T.StringAndStringTobool = dart.constFn(dart.fnType(core.bool, [core.String, core.String])))(),
-    StringToint: () => (T.StringToint = dart.constFn(dart.fnType(core.int, [core.String])))(),
-    ListOfintL: () => (T.ListOfintL = dart.constFn(core.List$(T.intL())))(),
-    ListLOfintL: () => (T.ListLOfintL = dart.constFn(dart.legacy(T.ListOfintL())))(),
-    _EmptyStreamOfListLOfintL: () => (T._EmptyStreamOfListLOfintL = dart.constFn(async._EmptyStream$(T.ListLOfintL())))(),
-    StreamControllerOfListOfint: () => (T.StreamControllerOfListOfint = dart.constFn(async.StreamController$(T.ListOfint())))(),
-    LinkedHashSetOfHttpRequest: () => (T.LinkedHashSetOfHttpRequest = dart.constFn(collection.LinkedHashSet$(html.HttpRequest)))(),
-    CompleterOfStreamedResponse: () => (T.CompleterOfStreamedResponse = dart.constFn(async.Completer$(streamed_response.StreamedResponse)))(),
-    ProgressEventToNull: () => (T.ProgressEventToNull = dart.constFn(dart.fnType(core.Null, [html.ProgressEvent])))(),
+    ProductsL: () => (T.ProductsL = dart.constFn(dart.legacy(products.Products)))(),
+    _LocationL: () => (T._LocationL = dart.constFn(dart.legacy(widget_inspector._Location)))(),
+    ObjectL: () => (T.ObjectL = dart.constFn(dart.legacy(core.Object)))(),
+    VoidToNull: () => (T.VoidToNull = dart.constFn(dart.fnType(core.Null, [])))(),
+    WidgetL: () => (T.WidgetL = dart.constFn(dart.legacy(framework.Widget)))(),
+    JSArrayOfWidgetL: () => (T.JSArrayOfWidgetL = dart.constFn(_interceptors.JSArray$(T.WidgetL())))(),
+    FutureBuilderOfvoid: () => (T.FutureBuilderOfvoid = dart.constFn(async$.FutureBuilder$(dart.void)))(),
+    FutureOfvoid: () => (T.FutureOfvoid = dart.constFn(async.Future$(dart.void)))(),
+    FutureLOfvoid: () => (T.FutureLOfvoid = dart.constFn(dart.legacy(T.FutureOfvoid())))(),
+    VoidToFutureLOfvoid: () => (T.VoidToFutureLOfvoid = dart.constFn(dart.fnType(T.FutureLOfvoid(), [])))(),
+    ConsumerOfProductsL: () => (T.ConsumerOfProductsL = dart.constFn(consumer.Consumer$(T.ProductsL())))(),
     StringL: () => (T.StringL = dart.constFn(dart.legacy(core.String)))(),
-    FutureOfResponse: () => (T.FutureOfResponse = dart.constFn(async.Future$(response$.Response)))(),
-    ClientToFutureOfResponse: () => (T.ClientToFutureOfResponse = dart.constFn(dart.fnType(T.FutureOfResponse(), [client$.Client])))(),
-    FutureOfString: () => (T.FutureOfString = dart.constFn(async.Future$(core.String)))(),
-    ClientToFutureOfString: () => (T.ClientToFutureOfString = dart.constFn(dart.fnType(T.FutureOfString(), [client$.Client])))(),
-    FutureOfUint8List: () => (T.FutureOfUint8List = dart.constFn(async.Future$(typed_data.Uint8List)))(),
-    ClientToFutureOfUint8List: () => (T.ClientToFutureOfUint8List = dart.constFn(dart.fnType(T.FutureOfUint8List(), [client$.Client])))()
+    IdentityMapOfStringL$StringL: () => (T.IdentityMapOfStringL$StringL = dart.constFn(_js_helper.IdentityMap$(T.StringL(), T.StringL())))(),
+    FutureOfNull: () => (T.FutureOfNull = dart.constFn(async.Future$(core.Null)))(),
+    FutureLOfNull: () => (T.FutureLOfNull = dart.constFn(dart.legacy(T.FutureOfNull())))(),
+    VoidToFutureLOfNull: () => (T.VoidToFutureLOfNull = dart.constFn(dart.fnType(T.FutureLOfNull(), [])))(),
+    ColumnL: () => (T.ColumnL = dart.constFn(dart.legacy(basic.Column)))(),
+    BuildContextL: () => (T.BuildContextL = dart.constFn(dart.legacy(framework.BuildContext)))(),
+    intL: () => (T.intL = dart.constFn(dart.legacy(core.int)))(),
+    BuildContextLAndintLToColumnL: () => (T.BuildContextLAndintLToColumnL = dart.constFn(dart.fnType(T.ColumnL(), [T.BuildContextL(), T.intL()])))(),
+    PaddingL: () => (T.PaddingL = dart.constFn(dart.legacy(basic.Padding)))(),
+    BuildContextLAndProductsLAndWidgetLToPaddingL: () => (T.BuildContextLAndProductsLAndWidgetLToPaddingL = dart.constFn(dart.fnType(T.PaddingL(), [T.BuildContextL(), T.ProductsL(), T.WidgetL()])))(),
+    AsyncSnapshotL: () => (T.AsyncSnapshotL = dart.constFn(dart.legacy(async$.AsyncSnapshot)))(),
+    BuildContextLAndAsyncSnapshotLToWidgetL: () => (T.BuildContextLAndAsyncSnapshotLToWidgetL = dart.constFn(dart.fnType(T.WidgetL(), [T.BuildContextL(), T.AsyncSnapshotL()])))(),
+    AuthL: () => (T.AuthL = dart.constFn(dart.legacy(auth.Auth)))(),
+    OrdersL: () => (T.OrdersL = dart.constFn(dart.legacy(orders.Orders)))(),
+    ConsumerOfOrdersL: () => (T.ConsumerOfOrdersL = dart.constFn(consumer.Consumer$(T.OrdersL())))(),
+    OrderItemL: () => (T.OrderItemL = dart.constFn(dart.legacy(order_item.OrderItem)))(),
+    BuildContextLAndintLToOrderItemL: () => (T.BuildContextLAndintLToOrderItemL = dart.constFn(dart.fnType(T.OrderItemL(), [T.BuildContextL(), T.intL()])))(),
+    ListViewL: () => (T.ListViewL = dart.constFn(dart.legacy(scroll_view.ListView)))(),
+    BuildContextLAndOrdersLAndWidgetLToListViewL: () => (T.BuildContextLAndOrdersLAndWidgetLToListViewL = dart.constFn(dart.fnType(T.ListViewL(), [T.BuildContextL(), T.OrdersL(), T.WidgetL()])))()
   };
   var T$Eval = Object.assign({
     _: () => T$Eval
@@ -88,1097 +88,1694 @@ define(['dart_sdk', 'packages/http/src/byte_stream.dart', 'packages/http/src/uti
     _: () => (C, CT)
   });
   dart.defineLazy(CT, {
-    get C0() {
-      return C[0] = dart.constList([13, 10], T.intL());
-    },
     get C2() {
       return C[2] = dart.const({
-        __proto__: T._EmptyStreamOfListLOfintL().prototype
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 21,
+        [_Location_line]: 20,
+        [_Location_file]: null
       });
     },
     get C1() {
-      return C[1] = dart.const({
-        __proto__: byte_stream.ByteStream.prototype,
-        [StreamView__stream]: C[2] || CT.C2
+      return C[1] = dart.constList([C[2] || CT.C2], T._LocationL());
+    },
+    get C0() {
+      return C[0] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[1] || CT.C1,
+        [_Location_name]: null,
+        [_Location_column]: 16,
+        [_Location_line]: 20,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
       });
+    },
+    get C5() {
+      return C[5] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 30,
+        [_Location_line]: 23,
+        [_Location_file]: null
+      });
+    },
+    get C4() {
+      return C[4] = dart.constList([C[5] || CT.C5], T._LocationL());
     },
     get C3() {
-      return C[3] = dart.constMap(T.StringL(), T.StringL(), []);
-    }
-  }, false);
-  var C = Array(4).fill(void 0);
-  var I = [
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/multipart_request.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/base_request.dart",
-    "package:http/src/base_request.dart",
-    "package:http/src/multipart_request.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/multipart_file_stub.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/multipart_file.dart",
-    "package:http/src/multipart_file.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/streamed_request.dart",
-    "package:http/src/streamed_request.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/browser_client.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/base_client.dart",
-    "package:http/src/base_client.dart",
-    "package:http/src/browser_client.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/response.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/base_response.dart",
-    "package:http/src/base_response.dart",
-    "package:http/src/response.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/request.dart",
-    "package:http/src/request.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/src/streamed_response.dart",
-    "package:http/src/streamed_response.dart",
-    "package:http/src/client.dart",
-    "file:///C:/src/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.1/lib/http.dart"
-  ];
-  var fields = dart.privateName(multipart_request, "MultipartRequest.fields");
-  var files = dart.privateName(multipart_request, "MultipartRequest.files");
-  var _headerForField = dart.privateName(multipart_request, "_headerForField");
-  var _headerForFile = dart.privateName(multipart_request, "_headerForFile");
-  var _boundaryString = dart.privateName(multipart_request, "_boundaryString");
-  var _finalize = dart.privateName(multipart_request, "_finalize");
-  var _browserEncode = dart.privateName(multipart_request, "_browserEncode");
-  var method$ = dart.privateName(base_request, "BaseRequest.method");
-  var url$ = dart.privateName(base_request, "BaseRequest.url");
-  var headers = dart.privateName(base_request, "BaseRequest.headers");
-  var _contentLength = dart.privateName(base_request, "_contentLength");
-  var _persistentConnection = dart.privateName(base_request, "_persistentConnection");
-  var _followRedirects = dart.privateName(base_request, "_followRedirects");
-  var _maxRedirects = dart.privateName(base_request, "_maxRedirects");
-  var _finalized = dart.privateName(base_request, "_finalized");
-  var _checkFinalized = dart.privateName(base_request, "_checkFinalized");
-  var StreamView__stream = dart.privateName(async, "StreamView._stream");
-  base_request.BaseRequest = class BaseRequest extends core.Object {
-    get method() {
-      return this[method$];
-    }
-    set method(value) {
-      super.method = value;
-    }
-    get url() {
-      return this[url$];
-    }
-    set url(value) {
-      super.url = value;
-    }
-    get headers() {
-      return this[headers];
-    }
-    set headers(value) {
-      super.headers = value;
-    }
-    get contentLength() {
-      return this[_contentLength];
-    }
-    set contentLength(value) {
-      if (value != null && dart.notNull(value) < 0) {
-        dart.throw(new core.ArgumentError.new("Invalid content length " + dart.str(value) + "."));
-      }
-      this[_checkFinalized]();
-      this[_contentLength] = value;
-    }
-    get persistentConnection() {
-      return this[_persistentConnection];
-    }
-    set persistentConnection(value) {
-      if (value == null) dart.nullFailed(I[1], 54, 33, "value");
-      this[_checkFinalized]();
-      this[_persistentConnection] = value;
-    }
-    get followRedirects() {
-      return this[_followRedirects];
-    }
-    set followRedirects(value) {
-      if (value == null) dart.nullFailed(I[1], 65, 28, "value");
-      this[_checkFinalized]();
-      this[_followRedirects] = value;
-    }
-    get maxRedirects() {
-      return this[_maxRedirects];
-    }
-    set maxRedirects(value) {
-      if (value == null) dart.nullFailed(I[1], 77, 24, "value");
-      this[_checkFinalized]();
-      this[_maxRedirects] = value;
-    }
-    get finalized() {
-      return this[_finalized];
-    }
-    finalize() {
-      if (dart.test(this.finalized)) dart.throw(new core.StateError.new("Can't finalize a finalized Request."));
-      this[_finalized] = true;
-      return C[1] || CT.C1;
-    }
-    send() {
-      return async.async(streamed_response.StreamedResponse, (function* send() {
-        let client = client$.Client.new();
-        try {
-          let response = (yield client.send(this));
-          let stream = utils.onDone(T.ListOfint(), response.stream, dart.bind(client, 'close'));
-          return new streamed_response.StreamedResponse.new(new byte_stream.ByteStream.new(stream), response.statusCode, {contentLength: response.contentLength, request: response.request, headers: response.headers, isRedirect: response.isRedirect, persistentConnection: response.persistentConnection, reasonPhrase: response.reasonPhrase});
-        } catch (e) {
-          let _ = dart.getThrown(e);
-          if (core.Object.is(_)) {
-            client.close();
-            dart.rethrow(e);
-          } else
-            throw e;
-        }
-      }).bind(this));
-    }
-    [_checkFinalized]() {
-      if (!dart.test(this.finalized)) return;
-      dart.throw(new core.StateError.new("Can't modify a finalized Request."));
-    }
-    toString() {
-      return dart.str(this.method) + " " + dart.str(this.url);
-    }
-  };
-  (base_request.BaseRequest.new = function(method, url) {
-    if (method == null) dart.nullFailed(I[1], 91, 20, "method");
-    if (url == null) dart.nullFailed(I[1], 91, 33, "url");
-    this[_contentLength] = null;
-    this[_persistentConnection] = true;
-    this[_followRedirects] = true;
-    this[_maxRedirects] = 5;
-    this[_finalized] = false;
-    this[method$] = method;
-    this[url$] = url;
-    this[headers] = T.LinkedHashMapOfString$String().new({equals: dart.fn((key1, key2) => {
-        if (key1 == null) dart.nullFailed(I[1], 93, 22, "key1");
-        if (key2 == null) dart.nullFailed(I[1], 93, 28, "key2");
-        return key1[$toLowerCase]() === key2[$toLowerCase]();
-      }, T.StringAndStringTobool()), hashCode: dart.fn(key => {
-        if (key == null) dart.nullFailed(I[1], 94, 24, "key");
-        return key[$toLowerCase]()[$hashCode];
-      }, T.StringToint())});
-    ;
-  }).prototype = base_request.BaseRequest.prototype;
-  dart.addTypeTests(base_request.BaseRequest);
-  dart.addTypeCaches(base_request.BaseRequest);
-  dart.setMethodSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getMethods(base_request.BaseRequest.__proto__),
-    finalize: dart.fnType(byte_stream.ByteStream, []),
-    send: dart.fnType(async.Future$(streamed_response.StreamedResponse), []),
-    [_checkFinalized]: dart.fnType(dart.void, [])
-  }));
-  dart.setGetterSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getGetters(base_request.BaseRequest.__proto__),
-    contentLength: dart.nullable(core.int),
-    persistentConnection: core.bool,
-    followRedirects: core.bool,
-    maxRedirects: core.int,
-    finalized: core.bool
-  }));
-  dart.setSetterSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getSetters(base_request.BaseRequest.__proto__),
-    contentLength: dart.nullable(core.int),
-    persistentConnection: core.bool,
-    followRedirects: core.bool,
-    maxRedirects: core.int
-  }));
-  dart.setLibraryUri(base_request.BaseRequest, I[2]);
-  dart.setFieldSignature(base_request.BaseRequest, () => ({
-    __proto__: dart.getFields(base_request.BaseRequest.__proto__),
-    method: dart.finalFieldType(core.String),
-    url: dart.finalFieldType(core.Uri),
-    [_contentLength]: dart.fieldType(dart.nullable(core.int)),
-    [_persistentConnection]: dart.fieldType(core.bool),
-    [_followRedirects]: dart.fieldType(core.bool),
-    [_maxRedirects]: dart.fieldType(core.int),
-    headers: dart.finalFieldType(core.Map$(core.String, core.String)),
-    [_finalized]: dart.fieldType(core.bool)
-  }));
-  dart.defineExtensionMethods(base_request.BaseRequest, ['toString']);
-  multipart_request.MultipartRequest = class MultipartRequest extends base_request.BaseRequest {
-    get fields() {
-      return this[fields];
-    }
-    set fields(value) {
-      super.fields = value;
-    }
-    get files() {
-      return this[files];
-    }
-    set files(value) {
-      super.files = value;
-    }
-    get contentLength() {
-      let length = 0;
-      this.fields[$forEach](dart.fn((name, value) => {
-        if (name == null) dart.nullFailed(I[0], 57, 21, "name");
-        if (value == null) dart.nullFailed(I[0], 57, 27, "value");
-        length = length + ("--".length + 70 + "\r\n".length + dart.notNull(convert.utf8.encode(this[_headerForField](name, value))[$length]) + dart.notNull(convert.utf8.encode(value)[$length]) + "\r\n".length);
-      }, T.StringAndStringTovoid()));
-      for (let file of this.files) {
-        length = length + ("--".length + 70 + "\r\n".length + dart.notNull(convert.utf8.encode(this[_headerForFile](file))[$length]) + dart.notNull(file.length) + "\r\n".length);
-      }
-      return length + "--".length + 70 + "--\r\n".length;
-    }
-    set contentLength(value) {
-      dart.throw(new core.UnsupportedError.new("Cannot set the contentLength property of " + "multipart requests."));
-    }
-    finalize() {
-      let boundary = this[_boundaryString]();
-      this.headers[$_set]("content-type", "multipart/form-data; boundary=" + dart.str(boundary));
-      super.finalize();
-      return new byte_stream.ByteStream.new(this[_finalize](boundary));
-    }
-    [_finalize](boundary) {
-      if (boundary == null) dart.nullFailed(I[0], 95, 38, "boundary");
-      return new (T._AsyncStarImplOfListOfint()).new((function* _finalize(stream) {
-        let line = C[0] || CT.C0;
-        let separator = convert.utf8.encode("--" + dart.str(boundary) + "\r\n");
-        let close = convert.utf8.encode("--" + dart.str(boundary) + "--\r\n");
-        for (let field of this.fields[$entries]) {
-          if (stream.add(separator)) return;
-          yield;
-          if (stream.add(convert.utf8.encode(this[_headerForField](field.key, field.value)))) return;
-          yield;
-          if (stream.add(convert.utf8.encode(field.value))) return;
-          yield;
-          if (stream.add(line)) return;
-          yield;
-        }
-        for (let file of this.files) {
-          if (stream.add(separator)) return;
-          yield;
-          if (stream.add(convert.utf8.encode(this[_headerForFile](file)))) return;
-          yield;
-          if (stream.addStream(file.finalize())) return;
-          yield;
-          if (stream.add(line)) return;
-          yield;
-        }
-        if (stream.add(close)) return;
-        yield;
-      }).bind(this)).stream;
-    }
-    [_headerForField](name, value) {
-      if (name == null) dart.nullFailed(I[0], 119, 33, "name");
-      if (value == null) dart.nullFailed(I[0], 119, 46, "value");
-      let header = "content-disposition: form-data; name=\"" + dart.str(this[_browserEncode](name)) + "\"";
-      if (!dart.test(utils.isPlainAscii(value))) {
-        header = header + "\r\n" + "content-type: text/plain; charset=utf-8\r\n" + "content-transfer-encoding: binary";
-      }
-      return header + "\r\n\r\n";
-    }
-    [_headerForFile](file) {
-      if (file == null) dart.nullFailed(I[0], 133, 39, "file");
-      let header = "content-type: " + dart.str(file.contentType) + "\r\n" + "content-disposition: form-data; name=\"" + dart.str(this[_browserEncode](file.field)) + "\"";
-      if (file.filename != null) {
-        header = header + "; filename=\"" + dart.str(this[_browserEncode](dart.nullCheck(file.filename))) + "\"";
-      }
-      return header + "\r\n\r\n";
-    }
-    [_browserEncode](value) {
-      if (value == null) dart.nullFailed(I[0], 144, 32, "value");
-      return value[$replaceAll](multipart_request._newlineRegExp, "%0D%0A")[$replaceAll]("\"", "%22");
-    }
-    [_boundaryString]() {
-      let prefix = "dart-http-boundary-";
-      let list = T.ListOfint().generate(70 - prefix.length, dart.fn(index => {
-        if (index == null) dart.nullFailed(I[0], 157, 10, "index");
-        return boundary_characters.boundaryCharacters[$_get](multipart_request.MultipartRequest._random.nextInt(boundary_characters.boundaryCharacters[$length]));
-      }, T.intToint()), {growable: false});
-      return prefix + dart.str(core.String.fromCharCodes(list));
-    }
-  };
-  (multipart_request.MultipartRequest.new = function(method, url) {
-    if (method == null) dart.nullFailed(I[0], 48, 27, "method");
-    if (url == null) dart.nullFailed(I[0], 48, 39, "url");
-    this[fields] = new (T.IdentityMapOfString$String()).new();
-    this[files] = T.JSArrayOfMultipartFile().of([]);
-    multipart_request.MultipartRequest.__proto__.new.call(this, method, url);
-    ;
-  }).prototype = multipart_request.MultipartRequest.prototype;
-  dart.addTypeTests(multipart_request.MultipartRequest);
-  dart.addTypeCaches(multipart_request.MultipartRequest);
-  dart.setMethodSignature(multipart_request.MultipartRequest, () => ({
-    __proto__: dart.getMethods(multipart_request.MultipartRequest.__proto__),
-    [_finalize]: dart.fnType(async.Stream$(core.List$(core.int)), [core.String]),
-    [_headerForField]: dart.fnType(core.String, [core.String, core.String]),
-    [_headerForFile]: dart.fnType(core.String, [multipart_file.MultipartFile]),
-    [_browserEncode]: dart.fnType(core.String, [core.String]),
-    [_boundaryString]: dart.fnType(core.String, [])
-  }));
-  dart.setGetterSignature(multipart_request.MultipartRequest, () => ({
-    __proto__: dart.getGetters(multipart_request.MultipartRequest.__proto__),
-    contentLength: core.int
-  }));
-  dart.setLibraryUri(multipart_request.MultipartRequest, I[3]);
-  dart.setFieldSignature(multipart_request.MultipartRequest, () => ({
-    __proto__: dart.getFields(multipart_request.MultipartRequest.__proto__),
-    fields: dart.finalFieldType(core.Map$(core.String, core.String)),
-    files: dart.finalFieldType(core.List$(multipart_file.MultipartFile))
-  }));
-  dart.defineLazy(multipart_request.MultipartRequest, {
-    /*multipart_request.MultipartRequest._boundaryLength*/get _boundaryLength() {
-      return 70;
+      return C[3] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[4] || CT.C4,
+        [_Location_name]: null,
+        [_Location_column]: 19,
+        [_Location_line]: 23,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
     },
-    /*multipart_request.MultipartRequest._random*/get _random() {
-      return math.Random.new();
-    }
-  }, false);
-  dart.defineLazy(multipart_request, {
-    /*multipart_request._newlineRegExp*/get _newlineRegExp() {
-      return core.RegExp.new("\\r\\n|\\r|\\n");
-    }
-  }, false);
-  multipart_file_stub.multipartFileFromPath = function multipartFileFromPath(field, filePath, opts) {
-    if (field == null) dart.nullFailed(I[4], 9, 52, "field");
-    if (filePath == null) dart.nullFailed(I[4], 9, 66, "filePath");
-    let filename = opts && 'filename' in opts ? opts.filename : null;
-    let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-    return dart.throw(new core.UnsupportedError.new("MultipartFile is only supported where dart:io is available."));
-  };
-  var field$ = dart.privateName(multipart_file, "MultipartFile.field");
-  var length$ = dart.privateName(multipart_file, "MultipartFile.length");
-  var filename$ = dart.privateName(multipart_file, "MultipartFile.filename");
-  var contentType$ = dart.privateName(multipart_file, "MultipartFile.contentType");
-  var _isFinalized = dart.privateName(multipart_file, "_isFinalized");
-  var _stream = dart.privateName(multipart_file, "_stream");
-  multipart_file.MultipartFile = class MultipartFile extends core.Object {
-    get field() {
-      return this[field$];
-    }
-    set field(value) {
-      super.field = value;
-    }
-    get length() {
-      return this[length$];
-    }
-    set length(value) {
-      super.length = value;
-    }
-    get filename() {
-      return this[filename$];
-    }
-    set filename(value) {
-      super.filename = value;
-    }
-    get contentType() {
-      return this[contentType$];
-    }
-    set contentType(value) {
-      super.contentType = value;
-    }
-    get isFinalized() {
-      return this[_isFinalized];
-    }
-    static fromBytes(field, value, opts) {
-      if (field == null) dart.nullFailed(I[5], 60, 42, "field");
-      if (value == null) dart.nullFailed(I[5], 60, 59, "value");
-      let filename = opts && 'filename' in opts ? opts.filename : null;
-      let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-      let stream = byte_stream.ByteStream.fromBytes(value);
-      return new multipart_file.MultipartFile.new(field, stream, value[$length], {filename: filename, contentType: contentType});
-    }
-    static fromString(field, value, opts) {
-      if (field == null) dart.nullFailed(I[5], 73, 43, "field");
-      if (value == null) dart.nullFailed(I[5], 73, 57, "value");
-      let filename = opts && 'filename' in opts ? opts.filename : null;
-      let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-      contentType == null ? contentType = new media_type.MediaType.new("text", "plain") : null;
-      let encoding = utils.encodingForCharset(contentType.parameters[$_get]("charset"), convert.utf8);
-      contentType = contentType.change({parameters: new (T.IdentityMapOfString$String()).from(["charset", encoding.name])});
-      return multipart_file.MultipartFile.fromBytes(field, encoding.encode(value), {filename: filename, contentType: contentType});
-    }
-    static fromPath(field, filePath, opts) {
-      if (field == null) dart.nullFailed(I[5], 92, 48, "field");
-      if (filePath == null) dart.nullFailed(I[5], 92, 62, "filePath");
-      let filename = opts && 'filename' in opts ? opts.filename : null;
-      let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-      return multipart_file_stub.multipartFileFromPath(field, filePath, {filename: filename, contentType: contentType});
-    }
-    finalize() {
-      if (dart.test(this.isFinalized)) {
-        dart.throw(new core.StateError.new("Can't finalize a finalized MultipartFile."));
-      }
-      this[_isFinalized] = true;
-      return this[_stream];
-    }
-  };
-  (multipart_file.MultipartFile.new = function(field, stream, length, opts) {
-    let t1;
-    if (field == null) dart.nullFailed(I[5], 51, 22, "field");
-    if (stream == null) dart.nullFailed(I[5], 51, 47, "stream");
-    if (length == null) dart.nullFailed(I[5], 51, 60, "length");
-    let filename = opts && 'filename' in opts ? opts.filename : null;
-    let contentType = opts && 'contentType' in opts ? opts.contentType : null;
-    this[_isFinalized] = false;
-    this[field$] = field;
-    this[length$] = length;
-    this[filename$] = filename;
-    this[_stream] = utils.toByteStream(stream);
-    this[contentType$] = (t1 = contentType, t1 == null ? new media_type.MediaType.new("application", "octet-stream") : t1);
-    ;
-  }).prototype = multipart_file.MultipartFile.prototype;
-  dart.addTypeTests(multipart_file.MultipartFile);
-  dart.addTypeCaches(multipart_file.MultipartFile);
-  dart.setMethodSignature(multipart_file.MultipartFile, () => ({
-    __proto__: dart.getMethods(multipart_file.MultipartFile.__proto__),
-    finalize: dart.fnType(byte_stream.ByteStream, [])
-  }));
-  dart.setGetterSignature(multipart_file.MultipartFile, () => ({
-    __proto__: dart.getGetters(multipart_file.MultipartFile.__proto__),
-    isFinalized: core.bool
-  }));
-  dart.setLibraryUri(multipart_file.MultipartFile, I[6]);
-  dart.setFieldSignature(multipart_file.MultipartFile, () => ({
-    __proto__: dart.getFields(multipart_file.MultipartFile.__proto__),
-    field: dart.finalFieldType(core.String),
-    length: dart.finalFieldType(core.int),
-    filename: dart.finalFieldType(dart.nullable(core.String)),
-    contentType: dart.finalFieldType(media_type.MediaType),
-    [_stream]: dart.finalFieldType(byte_stream.ByteStream),
-    [_isFinalized]: dart.fieldType(core.bool)
-  }));
-  var _controller = dart.privateName(streamed_request, "_controller");
-  streamed_request.StreamedRequest = class StreamedRequest extends base_request.BaseRequest {
-    get sink() {
-      return this[_controller].sink;
-    }
-    finalize() {
-      super.finalize();
-      return new byte_stream.ByteStream.new(this[_controller].stream);
-    }
-  };
-  (streamed_request.StreamedRequest.new = function(method, url) {
-    if (method == null) dart.nullFailed(I[7], 32, 26, "method");
-    if (url == null) dart.nullFailed(I[7], 32, 38, "url");
-    this[_controller] = T.StreamControllerOfListOfint().new({sync: true});
-    streamed_request.StreamedRequest.__proto__.new.call(this, method, url);
-    ;
-  }).prototype = streamed_request.StreamedRequest.prototype;
-  dart.addTypeTests(streamed_request.StreamedRequest);
-  dart.addTypeCaches(streamed_request.StreamedRequest);
-  dart.setGetterSignature(streamed_request.StreamedRequest, () => ({
-    __proto__: dart.getGetters(streamed_request.StreamedRequest.__proto__),
-    sink: async.EventSink$(core.List$(core.int))
-  }));
-  dart.setLibraryUri(streamed_request.StreamedRequest, I[8]);
-  dart.setFieldSignature(streamed_request.StreamedRequest, () => ({
-    __proto__: dart.getFields(streamed_request.StreamedRequest.__proto__),
-    [_controller]: dart.finalFieldType(async.StreamController$(core.List$(core.int)))
-  }));
-  var withCredentials = dart.privateName(browser_client, "BrowserClient.withCredentials");
-  var _xhrs = dart.privateName(browser_client, "_xhrs");
-  var _sendUnstreamed = dart.privateName(base_client, "_sendUnstreamed");
-  var _checkResponseSuccess = dart.privateName(base_client, "_checkResponseSuccess");
-  base_client.BaseClient = class BaseClient extends core.Object {
-    head(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 22, 29, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return this[_sendUnstreamed]("HEAD", url, headers);
-    }
-    get(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 26, 28, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return this[_sendUnstreamed]("GET", url, headers);
-    }
-    post(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 30, 29, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      let body = opts && 'body' in opts ? opts.body : null;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-      return this[_sendUnstreamed]("POST", url, headers, body, encoding);
-    }
-    put(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 35, 28, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      let body = opts && 'body' in opts ? opts.body : null;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-      return this[_sendUnstreamed]("PUT", url, headers, body, encoding);
-    }
-    patch(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 40, 30, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      let body = opts && 'body' in opts ? opts.body : null;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-      return this[_sendUnstreamed]("PATCH", url, headers, body, encoding);
-    }
-    delete(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 45, 31, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      let body = opts && 'body' in opts ? opts.body : null;
-      let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-      return this[_sendUnstreamed]("DELETE", url, headers, body, encoding);
-    }
-    read(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 50, 27, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return async.async(core.String, (function* read() {
-        let response = (yield this.get(url, {headers: headers}));
-        this[_checkResponseSuccess](url, response);
-        return response.body;
-      }).bind(this));
-    }
-    readBytes(url, opts) {
-      if (url == null) dart.nullFailed(I[10], 57, 35, "url");
-      let headers = opts && 'headers' in opts ? opts.headers : null;
-      return async.async(typed_data.Uint8List, (function* readBytes() {
-        let response = (yield this.get(url, {headers: headers}));
-        this[_checkResponseSuccess](url, response);
-        return response.bodyBytes;
-      }).bind(this));
-    }
-    [_sendUnstreamed](method, url, headers, body = null, encoding = null) {
-      if (method == null) dart.nullFailed(I[10], 75, 14, "method");
-      if (url == null) dart.nullFailed(I[10], 75, 26, "url");
-      return async.async(response$.Response, (function* _sendUnstreamed() {
-        let request = new request$.Request.new(method, url);
-        if (headers != null) request.headers[$addAll](headers);
-        if (encoding != null) request.encoding = encoding;
-        if (body != null) {
-          if (typeof body == 'string') {
-            request.body = body;
-          } else if (core.List.is(body)) {
-            request.bodyBytes = body[$cast](core.int);
-          } else if (core.Map.is(body)) {
-            request.bodyFields = body[$cast](core.String, core.String);
-          } else {
-            dart.throw(new core.ArgumentError.new("Invalid request body \"" + dart.str(body) + "\"."));
-          }
-        }
-        return response$.Response.fromStream(yield this.send(request));
-      }).bind(this));
-    }
-    [_checkResponseSuccess](url, response) {
-      if (url == null) dart.nullFailed(I[10], 97, 34, "url");
-      if (response == null) dart.nullFailed(I[10], 97, 48, "response");
-      if (dart.notNull(response.statusCode) < 400) return;
-      let message = "Request to " + dart.str(url) + " failed with status " + dart.str(response.statusCode);
-      if (response.reasonPhrase != null) {
-        message = message + ": " + dart.str(response.reasonPhrase);
-      }
-      dart.throw(new exception.ClientException.new(message + ".", url));
-    }
-    close() {
-    }
-  };
-  (base_client.BaseClient.new = function() {
-    ;
-  }).prototype = base_client.BaseClient.prototype;
-  dart.addTypeTests(base_client.BaseClient);
-  dart.addTypeCaches(base_client.BaseClient);
-  base_client.BaseClient[dart.implements] = () => [client$.Client];
-  dart.setMethodSignature(base_client.BaseClient, () => ({
-    __proto__: dart.getMethods(base_client.BaseClient.__proto__),
-    head: dart.fnType(async.Future$(response$.Response), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    get: dart.fnType(async.Future$(response$.Response), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    post: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    put: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    patch: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    delete: dart.fnType(async.Future$(response$.Response), [core.Uri], {body: dart.nullable(core.Object), encoding: dart.nullable(convert.Encoding), headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    read: dart.fnType(async.Future$(core.String), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    readBytes: dart.fnType(async.Future$(typed_data.Uint8List), [core.Uri], {headers: dart.nullable(core.Map$(core.String, core.String))}, {}),
-    [_sendUnstreamed]: dart.fnType(async.Future$(response$.Response), [core.String, core.Uri, dart.nullable(core.Map$(core.String, core.String))], [dart.dynamic, dart.nullable(convert.Encoding)]),
-    [_checkResponseSuccess]: dart.fnType(dart.void, [core.Uri, response$.Response]),
-    close: dart.fnType(dart.void, [])
-  }));
-  dart.setLibraryUri(base_client.BaseClient, I[11]);
-  browser_client.BrowserClient = class BrowserClient extends base_client.BaseClient {
-    get withCredentials() {
-      return this[withCredentials];
-    }
-    set withCredentials(value) {
-      this[withCredentials] = value;
-    }
-    send(request) {
-      if (request == null) dart.nullFailed(I[9], 44, 45, "request");
-      return async.async(streamed_response.StreamedResponse, (function* send() {
-        let t1;
-        let bytes = (yield request.finalize().toBytes());
-        let xhr = html.HttpRequest.new();
-        this[_xhrs].add(xhr);
-        t1 = xhr;
-        (() => {
-          t1.open(request.method, dart.str(request.url), {async: true});
-          t1.responseType = "arraybuffer";
-          t1.withCredentials = this.withCredentials;
-          return t1;
-        })();
-        request.headers[$forEach](dart.bind(xhr, 'setRequestHeader'));
-        let completer = T.CompleterOfStreamedResponse().new();
-        pedantic.unawaited(xhr[$onLoad].first.then(dart.void, dart.fn(_ => {
-          if (_ == null) dart.nullFailed(I[9], 56, 38, "_");
-          let body = typed_data.ByteBuffer.as(xhr[$response])[$asUint8List]();
-          completer.complete(new streamed_response.StreamedResponse.new(byte_stream.ByteStream.fromBytes(body), dart.nullCheck(xhr.status), {contentLength: body[$length], request: request, headers: xhr[$responseHeaders], reasonPhrase: xhr.statusText}));
-        }, T.ProgressEventToNull())));
-        pedantic.unawaited(xhr[$onError].first.then(dart.void, dart.fn(_ => {
-          if (_ == null) dart.nullFailed(I[9], 66, 39, "_");
-          completer.completeError(new exception.ClientException.new("XMLHttpRequest error.", request.url), core.StackTrace.current);
-        }, T.ProgressEventToNull())));
-        xhr.send(bytes);
-        try {
-          return yield completer.future;
-        } finally {
-          this[_xhrs].remove(xhr);
-        }
-      }).bind(this));
-    }
-    close() {
-      for (let xhr of this[_xhrs]) {
-        xhr.abort();
-      }
-    }
-  };
-  (browser_client.BrowserClient.new = function() {
-    this[_xhrs] = T.LinkedHashSetOfHttpRequest().new();
-    this[withCredentials] = false;
-    ;
-  }).prototype = browser_client.BrowserClient.prototype;
-  dart.addTypeTests(browser_client.BrowserClient);
-  dart.addTypeCaches(browser_client.BrowserClient);
-  dart.setMethodSignature(browser_client.BrowserClient, () => ({
-    __proto__: dart.getMethods(browser_client.BrowserClient.__proto__),
-    send: dart.fnType(async.Future$(streamed_response.StreamedResponse), [base_request.BaseRequest])
-  }));
-  dart.setLibraryUri(browser_client.BrowserClient, I[12]);
-  dart.setFieldSignature(browser_client.BrowserClient, () => ({
-    __proto__: dart.getFields(browser_client.BrowserClient.__proto__),
-    [_xhrs]: dart.finalFieldType(core.Set$(html.HttpRequest)),
-    withCredentials: dart.fieldType(core.bool)
-  }));
-  browser_client.createClient = function createClient() {
-    return new browser_client.BrowserClient.new();
-  };
-  var bodyBytes$ = dart.privateName(response$, "Response.bodyBytes");
-  var request$0 = dart.privateName(base_response, "BaseResponse.request");
-  var statusCode$ = dart.privateName(base_response, "BaseResponse.statusCode");
-  var reasonPhrase$ = dart.privateName(base_response, "BaseResponse.reasonPhrase");
-  var contentLength$ = dart.privateName(base_response, "BaseResponse.contentLength");
-  var headers$ = dart.privateName(base_response, "BaseResponse.headers");
-  var isRedirect$ = dart.privateName(base_response, "BaseResponse.isRedirect");
-  var persistentConnection$ = dart.privateName(base_response, "BaseResponse.persistentConnection");
-  base_response.BaseResponse = class BaseResponse extends core.Object {
-    get request() {
-      return this[request$0];
-    }
-    set request(value) {
-      super.request = value;
-    }
-    get statusCode() {
-      return this[statusCode$];
-    }
-    set statusCode(value) {
-      super.statusCode = value;
-    }
-    get reasonPhrase() {
-      return this[reasonPhrase$];
-    }
-    set reasonPhrase(value) {
-      super.reasonPhrase = value;
-    }
-    get contentLength() {
-      return this[contentLength$];
-    }
-    set contentLength(value) {
-      super.contentLength = value;
-    }
-    get headers() {
-      return this[headers$];
-    }
-    set headers(value) {
-      super.headers = value;
-    }
-    get isRedirect() {
-      return this[isRedirect$];
-    }
-    set isRedirect(value) {
-      super.isRedirect = value;
-    }
-    get persistentConnection() {
-      return this[persistentConnection$];
-    }
-    set persistentConnection(value) {
-      super.persistentConnection = value;
-    }
-  };
-  (base_response.BaseResponse.new = function(statusCode, opts) {
-    if (statusCode == null) dart.nullFailed(I[14], 37, 21, "statusCode");
-    let contentLength = opts && 'contentLength' in opts ? opts.contentLength : null;
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
-    if (headers == null) dart.nullFailed(I[14], 40, 12, "headers");
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    if (isRedirect == null) dart.nullFailed(I[14], 41, 12, "isRedirect");
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    if (persistentConnection == null) dart.nullFailed(I[14], 42, 12, "persistentConnection");
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    this[statusCode$] = statusCode;
-    this[contentLength$] = contentLength;
-    this[request$0] = request;
-    this[headers$] = headers;
-    this[isRedirect$] = isRedirect;
-    this[persistentConnection$] = persistentConnection;
-    this[reasonPhrase$] = reasonPhrase;
-    if (dart.notNull(this.statusCode) < 100) {
-      dart.throw(new core.ArgumentError.new("Invalid status code " + dart.str(this.statusCode) + "."));
-    } else if (this.contentLength != null && dart.nullCheck(this.contentLength) < 0) {
-      dart.throw(new core.ArgumentError.new("Invalid content length " + dart.str(this.contentLength) + "."));
-    }
-  }).prototype = base_response.BaseResponse.prototype;
-  dart.addTypeTests(base_response.BaseResponse);
-  dart.addTypeCaches(base_response.BaseResponse);
-  dart.setLibraryUri(base_response.BaseResponse, I[15]);
-  dart.setFieldSignature(base_response.BaseResponse, () => ({
-    __proto__: dart.getFields(base_response.BaseResponse.__proto__),
-    request: dart.finalFieldType(dart.nullable(base_request.BaseRequest)),
-    statusCode: dart.finalFieldType(core.int),
-    reasonPhrase: dart.finalFieldType(dart.nullable(core.String)),
-    contentLength: dart.finalFieldType(dart.nullable(core.int)),
-    headers: dart.finalFieldType(core.Map$(core.String, core.String)),
-    isRedirect: dart.finalFieldType(core.bool),
-    persistentConnection: dart.finalFieldType(core.bool)
-  }));
-  response$.Response = class Response extends base_response.BaseResponse {
-    get bodyBytes() {
-      return this[bodyBytes$];
-    }
-    set bodyBytes(value) {
-      super.bodyBytes = value;
-    }
-    get body() {
-      return response$._encodingForHeaders(this.headers).decode(this.bodyBytes);
-    }
-    static fromStream(response) {
-      if (response == null) dart.nullFailed(I[13], 62, 55, "response");
-      return async.async(response$.Response, function* fromStream() {
-        let body = (yield response.stream.toBytes());
-        return new response$.Response.bytes(body, response.statusCode, {request: response.request, headers: response.headers, isRedirect: response.isRedirect, persistentConnection: response.persistentConnection, reasonPhrase: response.reasonPhrase});
+    get C8() {
+      return C[8] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 13,
+        [_Location_line]: 23,
+        [_Location_file]: null
+      });
+    },
+    get C9() {
+      return C[9] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 13,
+        [_Location_line]: 24,
+        [_Location_file]: null
+      });
+    },
+    get C7() {
+      return C[7] = dart.constList([C[8] || CT.C8, C[9] || CT.C9], T._LocationL());
+    },
+    get C6() {
+      return C[6] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[7] || CT.C7,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 22,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C12() {
+      return C[12] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 9,
+        [_Location_line]: 20,
+        [_Location_file]: null
+      });
+    },
+    get C13() {
+      return C[13] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "actions",
+        [_Location_column]: 9,
+        [_Location_line]: 21,
+        [_Location_file]: null
+      });
+    },
+    get C11() {
+      return C[11] = dart.constList([C[12] || CT.C12, C[13] || CT.C13], T._LocationL());
+    },
+    get C10() {
+      return C[10] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[11] || CT.C11,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 19,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C15() {
+      return C[15] = dart.constList([], T._LocationL());
+    },
+    get C14() {
+      return C[14] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 30,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C16() {
+      return C[16] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 34,
+        [_Location_line]: 36,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C19() {
+      return C[19] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 27,
+        [_Location_line]: 36,
+        [_Location_file]: null
+      });
+    },
+    get C18() {
+      return C[18] = dart.constList([C[19] || CT.C19], T._LocationL());
+    },
+    get C17() {
+      return C[17] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[18] || CT.C18,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 36,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C20() {
+      return C[20] = dart.const({
+        __proto__: edge_insets.EdgeInsets.prototype,
+        [EdgeInsets_bottom]: 8,
+        [EdgeInsets_right]: 8,
+        [EdgeInsets_top]: 8,
+        [EdgeInsets_left]: 8
+      });
+    },
+    get C23() {
+      return C[23] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "backgroundImage",
+        [_Location_column]: 33,
+        [_Location_line]: 51,
+        [_Location_file]: null
+      });
+    },
+    get C22() {
+      return C[22] = dart.constList([C[23] || CT.C23], T._LocationL());
+    },
+    get C21() {
+      return C[21] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[22] || CT.C22,
+        [_Location_name]: null,
+        [_Location_column]: 40,
+        [_Location_line]: 50,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C26() {
+      return C[26] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 52,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C25() {
+      return C[25] = dart.constList([C[26] || CT.C26], T._LocationL());
+    },
+    get C24() {
+      return C[24] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[25] || CT.C25,
+        [_Location_name]: null,
+        [_Location_column]: 38,
+        [_Location_line]: 54,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C29() {
+      return C[29] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 58,
+        [_Location_line]: 60,
+        [_Location_file]: null
+      });
+    },
+    get C30() {
+      return C[30] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 45,
+        [_Location_line]: 61,
+        [_Location_file]: null
+      });
+    },
+    get C28() {
+      return C[28] = dart.constList([C[29] || CT.C29, C[30] || CT.C30], T._LocationL());
+    },
+    get C27() {
+      return C[27] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[28] || CT.C28,
+        [_Location_name]: null,
+        [_Location_column]: 47,
+        [_Location_line]: 60,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C33() {
+      return C[33] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 41,
+        [_Location_line]: 60,
+        [_Location_file]: null
+      });
+    },
+    get C34() {
+      return C[34] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 41,
+        [_Location_line]: 63,
+        [_Location_file]: null
+      });
+    },
+    get C32() {
+      return C[32] = dart.constList([C[33] || CT.C33, C[34] || CT.C34], T._LocationL());
+    },
+    get C31() {
+      return C[31] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[32] || CT.C32,
+        [_Location_name]: null,
+        [_Location_column]: 37,
+        [_Location_line]: 59,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C37() {
+      return C[37] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 58,
+        [_Location_line]: 69,
+        [_Location_file]: null
+      });
+    },
+    get C38() {
+      return C[38] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "color",
+        [_Location_column]: 45,
+        [_Location_line]: 70,
+        [_Location_file]: null
+      });
+    },
+    get C36() {
+      return C[36] = dart.constList([C[37] || CT.C37, C[38] || CT.C38], T._LocationL());
+    },
+    get C35() {
+      return C[35] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[36] || CT.C36,
+        [_Location_name]: null,
+        [_Location_column]: 47,
+        [_Location_line]: 69,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C41() {
+      return C[41] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 47,
+        [_Location_line]: 81,
+        [_Location_file]: null
+      });
+    },
+    get C42() {
+      return C[42] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "textAlign",
+        [_Location_column]: 47,
+        [_Location_line]: 82,
+        [_Location_file]: null
+      });
+    },
+    get C40() {
+      return C[40] = dart.constList([C[41] || CT.C41, C[42] || CT.C42], T._LocationL());
+    },
+    get C39() {
+      return C[39] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[40] || CT.C40,
+        [_Location_name]: null,
+        [_Location_column]: 62,
+        [_Location_line]: 80,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C45() {
+      return C[45] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "content",
+        [_Location_column]: 53,
+        [_Location_line]: 80,
+        [_Location_file]: null
+      });
+    },
+    get C44() {
+      return C[44] = dart.constList([C[45] || CT.C45], T._LocationL());
+    },
+    get C43() {
+      return C[43] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[44] || CT.C44,
+        [_Location_name]: null,
+        [_Location_column]: 63,
+        [_Location_line]: 79,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C48() {
+      return C[48] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 41,
+        [_Location_line]: 69,
+        [_Location_file]: null
+      });
+    },
+    get C49() {
+      return C[49] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onPressed",
+        [_Location_column]: 41,
+        [_Location_line]: 72,
+        [_Location_file]: null
+      });
+    },
+    get C47() {
+      return C[47] = dart.constList([C[48] || CT.C48, C[49] || CT.C49], T._LocationL());
+    },
+    get C46() {
+      return C[46] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[47] || CT.C47,
+        [_Location_name]: null,
+        [_Location_column]: 37,
+        [_Location_line]: 68,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C52() {
+      return C[52] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 35,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C51() {
+      return C[51] = dart.constList([C[52] || CT.C52], T._LocationL());
+    },
+    get C50() {
+      return C[50] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[51] || CT.C51,
+        [_Location_name]: null,
+        [_Location_column]: 40,
+        [_Location_line]: 57,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C55() {
+      return C[55] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "width",
+        [_Location_column]: 33,
+        [_Location_line]: 56,
+        [_Location_file]: null
+      });
+    },
+    get C56() {
+      return C[56] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 33,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C54() {
+      return C[54] = dart.constList([C[55] || CT.C55, C[56] || CT.C56], T._LocationL());
+    },
+    get C53() {
+      return C[53] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[54] || CT.C54,
+        [_Location_name]: null,
+        [_Location_column]: 41,
+        [_Location_line]: 55,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C59() {
+      return C[59] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 31,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C60() {
+      return C[60] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 31,
+        [_Location_line]: 54,
+        [_Location_file]: null
+      });
+    },
+    get C61() {
+      return C[61] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "trailing",
+        [_Location_column]: 31,
+        [_Location_line]: 55,
+        [_Location_file]: null
+      });
+    },
+    get C58() {
+      return C[58] = dart.constList([C[59] || CT.C59, C[60] || CT.C60, C[61] || CT.C61], T._LocationL());
+    },
+    get C57() {
+      return C[57] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[58] || CT.C58,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 49,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C62() {
+      return C[62] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 29,
+        [_Location_line]: 90,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C65() {
+      return C[65] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 27,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C64() {
+      return C[64] = dart.constList([C[65] || CT.C65], T._LocationL());
+    },
+    get C63() {
+      return C[63] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[64] || CT.C64,
+        [_Location_name]: null,
+        [_Location_column]: 32,
+        [_Location_line]: 47,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C68() {
+      return C[68] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemBuilder",
+        [_Location_column]: 23,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C69() {
+      return C[69] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemCount",
+        [_Location_column]: 23,
+        [_Location_line]: 94,
+        [_Location_file]: null
+      });
+    },
+    get C67() {
+      return C[67] = dart.constList([C[68] || CT.C68, C[69] || CT.C69], T._LocationL());
+    },
+    get C66() {
+      return C[66] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[67] || CT.C67,
+        [_Location_name]: null,
+        [_Location_column]: 37,
+        [_Location_line]: 45,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C72() {
+      return C[72] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "padding",
+        [_Location_column]: 21,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C73() {
+      return C[73] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 21,
+        [_Location_line]: 45,
+        [_Location_file]: null
+      });
+    },
+    get C71() {
+      return C[71] = dart.constList([C[72] || CT.C72, C[73] || CT.C73], T._LocationL());
+    },
+    get C70() {
+      return C[70] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[71] || CT.C71,
+        [_Location_name]: null,
+        [_Location_column]: 26,
+        [_Location_line]: 43,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C76() {
+      return C[76] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 17,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C75() {
+      return C[75] = dart.constList([C[76] || CT.C76], T._LocationL());
+    },
+    get C74() {
+      return C[74] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[75] || CT.C75,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C79() {
+      return C[79] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onRefresh",
+        [_Location_column]: 15,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C80() {
+      return C[80] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 15,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C78() {
+      return C[78] = dart.constList([C[79] || CT.C79, C[80] || CT.C80], T._LocationL());
+    },
+    get C77() {
+      return C[77] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[78] || CT.C78,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 38,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C83() {
+      return C[83] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "future",
+        [_Location_column]: 9,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C84() {
+      return C[84] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 9,
+        [_Location_line]: 34,
+        [_Location_file]: null
+      });
+    },
+    get C82() {
+      return C[82] = dart.constList([C[83] || CT.C83, C[84] || CT.C84], T._LocationL());
+    },
+    get C81() {
+      return C[81] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[82] || CT.C82,
+        [_Location_name]: null,
+        [_Location_column]: 13,
+        [_Location_line]: 31,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C87() {
+      return C[87] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "appBar",
+        [_Location_column]: 7,
+        [_Location_line]: 19,
+        [_Location_file]: null
+      });
+    },
+    get C88() {
+      return C[88] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "drawer",
+        [_Location_column]: 7,
+        [_Location_line]: 30,
+        [_Location_file]: null
+      });
+    },
+    get C89() {
+      return C[89] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 7,
+        [_Location_line]: 31,
+        [_Location_file]: null
+      });
+    },
+    get C86() {
+      return C[86] = dart.constList([C[87] || CT.C87, C[88] || CT.C88, C[89] || CT.C89], T._LocationL());
+    },
+    get C85() {
+      return C[85] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[86] || CT.C86,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 18,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/user_products_screen.dart"
+      });
+    },
+    get C92() {
+      return C[92] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 25,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
+    },
+    get C91() {
+      return C[91] = dart.constList([C[92] || CT.C92], T._LocationL());
+    },
+    get C90() {
+      return C[90] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[91] || CT.C91,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 26,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C95() {
+      return C[95] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 13,
+        [_Location_line]: 26,
+        [_Location_file]: null
+      });
+    },
+    get C96() {
+      return C[96] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "automaticallyImplyLeading",
+        [_Location_column]: 13,
+        [_Location_line]: 27,
+        [_Location_file]: null
+      });
+    },
+    get C94() {
+      return C[94] = dart.constList([C[95] || CT.C95, C[96] || CT.C96], T._LocationL());
+    },
+    get C93() {
+      return C[93] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[94] || CT.C94,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 25,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C99() {
+      return C[99] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 33,
+        [_Location_line]: 31,
+        [_Location_file]: null
+      });
+    },
+    get C98() {
+      return C[98] = dart.constList([C[99] || CT.C99], T._LocationL());
+    },
+    get C97() {
+      return C[97] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[98] || CT.C98,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 31,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C102() {
+      return C[102] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 25,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C101() {
+      return C[101] = dart.constList([C[102] || CT.C102], T._LocationL());
+    },
+    get C100() {
+      return C[100] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[101] || CT.C101,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 32,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C105() {
+      return C[105] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 13,
+        [_Location_line]: 31,
+        [_Location_file]: null
+      });
+    },
+    get C106() {
+      return C[106] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 13,
+        [_Location_line]: 32,
+        [_Location_file]: null
+      });
+    },
+    get C107() {
+      return C[107] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 13,
+        [_Location_line]: 33,
+        [_Location_file]: null
+      });
+    },
+    get C104() {
+      return C[104] = dart.constList([C[105] || CT.C105, C[106] || CT.C106, C[107] || CT.C107], T._LocationL());
+    },
+    get C103() {
+      return C[103] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[104] || CT.C104,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 30,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C108() {
+      return C[108] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 38,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C111() {
+      return C[111] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 33,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C110() {
+      return C[110] = dart.constList([C[111] || CT.C111], T._LocationL());
+    },
+    get C109() {
+      return C[109] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[110] || CT.C110,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 40,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C114() {
+      return C[114] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 25,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C113() {
+      return C[113] = dart.constList([C[114] || CT.C114], T._LocationL());
+    },
+    get C112() {
+      return C[112] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[113] || CT.C113,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 41,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C117() {
+      return C[117] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 13,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C118() {
+      return C[118] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 13,
+        [_Location_line]: 41,
+        [_Location_file]: null
+      });
+    },
+    get C119() {
+      return C[119] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 13,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C116() {
+      return C[116] = dart.constList([C[117] || CT.C117, C[118] || CT.C118, C[119] || CT.C119], T._LocationL());
+    },
+    get C115() {
+      return C[115] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[116] || CT.C116,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 39,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C120() {
+      return C[120] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 46,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C123() {
+      return C[123] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 33,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C122() {
+      return C[122] = dart.constList([C[123] || CT.C123], T._LocationL());
+    },
+    get C121() {
+      return C[121] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[122] || CT.C122,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 48,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C126() {
+      return C[126] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 25,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C125() {
+      return C[125] = dart.constList([C[126] || CT.C126], T._LocationL());
+    },
+    get C124() {
+      return C[124] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[125] || CT.C125,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 49,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C129() {
+      return C[129] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 13,
+        [_Location_line]: 48,
+        [_Location_file]: null
+      });
+    },
+    get C130() {
+      return C[130] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 13,
+        [_Location_line]: 49,
+        [_Location_file]: null
+      });
+    },
+    get C131() {
+      return C[131] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 13,
+        [_Location_line]: 50,
+        [_Location_file]: null
+      });
+    },
+    get C128() {
+      return C[128] = dart.constList([C[129] || CT.C129, C[130] || CT.C130, C[131] || CT.C131], T._LocationL());
+    },
+    get C127() {
+      return C[127] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[128] || CT.C128,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 47,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C132() {
+      return C[132] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 55,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C135() {
+      return C[135] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "icon",
+        [_Location_column]: 33,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C134() {
+      return C[134] = dart.constList([C[135] || CT.C135], T._LocationL());
+    },
+    get C133() {
+      return C[133] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[134] || CT.C134,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 57,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C138() {
+      return C[138] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 25,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C137() {
+      return C[137] = dart.constList([C[138] || CT.C138], T._LocationL());
+    },
+    get C136() {
+      return C[136] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[137] || CT.C137,
+        [_Location_name]: null,
+        [_Location_column]: 20,
+        [_Location_line]: 58,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C141() {
+      return C[141] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "leading",
+        [_Location_column]: 13,
+        [_Location_line]: 57,
+        [_Location_file]: null
+      });
+    },
+    get C142() {
+      return C[142] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 13,
+        [_Location_line]: 58,
+        [_Location_file]: null
+      });
+    },
+    get C143() {
+      return C[143] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onTap",
+        [_Location_column]: 13,
+        [_Location_line]: 59,
+        [_Location_file]: null
+      });
+    },
+    get C140() {
+      return C[140] = dart.constList([C[141] || CT.C141, C[142] || CT.C142, C[143] || CT.C143], T._LocationL());
+    },
+    get C139() {
+      return C[139] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[140] || CT.C140,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 56,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C144() {
+      return C[144] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 11,
+        [_Location_line]: 64,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C147() {
+      return C[147] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "children",
+        [_Location_column]: 9,
+        [_Location_line]: 13,
+        [_Location_file]: null
+      });
+    },
+    get C146() {
+      return C[146] = dart.constList([C[147] || CT.C147], T._LocationL());
+    },
+    get C145() {
+      return C[145] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[146] || CT.C146,
+        [_Location_name]: null,
+        [_Location_column]: 14,
+        [_Location_line]: 12,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C150() {
+      return C[150] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 7,
+        [_Location_line]: 12,
+        [_Location_file]: null
+      });
+    },
+    get C149() {
+      return C[149] = dart.constList([C[150] || CT.C150], T._LocationL());
+    },
+    get C148() {
+      return C[148] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[149] || CT.C149,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 11,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/widgets/main_drawer.dart"
+      });
+    },
+    get C151() {
+      return C[151] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 19,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/orders_screen.dart"
+      });
+    },
+    get C154() {
+      return C[154] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 23,
+        [_Location_line]: 21,
+        [_Location_file]: null
+      });
+    },
+    get C153() {
+      return C[153] = dart.constList([C[154] || CT.C154], T._LocationL());
+    },
+    get C152() {
+      return C[152] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[153] || CT.C153,
+        [_Location_name]: null,
+        [_Location_column]: 18,
+        [_Location_line]: 21,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/orders_screen.dart"
+      });
+    },
+    get C157() {
+      return C[157] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "title",
+        [_Location_column]: 11,
+        [_Location_line]: 21,
+        [_Location_file]: null
+      });
+    },
+    get C156() {
+      return C[156] = dart.constList([C[157] || CT.C157], T._LocationL());
+    },
+    get C155() {
+      return C[155] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[156] || CT.C156,
+        [_Location_name]: null,
+        [_Location_column]: 17,
+        [_Location_line]: 20,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/orders_screen.dart"
+      });
+    },
+    get C158() {
+      return C[158] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[15] || CT.C15,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 28,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/orders_screen.dart"
+      });
+    },
+    get C161() {
+      return C[161] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 28,
+        [_Location_file]: null
+      });
+    },
+    get C160() {
+      return C[160] = dart.constList([C[161] || CT.C161], T._LocationL());
+    },
+    get C159() {
+      return C[159] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[160] || CT.C160,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 27,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/orders_screen.dart"
+      });
+    },
+    get C164() {
+      return C[164] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "data",
+        [_Location_column]: 29,
+        [_Location_line]: 34,
+        [_Location_file]: null
+      });
+    },
+    get C163() {
+      return C[163] = dart.constList([C[164] || CT.C164], T._LocationL());
+    },
+    get C162() {
+      return C[162] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[163] || CT.C163,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 34,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/orders_screen.dart"
+      });
+    },
+    get C167() {
+      return C[167] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 34,
+        [_Location_file]: null
+      });
+    },
+    get C166() {
+      return C[166] = dart.constList([C[167] || CT.C167], T._LocationL());
+    },
+    get C165() {
+      return C[165] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[166] || CT.C166,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 33,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/orders_screen.dart"
+      });
+    },
+    get C170() {
+      return C[170] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "order",
+        [_Location_column]: 29,
+        [_Location_line]: 44,
+        [_Location_file]: null
+      });
+    },
+    get C169() {
+      return C[169] = dart.constList([C[170] || CT.C170], T._LocationL());
+    },
+    get C168() {
+      return C[168] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[169] || CT.C169,
+        [_Location_name]: null,
+        [_Location_column]: 42,
+        [_Location_line]: 43,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/orders_screen.dart"
+      });
+    },
+    get C173() {
+      return C[173] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemBuilder",
+        [_Location_column]: 23,
+        [_Location_line]: 42,
+        [_Location_file]: null
+      });
+    },
+    get C174() {
+      return C[174] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "itemCount",
+        [_Location_column]: 23,
+        [_Location_line]: 46,
+        [_Location_file]: null
+      });
+    },
+    get C172() {
+      return C[172] = dart.constList([C[173] || CT.C173, C[174] || CT.C174], T._LocationL());
+    },
+    get C171() {
+      return C[171] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[172] || CT.C172,
+        [_Location_name]: null,
+        [_Location_column]: 37,
+        [_Location_line]: 41,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/orders_screen.dart"
+      });
+    },
+    get C177() {
+      return C[177] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 19,
+        [_Location_line]: 40,
+        [_Location_file]: null
+      });
+    },
+    get C176() {
+      return C[176] = dart.constList([C[177] || CT.C177], T._LocationL());
+    },
+    get C175() {
+      return C[175] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[176] || CT.C176,
+        [_Location_name]: null,
+        [_Location_column]: 24,
+        [_Location_line]: 39,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/orders_screen.dart"
+      });
+    },
+    get C180() {
+      return C[180] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "onRefresh",
+        [_Location_column]: 17,
+        [_Location_line]: 38,
+        [_Location_file]: null
+      });
+    },
+    get C181() {
+      return C[181] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "child",
+        [_Location_column]: 17,
+        [_Location_line]: 39,
+        [_Location_file]: null
+      });
+    },
+    get C179() {
+      return C[179] = dart.constList([C[180] || CT.C180, C[181] || CT.C181], T._LocationL());
+    },
+    get C178() {
+      return C[178] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[179] || CT.C179,
+        [_Location_name]: null,
+        [_Location_column]: 22,
+        [_Location_line]: 37,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/orders_screen.dart"
+      });
+    },
+    get C184() {
+      return C[184] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "future",
+        [_Location_column]: 11,
+        [_Location_line]: 24,
+        [_Location_file]: null
+      });
+    },
+    get C185() {
+      return C[185] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "builder",
+        [_Location_column]: 11,
+        [_Location_line]: 25,
+        [_Location_file]: null
+      });
+    },
+    get C183() {
+      return C[183] = dart.constList([C[184] || CT.C184, C[185] || CT.C185], T._LocationL());
+    },
+    get C182() {
+      return C[182] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[183] || CT.C183,
+        [_Location_name]: null,
+        [_Location_column]: 15,
+        [_Location_line]: 23,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/orders_screen.dart"
+      });
+    },
+    get C188() {
+      return C[188] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "drawer",
+        [_Location_column]: 9,
+        [_Location_line]: 19,
+        [_Location_file]: null
+      });
+    },
+    get C189() {
+      return C[189] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "appBar",
+        [_Location_column]: 9,
+        [_Location_line]: 20,
+        [_Location_file]: null
+      });
+    },
+    get C190() {
+      return C[190] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: null,
+        [_Location_name]: "body",
+        [_Location_column]: 9,
+        [_Location_line]: 23,
+        [_Location_file]: null
+      });
+    },
+    get C187() {
+      return C[187] = dart.constList([C[188] || CT.C188, C[189] || CT.C189, C[190] || CT.C190], T._LocationL());
+    },
+    get C186() {
+      return C[186] = dart.const({
+        __proto__: widget_inspector._Location.prototype,
+        [_Location_parameterLocations]: C[187] || CT.C187,
+        [_Location_name]: null,
+        [_Location_column]: 12,
+        [_Location_line]: 18,
+        [_Location_file]: "file:///C:/Users/ZYAD/Documents/GitHub/shop_app_with_http/lib/screens/orders_screen.dart"
       });
     }
+  }, false);
+  var C = Array(191).fill(void 0);
+  var I = [
+    "package:shop_app/screens/user_products_screen.dart",
+    "package:shop_app/widgets/main_drawer.dart",
+    "package:shop_app/screens/orders_screen.dart"
+  ];
+  var _refreshProducts = dart.privateName(user_products_screen, "_refreshProducts");
+  var _Location_parameterLocations = dart.privateName(widget_inspector, "_Location.parameterLocations");
+  var _Location_name = dart.privateName(widget_inspector, "_Location.name");
+  var _Location_column = dart.privateName(widget_inspector, "_Location.column");
+  var _Location_line = dart.privateName(widget_inspector, "_Location.line");
+  var _Location_file = dart.privateName(widget_inspector, "_Location.file");
+  var EdgeInsets_bottom = dart.privateName(edge_insets, "EdgeInsets.bottom");
+  var EdgeInsets_right = dart.privateName(edge_insets, "EdgeInsets.right");
+  var EdgeInsets_top = dart.privateName(edge_insets, "EdgeInsets.top");
+  var EdgeInsets_left = dart.privateName(edge_insets, "EdgeInsets.left");
+  user_products_screen.UserProductsScreen = class UserProductsScreen extends framework.StatelessWidget {
+    [_refreshProducts](context) {
+      return provider.Provider.of(T.ProductsL(), context, {listen: false}).getProducts(true);
+    }
+    build(context) {
+      return new scaffold.Scaffold.new({appBar: new app_bar.AppBar.new({title: new text.Text.new("The Products", {$creationLocationd_0dea112b090073317d4: C[0] || CT.C0}), actions: T.JSArrayOfWidgetL().of([new icon_button.IconButton.new({icon: new icon.Icon.new(icons.Icons.add, {$creationLocationd_0dea112b090073317d4: C[3] || CT.C3}), onPressed: dart.fn(() => {
+                navigator.Navigator.of(context).pushNamed(T.ObjectL(), "/edit_product_screen");
+              }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[6] || CT.C6})]), $creationLocationd_0dea112b090073317d4: C[10] || CT.C10}), drawer: new main_drawer.MainDrawer.new({$creationLocationd_0dea112b090073317d4: C[14] || CT.C14}), body: new (T.FutureBuilderOfvoid()).new({future: this[_refreshProducts](context), builder: dart.fn((ctx, snapshotData) => {
+            if (snapshotData.connectionState == async$.ConnectionState.waiting) {
+              return new basic.Center.new({child: new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C[16] || CT.C16}), $creationLocationd_0dea112b090073317d4: C[17] || CT.C17});
+            } else {
+              return new refresh_indicator.RefreshIndicator.new({onRefresh: dart.fn(() => this[_refreshProducts](context), T.VoidToFutureLOfvoid()), child: new (T.ConsumerOfProductsL()).new({builder: dart.fn((context, products, child) => {
+                    let items = products.items;
+                    return new basic.Padding.new({padding: C[20] || CT.C20, child: new scroll_view.ListView.builder({itemBuilder: dart.fn((ctx, i) => new basic.Column.new({children: T.JSArrayOfWidgetL().of([new list_tile.ListTile.new({leading: new circle_avatar.CircleAvatar.new({backgroundImage: new _network_image_web.NetworkImage.new(items[$_get](i).imageUrl), $creationLocationd_0dea112b090073317d4: C[21] || CT.C21}), title: new text.Text.new(items[$_get](i).title, {$creationLocationd_0dea112b090073317d4: C[24] || CT.C24}), trailing: new container.Container.new({width: 100.0, child: new basic.Row.new({children: T.JSArrayOfWidgetL().of([new icon_button.IconButton.new({icon: new icon.Icon.new(icons.Icons.edit, {color: theme.Theme.of(context).primaryColor, $creationLocationd_0dea112b090073317d4: C[27] || CT.C27}), onPressed: dart.fn(() => {
+                                        navigator.Navigator.of(context).pushNamed(T.ObjectL(), "/edit_product_screen", {arguments: new (T.IdentityMapOfStringL$StringL()).from(["id", items[$_get](i).id])});
+                                      }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[31] || CT.C31}), new icon_button.IconButton.new({icon: new icon.Icon.new(icons.Icons.delete, {color: theme.Theme.of(context).errorColor, $creationLocationd_0dea112b090073317d4: C[35] || CT.C35}), onPressed: dart.fn(() => async.async(core.Null, function*() {
+                                        try {
+                                          yield provider.Provider.of(T.ProductsL(), context, {listen: false}).removeProduct(items[$_get](i).id);
+                                        } catch (e$) {
+                                          let e = dart.getThrown(e$);
+                                          scaffold.ScaffoldMessenger.of(context).showSnackBar(new snack_bar.SnackBar.new({content: new text.Text.new("Deleting failed", {textAlign: ui.TextAlign.center, $creationLocationd_0dea112b090073317d4: C[39] || CT.C39}), $creationLocationd_0dea112b090073317d4: C[43] || CT.C43}));
+                                        }
+                                      }), T.VoidToFutureLOfNull()), $creationLocationd_0dea112b090073317d4: C[46] || CT.C46})]), $creationLocationd_0dea112b090073317d4: C[50] || CT.C50}), $creationLocationd_0dea112b090073317d4: C[53] || CT.C53}), $creationLocationd_0dea112b090073317d4: C[57] || CT.C57}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[62] || CT.C62})]), $creationLocationd_0dea112b090073317d4: C[63] || CT.C63}), T.BuildContextLAndintLToColumnL()), itemCount: items[$length], $creationLocationd_0dea112b090073317d4: C[66] || CT.C66}), $creationLocationd_0dea112b090073317d4: C[70] || CT.C70});
+                  }, T.BuildContextLAndProductsLAndWidgetLToPaddingL()), $creationLocationd_0dea112b090073317d4: C[74] || CT.C74}), $creationLocationd_0dea112b090073317d4: C[77] || CT.C77});
+            }
+          }, T.BuildContextLAndAsyncSnapshotLToWidgetL()), $creationLocationd_0dea112b090073317d4: C[81] || CT.C81}), $creationLocationd_0dea112b090073317d4: C[85] || CT.C85});
+    }
   };
-  (response$.Response.new = function(body, statusCode, opts) {
-    if (body == null) dart.nullFailed(I[13], 31, 19, "body");
-    if (statusCode == null) dart.nullFailed(I[13], 31, 29, "statusCode");
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
-    if (headers == null) dart.nullFailed(I[13], 33, 27, "headers");
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    if (isRedirect == null) dart.nullFailed(I[13], 34, 12, "isRedirect");
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    if (persistentConnection == null) dart.nullFailed(I[13], 35, 12, "persistentConnection");
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    response$.Response.bytes.call(this, response$._encodingForHeaders(headers).encode(body), statusCode, {request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
-  }).prototype = response$.Response.prototype;
-  (response$.Response.bytes = function(bodyBytes, statusCode, opts) {
-    if (bodyBytes == null) dart.nullFailed(I[13], 45, 28, "bodyBytes");
-    if (statusCode == null) dart.nullFailed(I[13], 45, 43, "statusCode");
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
-    if (headers == null) dart.nullFailed(I[13], 47, 27, "headers");
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    if (isRedirect == null) dart.nullFailed(I[13], 48, 12, "isRedirect");
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    if (persistentConnection == null) dart.nullFailed(I[13], 49, 12, "persistentConnection");
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    this[bodyBytes$] = utils.toUint8List(bodyBytes);
-    response$.Response.__proto__.new.call(this, statusCode, {contentLength: bodyBytes[$length], request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
+  (user_products_screen.UserProductsScreen.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    user_products_screen.UserProductsScreen.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = response$.Response.prototype;
-  dart.addTypeTests(response$.Response);
-  dart.addTypeCaches(response$.Response);
-  dart.setGetterSignature(response$.Response, () => ({
-    __proto__: dart.getGetters(response$.Response.__proto__),
-    body: core.String
+  }).prototype = user_products_screen.UserProductsScreen.prototype;
+  dart.addTypeTests(user_products_screen.UserProductsScreen);
+  dart.addTypeCaches(user_products_screen.UserProductsScreen);
+  dart.setMethodSignature(user_products_screen.UserProductsScreen, () => ({
+    __proto__: dart.getMethods(user_products_screen.UserProductsScreen.__proto__),
+    [_refreshProducts]: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.legacy(framework.BuildContext)]),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
   }));
-  dart.setLibraryUri(response$.Response, I[16]);
-  dart.setFieldSignature(response$.Response, () => ({
-    __proto__: dart.getFields(response$.Response.__proto__),
-    bodyBytes: dart.finalFieldType(typed_data.Uint8List)
-  }));
-  response$._encodingForHeaders = function _encodingForHeaders(headers) {
-    if (headers == null) dart.nullFailed(I[13], 77, 50, "headers");
-    return utils.encodingForCharset(response$._contentTypeForHeaders(headers).parameters[$_get]("charset"));
-  };
-  response$._contentTypeForHeaders = function _contentTypeForHeaders(headers) {
-    if (headers == null) dart.nullFailed(I[13], 83, 54, "headers");
-    let contentType = headers[$_get]("content-type");
-    if (contentType != null) return media_type.MediaType.parse(contentType);
-    return new media_type.MediaType.new("application", "octet-stream");
-  };
-  var _defaultEncoding = dart.privateName(request$, "_defaultEncoding");
-  var _bodyBytes = dart.privateName(request$, "_bodyBytes");
-  var _contentType = dart.privateName(request$, "_contentType");
-  var _checkFinalized$ = dart.privateName(request$, "_checkFinalized");
-  request$.Request = class Request extends base_request.BaseRequest {
-    get contentLength() {
-      return this.bodyBytes[$length];
+  dart.setLibraryUri(user_products_screen.UserProductsScreen, I[0]);
+  dart.defineLazy(user_products_screen.UserProductsScreen, {
+    /*user_products_screen.UserProductsScreen.routeName*/get routeName() {
+      return "/user_products_screen";
     }
-    set contentLength(value) {
-      dart.throw(new core.UnsupportedError.new("Cannot set the contentLength property of " + "non-streaming Request objects."));
-    }
-    get encoding() {
-      if (this[_contentType] == null || !dart.test(dart.nullCheck(this[_contentType]).parameters[$containsKey]("charset"))) {
-        return this[_defaultEncoding];
-      }
-      return utils.requiredEncodingForCharset(dart.nullCheck(dart.nullCheck(this[_contentType]).parameters[$_get]("charset")));
-    }
-    set encoding(value) {
-      if (value == null) dart.nullFailed(I[17], 59, 25, "value");
-      this[_checkFinalized$]();
-      this[_defaultEncoding] = value;
-      let contentType = this[_contentType];
-      if (contentType == null) return;
-      this[_contentType] = contentType.change({parameters: new (T.IdentityMapOfString$String()).from(["charset", value.name])});
-    }
-    get bodyBytes() {
-      return this[_bodyBytes];
-    }
-    set bodyBytes(value) {
-      if (value == null) dart.nullFailed(I[17], 76, 27, "value");
-      this[_checkFinalized$]();
-      this[_bodyBytes] = utils.toUint8List(value);
-    }
-    get body() {
-      return this.encoding.decode(this.bodyBytes);
-    }
-    set body(value) {
-      if (value == null) dart.nullFailed(I[17], 91, 19, "value");
-      this.bodyBytes = this.encoding.encode(value);
-      let contentType = this[_contentType];
-      if (contentType == null) {
-        this[_contentType] = new media_type.MediaType.new("text", "plain", new (T.IdentityMapOfString$String()).from(["charset", this.encoding.name]));
-      } else if (!dart.test(contentType.parameters[$containsKey]("charset"))) {
-        this[_contentType] = contentType.change({parameters: new (T.IdentityMapOfString$String()).from(["charset", this.encoding.name])});
-      }
-    }
-    get bodyFields() {
-      let contentType = this[_contentType];
-      if (contentType == null || contentType.mimeType !== "application/x-www-form-urlencoded") {
-        dart.throw(new core.StateError.new("Cannot access the body fields of a Request without " + "content-type \"application/x-www-form-urlencoded\"."));
-      }
-      return core.Uri.splitQueryString(this.body, {encoding: this.encoding});
-    }
-    set bodyFields(fields) {
-      if (fields == null) dart.nullFailed(I[17], 128, 38, "fields");
-      let contentType = this[_contentType];
-      if (contentType == null) {
-        this[_contentType] = new media_type.MediaType.new("application", "x-www-form-urlencoded");
-      } else if (contentType.mimeType !== "application/x-www-form-urlencoded") {
-        dart.throw(new core.StateError.new("Cannot set the body fields of a Request with " + "content-type \"" + dart.str(contentType.mimeType) + "\"."));
-      }
-      this.body = utils.mapToQuery(fields, {encoding: this.encoding});
-    }
-    finalize() {
-      super.finalize();
-      return byte_stream.ByteStream.fromBytes(this.bodyBytes);
-    }
-    get [_contentType]() {
-      let contentType = this.headers[$_get]("content-type");
-      if (contentType == null) return null;
-      return media_type.MediaType.parse(contentType);
-    }
-    set [_contentType](value) {
-      if (value == null) {
-        this.headers[$remove]("content-type");
-      } else {
-        this.headers[$_set]("content-type", dart.toString(value));
-      }
-    }
-    [_checkFinalized$]() {
-      if (!dart.test(this.finalized)) return;
-      dart.throw(new core.StateError.new("Can't modify a finalized Request."));
+  }, true);
+  main_drawer.MainDrawer = class MainDrawer extends framework.StatelessWidget {
+    build(context) {
+      return new drawer.Drawer.new({child: new basic.Column.new({children: T.JSArrayOfWidgetL().of([new app_bar.AppBar.new({title: new text.Text.new("Go to :", {$creationLocationd_0dea112b090073317d4: C[90] || CT.C90}), automaticallyImplyLeading: false, $creationLocationd_0dea112b090073317d4: C[93] || CT.C93}), new list_tile.ListTile.new({leading: new icon.Icon.new(icons.Icons.payment, {$creationLocationd_0dea112b090073317d4: C[97] || CT.C97}), title: new text.Text.new("Orders", {$creationLocationd_0dea112b090073317d4: C[100] || CT.C100}), onTap: dart.fn(() => {
+                navigator.Navigator.of(context).pushReplacementNamed(T.ObjectL(), T.ObjectL(), "/orders_screen");
+              }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[103] || CT.C103}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[108] || CT.C108}), new list_tile.ListTile.new({leading: new icon.Icon.new(icons.Icons.shop, {$creationLocationd_0dea112b090073317d4: C[109] || CT.C109}), title: new text.Text.new("Shop", {$creationLocationd_0dea112b090073317d4: C[112] || CT.C112}), onTap: dart.fn(() => {
+                navigator.Navigator.of(context).pushReplacementNamed(T.ObjectL(), T.ObjectL(), "/");
+              }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[115] || CT.C115}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[120] || CT.C120}), new list_tile.ListTile.new({leading: new icon.Icon.new(icons.Icons.atm, {$creationLocationd_0dea112b090073317d4: C[121] || CT.C121}), title: new text.Text.new("Products", {$creationLocationd_0dea112b090073317d4: C[124] || CT.C124}), onTap: dart.fn(() => {
+                navigator.Navigator.of(context).pushReplacementNamed(T.ObjectL(), T.ObjectL(), "/user_products_screen");
+              }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[127] || CT.C127}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[132] || CT.C132}), new list_tile.ListTile.new({leading: new icon.Icon.new(icons.Icons.exit_to_app, {$creationLocationd_0dea112b090073317d4: C[133] || CT.C133}), title: new text.Text.new("Logout", {$creationLocationd_0dea112b090073317d4: C[136] || CT.C136}), onTap: dart.fn(() => {
+                navigator.Navigator.of(context).pushReplacementNamed(T.ObjectL(), T.ObjectL(), "/");
+                provider.Provider.of(T.AuthL(), context, {listen: false}).logout();
+              }, T.VoidToNull()), $creationLocationd_0dea112b090073317d4: C[139] || CT.C139}), new divider.Divider.new({$creationLocationd_0dea112b090073317d4: C[144] || CT.C144})]), $creationLocationd_0dea112b090073317d4: C[145] || CT.C145}), $creationLocationd_0dea112b090073317d4: C[148] || CT.C148});
     }
   };
-  (request$.Request.new = function(method, url) {
-    if (method == null) dart.nullFailed(I[17], 140, 18, "method");
-    if (url == null) dart.nullFailed(I[17], 140, 30, "url");
-    this[_defaultEncoding] = convert.utf8;
-    this[_bodyBytes] = _native_typed_data.NativeUint8List.new(0);
-    request$.Request.__proto__.new.call(this, method, url);
+  (main_drawer.MainDrawer.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    main_drawer.MainDrawer.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = request$.Request.prototype;
-  dart.addTypeTests(request$.Request);
-  dart.addTypeCaches(request$.Request);
-  dart.setMethodSignature(request$.Request, () => ({
-    __proto__: dart.getMethods(request$.Request.__proto__),
-    [_checkFinalized$]: dart.fnType(dart.void, [])
+  }).prototype = main_drawer.MainDrawer.prototype;
+  dart.addTypeTests(main_drawer.MainDrawer);
+  dart.addTypeCaches(main_drawer.MainDrawer);
+  dart.setMethodSignature(main_drawer.MainDrawer, () => ({
+    __proto__: dart.getMethods(main_drawer.MainDrawer.__proto__),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
   }));
-  dart.setGetterSignature(request$.Request, () => ({
-    __proto__: dart.getGetters(request$.Request.__proto__),
-    contentLength: core.int,
-    encoding: convert.Encoding,
-    bodyBytes: typed_data.Uint8List,
-    body: core.String,
-    bodyFields: core.Map$(core.String, core.String),
-    [_contentType]: dart.nullable(media_type.MediaType)
-  }));
-  dart.setSetterSignature(request$.Request, () => ({
-    __proto__: dart.getSetters(request$.Request.__proto__),
-    encoding: convert.Encoding,
-    bodyBytes: core.List$(core.int),
-    body: core.String,
-    bodyFields: core.Map$(core.String, core.String),
-    [_contentType]: dart.nullable(media_type.MediaType)
-  }));
-  dart.setLibraryUri(request$.Request, I[18]);
-  dart.setFieldSignature(request$.Request, () => ({
-    __proto__: dart.getFields(request$.Request.__proto__),
-    [_defaultEncoding]: dart.fieldType(convert.Encoding),
-    [_bodyBytes]: dart.fieldType(typed_data.Uint8List)
-  }));
-  var stream$ = dart.privateName(streamed_response, "StreamedResponse.stream");
-  streamed_response.StreamedResponse = class StreamedResponse extends base_response.BaseResponse {
-    get stream() {
-      return this[stream$];
+  dart.setLibraryUri(main_drawer.MainDrawer, I[1]);
+  var _refreshOrders = dart.privateName(orders_screen, "_refreshOrders");
+  orders_screen.OrdersScreen = class OrdersScreen extends framework.StatelessWidget {
+    [_refreshOrders](context) {
+      return provider.Provider.of(T.OrdersL(), T.BuildContextL().as(context), {listen: false}).getOrders();
     }
-    set stream(value) {
-      super.stream = value;
+    build(context) {
+      return new scaffold.Scaffold.new({drawer: new main_drawer.MainDrawer.new({$creationLocationd_0dea112b090073317d4: C[151] || CT.C151}), appBar: new app_bar.AppBar.new({title: new text.Text.new("Your Orders", {$creationLocationd_0dea112b090073317d4: C[152] || CT.C152}), $creationLocationd_0dea112b090073317d4: C[155] || CT.C155}), body: new (T.FutureBuilderOfvoid()).new({future: provider.Provider.of(T.OrdersL(), context, {listen: false}).getOrders(), builder: dart.fn((ctx, snapshot) => {
+            if (snapshot.connectionState == async$.ConnectionState.waiting) {
+              return new basic.Center.new({child: new progress_indicator.CircularProgressIndicator.new({$creationLocationd_0dea112b090073317d4: C[158] || CT.C158}), $creationLocationd_0dea112b090073317d4: C[159] || CT.C159});
+            } else if (snapshot.error != null) {
+              return new basic.Center.new({child: new text.Text.new("error occurd in getting orders. ", {$creationLocationd_0dea112b090073317d4: C[162] || CT.C162}), $creationLocationd_0dea112b090073317d4: C[165] || CT.C165});
+            } else {
+              return new refresh_indicator.RefreshIndicator.new({onRefresh: dart.fn(() => this[_refreshOrders](context), T.VoidToFutureLOfvoid()), child: new (T.ConsumerOfOrdersL()).new({builder: dart.fn((ctx, ordersObject, child) => new scroll_view.ListView.builder({itemBuilder: dart.fn((ctx, i) => new order_item.OrderItem.new({order: ordersObject.orders[$_get](i), $creationLocationd_0dea112b090073317d4: C[168] || CT.C168}), T.BuildContextLAndintLToOrderItemL()), itemCount: ordersObject.orders[$length], $creationLocationd_0dea112b090073317d4: C[171] || CT.C171}), T.BuildContextLAndOrdersLAndWidgetLToListViewL()), $creationLocationd_0dea112b090073317d4: C[175] || CT.C175}), $creationLocationd_0dea112b090073317d4: C[178] || CT.C178});
+            }
+          }, T.BuildContextLAndAsyncSnapshotLToWidgetL()), $creationLocationd_0dea112b090073317d4: C[182] || CT.C182}), $creationLocationd_0dea112b090073317d4: C[186] || CT.C186});
     }
   };
-  (streamed_response.StreamedResponse.new = function(stream, statusCode, opts) {
-    if (stream == null) dart.nullFailed(I[19], 21, 38, "stream");
-    if (statusCode == null) dart.nullFailed(I[19], 21, 50, "statusCode");
-    let contentLength = opts && 'contentLength' in opts ? opts.contentLength : null;
-    let request = opts && 'request' in opts ? opts.request : null;
-    let headers = opts && 'headers' in opts ? opts.headers : C[3] || CT.C3;
-    if (headers == null) dart.nullFailed(I[19], 24, 27, "headers");
-    let isRedirect = opts && 'isRedirect' in opts ? opts.isRedirect : false;
-    if (isRedirect == null) dart.nullFailed(I[19], 25, 12, "isRedirect");
-    let persistentConnection = opts && 'persistentConnection' in opts ? opts.persistentConnection : true;
-    if (persistentConnection == null) dart.nullFailed(I[19], 26, 12, "persistentConnection");
-    let reasonPhrase = opts && 'reasonPhrase' in opts ? opts.reasonPhrase : null;
-    this[stream$] = utils.toByteStream(stream);
-    streamed_response.StreamedResponse.__proto__.new.call(this, statusCode, {contentLength: contentLength, request: request, headers: headers, isRedirect: isRedirect, persistentConnection: persistentConnection, reasonPhrase: reasonPhrase});
+  (orders_screen.OrdersScreen.new = function(opts) {
+    let $36creationLocationd_0dea112b090073317d4 = opts && '$creationLocationd_0dea112b090073317d4' in opts ? opts.$creationLocationd_0dea112b090073317d4 : null;
+    orders_screen.OrdersScreen.__proto__.new.call(this, {$creationLocationd_0dea112b090073317d4: $36creationLocationd_0dea112b090073317d4});
     ;
-  }).prototype = streamed_response.StreamedResponse.prototype;
-  dart.addTypeTests(streamed_response.StreamedResponse);
-  dart.addTypeCaches(streamed_response.StreamedResponse);
-  dart.setLibraryUri(streamed_response.StreamedResponse, I[20]);
-  dart.setFieldSignature(streamed_response.StreamedResponse, () => ({
-    __proto__: dart.getFields(streamed_response.StreamedResponse.__proto__),
-    stream: dart.finalFieldType(byte_stream.ByteStream)
+  }).prototype = orders_screen.OrdersScreen.prototype;
+  dart.addTypeTests(orders_screen.OrdersScreen);
+  dart.addTypeCaches(orders_screen.OrdersScreen);
+  dart.setMethodSignature(orders_screen.OrdersScreen, () => ({
+    __proto__: dart.getMethods(orders_screen.OrdersScreen.__proto__),
+    [_refreshOrders]: dart.fnType(dart.legacy(async.Future$(dart.void)), [dart.dynamic]),
+    build: dart.fnType(dart.legacy(framework.Widget), [dart.legacy(framework.BuildContext)])
   }));
-  client$.Client = class Client extends core.Object {
-    static new() {
-      return browser_client.createClient();
+  dart.setLibraryUri(orders_screen.OrdersScreen, I[2]);
+  dart.defineLazy(orders_screen.OrdersScreen, {
+    /*orders_screen.OrdersScreen.routeName*/get routeName() {
+      return "/orders_screen";
     }
-  };
-  (client$.Client[dart.mixinNew] = function() {
-  }).prototype = client$.Client.prototype;
-  dart.addTypeTests(client$.Client);
-  dart.addTypeCaches(client$.Client);
-  dart.setLibraryUri(client$.Client, I[21]);
-  http.head = function head(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 35, 27, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    return http._withClient(response$.Response, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 36, 18, "client");
-      return client.head(url, {headers: headers});
-    }, T.ClientToFutureOfResponse()));
-  };
-  http.get = function get(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 45, 26, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    return http._withClient(response$.Response, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 46, 18, "client");
-      return client.get(url, {headers: headers});
-    }, T.ClientToFutureOfResponse()));
-  };
-  http.post = function post(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 66, 27, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    let body = opts && 'body' in opts ? opts.body : null;
-    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-    return http._withClient(response$.Response, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 68, 18, "client");
-      return client.post(url, {headers: headers, body: body, encoding: encoding});
-    }, T.ClientToFutureOfResponse()));
-  };
-  http.put = function put(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 89, 26, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    let body = opts && 'body' in opts ? opts.body : null;
-    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-    return http._withClient(response$.Response, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 91, 18, "client");
-      return client.put(url, {headers: headers, body: body, encoding: encoding});
-    }, T.ClientToFutureOfResponse()));
-  };
-  http.patch = function patch(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 113, 28, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    let body = opts && 'body' in opts ? opts.body : null;
-    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-    return http._withClient(response$.Response, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 115, 18, "client");
-      return client.patch(url, {headers: headers, body: body, encoding: encoding});
-    }, T.ClientToFutureOfResponse()));
-  };
-  http.delete = function $delete(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 125, 29, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    let body = opts && 'body' in opts ? opts.body : null;
-    let encoding = opts && 'encoding' in opts ? opts.encoding : null;
-    return http._withClient(response$.Response, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 127, 18, "client");
-      return client.delete(url, {headers: headers, body: body, encoding: encoding});
-    }, T.ClientToFutureOfResponse()));
-  };
-  http.read = function read(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 142, 25, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    return http._withClient(core.String, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 143, 18, "client");
-      return client.read(url, {headers: headers});
-    }, T.ClientToFutureOfString()));
-  };
-  http.readBytes = function readBytes(url, opts) {
-    if (url == null) dart.nullFailed(I[22], 158, 33, "url");
-    let headers = opts && 'headers' in opts ? opts.headers : null;
-    return http._withClient(typed_data.Uint8List, dart.fn(client => {
-      if (client == null) dart.nullFailed(I[22], 159, 18, "client");
-      return client.readBytes(url, {headers: headers});
-    }, T.ClientToFutureOfUint8List()));
-  };
-  http._withClient = function _withClient(T, fn) {
-    if (fn == null) dart.nullFailed(I[22], 161, 53, "fn");
-    return async.async(T, function* _withClient() {
-      let client = client$.Client.new();
-      try {
-        return yield fn(client);
-      } finally {
-        client.close();
-      }
-    });
-  };
-  dart.trackLibraries("packages/http/src/multipart_request.dart", {
-    "package:http/src/multipart_request.dart": multipart_request,
-    "package:http/src/multipart_file_stub.dart": multipart_file_stub,
-    "package:http/src/multipart_file.dart": multipart_file,
-    "package:http/src/streamed_request.dart": streamed_request,
-    "package:http/src/browser_client.dart": browser_client,
-    "package:http/src/response.dart": response$,
-    "package:http/src/request.dart": request$,
-    "package:http/src/streamed_response.dart": streamed_response,
-    "package:http/src/base_response.dart": base_response,
-    "package:http/src/base_request.dart": base_request,
-    "package:http/src/base_client.dart": base_client,
-    "package:http/src/client.dart": client$,
-    "package:http/http.dart": http
+  }, true);
+  dart.trackLibraries("packages/shop_app/screens/user_products_screen.dart", {
+    "package:shop_app/screens/user_products_screen.dart": user_products_screen,
+    "package:shop_app/widgets/main_drawer.dart": main_drawer,
+    "package:shop_app/screens/orders_screen.dart": orders_screen
   }, {
-  }, '{"version":3,"sourceRoot":"","sources":["base_request.dart","multipart_request.dart","multipart_file_stub.dart","multipart_file.dart","streamed_request.dart","base_client.dart","browser_client.dart","base_response.dart","response.dart","request.dart","streamed_response.dart","client.dart","../http.dart"],"names":[],"mappings":"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","file":"../../../../../../../../packages/http/src/multipart_request.dart.lib.js"}');
+  }, '{"version":3,"sourceRoot":"","sources":["user_products_screen.dart","../widgets/main_drawer.dart","orders_screen.dart"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;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","file":"../../../../../../../packages/shop_app/screens/user_products_screen.dart.lib.js"}');
   // Exports:
   return {
-    src__multipart_request: multipart_request,
-    src__multipart_file_stub: multipart_file_stub,
-    src__multipart_file: multipart_file,
-    src__streamed_request: streamed_request,
-    src__browser_client: browser_client,
-    src__response: response$,
-    src__request: request$,
-    src__streamed_response: streamed_response,
-    src__base_response: base_response,
-    src__base_request: base_request,
-    src__base_client: base_client,
-    src__client: client$,
-    http: http
+    screens__user_products_screen: user_products_screen,
+    widgets__main_drawer: main_drawer,
+    screens__orders_screen: orders_screen
   };
 }));
 
-//# sourceMappingURL=multipart_request.dart.lib.js.map
+//# sourceMappingURL=user_products_screen.dart.lib.js.map
