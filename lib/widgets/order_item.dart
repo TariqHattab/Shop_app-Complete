@@ -36,13 +36,14 @@ class _OrderItemState extends State<OrderItem> {
                 Text(DateFormat('dd/MM/yyyy hh:mm').format(widget.order.date)),
           ),
           AnimatedContainer(
-              duration: Duration(milliseconds: 300),
+              duration: Duration(milliseconds: 250),
               // curve: Curves.easeIn,
               padding: const EdgeInsets.symmetric(horizontal: 10),
               height: _expanded
-                  ? min(widget.order.products.length * 20.0 + 10, 100)
+                  ? min(widget.order.products.length * 25.0 + 10, 100)
                   : 0,
               child: ListView(
+                padding: const EdgeInsets.all(8.0),
                 children: widget.order.products
                     .map(
                       (product) => Row(
