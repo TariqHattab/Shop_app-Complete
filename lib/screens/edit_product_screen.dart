@@ -49,8 +49,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
       }
       Product myProduct =
           Provider.of<Products>(context, listen: false).findById(id['id']);
-      //_editedProduct = myProduct.copyWith();
-      //print(_editedProduct.title);
+
       _id = myProduct.id;
       _isFavorite = myProduct.isFavorite;
       _titleController.text = myProduct.title;
@@ -83,7 +82,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
               description: _descriptionController.text,
               imageUrl: _imageUrlController.text,
             ));
-        print('Succeeded');
+        print('updating Succeeded');
       } catch (e) {
         print('updating product failed ');
       }

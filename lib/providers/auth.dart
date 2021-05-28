@@ -56,8 +56,10 @@ class Auth with ChangeNotifier {
           seconds: int.parse(extractedData['expiresIn']),
         ),
       );
-      setAutoLogout();
-      notifyListeners(); //  do not forget it
+      setAutoLogout(); //start calculating the time left for token expiration
+      notifyListeners();
+
+      //storing the data on the device
       var perfs = await SharedPreferences.getInstance();
       var userData = jsonEncode({
         'token': _token,
@@ -68,6 +70,15 @@ class Auth with ChangeNotifier {
     } catch (e) {
       throw e;
     }
+  }
+
+  Future<void> signUp(String email, String password) async {
+    print('singup occurd');
+    await authenticate(email, password, 'signUp');
+  }
+
+  Future<void> signIn(String email, String password) async {
+    return authenticate(email, password, 'signInWithPassword');
   }
 
   Future<bool> tryAutoLogin() async {
@@ -88,15 +99,6 @@ class Auth with ChangeNotifier {
     notifyListeners();
     setAutoLogout();
     return true;
-  }
-
-  Future<void> signUp(String email, String password) async {
-    print('singup occurd');
-    await authenticate(email, password, 'signUp');
-  }
-
-  Future<void> signIn(String email, String password) async {
-    return authenticate(email, password, 'signInWithPassword');
   }
 
   Future<void> logout() async {

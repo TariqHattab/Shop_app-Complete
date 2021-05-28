@@ -12,7 +12,7 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final cart = Provider.of<Cart>(context);
     return Scaffold(
-        appBar: AppBar(title: Text('the Cart')),
+        appBar: AppBar(title: Text('The Cart')),
         body: Column(
           children: [
             Card(
@@ -83,7 +83,6 @@ class _OrderButtonState extends State<OrderButton> {
         : TextButton(
             child: Text(
               "ORDER NOW",
-              //style: TextStyle(color: Theme.of(context).primaryColor),
             ),
             onPressed: widget.cart.itemsAmount <= 0
                 ? null
@@ -97,7 +96,6 @@ class _OrderButtonState extends State<OrderButton> {
                             total: widget.cart.itemsAmount)
                         .then((value) {
                       Future.delayed(Duration(seconds: 3)).then((value) {
-                        print('in then');
                         setState(() {
                           _isLoading = false;
                         });

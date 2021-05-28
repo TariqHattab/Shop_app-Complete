@@ -37,6 +37,7 @@ class OrdersScreen extends StatelessWidget {
               return RefreshIndicator(
                 onRefresh: () => _refreshOrders(context),
                 child: Consumer<Orders>(
+                  //have to use Consumer with FutureBuilder to avoid infinit loop
                   builder: (ctx, ordersObject, child) {
                     return ListView.builder(
                       itemBuilder: (ctx, i) {

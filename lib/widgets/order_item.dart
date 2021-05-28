@@ -37,7 +37,6 @@ class _OrderItemState extends State<OrderItem> {
           ),
           AnimatedContainer(
               duration: Duration(milliseconds: 250),
-              // curve: Curves.easeIn,
               padding: const EdgeInsets.symmetric(horizontal: 10),
               height: _expanded
                   ? min(widget.order.products.length * 25.0 + 10, 100)

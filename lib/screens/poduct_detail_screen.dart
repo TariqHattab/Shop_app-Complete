@@ -12,9 +12,6 @@ class ProductDetailsScreen extends StatelessWidget {
     String productId = ModalRoute.of(context).settings.arguments as String;
     var loadedProduct = Provider.of<Products>(context).findById(productId);
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text(loadedProduct.title),
-      // ),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(

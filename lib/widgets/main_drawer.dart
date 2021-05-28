@@ -11,22 +11,10 @@ class MainDrawer extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
-          // Container(
-          //   height: 100,
-          //   width: double.infinity,
-          //   padding: const EdgeInsets.all(10),
-          //   child: Text(
-          //     'Go to:',
-          //     style: TextStyle(fontSize: 20),
-          //   ),
-          //   color: Theme.of(context).accentColor,
-          //   alignment: Alignment.bottomLeft,
-          // ),
           AppBar(
             title: Text('Go to :'),
             automaticallyImplyLeading: false,
           ),
-
           ListTile(
             leading: Icon(Icons.payment),
             title: Text('Orders'),

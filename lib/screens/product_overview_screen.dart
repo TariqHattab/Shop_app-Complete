@@ -11,8 +11,6 @@ import '../widgets/products_grid.dart';
 enum FilterOptions { All, Favorites }
 
 class ProductOverviewScreen extends StatefulWidget {
-//static const routeName = '/product_overview_screen';
-
   @override
   _ProductOverviewScreenState createState() => _ProductOverviewScreenState();
 }
@@ -36,7 +34,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
     return Scaffold(
       drawer: MainDrawer(),
       appBar: AppBar(
-        title: Text('Product Overview'),
+        title: FittedBox(child: Text('Product Overview')),
         actions: [
           PopupMenuButton(
             icon: Icon(Icons.more_vert),

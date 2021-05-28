@@ -14,7 +14,6 @@ class UserProductsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //var products = Provider.of<Products>(context).items;
     return Scaffold(
       appBar: AppBar(
         title: Text('The Products'),
@@ -30,7 +29,7 @@ class UserProductsScreen extends StatelessWidget {
       drawer: MainDrawer(),
       body: FutureBuilder(
         future: _refreshProducts(
-            context), //will cuase infinite loop if called with provider items in the same build
+            context), //will cuase infinite loop if called with provider items in the same build function
         builder: (ctx, snapshotData) {
           if (snapshotData.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
