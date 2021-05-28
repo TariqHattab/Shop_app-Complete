@@ -40,5 +40,5 @@ Edit product
 
 Nice animations
 
-![](nice-animations.gif)
+![](nice-animation.gif)
 
